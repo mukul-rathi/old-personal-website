@@ -1,8 +1,25 @@
-body{
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body{    
     background: #D2EDE3;
+}
+.main-content{
+    background: #FCF8EC;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 600px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:8px;
+    
 }
 .about-me, .project-description {
     font-family: 'Raleway', sans-serif;
+    
 
 }
 .education-heading, .project-heading{
@@ -16,8 +33,96 @@ body{
     color: #1A936F;
 
 }
-.main-heading{
-    font-family: 'Concert One', cursive;
-    font-size: 2.4em;
+.hero-image{
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+    padding-top: 300px;
+    padding-bottom: 500px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    background-image: url(../assets/hero-image/queens.JPG);
+
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+
+}
+
+.hero-text{
+    font-family: 'Monoton', cursive;
+    font-size: 2.5em ;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    text-shadow: 2px 2px 0px #18314F;
+
+}
+.resume-links{
+    display: block;
+    padding: 0em;
+}
+.linkedin-button {
+    display: inline-block;
+    margin-top: 0px;
+    background-image: url(../assets/button-icons/linkedin.png);
+    background-size:cover;
+    padding: 2.5em;
+    margin-left: .2em;
+    margin-right: .2em;
+    transition: 0.2s;
+    border-radius: 8px;
+}
+.linkedin-button:hover{
+    filter: brightness(125%);
+}
+.linkedin-button:active{
+    transform: scale(0.9);
+
+}
+
+.github-button {
+    display: inline-block;
+    background-image: url(../assets/button-icons/github.png);
+    background-size:contain; 
+    padding: 2.4em;
+    margin-left: .2em;
+    margin-right: .2em;
+    border-radius: 4em;
+    background-color: rgba(255, 255, 255, 0.85);
+    transition: 0.2s;
+
+}
+.github-button:hover{
+    background-color: rgba(255,255,255,1);
+}
+.github-button:active{
+    transform: scale(0.9);
+}
+
+.downloadCV-button{
+    display: block;
+    color: white;
+    padding: .5em;
+    text-decoration: none;
+    border: 4px solid white;
+    border-radius: 12px;
+    width: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 0.2s;
+
+    
+}
+.downloadCV-button:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+.downloadCV-button:active{
+    transform: scale(0.9);
 
 }
