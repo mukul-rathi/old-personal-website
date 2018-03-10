@@ -7,14 +7,17 @@ body{
 }
 .education-heading, .project-heading{
     font-family: 'Roboto Slab', serif;
+    color: #114B5F;
 
 
 }
 .section-heading{
     font-family: 'Open Sans', sans-serif;
+    color: #1A936F;
 
 }
 .main-heading{
     font-family: 'Concert One', cursive;
+    font-size: 2.4em;
 
 }
