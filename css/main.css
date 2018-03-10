@@ -19,5 +19,28 @@ body{
 .main-heading{
     font-family: 'Concert One', cursive;
     font-size: 2.4em;
-
+}
+.github-button {
+    display: inline-block;
+    background-image: url(../assets/button-icons/github.png);
+    background-size:cover;
+    padding: 1.2em;
+}
+.linkedin-button {
+    display: inline-block;
+    background-image: url(../assets/button-icons/linkedin.png);
+    background-size:cover;
+    padding: 1.2em;
+}
+.downloadCV-button {
+    display: inline-block;
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    text-align: center;
+    background: #2788B2;
+    color: #F2F7F9;
+    border-radius: 4px;
+    text-decoration: none;
 }
