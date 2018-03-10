@@ -1,0 +1,20 @@
+body{
+    background: #D2EDE3;
+}
+.about-me, .project-description {
+    font-family: 'Raleway', sans-serif;
+
+}
+.education-heading, .project-heading{
+    font-family: 'Roboto Slab', serif;
+
+
+}
+.section-heading{
+    font-family: 'Open Sans', sans-serif;
+
+}
+.main-heading{
+    font-family: 'Concert One', cursive;
+
+}
