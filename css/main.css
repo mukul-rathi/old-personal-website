@@ -84,6 +84,7 @@ body{
     padding: 2.5em;
     margin-left: .2em;
     margin-right: .2em;
+    border-radius: 4em;
 
 }
 
@@ -97,5 +98,14 @@ body{
     width: 12em;
     margin-left: auto;
     margin-right: auto;
+    transition: 0.2s;
+
     
+}
+.downloadCV-button:hover{
+    background-color: rgba(255,255,255,0.2)
+}
+.downloadCV-button:active{
+    transform: scale(0.9);
+
 }
