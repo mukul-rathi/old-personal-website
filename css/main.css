@@ -68,6 +68,7 @@ body{
     margin-left: .2em;
     margin-right: .2em;
     transition: 0.2s;
+    border-radius: 8px;
 }
 .linkedin-button:hover{
     filter: brightness(125%);
@@ -80,12 +81,17 @@ body{
 .github-button {
     display: inline-block;
     background-image: url(../assets/button-icons/github.png);
-    background-size:cover;
-    padding: 2.5em;
+    background-size:contain; 
+    padding: 2.4em;
     margin-left: .2em;
     margin-right: .2em;
     border-radius: 4em;
+    background-color: rgba(255, 255, 255, 0.5);
 
+
+}
+.github-button:hover{
+    background-color: rgba(255,255,255,0.75);
 }
 
 .downloadCV-button{
@@ -103,7 +109,7 @@ body{
     
 }
 .downloadCV-button:hover{
-    background-color: rgba(255,255,255,0.2)
+    background-color: rgba(255,255,255,0.2);
 }
 .downloadCV-button:active{
     transform: scale(0.9);
