@@ -40,8 +40,9 @@ body{
     margin-left: auto;
     margin-right: auto;
     max-width: 100%;
-    padding-top: 150px;
-    padding-bottom: 150px;
+    max-height: 100%;
+    padding-top: 400px;
+    padding-bottom: 500px;
     padding-left: 20px;
     padding-right: 20px;
 
@@ -54,6 +55,10 @@ body{
     font-family: 'Monoton', cursive;
 
 }
+.resume-links{
+    display: block;
+    padding: 10px;
+}
 .github-button {
     display: inline-block;
     background-image: url(../assets/button-icons/github.png);
@@ -65,4 +70,7 @@ body{
     background-image: url(../assets/button-icons/linkedin.png);
     background-size:cover;
     padding: 1.2em;
+}
+.downloadCV-button{
+    display: inline-block;
 }
