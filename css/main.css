@@ -67,7 +67,16 @@ body{
     padding: 2.5em;
     margin-left: .2em;
     margin-right: .2em;
+    transition: 0.2s;
 }
+.linkedin-button:hover{
+    filter: brightness(125%);
+}
+.linkedin-button:active{
+    transform: scale(0.9);
+
+}
+
 .github-button {
     display: inline-block;
     background-image: url(../assets/button-icons/github.png);
