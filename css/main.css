@@ -45,7 +45,7 @@ body{
     margin-right: auto;
     max-width: 100%;
     max-height: 100%;
-    padding-top: 300px;
+    padding-top: 200px;
     padding-bottom: 500px;
     padding-left: 20px;
     padding-right: 20px;
@@ -60,11 +60,12 @@ body{
 
 .hero-text{
     font-family: 'Monoton', cursive;
-    font-size: 2.5em ;
+    font-size: 4em ;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0%;
     color: white;
-    text-shadow: 2px 2px 0px #18314F;
+    text-shadow: 3px 4px 0px #18314F;
 
 }
 
@@ -104,6 +105,8 @@ body{
     border-radius: 4em;
     background-color: rgba(255, 255, 255, 0.85);
     transition: 0.2s;
+    margin-bottom: 0.25em;
+
 
 }
 .github-button:hover{
@@ -123,6 +126,7 @@ body{
     width: 10em;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 1em;
     transition: 0.2s;
 
     
