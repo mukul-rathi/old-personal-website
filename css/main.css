@@ -167,6 +167,8 @@ body{
     padding-top: 1.5em;
     padding-bottom: 1.5em;
     vertical-align: middle;
+    border-radius: 8px;
+
 }
 .nav-button:active{
     padding-top: 1.2em;
