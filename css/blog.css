@@ -1,0 +1,30 @@
+tml, body {
+    margin: 0;
+    padding: 0;
+}
+
+body{    
+    background: #D2EDE3;
+}
+.main-content{
+    background: #FCF8EC;
+    padding: 20px;
+    box-sizing: border-box;
+    width: 600px;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius:8px;
+    
+}
+
+.blog-heading{
+    font-family: 'Open Sans', sans-serif;
+    color: #1A936F;
+
+}
+.blog-text {
+    font-family: 'Raleway', sans-serif;
+    
+
+}
