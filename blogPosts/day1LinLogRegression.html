@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+    <head>
+        <!--Meta data-->
+        <meta charset="utf-8">
+        <meta name="author" content="Mukul Rathi">
+        <meta name="description" content="What is a Neural Network?">
+
+        <!--CSS Link-->
+        <link rel="stylesheet" href="../css/blog.css"/>
+
+        <!--Google Fonts for the text on the page-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet"><!-- section headings-->
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet"> <!-- paragraph text font-->
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> <!-- sub-section headings-->
+
+        <!--prettify the python code-->
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+
+
+            <!--MathJax is used for LaTeX in the blog-->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+        
+
+    </head>
+    <body>
+        <div class="main-content">
+            <h2 class="blog-heading">
+                Day 1: Demystifying Neural Networks Part 1
+            </h2>
+            <h3 class="section-heading"> 
+                Introduction
+            </h3>
+            <div class="blog-text">
+                <p>
+                Neural networks are a class of machine learning algorithms that have, in the last decade, been responsible 
+                for most of the major advances in the field of Artificial Intelligence. They are commonplace in many of the 
+                large corporations - from voice assistants such as Google Assistant and Siri to recommender systems 
+                powering Netflix and Amazon. The availabilities of large quantities of data and the rise in computational 
+                power are two of the main reasons neural networks have been become so powerful.
+                </p>
+                <p>
+                    In this series of blog posts I aim to demystify the main types of neural networks, and delve into the 
+                    maths behind these deep learning algorithms. Each post will have roughly the same format:
+                    <ul>
+                        <li><strong>Intuition:</strong> get an overall feel for why this works</li>
+                        <li><strong>Maths: </strong> delve into the technical side and the maths that makes it work </li>
+                        <li><strong>Code: </strong> a code snippet or two detailing
+                            how to implement this and apply this </li>
+
+                    </ul>
+                </p>
+                <h3 class="section-heading">Linear and Logistic Regression</h3>
+                <p><h4>Intuition: </h4>
+                    <!--INSERT IMAGE OF STRAIGHT LINE HERE-->
+                    <img src="../assets/blog/day1LinLogRegression/straight-line.png" height=200px width=200px>
+                    <br> Often when we have a set of data points in science, we want to draw a straight line of best fit through 
+                    the points. <em>Linear Regression</em> involves learning this straight line of best fit, only with more 
+                    dimensions -  instead of axes \(x\) and \(y\), we have axes \(x_1, x_2, ... ,x_n\) and \(y\).
+                </p>
+                <p>
+                    In Linear Regression, we use this straight line of best fit and the values for  \(x_1, x_2, ... ,x_n\),
+                    which we call  <em>input features </em> to predict the value of the <em> output </em> \(y\). This is useful
+                    in tasks where the output is a real number and varies, e.g. housing prices.
+                </p>
+                <p>
+                    Now instead of  a real number output, suppose we wanted to classify this input as one of two classes e.g. 
+                    fraudulent vs non-fraudulent credit card data. <em> Logistic Regression </em> involves taking this output
+                    and applying a decision function to this - we end up with a probability - if close to 1 the input is one class,
+                    and if closer to 0 the input is the other class. We can think of this probability as the "confidence" the 
+                    algorithm has.
+                </p>
+                <p><h4>Maths: </h4>
+                    The equation for linear regression extends naturally from the equation of a 
+                    straight line: 
+                    $$ y= mx + c$$
+                    Just like how m is the gradient of the line, we assign weights to the input features - let \(w_i\) denote the weight 
+                    corresponding to feature \(x_i\) - you can loosely think of \(w_i\) as the gradient of the line in the direction of the \(x_i\) axis.
+                    So the equation for linear regression is: 
+                            $$y = \sum_{i=1}^{n}{w_ix_i} + b $$
+                    For logistic regression, we apply the <em> sigmoid </em> function \(\sigma(x)\) to this output - this scales the values to between 0 and 1 
+                    (to get the probability):
+                    $$ \sigma(x) = \frac{1}{1+e^{-x}}$$ 
+                    $$ y= \sigma(\sum_{i=1}^{n}{w_ix_i} + b) $$
+                    <!--The Logistic Function graph-->
+                </p>
+
+                <h4>Code:</h4>
+                    We will be writing the code snippets in <strong>Python</strong> 
+                    and we are using Numpy (a linear algebra library) to carry out the maths 
+                    operations. 
+                    <pre class="prettyprint">
+                    import numpy as np #we use numpy to do the maths operations
+
+                    x = np.array([1,1,0,0]) # the input
+                    
+                    #initialise weights and bias to random values
+                    # we'll get to training them later in the series
+                    w = np.random.random_sample(x.shape) #same length as x
+                    b = np.random.randn() 
+                    
+                    #Linear Regression
+                    y_linear = np.dot(x,w) + b #this performs the vector dot product 
+                    
+                    #Logistic Regression
+                    def sigmoid(x): 
+                        return 1.0/(1+np.exp(-x))
+
+                    y_logistic = sigmoid(y_linear)
+                    </pre>
+                    <p>
+                    <h4>Conclusion: The Neuron </h4>
+                    Congratulations for making it this far - if you've followed this, then you've actually understood the neuron. 
+                    The neuron is a special logistic regression unit that is the building block of neural networks.
+                    <!--INSERT NEURON IMAGE HERE-->
+                    <br> The only difference is that neurons can have different
+                     <em> activation functions</em> \(f(x)\) e.g. a neuron could use the \(tanh(x)\) activation function instead of the \(\sigma(x)\) activation function
+                     used in logistic regression. The output ("prediction") of the neuron is denoted \(a\) - in future we'll reserve \(y\) to denote the 
+                    correct output value. 
+                    So the equation for a neuron is 
+                    $$ z= \sum_{i=1}^{n}{w_ix_i} + b$$
+                    $$ a = f(z)$$
+                    
+                    In the next post we will look at how we can combine these neurons to get a neural network! 
+                </div>
+            </div>
+        </div>
+
+
+    </body> 
