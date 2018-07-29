@@ -10,7 +10,7 @@ body{
     background: #FCF8EC;
     padding: 20px;
     box-sizing: border-box;
-    width: 600px;
+    width: 900px;
     max-width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -26,5 +26,11 @@ body{
 .blog-text {
     font-family: 'Raleway', sans-serif;
     
+}
+
+.section-heading{
+    font-family: 'Roboto Slab', serif;
+    color: #114B5F;
+
 
 }
