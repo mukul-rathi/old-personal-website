@@ -5,4 +5,4 @@ I've included screenshots to complement the commits with visual changes, so you 
 
 To view the website head over to https://mukul-rathi.github.io 
 
-To see the code accompanying the blog tutorials, head to the github.com/mukul-rathi/blogPosts-tutorials repo.
+To see the code accompanying the blog tutorials, head to the https://github.com/mukul-rathi/blogPost-tutorials repo.
