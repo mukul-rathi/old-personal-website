@@ -26,7 +26,7 @@
     <body>
         <div class="main-content">
             <h2 class="blog-heading">
-               <em> Day 2: Demystifying Neural Networks Part 2 </em>
+               <em> Demystifying Deep Learning Part 2 </em>
                 <br> Linear and Logistic Regression
             </h2>
             <div class="blog-text">
@@ -38,7 +38,7 @@
 
                 </p>
                 <p><h3 class="section-heading">Intuition: </h3>
-                    <img src="../assets/blog/day2LinLogRegression/straight-line.png" height=200px width=200px>
+                    <img src="../assets/blog/LinLogRegression/straight-line.png" height=200px width=200px>
                     <br> Often when we have a set of data points in science, we want to draw a straight line of best fit through 
                     the points. <em>Linear Regression</em> involves learning this straight line of best fit, only with more 
                     dimensions -  instead of axes \(x\) and \(y\), we have axes \(x_1, x_2, ... ,x_n\) and \(y\).
@@ -68,7 +68,7 @@
                             $$y = \sum_{i=1}^{n}{w_ix_i} + b $$
                     For logistic regression, we apply the <em> sigmoid </em> function \(\sigma(x)\) to this output - this scales the values to between 0 and 1 
                     (to get the probability):<br>
-                    <img src="../assets/blog/day2LinLogRegression/sigmoid.png" height=200px width=200px>
+                    <img src="../assets/blog/LinLogRegression/sigmoid.png" height=200px width=200px>
                     $$ \sigma(x) = \frac{1}{1+e^{-x}}$$ 
                     $$ y= \sigma(\sum_{i=1}^{n}{w_ix_i} + b) $$
                 </p>
