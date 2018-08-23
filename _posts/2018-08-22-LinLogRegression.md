@@ -2,7 +2,7 @@
 title: Demystifying Deep Learning Part 2 - Linear and Logistic Regression
 layout: default
 comments: true
-date:   2018--08-23 10:00:00
+date:   2018-08-22 10:00:00
 excerpt: "Machine Learning!"
 
 ---
