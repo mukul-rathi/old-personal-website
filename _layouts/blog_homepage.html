@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-GB">
     <head>
-        {% if jekyll.environment == 'production' %}
         {% include analytics.html %}
-        {% endif %}
+        {% feed_meta %}
         <!--CSS Link-->
         <link rel="stylesheet" href="../css/blogpost.css"/>
 
@@ -12,19 +11,11 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300" rel="stylesheet"> <!-- paragraph text font-->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> <!-- sub-section headings-->
 
-        <!--prettify the python code-->
-        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-
-
-            <!--MathJax is used for LaTeX in the blog-->
-        <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
-        
-
     </head>
     <body>
         <div class="main-content">
             <h1> {{ page.title }}</h1>
-           
+            {% include share-bar.html %}
                 {{ content }}
         <div class="blog-posts">
             <h3>Blog Posts </h3>
@@ -41,5 +32,5 @@
               {% endfor %}
         </div>
     </div>
-             
+    </body>
 </html>

@@ -21,12 +21,10 @@
     </head>
     <body>
         <div class="main-content">
-            <h1> {{ page.title }}</h1>
-            <p class="meta">Posted on {{  page.date | date: "%b %-d, %Y" }}
-            {% if page.comments %}
-            <a href="{{content.absolute_url}}#disqus_thread">Comments</a> 
-            </p>
-        {% endif %}
+                <h1> {{ page.title }}</h1>
+
+                {% include share-bar.html %}
+
                 {{ content }}
 
                 <div class="PageNavigation">
@@ -41,5 +39,7 @@
             </div>
             
     <script id="dsq-count-scr" src="//https-mukul-rathi-github-io.disqus.com/count.js" async></script> 
+
+
     </body>
 </html>
