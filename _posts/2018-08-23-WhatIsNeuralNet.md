@@ -1,8 +1,7 @@
 ---
 title: Demystifying Deep Learning Part 1 - What is a neural network?
 layout: default
-comments: true
-date:   2018--08-23 10:00:00
+date: 2018-08-23 12:00:00 -0600
 ---
 ### Introduction
 
