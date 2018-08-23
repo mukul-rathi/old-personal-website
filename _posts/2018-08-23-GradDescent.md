@@ -3,6 +3,8 @@ title: Demystifying Deep Learning Part 3 - Learning Through Gradient Descent
 layout: default
 comments: true
 date:   2018--08-23 10:00:00
+excerpt: "Gradient Descent!"
+
 ---
 
 Having looked at linear and logistic regression, we will look at how these algorithms "learn". 
