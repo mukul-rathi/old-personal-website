@@ -1,10 +1,9 @@
 {% feed_meta %}
-<p class="meta">Posted on {{  page.date | date: "%b %-d, %Y" }}
+
 {% if page.comments %}
 <a href="{{content.absolute_url}}#disqus_thread">Comments</a> 
 {% endif %}
 
-</p>
 <a href={{site.base_url}}feed.xml><img src="/assets/button-icons/rssicon.svg" width="40"></a>
 
 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
