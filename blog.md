@@ -7,11 +7,6 @@ title: Hello World!
 Welcome to my blog! First, a quick introduction, I'm a second year undergraduate Computer Science student at Cambridge, with a passion for 
 all things deep learning related! 
 
-I am currently writing a series of posts called "Demystifying Deep Learning", which delves into the maths behind the deep learning algorithms. I've found from personal experience that most online deep learning resources either skip over the maths, 
-just stating the equations or using the algorithms out-of-the-box, or, on the other end of the scale in research, assume an in-depth knowledge
-and thus become inaccessible. The aim with these posts is to derive as much of the maths from first principles, thus providing a bridge between 
-these two resources. You can access code accompanying these tutorials <a href="http://github.com/mukul-rathi/blogPost-tutorials">here</a>. 
-
 I appreciate any feedback on how to improve both the blog posts, and the projects themselves, as well as project extensions worth 
 pursuing further. 
 
