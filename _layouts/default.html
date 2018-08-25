@@ -3,7 +3,7 @@
     <head>
         {% include analytics.html %}
         <!--CSS Link-->
-        <link rel="stylesheet" href="{{ site.baseurl }}/css/blogpost.css"/>
+        <link rel="stylesheet" href="/css/blogpost.css"/>
 
         <!--Google Fonts for the text on the page-->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet"><!-- section headings-->
@@ -21,22 +21,24 @@
     </head>
     <body>
         <div class="main-content">
-                <h1> {{ page.title }}</h1>
-                Posted on {{  page.date | date: "%b %-d, %Y" }}
-                {% include share-bar.html %}
+                {%include header.html%}
 
-                {{ content }}
+            <h1> {{ page.title }}</h1>
+            Posted on {{  page.date | date: "%b %-d, %Y" }}
+            {% include share-bar.html %}
 
-                <div class="PageNavigation">
-                    {% if page.previous.url %}
-                      <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-                    {% endif %}
-                    {% if page.next.url %}
-                      <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-                    {% endif %}
-                  </div>
-                {% include comments.html %}   
-            </div>
+            {{ content }}
+
+            <div class="PageNavigation">
+                {% if page.previous.url %}
+                    <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+                {% endif %}
+                {% if page.next.url %}
+                    <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+                {% endif %}
+                </div>
+            {% include comments.html %}   
+        </div>
             
     <script id="dsq-count-scr" src="//https-mukul-rathi-github-io.disqus.com/count.js" async></script> 
 

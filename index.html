@@ -46,8 +46,8 @@
                         <!--TODO get smooth transitions to different parts of page-->
                         <!--TODO - have specific button underlined depending on part of webpage user is on-->
                         <a class="nav-button" href="">Home</a> 
-                        <a class="nav-button" href="">About Me</a>
-                        <a class="nav-button" href="">Projects</a>
+                        <a class="nav-button" href="#about-me">About Me</a>
+                        <a class="nav-button" href="#projects">Projects</a>
                         <a class="nav-button" href="blog.html">Blog</a>
                         <a class="nav-button" href="mailto:msr45.cam.ac.uk?subject=Get%20In%20Touch">Contact Me</a>
                 </div>
@@ -59,31 +59,34 @@
         </div>
             <div class="main-content">
 
+                <a name="about-me">
                     <h2 class="section-heading">About Me</h2>
                     <div class="about-me">
-                        Hello, I'm Mukul, a Computer Science student at the University of Cambridge.
-                        I am interested in Deep Learning and have created my own neural networks from scratch as well as using TensorFlow.
-                        <!--TODO: Flesh out About Me Section-->
-                    <h3 class="education-heading">Education</h3>
-                        <ul>
-                            <li> <em>2017-2020</em> Queens' College, University of Cambridge
-                                <br>B.A. (Hons) Computer Science 
-                            </li>
-                            <li> <em>2013-2017</em> Nottingham High School
-                                <ul>
-                                <li> A Levels - Mathematics (A*), Further Mathematics (A*), Physics (A*), Chemistry (A*) 
+                            Hello, I'm Mukul, a Computer Science student at the University of Cambridge.
+                            I am interested in Deep Learning and have created my own neural networks from scratch as well as using TensorFlow.
+                            <!--TODO: Flesh out About Me Section-->
+                        <h3 class="education-heading">Education</h3>
+                            <ul>
+                                <li> <em>2017-2020</em> Queens' College, University of Cambridge
+                                    <br>B.A. (Hons) Computer Science 
                                 </li>
-                                <li> GCSES - 11 A*s and an A (top grade) in FSMQ Additional Maths
+                                <li> <em>2013-2017</em> Nottingham High School
+                                    <ul>
+                                    <li> A Levels - Mathematics (A*), Further Mathematics (A*), Physics (A*), Chemistry (A*) 
+                                    </li>
+                                    <li> GCSES - 11 A*s and an A (top grade) in FSMQ Additional Maths
+                                    </li>
+                                    </ul>
                                 </li>
-                                </ul>
-                            </li>
-                        </ul>
-                </div>
+                            </ul>
+                    </div>
+                </a>
 
-                <h2 class="section-heading">Projects</h2>
-                <div class="projects"> 
-                <ul>
-                    <li>
+                <a name="projects">
+                    <h2 class="section-heading">Projects</h2>
+                    <div class="projects"> 
+                    <ul>
+                        <li>
                         <h3 class="project-heading">OxfordHack - Deep Doc</h3>
                         <!--TODO: include screenshot of project on side-->
                         <p class="project-description">
@@ -92,28 +95,31 @@
 
                             You can read more about the project <a href="https://github.com/mrathi12/DeepDoc">here</a>.
                         </p>
-                    </li>
-                    <li> 
+                        </li>
+                        <li> 
                             <h3 class="project-heading">Deep Learning for Chemistry (Molecule Energy) Prediction</h3>
                         <p class="project-description">
                             I implemented a neural network to predict the ground state energy of a molecule given the Coulomb matrix of that molecule. I used optimisation techniques such as Adam and Batch Normalisation - all of this was implemented from scratch in Numpy (Python).
                             You can read more about the project <a href="https://github.com/mrathi12/ChemRegressionNeuralNet">here</a>.
                         </p>
-                    </li>
-                    <li>
+                        </li>
+                        <li>
                         <h3 class="project-heading">Cambridge Gaming Gig Hackathon - Retro Game Design</h3>
                         <p class=project-description>
                             This is a retro 2D horizontal shooter game using characters from Mario. The game was implemented in Lua using the Love 2D platform at a 12 hour hackathon.
                             You can read more about the project <a href="https://github.com/mrathi12/CambridgeGameGigHack">here</a>.
                         </p>
-                    </li>
+                        </li>
                 </ul>
                 </div>
+                
+
+            </a>
                 <h2 class="section-heading">Get In Touch</h2>
                 <div class="contact-me"> 
                     <!-- TODO: add boxes to fill out message description and email-->
                 </div>
-
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
             </div>
      </body>
 
