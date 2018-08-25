@@ -4,7 +4,7 @@
         {% include analytics.html %}
         {% feed_meta %}
         <!--CSS Link-->
-        <link rel="stylesheet" href="../css/blogpost.css"/>
+        <link rel="stylesheet" href="/css/blogpost.css"/>
 
         <!--Google Fonts for the text on the page-->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet"><!-- section headings-->
@@ -13,7 +13,9 @@
 
     </head>
     <body>
+       
         <div class="main-content">
+                {%include header.html%}
             <h1> {{ page.title }}</h1>
             {% include share-bar.html %}
                 {{ content }}
@@ -22,7 +24,7 @@
                 {% for post in site.posts %}
                 <li>
                   <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                  <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                  <a class="post-link" href="{{ post.url | prepend: site.url}}">{{ post.title }}</a>
                   <br>
                     <p>
                         {{ post.excerpt }}
