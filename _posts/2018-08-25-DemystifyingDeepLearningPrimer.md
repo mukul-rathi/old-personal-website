@@ -28,7 +28,7 @@ The research papers appear intimidating because they are intended for other rese
 
 ### How then do you bridge the gap between academia and practical courses?
 
-The aim of this series is to reason about deep learning from **first principles**, so as to intuititively understand why a particular formula is such, and then to consolidate this learning by implementing the models. This means that you don't need an advanced maths background - *we will build up the knowledge required as we go along*.
+The aim of this series is to reason about deep learning from **first principles**, so as to intuititively understand why a particular formula is such, and then to consolidate this learning by implementing the models with a motivating example. This means that you don't need an advanced maths background - *we will build up the knowledge required as we go along*.
 
 To start with, we will avoid the abstractions of deep learning frameworks, and code the core neural networks from scratch to really get a feel for the maths behind them. 
 
