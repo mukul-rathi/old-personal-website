@@ -13,7 +13,7 @@ body{
     padding: 20px;
     box-sizing: border-box;
     width: 900px;
-    max-width: 100%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
     border-radius:8px;
@@ -36,13 +36,15 @@ h3{
     background: #3F0130;
     color: white;
     border-radius:8px;
+    margin: auto;
 
 }
 .nav-button{
+    font-family: 'Roboto Slab', serif;
     text-decoration: none;
-    color: white;
+    color: #C9C9C9;
     padding-left: 2.5em;
-    padding-right: 1.5em;
+    padding-right: 2.5em;
     padding-top: .5em;
     padding-bottom: .5em;
     text-align: center;
@@ -50,3 +52,10 @@ h3{
     border-bottom: 4px transparent white;
 
 }
+.nav-button:hover{
+    color: white;
+}
+.nav-button:active{
+    color: black;
+}
+
