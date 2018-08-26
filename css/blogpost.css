@@ -6,10 +6,10 @@ html, body {
 }
 
 body{    
-    background: #D2EDE3;
+    background: #F0E0FF;
 }
 .main-content{
-    background: #FCF8EC;
+    background: #F9FAFC;
     padding: 20px;
     box-sizing: border-box;
     width: 900px;
@@ -22,11 +22,31 @@ body{
 
 h1{
     font-family: 'Open Sans', sans-serif;
-    color: #1A936F;
+    color: #3F0130;
 
 }
 
 h3{
     font-family: 'Roboto Slab', serif;
     color: #114B5F;
+}
+.nav-header{    
+    padding: 1.5em;
+    box-sizing: border-box;
+    background: #3F0130;
+    color: white;
+    border-radius:8px;
+
+}
+.nav-button{
+    text-decoration: none;
+    color: white;
+    padding-left: 2.5em;
+    padding-right: 1.5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    text-align: center;
+    transition: 0.2s;
+    border-bottom: 4px transparent white;
+
 }
