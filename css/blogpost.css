@@ -6,14 +6,14 @@ html, body {
 }
 
 body{    
-    background: #D2EDE3;
+    background: #F0E0FF;
 }
 .main-content{
-    background: #FCF8EC;
+    background: #F9FAFC;
     padding: 20px;
     box-sizing: border-box;
     width: 900px;
-    max-width: 100%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
     border-radius:8px;
@@ -22,7 +22,7 @@ body{
 
 h1{
     font-family: 'Open Sans', sans-serif;
-    color: #1A936F;
+    color: #3F0130;
 
 }
 
@@ -30,3 +30,32 @@ h3{
     font-family: 'Roboto Slab', serif;
     color: #114B5F;
 }
+.nav-header{    
+    padding: 1.5em;
+    box-sizing: border-box;
+    background: #3F0130;
+    color: white;
+    border-radius:8px;
+    margin: auto;
+
+}
+.nav-button{
+    font-family: 'Roboto Slab', serif;
+    text-decoration: none;
+    color: #C9C9C9;
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    text-align: center;
+    transition: 0.2s;
+    border-bottom: 4px transparent white;
+
+}
+.nav-button:hover{
+    color: white;
+}
+.nav-button:active{
+    color: black;
+}
+
