@@ -59,3 +59,66 @@ h3{
     color: black;
 }
 
+.footer{    
+    box-sizing: border-box;
+    background: #3F0130;
+    color: white;
+    border-radius:8px;
+    margin: auto;
+
+}
+
+.footer-buttons{
+    width: 200px;
+    max-width: 20%;
+    margin-left: auto;
+    margin-right: auto;}
+
+.linkedin-button {
+    display: inline-block;
+    margin-top: 0px;
+    margin-left: 2em;
+    margin-right: 2em;
+    transition: 0.2s;
+    border-radius: 8px;
+    width:0.5em;
+
+}
+.linkedin-button:hover{
+    filter: brightness(125%);
+}
+.linkedin-button:active{
+    transform: scale(0.9);
+
+}
+
+.github-button {
+    display: inline-block;
+    margin-left: 2em;
+    margin-right: .2em;
+    border-radius: 1.8em;
+    background-color: rgba(255, 255, 255, 0.75);
+    transition: 0.2s;
+    margin-bottom: 0.25em;
+    
+
+}
+.github-button:hover{
+    background-color: rgba(255,255,255,1);
+}
+.github-button:active{
+    transform: scale(0.9);
+}
+.rss-button{
+    display: inline-block;
+    margin: auto;
+    transition: 0.2s;
+
+}
+.rss-button:hover{
+    filter: brightness(125%);
+}
+.rss-button:active{
+    transform: scale(0.9);
+
+}
