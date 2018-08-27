@@ -122,3 +122,6 @@ footer{
 img{
     float:right;
 }
+.main-image{
+    float: none;
+}
