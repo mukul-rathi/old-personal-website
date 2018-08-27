@@ -14,8 +14,7 @@ main{
     box-sizing: border-box;
     width: 900px;
     max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0em auto;
     border-radius:8px;
     
 }
@@ -47,10 +46,7 @@ header{
     font-family: 'Roboto Slab', serif;
     text-decoration: none;
     color: #C9C9C9;
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-    padding-top: .5em;
-    padding-bottom: .5em;
+    padding: .5em 2.5em;
     text-align: center;
     transition: 0.2s;
     border-bottom: 4px transparent white;
@@ -77,14 +73,11 @@ footer{
 .footer-buttons{
     width: 200px;
     max-width: 40%;
-    margin-left: auto;
-    margin-right: auto;}
-
+    margin: 0em auto;
+}
 .linkedin-button {
     display: inline-block;
-    margin-top: 0.2em;
-    margin-left: 2em;
-    margin-right: 0.2em;
+    margin: 0.2em 0.2em 0.2em 2em;
     transition: 0.2s;
     border-radius: 8px;
     width:0.5em;
