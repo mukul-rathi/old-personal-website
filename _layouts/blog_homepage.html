@@ -3,6 +3,8 @@
     <head>
         {% include analytics.html %}
         {% feed_meta %}
+        <meta charset="UTF-8">
+        <title>{{ page.title }}</title>
         <!--CSS Link-->
         <link rel="stylesheet" href="/css/blogpost.css"/>
 
@@ -14,25 +16,23 @@
     </head>
     <body>
         {%include header.html%}
-        <div class="main-content">
+        <main>
             <h1> {{ page.title }}</h1>
             {% include share-bar.html %}
                 {{ content }}
-        <div class="blog-posts">
             <h3>Blog Posts </h3>
-                {% for post in site.posts %}
-                <li>
-                  <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-                  <a class="post-link" href="{{ post.url | prepend: site.url}}">{{ post.title }}</a>
-                  <br>
-                    <p>
-                        {{ post.excerpt }}
-                    </p>
-                </li>
-                <br> <br>
-              {% endfor %}
-        </div>
-    </div>
+            {% for post in site.posts %}
+            <li>
+            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+            <a class="post-link" href="{{ post.url | prepend: site.url}}">{{ post.title }}</a>
+            <br>
+                <p>
+                    {{ post.excerpt }}
+                </p>
+            </li>
+            <br> <br>
+        {% endfor %}
+    </main>
     {%include footer.html%}
 
     </body>
