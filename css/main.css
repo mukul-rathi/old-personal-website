@@ -4,10 +4,10 @@ html, body {
 }
 
 body{    
-    background: #F0E0FF;
+    background: #F9FAFC;
 }
 .main-content{
-    background: #F9FAFC;
+    background: #FFFFFF;
     padding: 20px;
     box-sizing: border-box;
     width: 900px;
@@ -25,17 +25,15 @@ body{
 }
 .education-heading, .project-heading{
     font-family: 'Roboto Slab', serif;
-    color: #114B5F;
+    color: #163784;
 
 
 }
 .section-heading{
     font-family: 'Open Sans', sans-serif;
-    color: #3F0130;
+    color: #0065A0;
 
 }
-
-
 
 
 .hero-image{
