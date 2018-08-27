@@ -39,23 +39,25 @@ $$ y= \sigma(\sum_{i=1}^{n}{w_ix_i} + b) $$
 We will be writing the code snippets in **Python** and we are using Numpy (a linear algebra library) to carry out the maths operations. 
 
 ```python
-import numpy as np #we use numpy to do the maths operations
 
-x = np.array([1,1,0,0]) # the input
+    import numpy as np #we use numpy to do the maths operations
 
-#initialise weights and bias to random values
-# we'll get to training them later in the series
-w = np.random.random_sample(x.shape) #same length as x
-b = np.random.randn() 
+    x = np.array([1,1,0,0]) # the input
 
-#Linear Regression
-y_linear = np.dot(x,w) + b #this performs the vector dot product 
+    #initialise weights and bias to random values
+    # we'll get to training them later in the series
+    w = np.random.random_sample(x.shape) #same length as x
+    b = np.random.randn() 
 
-#Logistic Regression
-def sigmoid(x): 
-return 1.0/(1+np.exp(-x))
+    #Linear Regression
+    y_linear = np.dot(x,w) + b #this performs the vector dot product 
 
-y_logistic = sigmoid(y_linear)
+    #Logistic Regression
+    def sigmoid(x): 
+    return 1.0/(1+np.exp(-x))
+
+    y_logistic = sigmoid(y_linear)
+    
 ```
 ## Conclusion: 
 At this point, you're probably thinking, "Great! But this is just maths, where is the learning?". Hold tight, because in the next blog post we'll be doing just that! We will look at how exact machine learning algorithms even "learn", and how we evaluate their performance.
