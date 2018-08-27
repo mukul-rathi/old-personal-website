@@ -8,7 +8,7 @@ html, body {
 body{    
     background: #F0E0FF;
 }
-.main-content{
+main{
     background: #F9FAFC;
     padding: 20px;
     box-sizing: border-box;
@@ -23,14 +23,18 @@ body{
 h1{
     font-family: 'Open Sans', sans-serif;
     color: #3F0130;
+    clear: right;
 
 }
 
-h3{
+h2{
     font-family: 'Roboto Slab', serif;
     color: #114B5F;
+    clear: right;
+
 }
-.nav-header{    
+
+header{    
     padding: 1.5em;
     box-sizing: border-box;
     background: #3F0130;
@@ -59,26 +63,28 @@ h3{
     color: black;
 }
 
-.footer{    
+footer{    
     box-sizing: border-box;
     background: #3F0130;
     color: white;
     border-radius:8px;
     margin: auto;
+    text-align: center;
+
 
 }
 
 .footer-buttons{
     width: 200px;
-    max-width: 20%;
+    max-width: 40%;
     margin-left: auto;
     margin-right: auto;}
 
 .linkedin-button {
     display: inline-block;
-    margin-top: 0px;
+    margin-top: 0.2em;
     margin-left: 2em;
-    margin-right: 2em;
+    margin-right: 0.2em;
     transition: 0.2s;
     border-radius: 8px;
     width:0.5em;
@@ -94,12 +100,10 @@ h3{
 
 .github-button {
     display: inline-block;
-    margin-left: 2em;
-    margin-right: .2em;
+    margin: auto;
     border-radius: 1.8em;
     background-color: rgba(255, 255, 255, 0.75);
     transition: 0.2s;
-    margin-bottom: 0.25em;
     
 
 }
@@ -121,4 +125,7 @@ h3{
 .rss-button:active{
     transform: scale(0.9);
 
+}
+img{
+    float:right;
 }

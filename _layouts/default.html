@@ -2,6 +2,9 @@
 <html lang="en-GB">
     <head>
         {% include analytics.html %}
+
+        <meta charset="UTF-8">
+        <title>{{ page.title }}</title>
         <!--CSS Link-->
         <link rel="stylesheet" href="/css/blogpost.css"/>
 
@@ -21,7 +24,7 @@
     </head>
     <body>
         {%include header.html%}
-        <div class="main-content">
+        <main>
 
             <h1> {{ page.title }}</h1>
             Posted on {{  page.date | date: "%b %-d, %Y" }}
@@ -38,7 +41,7 @@
                 {% endif %}
                 </div>
             {% include comments.html %}   
-        </div>
+        </main>
     
         {%include footer.html%}
 

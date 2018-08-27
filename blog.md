@@ -2,7 +2,7 @@
 layout: blog_homepage
 title: Hello World!
 ---
-### Introduction
+## Introduction
 Welcome to my blog! First, a quick introduction, I'm a second year undergraduate Computer Science student at Cambridge, with a passion for 
 all things deep learning related! 
 
