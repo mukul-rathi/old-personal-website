@@ -6,10 +6,10 @@ html, body {
 }
 
 body{    
-    background: #F0E0FF;
+    background: #F9FAFC;
 }
 main{
-    background: #F9FAFC;
+    background: #FFFFFF;
     padding: 20px;
     box-sizing: border-box;
     width: 900px;
@@ -21,14 +21,14 @@ main{
 
 h1{
     font-family: 'Open Sans', sans-serif;
-    color: #3F0130;
+    color: #0065A0;
     clear: right;
 
 }
 
 h2{
     font-family: 'Roboto Slab', serif;
-    color: #114B5F;
+    color: #163784;
     clear: right;
 
 }
@@ -36,7 +36,7 @@ h2{
 header{    
     padding: 1.5em;
     box-sizing: border-box;
-    background: #3F0130;
+    background: #0A193C;
     color: white;
     border-radius:8px;
     margin: auto;
@@ -61,7 +61,7 @@ header{
 
 footer{    
     box-sizing: border-box;
-    background: #3F0130;
+    background: #0A193C;
     color: white;
     border-radius:8px;
     margin: auto;
