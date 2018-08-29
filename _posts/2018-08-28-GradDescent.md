@@ -105,31 +105,83 @@ $$ b = b - \alpha \frac{\partial \mathcal{J} }{\partial b} $$
 
 $$\alpha$$ is the learning rate **hyperparameter** - this controls the size of the step we take each iteration. If  $$\alpha$$ is too large we may overshoot the minimum and diverge, whereas if  $$\alpha$$ is too small it will take too long to converge to the minimum.
 
-Now it's time to compute $$\frac{\partial{J} }{\partial W} $$ and $$\frac{\partial{J} }{\partial b} $$. This can seem intimidating at first glance, so we will break the calculation down into chunks.  
+Now it's time to compute $$\frac{\partial{J} }{\partial W} $$ and $$\frac{\partial{J} }{\partial b} $$. 
 
-Luckily for us, the **chain rule** lets us decompose the calculation into smaller, less intimidating steps. 
-For linear regression the equations are:
+When thinking about computing partial derivatives, it helps to have an intuitive understanding, to make sense of the maths expression that results, especially when we later try to take partial derivatives with respect to each value in a matrix.
 
-$$\hat{y} = \sum_{j=1}^{n}{w_jx_j} + b $$
+Some ideas worth bearing in mind as we go into this calculation and more complicated expressions later on:
+* *Partial Derivative Intuition*: Think of $$\frac{\partial{y}}{\partial{x}} $$ loosely as quantifying how much $$y$$ would change if you gave the value of $$x$$ a little "nudge" at that point. 
+* *Breaking down computations* - we can use the **chain rule** to aid us in our computation - rather than trying to compute the derivative in one fell swoop, we break up the computation into smaller intermediate steps. 
 
-$$ J(W,b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2 $$
+* *Computing the chain rule* - when thinking about which intermediate values to include in our chain rule expression, think about the immediate outputs of equations involving $$x$$ - which other values get directly affected when I slightly nudge $$x$$?
 
-So we can break the calculation down into two steps: $$\frac{\partial{J} }{\partial {\hat{y}^{(i)}}} $$ and $$\frac{\partial{\hat{y}^{(i)}} }{\partial {W_j}} / \frac{\partial{\hat{y}^{(i)}} }{\partial {b}}$$.
+Let's apply these ideas in the context of linear and logistic regression - the key here is not so much the equations themselves, but to build up this intuition, since we can boil down most of the more advanced networks with this same reasoning: 
 
-This is why we have the factor of $$\frac{1}{2}$$ to cancel out:
+First, linear regression - we'll break it down into two steps: 
 
-$$\frac{\partial{J} }{\partial \hat{y^{(i)}}} = \frac{1}{m} x^{(i)}(\hat{y}^{(i)} - y^{(i)})$$
+$$ \hat{y}^{(i)} = \sum_{j=1}^{n} W_jx^{(i)}_j + b $$
 
+$$ J(W,b)=\frac{1}{2m} \sum_{i=1}^{m}(\hat{y}^{(i)} - y^{(i)})^2 $$
 
+Let's consider one particular prediction $$\hat{y}^{(i)}$$ Intuitively, nudging it will only affect the squared error for that example $$i$$ and indeed taking the partial derivative: 
 
-$$\frac{\partial{J}}{\partial{W}} =  \frac{1}{m} \sum_{i=1}^{m} x^{(i)}(\hat{y}^{(i)} - y^{(i)})$$
+$$ \frac{\partial{J}}{\partial{\hat{y}^{(i)}}} =\frac{1}{m}(\hat{y}^{(i)} - y^{(i)}) $$ (note the factor of $$\frac{1}{2}$$ in J has cancelled to leave $$\frac{1}{m}$$.)
 
-$$\frac{\partial{J}}{\partial{b}} =  \frac{1}{m} \sum_{i=1}^{m}(\hat{y}^{(i)} - y^{(i)}) $$
+For this $$i^{th}$$ example let's consider the effect of nudging a particular weight $$W_j$$ - intuitively since it is multiplied by $$x^{(i)}_j$$ in the calculation, the corresponding amount $$\hat{y}^{(i)}$$ will move is $$x^{(i)}_j$$ times that nudge. And since the bias $$b$$ isn't multiplied by anything, the nudge should be of the same magnitude. Indeed the maths reflects this: 
 
-The first equation in matrix form is:
+$$ \frac{\partial{\hat{y}^{(i)}}}{\partial{W_j}} = x^{(i)}_j $$
 
-$$\frac{\partial{J}}{\partial{W}} =  \frac{1}{m} (\hat{Y} - Y).X^{T}$$
+$$ \frac{\partial{\hat{y}^{(i)}}}{\partial{b}} = 1$$
 
+Now we've looked at the partial derivative intuition, let's look at computing the chain rule. If we nudge $$W_j$$ or $$b$$ intuitively we will affect all predictions, so therefore we need to sum across the examples $$i$$. So we have that:
+
+$$\frac{\partial{J}}{\partial{W_j}} = \sum_{i=1}^{m}\frac{\partial{J}}{\partial{\hat{y}^{(i)}}}*\frac{\partial{\hat{y}^{(i)}}}{\partial{W_j}} = \frac{1}{m} \sum_{i=1}^{m}(\hat{y}^{(i)} - y^{(i)})*x^{(i)}_j $$
+
+and:
+
+$$\frac{\partial{J}}{\partial{b}} = \sum_{i=1}^{m}\frac{\partial{J}}{\partial{\hat{y}^{(i)}}}*\frac{\partial{\hat{y}^{(i)}}}{\partial{b}} = \frac{1}{m} \sum_{i=1}^{m}(\hat{y}^{(i)} - y^{(i)})$$
+ 
+Now we can move onto the case of logistic regression - we'll introduce an intermediate step $$z^{(i)}$$:
+
+$$ J(W,b)=\frac{-1}{m} \sum_{i=1}^{m}y^{(i)}\log\hat{y}^{(i)} + (1-y^{(i)})\log(1-\hat{y}^{(i)})$$
+
+$$ \hat{y}^{(i)} = \sigma(z^{(i)}) = \frac{1}{1+e^{-z^{(i)}}}$$
+
+$$ z^{(i)} = \sum_{j=1}^{n} W_jx^{(i)}_j + b $$
+
+Again, nudging $$\hat{y}^{(i)}$$ will only affect the error for that example $$i$$:
+
+$$ \frac{\partial{J}}{\partial{\hat{y}^{(i)}}} =\frac{-1}{m}(\frac{y^{(i)}}{\hat{y}^{(i)}} - \frac{1- y^{(i)}}{1- \hat{y}^{(i)}})$$
+
+The derivative of $$\hat{y}^{(i)}$$ with respect to $$z^{(i)}$$ can be rearranged:  
+
+$$\frac{d\hat{y}^{(i)}}{dz^{(i)}} = \frac{e^{-z^{(i)}}}{(1+e^{-z^{(i)}})^2} = \frac{1}{1+e^{-z^{(i)}}}(\frac{e^{-z^{(i)}}+1}{1+e^{-z^{(i)}}}-\frac{1}{1+e^{-z^{(i)}}}) = \sigma(z^{(i)})(1-\sigma(z^{(i)})) =\hat{y}^{(i)}(1-\hat{y}^{(i)}) $$
+
+This is a neat result to remember:  $$\sigma'(x) = \sigma(x)(1-\sigma(x))$$
+
+Great, after that algebraic rearrangement, we have a nice result, so let's compute chain rule - note a nudge in $$z^{(i)}$$ only affects  $$\hat{y}^{(i)}$$ so:
+
+$$ \frac{\partial{J}}{\partial{z^{(i)}}} = \frac{\partial{J}}{\partial{\hat{y}^{(i)}}}*\frac{d\hat{y}^{(i)}}{dz^{(i)}} = \frac{-1}{m}(\frac{y^{(i)}}{\hat{y}^{(i)}} - \frac{1- y^{(i)}}{1- \hat{y}^{(i)}})\hat{y}^{(i)}(1-\hat{y}^{(i)})$$
+
+So we have, multiplying out:
+
+$$ \frac{\partial{J}}{\partial{z^{(i)}}} = \frac{-1}{m}[ y^{(i)}(1- \hat{y}^{(i)}) - \hat{y}^{(i)}(1- y^{(i)}) ] = \frac{1}{m}(\hat{y}^{(i)} - y^{(i)}) $$
+
+If we compare with linear regression, it turns out that the equations for the partial derivatives for $$W_j$$ and $$b$$ are the same, since the equation for $$z^{(i)}$$ in logistic regression is the same as $$\hat{y}^{(i)}$$ in linear regression.
+
+We just have one final step to finish things off! Just like in the last post, we can rewrite the equation for  $$\frac{\partial{J}}{\partial{W}}$$ as a matrix multiplication: note that $$W$$ is a *1* x *n* matrix, $$X$$ is a *m* x *n* matrix and $$Y$$ is a *1* x *m* matrix. So:
+
+$$ \frac{\partial{J}}{\partial{W_1j}} = \frac{1}{m}\sum_{i=1}^{m}(\hat{Y} - Y)_{1i} * X_{ji} = \frac{1}{m}\sum_{i=1}^{m}(\hat{Y} - Y)_{1i} * X^T_{ij}$$
+
+$$ \frac{\partial{J}}{\partial{W}} = \frac{1}{m}(\hat{Y} - Y).X^T$$
+
+The equation for the $$\frac{\partial{J}}{\partial{b}}$$ is the same, only that we use subscripts for the matrix $$Y_{1i}$$ instead of $$y^{(i)}$$ and ditto for $$\hat{Y}$$.
+
+So by breaking it down into many small steps, we have our final equations (for both linear and logistic regression):
+
+$$ \frac{\partial{J}}{\partial{W}} = \frac{1}{m}(\hat{Y} - Y).X^T$$
+
+$$\frac{\partial{J}}{\partial{b}} = \frac{1}{m} \sum_{i=1}^{m}(\hat{Y}_{1i} -Y_{1i})$$
 
 
 **Code:** 
