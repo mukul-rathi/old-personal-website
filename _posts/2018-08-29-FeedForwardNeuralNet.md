@@ -6,6 +6,8 @@ layout: default
 comments: true
 date:   2018-08-29 13:00:00
 excerpt: Designing our first neural network!
+image: "/assets/blog/FeedForwardNeuralNet/neural-net.png"
+caption: A small feedforward neural network
 ---
 
 Now to introduce our first deep learning algorithm - the feedforward neural network!
@@ -26,6 +28,8 @@ So the equations for a neuron are:
 $$ z = \sum_{j=1}^{n} W_jx_j + b $$
 
 $$ a = g(z)$$
+
+![Neuron](/assets/blog/FeedForwardNeuralNet/neuron.png)
 
 Commonly used activation functions are:
 * *sigmoid* - $$\sigma(z)=\frac{1}{1+e^{-z}}$$ (just like in logistic regression) - squashes output in range \[0,1\]
