@@ -1,5 +1,6 @@
 name: Mukul's Personal Blog
 description: A blog about Deep Learning and all things Computer Science!
-plugins:
-  - jekyll-feed
+gems:
+  - jekyll-feed      
 baseurl: /
+

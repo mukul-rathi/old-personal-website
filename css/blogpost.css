@@ -1,3 +1,9 @@
+
+/* 
+ *
+ *Main Content style
+ *
+ */
 html, body {
     margin: 0;
     padding: 0;
@@ -33,6 +39,12 @@ h2{
 
 }
 
+/* 
+ *
+ *Header and nav buttons
+ *
+ */
+
 header{    
     padding: 1.5em;
     box-sizing: border-box;
@@ -59,6 +71,12 @@ header{
     color: black;
 }
 
+
+/* 
+ *
+ *Footer and buttons
+ *
+ */
 footer{    
     box-sizing: border-box;
     background: #0A193C;
@@ -69,6 +87,7 @@ footer{
 
 
 }
+
 
 .footer-buttons{
     width: 200px;
@@ -119,9 +138,40 @@ footer{
     transform: scale(0.9);
 
 }
+
+
+/*Links to prev/next blog posts*/
+.prev-blog-post, .next-blog-post{
+    display: inline-block;
+    font-size: 1.1em;
+    text-decoration: none;
+
+}
+.prev-blog-post{
+    float:left;
+}
+.next-blog-post{
+    float:right;
+}
+/* For images - wrap around text*/
 img{
     float:right;
 }
+
+.post-excerpt{
+    display: inline-block;
+    margin: 0.5em 3.5em;
+}
+/* For main image*/
+figure{
+    display: inline-block;
+}
 .main-image{
+    display: block;
     float: none;
+    margin:auto;
+    max-width: 100%
+}
+figure figcaption {
+    text-align: center;
 }
