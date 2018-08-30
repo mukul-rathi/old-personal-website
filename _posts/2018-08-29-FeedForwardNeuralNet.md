@@ -20,7 +20,7 @@ One way to look at a single neuron is like a generalised version of logistic reg
 ### Maths:
 
 The key criterion for the activation function is that it is **non-linear**, since otherwise combining linear transformations would just result in another linear transformation - so a neural network would be no better than linear regression.  
-*Some terminology:* We call the intermediate **unactivated** result (before the activation function is applied) $$z$$ and the output $$a$$ (aka the **activation** of the neuron).
+*Some terminology:* We call the intermediate **weighted input** (before the activation function is applied) $$z$$ and the output $$a$$ (aka the **activation** of the neuron).
 
 
 So the equations for a neuron are:
@@ -36,7 +36,7 @@ Commonly used activation functions are:
 * *tanh* - $$\tanh(z)= \frac{e^z-e^{-z}}{e^z+e^{-z}}$$ this squashes output in range \[-1,1\]. 
 * *ReLU (Rectified Linear Unit)* - $$ ReLU(z) = max(0,z)$$ - this clamps all negative values to zero, and leaves the rest of the values unchanged - it is a very simple yet highly effective activation function.
 
-One other activation function used is the softmax function, which is used for the output in many neural networks - we will look at it in a later blog post.
+One other activation function used specifically in the output layer is the softmax function, which is used for multi-class classification problems - we will look at it in a later blog post.
 
 ## Creating a Neural Network
 
@@ -55,7 +55,7 @@ The term **deep learning** comes from the typically large number of layers (the 
 To keep track of all the neurons in the network, we need to add some superscripts and subscripts to our notation, and store our weights and activations in matrices.
 * There are $$L$$ layers in our network (ignoring input) with $$^{[l]}$$ referring to the $$l^{th}$$ layer in the network. We refer to the input as layer 0 and output layer as layer L.
 * We are still using $$m$$ to denote number of examples and $$^{(i)}$$ to denote the $$i^{th}$$ example - note () not \[\].
-* The number of neurons in layer $$l$$ is $$n_l$$ and we store the unactivated outputs and activations for layer $$l$$ in $$n_l$$ x $$m$$ matrices $$Z^{[l]}$$ and $$A^{[l]}$$ respectively. So note that $$\hat{Y}=a^{[L]}$$.
+* The number of neurons in layer $$l$$ is $$n_l$$ and we store the weighted inputs and the activations for layer $$l$$ in $$n_l$$ x $$m$$ matrices $$Z^{[l]}$$ and $$A^{[l]}$$ respectively. So note that $$\hat{Y}=a^{[L]}$$.
 * The input $$X$$ is stored in a $$n$$ x $$m$$ matrix and $$Y$$ is a  $$n_L$$ x $$m$$ matrix.
 * The weight for layer $$l$$, $$W^{(l)}$$ is stored in a $$n_l$$ x $$n_{l-1}$$ matrix - with $$W^{(l)}_{ij}$$ denoting the weight between the $$i^{th}$$ neuron in layer $$l$$ and the $$j^{th}$$ neuron in layer $$l-1$$. 
 * The bias for layer $$l$$, $$b^{(l)}$$ is stored in a $$n_l$$ x $$1$$ matrix - one bias for each neuron in the layer. 
