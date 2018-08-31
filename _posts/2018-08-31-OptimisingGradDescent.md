@@ -5,14 +5,10 @@ title: Optimising Learning
 layout: default
 comments: true
 date:  2018-08-31 06:00:00
-excerpt: Debugging the learning/generalisation process and how we can make gradient descent even <em>better</em>
-
+excerpt: How we can make gradient descent even <em>better.</em>
+image: "/assets/blog/OptimisingLearning/optimizers.gif"
+caption: Different optimisers that improve on Gradient Descent
 ---
-## Interpreting the model's performance
-
-When training the feedforward network
-
-#ADD Regularisation stuff!
 
 ## Improving Gradient Descent
 
