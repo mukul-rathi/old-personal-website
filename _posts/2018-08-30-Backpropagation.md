@@ -6,6 +6,8 @@ layout: default
 comments: true
 date:   2018-08-30 13:00:00
 excerpt: The magic sauce behind neural networks - how they learn!
+image: "/assets/blog/Backpropagation/backprop.png"
+caption: Backpropagation in a feedforward neural network - <em>credit 3blue1brown</em>
 ---
 
 This may be the **most important** post in the series, and also the most overlooked, both for the same reason - this is where the maths gets *interesting*! It is important to get to grips with it when looking at deep learning algorithms - although later you may never have to implement it manually,thanks to the power of deep learning frameworks, understanding it is *crucial* when debugging your model.
@@ -90,11 +92,47 @@ This is just an element-wise product of two matrices - since we are multiplying 
 
 As a sanity check, $$ \frac{\partial{J}}{\partial{A^{[l]}}} $$ has the same dimensions as $$ A^{[l]}$$ which has dimensions $$n_l$$ x $$m$$, which is the same as $$g'(Z^{[L]})$$ since it is applying a function element-wise so preserves dimensions of $$Z^{[L]}$$. So the dimensions of  $$ \frac{\partial{J}}{\partial{Z^{[l]}}} $$ do match with $$Z^{[L]}$$.
 
-Brilliant! Next, let's look at the effect of nudging the weight $$W^[l]_ij$$
+Brilliant! Next, let's look at the effect of nudging the weight $$W^{[l]}_{jk}$$. To make it easier to conceptualise, let's rewrite the matrices in terms at an individual neuron level:
 
+$$ z^{[l](i)}_j = \sum_{k=1}^{n} W^{[l]}_{jk}  a^{[l-1](i)}_k + b^{[l]}_j $$
 
+This nude in $$W^{[l]}_{jk}$$ affects the weighted input of the neuron $$z^{[l]}_{j}$$ across all examples in the training set. The magnitude of the nudge to the value of neuron $$z^{[l]}_{j}$$  is (as with linear/logistic regression) - $$a^{[l-1]}_{k}$$ times the nudge of $$W^{[l]}_{jk}$$ since $$W^{[l]}_{jk}$$ is multiplied by $$a^{[l-1]}_{k}$$ in the equation above.
 
+Also consider a nudge in $$b^{[l]}_{j}$$, the magnitude of the corresponding nudge to $$z^{[l]}_{j}$$ will be the same, and just like with $$W^{[l]}_{jk}$$ we will average the effect of the nudge across the examples.  So we have:
 
+$$\frac{\partial{J}}{\partial{W^{[l]}_{jk}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*\frac{\partial{z^{[l](i)}_{j}}}{\partial{W^{[l]}_{jk}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}} * a^{[l-1](i)}_{k}$$
+
+$$\frac{\partial{J}}{\partial{b^{[l]}_{j}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*\frac{\partial{z^{[l](i)}_{j}}}{\partial{b^{[l]}_{j}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}$$
+
+We can now switch back to considering the matrices. 
+
+It's worth noting though how similar these equations are to logistic regression - as we mentioned in the previous post, the principles for logistic regression are just scaled and generalised for a feedforward neural network.
+
+$$\frac{\partial{J}}{\partial{W^{[l]}_{jk}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l]}_{ji}}} * A^{[l-1]}_{ki} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l]}_{ji}}} * A^{[l-1]T}_{ik}  $$
+
+This gives us our equations:
+
+$$  \frac{\partial{J}}{\partial{W^{[l]}_{jk}}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z^{[l]}}}.A^{[l-1]T} $$
+
+As a sanity check: the right-hand-side multiplies a $$n_l$$ x $$m$$ matrix with a $$m$$ x $$n_{l-1}$$ matrix, giving a $$n_{l}$$ x $$n_{l-1}$$ matrix - so the dimensions do match.
+
+$$\frac{\partial{J}}{\partial{b^{[l]}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l](i)}}} $$
+
+Finally, we just need to consider how the gradient propagations to layer $$l-1$$. This is the part that is an extension from logistic regression, since now we have multiple layers, not just the one layer as in logistic regression.
+
+Again, the nudging partial derivative intuition will help us. Let's consider one neuron in layer $$l-1$$ for the $$i^{th}$$ example: $$a^{[l-1](i)}_k $$. A nudge in this neuron will only affect the corresponding example in the next layer, and since all of the neurons in the next layer take in this neuron's output as a weighted input, we will have to sum partial derivatives across the neurons. The magnitude of the nudge in the weighted input $$z^{[l](i)}_j$$ will be the original nudge multiplied by the corresponding weight $$W^{[l]}_{jk}$$. Indeed the equation is:
+
+$$\frac{\partial{J}}{\partial{a^{[l-1](i)}_{k}}} =\sum_{j=1}^{n_l}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*\frac{\partial{z^{[l](i)}_{j}}}{\partial{a^{[l-q](i)}_{j}}}= \sum_{j=1}^{n_l}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*W^{[l]}_{jk}$$
+
+Again, now switching back to the matrix notation, now that we've got the intuition:
+
+$$\frac{\partial{J}}{\partial{A^{[l-1]}_{ki}}} = \sum_{j=1}^{n_l}W^{[l]}_{jk}*\frac{\partial{J}}{\partial{z^{[l]}_{ji}}} =  \sum_{j=1}^{n_l}W^{[l]T}_{kj}*\frac{\partial{J}}{\partial{z^{[l]}_{ji}}}$$
+
+So as a matrix multiplication:
+
+$$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial{z^{[l]}}}$$
+
+Again as a sanity check: the right-hand-side multiplies a $$n_{l-1}$$ x $$n_l$$ matrix with a $$n_l$$ x $$m$$ matrix, giving a $$n_{l-1}$$ x $$m$$ matrix - so the dimensions do match.
 
 
 Now having looked at the general layer case, let's look at the final layer of the network. Potential final layer activations are:
@@ -105,10 +143,53 @@ Now having looked at the general layer case, let's look at the final layer of th
 For regression and binary classification, as we showed before -
     $$ \frac{\partial{J}}{\partial{Z^{[L]}}} = \hat{Y} - Y $$
 
-It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation later in the series, when we look at multi-class classification.
+It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation later in the series, when we look at multi-class classification. 
+
+In general though for any output layer activation function, you can obtain $$ \frac{\partial{J}}{\partial{A^{[L]}}} $$ from the loss function equation directly, since $$A^{[L]} = \hat{Y}$$, and then just like in the general case you can compute $$g'(Z^{[L]})$$ for whichever activation function is used in the output layer and go from there.
+
+And there you have it! You've successfully derived backpropagation for a neural network - no mean feat! 
+
+To recap, the key equations are:
+
+ $$\frac{\partial{J}}{\partial{Z^{[l]}}} = \frac{\partial{J}}{\partial{A^{[l]}}}*g'(Z^{[L]})$$
+
+$$  \frac{\partial{J}}{\partial{W^{[l]}_{jk}}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z^{[l]}}}.A^{[l-1]T} $$
+
+$$\frac{\partial{J}}{\partial{b^{[l]}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l](i)}}} $$
+
+$$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial{z^{[l]}}}$$
 
 
+## Code:
+
+We store the intermediate results of the forward pass in a cache, then we store the gradients in another dictionary. The code for the backprop algorithm is just an implementation of the equation we have derived. Note the activation function used for the intermediate layer is ReLU.
+As before, the accompanying code is in the [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet).
+
+```python 
+
+    def backpropagation(cache,Y,parameters):
+        L = len(parameters)//2 
+        m = Y.shape[1]
+        grads = {}
+        grads["dZ" + str(L)]= cache["A" + str(L)] - Y
+        grads["dW" + str(L)]= (1/m)*np.dot(grads["dZ" + str(L)],cache["A" + str(L-1)].T) 
+        grads["db" + str(L)]= (1/m)*np.sum(grads["dZ" + str(L)],axis=1,keepdims=True)
+        for l in range(L-1,0,-1):
+            grads["dA" + str(l)]= np.dot(parameters["W" + str(l+1)].T,grads["dZ" + str(l+1)])
+            grads["dZ" + str(l)]= np.multiply(grads["dA" + str(l)], relu(cache["Z" + str(l)], deriv = True))
+            grads["dW" + str(l)]= (1/m)*np.dot(grads["dZ" + str(l)],cache["A" + str(l-1)].T) 
+            grads["db" + str(l)]= (1/m)*np.sum(grads["dZ" + str(l)],axis=1,keepdims=True)
+        return grads
+
+
+```
 
 ## Conclusion
 
-Let's take a step backward here and just appreciate the **beauty** of backpropagation. What appeared to us as initially a complicated and scary expression for the partial derivatives has been broken down to a layer by layer calculation.
+Let's take a step backward here and just appreciate the **beauty** of backpropagation. 
+
+What appeared to us as initially a complicated and scary expression for the partial derivatives has been broken down to a layer by layer calculation. 
+With backpropagation we didn't have to worry about the entire network, we could just look at the *local* behaviour of a neuron or weight and how the *immediate* outputs were affected. We could consider all these moving pieces separately, layer by layer, then stitch together the gradients using the *chain rule*. 
+
+
+When we look at different neural network architectures with specialised layers that differ in layout and functionality, the **same principles** of backpropagation will *still* hold - break it down layer by layer, gain intuition about the effect of nudging that parameter and the behaviour within that layer, then finally use chain rule to get the overall expression.
