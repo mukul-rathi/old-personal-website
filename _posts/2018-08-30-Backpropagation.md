@@ -141,7 +141,7 @@ Now having looked at the general layer case, let's look at the final layer of th
 * softmax - for multi-class classification
 
 For regression and binary classification, as we showed before -
-    $$ \frac{\partial{J}}{\partial{Z^{[L]}}} = \hat{Y} - Y $$
+    $$ \frac{\partial{J}}{\partial{Z^{[L]}}} = \hat{Y} - Y$$
 
 It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation later in the series, when we look at multi-class classification. 
 
