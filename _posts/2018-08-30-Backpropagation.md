@@ -23,9 +23,9 @@ But before we dive into the maths, it makes sense to describe what the backpropa
 
 It first makes sense to understand why we use backprop to compute derivatives in the first place. Aren't there better alternatives?
 
-What about numerically approximating the gradient by seeing how much the cost changes directly when we nudge each parameter? Well, there are often tens of thousands, if not more parameters, and computing cost using forward prop for all of them is *very* expensive.
+What about numerically approximating the gradient by seeing how much the cost changes directly when we nudge each parameter? Well, there are often tens of thousands, if not more parameters, and computing cost using forward prop individually for all of them is *very* expensive.
 
-So we'll have to analytically compute our partial derivative through the chain rule.
+So we have to analytically compute our partial derivative through the chain rule.
 
 If we were to go through the network forwards, and consider the weights from the first layer, we'd have to consider how a nudge affects the immediate outputs - i.e. the 2nd layer, and then how that nudge in the 2nd layer propagates to the 3rd layer etc. For the 2nd layer we'd have to recompute all the later layer calculations, which is expensive since the later layers' partial derivatives are used again. And again, for the weights in the 3rd layer, and so on. 
 
@@ -53,7 +53,7 @@ When deriving the algorithm's equations, we will intersperse the intuition with 
 It is helpful to restate the tips given in the [Learning by Gradient Descent]() post:
 * *Partial Derivative Intuition*: Think of $$\frac{\partial{y}}{\partial{x}} $$ loosely as quantifying how much $$y$$ would change if you gave the value of $$x$$ a little "nudge" at that point.
 * *Breaking down computations* - we can use the **chain rule** to aid us in our computation - rather than trying to compute the derivative in one fell swoop, we break up the computation into smaller intermediate steps.
-* *Computing the chain rule* - when thinking about which intermediate values to include in our chain rule expression, think about the immediate outputs of equations involving $$x$$ - which other values get directly affected when I slightly nudge $$x$$?
+* *Computing the chain rule* - when thinking about which intermediate values to include in our chain rule expression, think about the immediate outputs of equations involving $$x$$ - which other values get directly affected when we slightly nudge $$x$$?
 * *One element at a time* - rather than worrying about the entire matrix $$A$$, we'll instead look at an element $$A_{ij}$$. One equation we will refer to time and time again is:
 
      $$C_{ij} = \sum_k A_{ik}B_{kj} \iff  C=A.B$$
@@ -63,7 +63,7 @@ It is helpful to restate the tips given in the [Learning by Gradient Descent]() 
     Another useful equation is the element-wise product of two matrices:
 
     $$C_{ij} = A_{ij}B_{ij} \iff  C=A*B$$ 
-* *Sanity dimensions check* - check the dimensions of the matrices all match (the derivative matrix should have same dimensions as the original matrix, and all matrices being multiplied together should have dimensions that align.
+* *Sanity check the * - check the dimensions of the matrices all match (the derivative matrix should have same dimensions as the original matrix, and all matrices being multiplied together should have dimensions that align.
 
 ### Backpropagating through layer l:
 
@@ -82,7 +82,7 @@ $$ \frac{dA^{[l]}_{ij}}{dZ^{[l]}_{ij}} = g'(Z^{[l]}_{ij}) $$
 
 We can apply the chain rule:
 
-$$\frac{\partial{J}}{\partial{Z^{[l]}_{ij}}} = \frac{\partial{J}}{\partial{A^{[l]}}}*     \frac{dA^{[l]}
+$$\frac{\partial{J}}{\partial{Z^{[l]}_{ij}}} = \frac{\partial{J}}{\partial{A^{[l]}_{ij}}}*     \frac{dA^{[l]}
 _{ij}}{dZ^{[l]}
 _{ij}} = \frac{\partial{J}}{\partial{A^{[l]}_{ij}}}   *    g'(Z^{[l]}_{ij})$$
 
@@ -96,7 +96,7 @@ Brilliant! Next, let's look at the effect of nudging the weight $$W^{[l]}_{jk}$$
 
 $$ z^{[l](i)}_j = \sum_{k=1}^{n} W^{[l]}_{jk}  a^{[l-1](i)}_k + b^{[l]}_j $$
 
-This nude in $$W^{[l]}_{jk}$$ affects the weighted input of the neuron $$z^{[l]}_{j}$$ across all examples in the training set. The magnitude of the nudge to the value of neuron $$z^{[l]}_{j}$$  is (as with linear/logistic regression) - $$a^{[l-1]}_{k}$$ times the nudge of $$W^{[l]}_{jk}$$ since $$W^{[l]}_{jk}$$ is multiplied by $$a^{[l-1]}_{k}$$ in the equation above.
+This nudge in $$W^{[l]}_{jk}$$ affects the weighted input of the neuron $$z^{[l]}_{j}$$ across all examples in the training set - we will take the average gradient across the examples. The magnitude of the nudge to the value of neuron $$z^{[l]}_{j}$$  is - $$a^{[l-1]}_{k}$$ times the nudge of $$W^{[l]}_{jk}$$ since $$W^{[l]}_{jk}$$ is multiplied by $$a^{[l-1]}_{k}$$ in the equation above.
 
 Also consider a nudge in $$b^{[l]}_{j}$$, the magnitude of the corresponding nudge to $$z^{[l]}_{j}$$ will be the same, and just like with $$W^{[l]}_{jk}$$ we will average the effect of the nudge across the examples.  So we have:
 
@@ -104,9 +104,9 @@ $$\frac{\partial{J}}{\partial{W^{[l]}_{jk}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\
 
 $$\frac{\partial{J}}{\partial{b^{[l]}_{j}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*\frac{\partial{z^{[l](i)}_{j}}}{\partial{b^{[l]}_{j}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}$$
 
-We can now switch back to considering the matrices. 
+It's worth noting though how similar these equations are to logistic regression - just that instead of $$x$$ we have the more general $$a^{[l-1]}$$. As we mentioned in the previous post, the principles for logistic regression are just scaled and generalised for a feedforward neural network.
 
-It's worth noting though how similar these equations are to logistic regression - as we mentioned in the previous post, the principles for logistic regression are just scaled and generalised for a feedforward neural network.
+We can now switch our notation back to considering the matrices, having gained the insight from looking at one neuron. 
 
 $$\frac{\partial{J}}{\partial{W^{[l]}_{jk}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l]}_{ji}}} * A^{[l-1]}_{ki} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l]}_{ji}}} * A^{[l-1]T}_{ik}  $$
 
@@ -118,9 +118,9 @@ As a sanity check: the right-hand-side multiplies a $$n_l$$ x $$m$$ matrix with 
 
 $$\frac{\partial{J}}{\partial{b^{[l]}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l](i)}}} $$
 
-Finally, we just need to consider how the gradient propagations to layer $$l-1$$. This is the part that is an extension from logistic regression, since now we have multiple layers, not just the one layer as in logistic regression.
+Finally, we just need to consider how the gradient propagates to layer $$l-1$$ - we didn't have to consider this in the specific case of logistic regression as there was only one layer. 
 
-Again, the nudging partial derivative intuition will help us. Let's consider one neuron in layer $$l-1$$ for the $$i^{th}$$ example: $$a^{[l-1](i)}_k $$. A nudge in this neuron will only affect the corresponding example in the next layer, and since all of the neurons in the next layer take in this neuron's output as a weighted input, we will have to sum partial derivatives across the neurons. The magnitude of the nudge in the weighted input $$z^{[l](i)}_j$$ will be the original nudge multiplied by the corresponding weight $$W^{[l]}_{jk}$$. Indeed the equation is:
+Again, the intuition about partial derivatives as "nudges"  will help us. Let's consider one neuron in layer $$l-1$$ for the $$i^{th}$$ example: $$a^{[l-1](i)}_k $$. A nudge in this neuron affects all of the neurons' weighted inputs for that example in the next layer, so we will have to sum partial derivatives across the neurons. The magnitude of the nudge in the weighted input $$z^{[l](i)}_j$$ will be the original nudge multiplied by the corresponding weight $$W^{[l]}_{jk}$$. Indeed the equation is:
 
 $$\frac{\partial{J}}{\partial{a^{[l-1](i)}_{k}}} =\sum_{j=1}^{n_l}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*\frac{\partial{z^{[l](i)}_{j}}}{\partial{a^{[l-q](i)}_{j}}}= \sum_{j=1}^{n_l}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*W^{[l]}_{jk}$$
 
@@ -135,7 +135,7 @@ $$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial
 Again as a sanity check: the right-hand-side multiplies a $$n_{l-1}$$ x $$n_l$$ matrix with a $$n_l$$ x $$m$$ matrix, giving a $$n_{l-1}$$ x $$m$$ matrix - so the dimensions do match.
 
 
-Now having looked at the general layer case, let's look at the final layer of the network. Potential final layer activations are:
+Now having looked at the general layer case, let's look at the final layer of the network. Some potential final layer activations are:
 * no activation - for a regression task
 * sigmoid - for binary classification
 * softmax - for multi-class classification
@@ -162,7 +162,11 @@ $$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial
 
 ## Code:
 
-We store the intermediate results of the forward pass in a cache, then we store the gradients in another dictionary. The code for the backprop algorithm is just an implementation of the equation we have derived. Note the activation function used for the intermediate layer is ReLU.
+We store the intermediate results of the forward pass in a cache, then we store the gradients in another dictionary. The code for the backprop algorithm is just an implementation of the equation we have derived. 
+
+Note the activation function used for the intermediate layer is ReLU. The derivative of $$ReLU(x)$$ is 1 if $$x>0$$ since it is linear in that region, and 0 otherwise, since the graph is flat there, as we clamp all negative values to zero. __NB:__ *technically* at $$x=0$$ the derivative is not defined, but in practice we take it to be 0.
+
+
 As before, the accompanying code is in the [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet).
 
 ```python 
