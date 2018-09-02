@@ -26,7 +26,7 @@ Looking at the cost on the training set to see whether the model is learning or 
 
 ## Bias vs Variance
 
-Two properties of a machine learning model we are interested in when debugging learning are bias and variance - these quantify two sources of error in a machine learning model.
+Two properties of a machine learning model we are interested in when debugging learning are bias and variance - these quantify two sources of error in a machine learning model. Together they form the *bias-variance* tradeoff inherent in most machine learning models.
 
 ### Bias:
 
@@ -51,6 +51,7 @@ A slightly less common form of overfitting is if the validation set has a higher
 # Regularisation:
 Neural networks tend to suffer from high variance, especially as they get deeper and more complicated - to combat this we use a set of **regularisation** techniques that ensure the model still generalises well.
 
+
 ## Early stopping
 One simple technique is stopping the training process early when the validation error plateaus or starts to decrease. This is a good regularisation technique since it stops the training *before* the model starts to memorise the nuances of the training set, so it is still able to generalise.
 
@@ -65,6 +66,8 @@ Whereas for L2 regularisation the additional term is:
 $$ \frac{\lambda}{2m}  \sum_w \sum_i w_i^2$$
 
 Having large weights means that a small change in the input causes a large change in output when multiplied by the weights. By adding a penalty term, we ensure the weights are small, so the model's output is not as sensitive to a small change in the input. 
+
+In the equations above, $$\lambda$$ is a hyperparameter, used to control to rate of regularisation and thus the tradeoff between bias and variance. If it is too large, then regularisation is too strong and the model will underfit. If it is too small, then the model will continue to overfit.
 
 ## Data augmentation
 
