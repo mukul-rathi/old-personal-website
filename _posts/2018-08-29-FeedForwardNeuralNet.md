@@ -48,7 +48,13 @@ The first layer is called the **input layer** consisting of the input features, 
 
 The term **deep learning** comes from the typically large number of layers (the *depth*) of the network. 
 
+### Why is this effective?
 
+By having multiple layers, the neural network can combine input features to learn its own, more complex representation of the input in the hidden layers. The features learnt are hierarchical - i.e they build upon each other layer by layer to get more complex/abstract.
+
+Taking our housing prices dataset for linear regression as an example, the neural network could potentially combine the "pupil-teacher ratio in area" with the "weighted mean distance to five Boston employment centres" features to create a feature indicating education, and potentially combine that in with other features like "status of population in society" and "crime rate per capita" to get a sense of the social mobility in the area. 
+
+In reality, whilst this gives intuition, it is unlikely the neural network will predict these exact features, or combine features in such a humanly-interpretable manner. Instead, it is often very difficult to interpret the weighted combinations of features used by the neural network - for the breast cancer dataset these features are nigh on impossible to interpret, given that the original data is probably hard to interpret itself.
 
 
 ### Notation:
