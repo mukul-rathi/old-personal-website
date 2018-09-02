@@ -7,7 +7,7 @@ comments: true
 date:   2018-08-29 13:00:00
 excerpt: Designing our first neural network!
 image: "/assets/blog/FeedForwardNeuralNet/neural-net.png"
-caption: A small feedforward neural network
+caption: A small feedforward neural network <em> Credit CS231n </em>
 ---
 
 Now to introduce our first deep learning algorithm - the feedforward neural network!
