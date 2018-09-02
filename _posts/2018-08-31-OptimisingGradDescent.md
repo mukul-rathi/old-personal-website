@@ -131,7 +131,7 @@ This is the most intuitive way of thinking about Adam. The name Adam comes from 
 
 In practice we use Adam as the default optimiser for most neural networks, though in some cases SGD with Nesterov momentum has been shown to converge to a better final solution, though it may take far longer to do so.
 
-### Wrapping up
+## Wrapping up
 
 There are a lot of different optimisers out there, AdaDelta, Nadam, AdaMax and AMSGrad being a few that we haven't covered. 
 

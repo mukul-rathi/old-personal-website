@@ -10,13 +10,13 @@ image: "/assets/blog/LearningCurve/train-dev-curves.png"
 caption: "A plot of the training error, and train/dev accuracy metrics"
 ---
 
-# Introduction
+## Introduction
 
 We've talked a lot about training our model, and improving our optimisation algorithms to really get the best out of it, but we're missing one piece of the puzzle here - what even *is* the best? How do we know our model will actually perform better?
 
 This post is dedicated to looking at debugging your model's performance - for the first time since Part 1 of the series, we'll be revisiting the idea of training, validation and test sets.
 
-# Learning Curves
+## Learning Curves
 
 The best way to gain insight into the performance of a model is through plotting learning curves. **Learning curves** plot a key evaluation metric against the iteration number, to see how it changes as the model is training. The metric is typically either *cost* or *accuracy* - although the metrics may differ based on your problem - for example a skewed dataset  may use the *F1 score* instead.
 
@@ -48,14 +48,14 @@ A model with high variance typically has a low training set error but a high val
 
 A slightly less common form of overfitting is if the validation set has a higher error than the test set - this suggests we've tuned our hyperparameters too well and again learnt a representation that is specific to the validation set. A typical fix is to ensure our validation is not too small, and to ensure it comes from the same distribution as the test set - this ensures it has the variety and size and also reflects the actual problem's data we are trying to fit.
 
-# Regularisation:
+##Regularisation:
 Neural networks tend to suffer from high variance, especially as they get deeper and more complicated - to combat this we use a set of **regularisation** techniques that ensure the model still generalises well.
 
 
-## Early stopping
+### Early stopping
 One simple technique is stopping the training process early when the validation error plateaus or starts to decrease. This is a good regularisation technique since it stops the training *before* the model starts to memorise the nuances of the training set, so it is still able to generalise.
 
-## L1/L2 Regularisation:
+### L1/L2 Regularisation:
 
 L1 and L2 regularisation both involve adding an additional term to the cost function penalising the size of the weights. For L1 it is :
 
@@ -69,17 +69,17 @@ Having large weights means that a small change in the input causes a large chang
 
 In the equations above, $$\lambda$$ is a hyperparameter, used to control to rate of regularisation and thus the tradeoff between bias and variance. If it is too large, then regularisation is too strong and the model will underfit. If it is too small, then the model will continue to overfit.
 
-## Data augmentation
+### Data augmentation
 
 Often a model is able to learn the nuances of a relatively small training set, so by increasing the size of the training set the model cannot "memorise" patterns specific to the examples seen. The augmented dataset should also hopefully have more variation in the input, so the model will generalise to a wider range of input.
 
-## Adding noise to training
+### Adding noise to training
 
 Another way of ensuring the data isn't susceptible to overfitting is to add noise to the data. One way of noise is distortion of images, or adding noise by randomly sampling from a Gaussian distribution and adding that to random input values.
 
 Noise isn't just limited to the inputs - they can also be added to the weights or even the gradients when learning. 
 
-## Dropout
+### Dropout
 
 This is a technique where, on each forward pass through the network in training, we disable the activations of neurons in that layer at random. The idea behind this is that the neurons then do not rely heavily on another particular neuron's activations,since there is a chance that the neuron may be disabled the next pass. This in turn leads to more robust representations learnt by the neurons.
 
@@ -87,7 +87,7 @@ Another way of looking at Dropout is through **ensemble** learning,  is that if 
 
 By obtaining our prediction from these models in an **ensemble** setup, our prediction is more likely to generalise rather than if we were to only use one model's prediction.
 
-# Summary:
+## Summary:
 
 A quick learning curve case-by-case wrap up:
 
