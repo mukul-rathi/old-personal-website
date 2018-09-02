@@ -6,10 +6,10 @@ title: Hello World!
 Welcome to my blog! First, a quick introduction, I'm a second year undergraduate Computer Science student at Cambridge, with a passion for 
 all things deep learning related! 
 
+I am currently writing a Demystifying Deep Learning series of blog posts - check them out below!
+
 I appreciate any feedback on how to improve both the blog posts, and the projects themselves, as well as project extensions worth 
 pursuing further. 
-
-I am currently writing a Demystifying Deep Learning series of blog posts - check them out below!
 
 I am also in the process of updating the design of my blog. To see the screenshots and progress made so far, you can check out the GitHub commits 
 <a href="https://github.com/mukul-rathi/mukul-rathi.github.io">here</a> - for each commit with a visual change, there
