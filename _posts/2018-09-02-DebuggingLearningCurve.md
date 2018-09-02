@@ -14,6 +14,9 @@ caption: "A plot of the training error, and train/dev accuracy metrics"
 
 We've talked a lot about training our model, and improving our optimisation algorithms to really get the best out of it, but we're missing one piece of the puzzle here - what even *is* the best? How do we know our model will actually perform better?
 
+You may have noticed that our [neural network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet) had a much lower training set error than test set error both when we trained it on the housing price dataset, and when we trained it on the breast cancer dataset. 
+
+
 This post is dedicated to looking at debugging your model's performance - for the first time since Part 1 of the series, we'll be revisiting the idea of training, validation and test sets.
 
 ## Learning Curves
@@ -87,6 +90,18 @@ Another way of looking at Dropout is through **ensemble** learning,  is that if 
 
 By obtaining our prediction from these models in an **ensemble** setup, our prediction is more likely to generalise rather than if we were to only use one model's prediction.
 
+Code:
+```python
+
+        #determine which neurons are on/off based on dropout probability
+        cache["dropout"+ str(l)] = np.random.rand(*cache['A' + str(l)].shape) <= keep_prob
+        cache['A' + str(l)] = np.multiply(cache['A' + str(l)], cache["dropout"+ str(l)])
+        cache['A' + str(l)]/= keep_prob
+
+```
+
+To see an example of Dropout in a neural network, you can see this [notebook](https://github.com/mukul-rathi/ChemRegressionNeuralNet).
+
 ## Summary:
 
 A quick learning curve case-by-case wrap up:
@@ -99,7 +114,7 @@ A quick learning curve case-by-case wrap up:
 
 * *Training and validation set error low, test set error high* - model has overfit to validation set - **use a larger validation set / ensure same validation/test distribution**
 
-These are general techniques useful not just for neural networks, but for debugging machine learning models in general. We've also looked at specific techniques 
+These are general techniques useful not just for neural networks, but for debugging machine learning models in general. We've also looked at specific techniques to prevent neural networks from overfitting. 
 
 So far in the series we have covered the foundations of standard feedforward neural networks and how we can get the best out of them, both in terms of optimising learning and ensuring generalisation.
 
