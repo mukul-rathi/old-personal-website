@@ -4,7 +4,7 @@ part: Part 6
 title: Optimising Learning 
 layout: default
 comments: true
-date:  2018-08-31 06:00:00
+date:  2018-09-01 06:00:00
 excerpt: How we can make gradient descent even <em>better.</em>
 image: "/assets/blog/OptimisingLearning/optimizers.gif"
 caption: Different optimisers that improve on Gradient Descent

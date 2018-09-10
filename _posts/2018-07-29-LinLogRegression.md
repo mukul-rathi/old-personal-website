@@ -4,7 +4,7 @@ part: Part 2
 title: Linear and Logistic Regression
 layout: default
 comments: true
-date:   2018-08-27 12:00:00
+date:   2018-07-29 12:00:00
 excerpt: We get our hands dirty with our first machine learning algorithms!
 image: "/assets/blog/LinLogRegression/straight-line.png"
 caption: "Linear Regression"

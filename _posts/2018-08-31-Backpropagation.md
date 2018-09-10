@@ -4,7 +4,7 @@ part: Part 5
 title: Backpropagation
 layout: default
 comments: true
-date:   2018-08-30 13:00:00
+date:   2018-08-31 13:00:00
 excerpt: The magic sauce behind neural networks - how they learn!
 image: "/assets/blog/Backpropagation/backprop.png"
 caption: Backpropagation in a feedforward neural network - <em>credit 3blue1brown</em>
