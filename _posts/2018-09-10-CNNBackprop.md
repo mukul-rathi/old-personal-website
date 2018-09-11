@@ -23,6 +23,86 @@ The different layers to consider are:
 * Fully-Connected Layer
 * Softmax (Output) Layer 
 
+## Convolution Layer
+
+Recall that the forward pass' equation for position $$(i,j)$$ in the $$k^{th}$$ activation map in the convolution layer is:
+
+$$Z^{(m_i)}_{i,j,k}= \sum_a \sum_b \sum_c X^{(m_i)}_{i+a,j+b,c} * W_{a,b,c,k}  + b_k$$
+
+Since a convolution cannot be represented as a matrix multiplication, we will just consider a single neuron/weight at a time. 
+
+It also helps to refer back to the equivalent neurons representation of a convolution for the  $$k^{th} filter$$. Since the weights/bias are shared, we sum across all neurons across the width and the height of the activation map, since a nudge in the weights/bias will affect the outputs of all neurons.
+
+Just like with a standard feedforward neural net, a nudge in the weights results in a nudge in $$Z$$ corresponding to the magnitude of the input it is connected to. A nudge in the bias has the corresponding magnitude in $$Z$$. We also average the nudges across the batch of training examples. 
+
+So the backprop equations for the weights and bias are:
+
+$$ \frac{\partial{J}}{\partial{W_{a,b,c,k}}} = \frac{1}{m} \sum_{m_i} \sum_i \sum_j \frac{\partial{J}}{\partial{Z^{(m_i)}_{i,j,k}}}*X^{(m_i)}_{i+a,j+b,c}$$
+
+$$ \frac{\partial{J}}{\partial{b_k}} = \frac{1}{m} \sum_{m_i} \sum_i \sum_j \frac{\partial{J}}{\partial{Z^{(m_i)}_{i,j,k}}} $$
+
+So the equations for the partial derivatives with respect to the weights and biases are fairly similar to that of a feedforward neural net, just with parameter sharing.
+
+Now we need to compute the partial derivative with respect to the input $$X$$ so we can propagate the gradient back to the previous layer. This is a little more involved. 
+
+Firstly, note that a nudge in the input affects all of the activation maps, so we sum across the activation maps. So now let's consider the $$k^{th}$$ activation map.
+
+Now consider the representation of the convolution as a sliding filter operation. The filter slides over the input across the height and width dimensions so for a given input pixel $$X_{i, j, c}$$, there are $$F*F$$ different outputs it is part of, depending on which part of the filter has scanned over it. To determine the corresponding output patch when $$X_{i, j, c}$$ is multiplied by $$W_{a,b,c,k}$$, note that in the forward pass, for $$Z_{i, j, k}$$ the corresponding input is offset by $$(+a, +b)$$ relative to the output, so from the perspective of the input, the output is offset by $$(-a, -b)$$. So given an input $$X_{i, j, c}$$ and weight $$W_{a,b,c,k}$$ the corresponding output is $$Z_{i-a, j-b, k}$$.
+
+So the equation is: 
+
+$$ \frac{\partial{J}}{\partial{X^{(m_i)}_{i,j,c}} } = \sum_k \sum_a \sum_b  \frac{\partial{J}}{\partial{Z^{(m_i)}_{i-a,j-b,k}} } * W_{a,b,c}$$   
+
+Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, (i-a,j-b) may be negative (i.e. not exist) - so we set these values to zero. 
+
+
+### Code: 
+
+When implementing, we broadcast and vectorise the operations when calculating the gradient with respect to $$W$$ and $$b$$. 
+
+```python
+    def conv_backward(dZ,x,w,padding="same"):
+        m = x.shape[0]
+        
+        db = (1/m)*np.sum(dZ, axis=(0,1,2), keepdims=True)
+        
+        if padding=="same": 
+            pad = (w.shape[0]-1)//2
+        else: #padding is valid - i.e no zero padding
+            pad =0 
+        x_padded = np.pad(x,((0,0),(pad,pad),(pad,pad),(0,0)),'constant', constant_values = 0)
+        
+        #this will allow us to broadcast operations
+        x_padded_bcast = np.expand_dims(x_padded, axis=-1) # shape = (m, i, j, c, 1)
+        dZ_bcast = np.expand_dims(dZ, axis=-2) # shape = (m, i, j, 1, k)
+        
+        dW = np.zeros_like(w)
+        f=w.shape[0]
+        w_x = x_padded.shape[1]
+        for a in range(f):
+            for b in range(f):
+                #note f-1 - a rather than f-a since indexed from 0...f-1 not 1...f
+                dW[a,b,:,:] = (1/m)*np.sum(dZ_bcast*
+                    x_padded_bcast[:,a:w_x-(f-1 -a),b:w_x-(f-1 -b),:,:],
+                    axis=(0,1,2))  
+        
+        dx = np.zeros_like(x_padded,dtype=float) 
+        Z_pad = f-1
+        dZ_padded = np.pad(dZ,((0,0),(Z_pad,Z_pad),(Z_pad,Z_pad),
+        (0,0)),'constant', constant_values = 0)  
+        
+        for m_i in range(x.shape[0]):
+            for k in range(w.shape[3]):
+                for d in range(x.shape[3]):
+                    dx[m_i,:,:,d]+=ndimage.convolve(dZ_padded[m_i,:,:,k],
+                    w[:,:,d,k])[f//2:-(f//2),f//2:-(f//2)]
+        dx = dx[:,pad:dx.shape[1]-pad,pad:dx.shape[2]-pad,:]
+        return dx,dW,db
+
+```
+
+
+
 ## ReLU Layer
 
 Recall that $$ReLU(x) = max(x,0)$$. When $$x>0$$ this returns $$x$$ so this is linear in this region of the function (gradient is 1), and when $$x<0$$ this is always 0 (so a constant value), so gradient is 0. NB the gradient at exactly 0 is technically *undefined* but in practice we just set it to zero.
@@ -189,3 +269,16 @@ So **wrapping up**, having considered the equation for one neuron, we can genera
 
 $$\frac{\partial{J}}{\partial{Z^{[l]}}} = \hat{Y} - Y $$
 
+Code:
+
+```python
+
+    def softmax_backward(y_pred, y, w, b, x):
+        m = y.shape[1]
+        dZ = y_pred - y
+        dW = (1/m)*dZ.dot(x.T)
+        db = (1/m)*np.sum(dZ,axis=1,keepdims=True)
+        dx =  np.dot(w.T,dZ)
+        return dx, dW,db
+
+```
