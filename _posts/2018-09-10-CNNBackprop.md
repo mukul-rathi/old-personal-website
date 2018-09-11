@@ -42,7 +42,9 @@ Recall that $$ReLU(x) = max(x,0)$$. When $$x>0$$ this returns $$x$$ so this is l
 
 ## Pooling Layer
 
-For the pooling layer, there are two options: 
+For the pooling layer, we do not need to explicitly compute partial derivatives, since there are *no parameters*. Instead we are concerned with how to distribute the gradient to each of the values in the corresponding input 2x2 patch. 
+
+there are two options: 
 * Max Pooling
 * Average Pooling
 
@@ -115,5 +117,16 @@ $$\frac{\partial{J}}{\partial{b^{[l]}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\parti
 
 $$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial{z^{[l]}}}$$
 
+The code is the same as the feedforward network layer, so again we'll just list it below:
 
+```python
 
+    def fc_backward(dA,a,x,w,b):
+        m = dA.shape[1]
+        dZ = dA*relu(a,deriv=True)
+        dW = (1/m)*dZ.dot(x.T)
+        db = (1/m)*np.sum(dZ,axis=1,keepdims=True)
+        dx =  np.dot(w.T,dZ)
+        return dx, dW,db
+
+```
