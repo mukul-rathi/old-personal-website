@@ -23,8 +23,23 @@ The different layers to consider are:
 * Fully-Connected Layer
 * Softmax (Output) Layer 
 
+## ReLU Layer
 
-## Fully Connected Layer
+Recall that $$ReLU(x) = max(x,0)$$. When $$x>0$$ this returns $$x$$ so this is linear in this region of the function (gradient is 1), and when $$x<0$$ this is always 0 (so a constant value), so gradient is 0. NB the gradient at exactly 0 is technically *undefined* but in practice we just set it to zero.
+
+### Code:
+```python
+
+
+    def relu(z, deriv = False):
+            if(deriv): #this is for the partial derivatives (discussed in next blog post)
+                return z>0 #Note that True=1 and False=0 when converted to float
+            else:
+                return np.multiply(z, z>0)
+
+```
+
+## Fully-Connected Layer
 
 The fully-connected layer is identical to that used in the feedforward neural network, so we will skip the derivation (see original backprop post) and just list the equations below. 
 
