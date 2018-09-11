@@ -109,8 +109,6 @@ For the **backward pass**, we scale the gradient matrix up by copying the value 
 
 The fully-connected layer is identical to that used in the feedforward neural network, so we will skip the derivation (see original backprop post) and just list the equations below. 
 
-$$\frac{\partial{J}}{\partial{Z^{[l]}}} = \frac{\partial{J}}{\partial{A^{[l]}}}*g'(Z^{[L]})$$
-
 $$  \frac{\partial{J}}{\partial{W^{[l]}_{jk}}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z^{[l]}}}.A^{[l-1]T} $$
 
 $$\frac{\partial{J}}{\partial{b^{[l]}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l](i)}}} $$
@@ -130,3 +128,64 @@ The code is the same as the feedforward network layer, so again we'll just list 
         return dx, dW,db
 
 ```
+
+## Softmax Layer:
+
+The equation we are concerned with computing is: 
+
+$$\frac{\partial{J}}{\partial{Z^{[l]}}} = \frac{\partial{J}}{\partial{A^{[l]}}}*g'(Z^{[L]})$$
+
+The rest of the equations for the output layer are identical to the fully-connected layer, since the softmax layer only differs in activation function.
+
+Recall that the cost function is the cross-entropy cost function:
+
+$$ J(W,b) = \frac{-1}{m} \sum_{i=1}^{m} \sum_{k} y^{(i)}_k \log(\hat{y}^{(i)}_k)$$
+
+Again, we can consider a single output layer node - so consider the node corresponding to the $$i^{th}$$ training example and the $$j^{th}$$ class, $${a}^{(i)[L]}_j = \hat{y}^{(i)}_j$$.
+
+$$ \frac{\partial{J}}{\partial{\hat{y}^{(i)}_j}} =\frac{-y^{(i)}_j}{\hat{y}^{(i)}_j}$$
+
+Next we consider the effect of nudging the weighted input of tehe output code corresponding to the $$i^{th}$$ training example and the $$j^{th}$$ class, $${z}^{(i)[L]}_j $$.
+
+Recall the equation for the softmax layer: 
+
+$$ softmax(z^{(i)[L]}_j) = \frac{e^{z^{(i)[L]}_j}}{\sum_k e^{z^{(i)[L]}_k}} $$
+
+Clearly a nudge in $${z}^{(i)[L]}_j $$ will affect the value of the corresponding output node $${a}^{(i)[L]}_j$$ since we exponentiate $${z}^{(i)[L]}_j $$ in the numerator. 
+
+However, there is another *subtletly*. Since the nudge affects the value $$e^{z^{(i)[L]}_j}$$, it will affect the sum of the exponentiated values, so it will affect the outputs of **all** of the ouput nodes, since the denominator of all nodes is the aforementioned sum of the exponentiated values. 
+
+Let's consider the two cases separately. 
+
+First, let's compute the derivative of the output of the corresponding output $${a}^{(i)[L]}_j$$ with respect to $${z}^{(i)[L]}_j $$- we use quotient rule since both the numerator and denominator are dependent on  $${z}^{(i)[L]}_j $$.
+
+$$\frac{\partial{a^{(i)[L]}_j}}{\partial{z^{(i)[L]}_j}}  = \frac{e^{z^{(i)[L]}_j}}{\sum_k e^{z^{(i)[L]}_k}}  - (\frac{e^{z^{(i)[L]}_j}}{\sum_k e^{z^{(i)[L]}_k}})^2 = \hat{y}^{(i)}_j(1 - \hat{y}^{(i)}_j)$$
+
+Next, consider the derivative of a different node $${a}^{(i)[L]}_m$$ with respect to $${z}^{(i)[L]}_j $$. Here the numerator doesn't depend on $${z}^{(i)[L]}_j $$ since we have exponentiated a different node $${z}^{(i)[L]}_m$$.
+
+So the derivative is just: 
+
+$$\frac{\partial{a^{(i)[L]}_m}}{\partial{z^{(i)[L]}_j}}  =  - \frac{e^{z^{(i)[L]}_j}e^{z^{(i)[L]}_m}}{({\sum_k e^{z^{(i)[L]}_k}})^2} = - \hat{y}^{(i)}_j*\hat{y}^{(i)}_m$$
+
+Since $$a^{(i)[L]}_m = \hat{y}^{(i)}_m $$, and a nudge in $$z^{(i)[L]}_j $$ affects all output nodes, we sum partial derivatives across nodes, so using chain rule we have: 
+
+$$ \frac{\partial{J}}{\partial{z^{(i)[L]}_j}} =  \sum_k \frac{\partial{J}}{\partial{\hat{y}^{(i)}_k}}*\frac{\partial{\hat{y}^{(i)}_k}}{\partial{z^{(i)[L]}_j}}$$
+
+Again, we split into the two cases: 
+
+$$ \frac{\partial{J}}{\partial{z^{(i)[L]}_j}} = \frac{\partial{J}}{\partial{\hat{y}^{(i)}_j}}*\frac{\partial{\hat{y}^{(i)}_j}}{\partial{z^{(i)[L]}_j}}+  \sum_{k \neq j} \frac{\partial{J}}{\partial{\hat{y}^{(i)}_k}}*\frac{\partial{\hat{y}^{(i)}_k}}{\partial{z^{(i)[L]}_j}}$$
+
+$$ \frac{\partial{J}}{\partial{z^{(i)[L]}_j}} = \frac{-y^{(i)}_j}{\hat{y}^{(i)}_j} * \hat{y}^{(i)}_j(1 - \hat{y}^{(i)}_j) +  \sum_{k \neq j} \frac{-y^{(i)}_k}{\hat{y}^{(i)}_k} *- \hat{y}^{(i)}_j*\hat{y}^{(i)}_k$$
+
+Tidying up and combining the $$j$$ term with the $$ \sum_{k \neq j}$$ term to get $$ \sum_k $$:
+
+$$ \frac{\partial{J}}{\partial{z^{(i)[L]}_j}} = -y^{(i)}_j + \hat{y}^{(i)}_j*\sum_k y^{(i)}_k$$
+
+Since the probabilities of $$y$$ across the output nodes sum to 1, this reduces our equation to:
+
+$$ \frac{\partial{J}}{\partial{z^{(i)[L]}_j}} = \hat{y}^{(i)}_j-y^{(i)}_j $$
+
+So **wrapping up**, having considered the equation for one neuron, we can generalise across the matrix $$Z^{[L]}$$ to get: 
+
+$$\frac{\partial{J}}{\partial{Z^{[l]}}} = \hat{Y} - Y $$
+
