@@ -282,3 +282,9 @@ Code:
         return dx, dW,db
 
 ```
+
+## Conclusion:
+
+This wraps up our discussion of **convolutional neural networks**. CNNs have revolutionised computer vision tasks, and are more interpretable than standard feedforward neural networks as we can visualise their activations as images (see start of post).
+
+Next we will look at another specialised class of neural networks - *recurrent neural networks*, which are optimised for input sequences (e.g sentences for NLP). 
