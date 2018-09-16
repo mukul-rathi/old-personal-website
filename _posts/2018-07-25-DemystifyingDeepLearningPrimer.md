@@ -2,7 +2,7 @@
 title: Demystifying Deep Learning Primer
 layout: default
 comments: true
-date:   2018-08-25 10:00:00
+date:   2018-07-25 10:00:00
 excerpt: Motivation for the series.
 ---
 
