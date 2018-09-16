@@ -128,6 +128,8 @@ there are two options:
 * Max Pooling
 * Average Pooling
 
+![Max Pool Backward](/assets/blog/CNNBackprop/pool-backward.png)
+
 **Max Pooling:** 
 
 Intuitively a nudge in the non-max values of each 2x2 patch will not affect the output, since the output is only concerned about the max value in the patch. Therefore the non-max values have a gradient of 0. 
