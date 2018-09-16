@@ -12,7 +12,7 @@ caption: Visualising the internal activations of a CNN
 
 ## Introduction
 
-In this post, we will derive the backprop equations for Convolutional Neural Networks. 
+In this post, we will derive the backprop equations for Convolutional Neural Networks. Again there is a [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/ConvolutionalNeuralNet) accompanying the blog post containing the code for *classifying handwritten digits* using a CNN written from scratch. 
 
 In a feedforward neural network, we only had one type of layer (fully-connected layer) to consider, however in a CNN we need to consider each type of layer separately.
 
@@ -288,6 +288,6 @@ Code:
 
 ## Conclusion:
 
-This wraps up our discussion of **convolutional neural networks**. CNNs have revolutionised computer vision tasks, and are more interpretable than standard feedforward neural networks as we can visualise their activations as images (see start of post).
+This wraps up our discussion of **convolutional neural networks**. CNNs have revolutionised computer vision tasks, and are more interpretable than standard feedforward neural networks as we can visualise their activations as images (see start of post). We look at the activations in more detail in the [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/ConvolutionalNeuralNet). 
 
 Next we will look at another specialised class of neural networks - *recurrent neural networks*, which are optimised for input sequences (e.g sentences for NLP). 
