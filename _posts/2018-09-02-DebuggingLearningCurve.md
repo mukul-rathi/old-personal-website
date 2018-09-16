@@ -6,7 +6,7 @@ layout: default
 comments: true
 date:  2018-09-02 11:00:00
 excerpt: Training, validation and test error - is our model really learning or is it just memorising?
-image: "/assets/blog/LearningCurve/train-dev-curves.png"
+image: "/assets/blog/DebuggingLearningCurve/train-dev-curves.png"
 caption: "A plot of the training error, and train/dev accuracy metrics"
 ---
 
@@ -27,9 +27,11 @@ Regardless of the task, plotting the *cost* on the training set is a must, since
 
 Looking at the cost on the training set to see whether the model is learning or not is just the tip of the iceberg though.
 
+![Bias vs variance curve](/assets/blog/DebuggingLearningCurve/bias-variance.png)
 ## Bias vs Variance
 
 Two properties of a machine learning model we are interested in when debugging learning are bias and variance - these quantify two sources of error in a machine learning model. Together they form the *bias-variance* tradeoff inherent in most machine learning models.
+
 
 ### Bias:
 
@@ -51,7 +53,7 @@ A model with high variance typically has a low training set error but a high val
 
 A slightly less common form of overfitting is if the validation set has a higher error than the test set - this suggests we've tuned our hyperparameters too well and again learnt a representation that is specific to the validation set. A typical fix is to ensure our validation is not too small, and to ensure it comes from the same distribution as the test set - this ensures it has the variety and size and also reflects the actual problem's data we are trying to fit.
 
-##Regularisation:
+## Regularisation:
 Neural networks tend to suffer from high variance, especially as they get deeper and more complicated - to combat this we use a set of **regularisation** techniques that ensure the model still generalises well.
 
 
