@@ -12,7 +12,7 @@ caption: Visualising the internal activations of a CNN
 
 ## Introduction
 
-In this post, we will derive the backprop equations for Convolutional Neural Networks. 
+In this post, we will derive the backprop equations for Convolutional Neural Networks. Again there is a [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/ConvolutionalNeuralNet) accompanying the blog post containing the code for *classifying handwritten digits* using a CNN written from scratch. 
 
 In a feedforward neural network, we only had one type of layer (fully-connected layer) to consider, however in a CNN we need to consider each type of layer separately.
 
@@ -54,7 +54,7 @@ So the equation is:
 
 $$ \frac{\partial{J}}{\partial{X^{(m_i)}_{i,j,c}} } = \sum_k \sum_a \sum_b  \frac{\partial{J}}{\partial{Z^{(m_i)}_{i-a,j-b,k}} } * W_{a,b,c}$$   
 
-Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, (i-a,j-b) may be negative (i.e. not exist) - so we set these values to zero. 
+Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, the indices (i-a,j-b) may be negative (i.e. $$Z_{i-a, j-b, k}$$ does not exist) - so we set these values to zero. 
 
 
 ### Code: 
@@ -288,6 +288,6 @@ Code:
 
 ## Conclusion:
 
-This wraps up our discussion of **convolutional neural networks**. CNNs have revolutionised computer vision tasks, and are more interpretable than standard feedforward neural networks as we can visualise their activations as images (see start of post).
+This wraps up our discussion of **convolutional neural networks**. CNNs have revolutionised computer vision tasks, and are more interpretable than standard feedforward neural networks as we can visualise their activations as images (see start of post). We look at the activations in more detail in the [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/ConvolutionalNeuralNet). 
 
 Next we will look at another specialised class of neural networks - *recurrent neural networks*, which are optimised for input sequences (e.g sentences for NLP). 
