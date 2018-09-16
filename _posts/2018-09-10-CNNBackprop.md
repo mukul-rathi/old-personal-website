@@ -46,6 +46,7 @@ So the equations for the partial derivatives with respect to the weights and bia
 Now we need to compute the partial derivative with respect to the input $$X$$ so we can propagate the gradient back to the previous layer. This is a little more involved. 
 
 Firstly, note that a nudge in the input affects all of the activation maps, so we sum across the activation maps. So now let's consider the $$k^{th}$$ activation map.
+![Conv sliding backward](/assets/blog/CNNBackprop/conv-backward.gif)
 
 Now consider the representation of the convolution as a sliding filter operation. The filter slides over the input across the height and width dimensions so for a given input pixel $$X_{i, j, c}$$, there are $$F*F$$ different outputs it is part of, depending on which part of the filter has scanned over it. To determine the corresponding output patch when $$X_{i, j, c}$$ is multiplied by $$W_{a,b,c,k}$$, note that in the forward pass, for $$Z_{i, j, k}$$ the corresponding input is offset by $$(+a, +b)$$ relative to the output, so from the perspective of the input, the output is offset by $$(-a, -b)$$. So given an input $$X_{i, j, c}$$ and weight $$W_{a,b,c,k}$$ the corresponding output is $$Z_{i-a, j-b, k}$$.
 
@@ -127,6 +128,8 @@ For the pooling layer, we do not need to explicitly compute partial derivatives,
 there are two options: 
 * Max Pooling
 * Average Pooling
+
+![Max Pool Backward](/assets/blog/CNNBackprop/pool-backward.png)
 
 **Max Pooling:** 
 

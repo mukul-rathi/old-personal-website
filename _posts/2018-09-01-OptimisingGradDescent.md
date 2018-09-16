@@ -69,8 +69,9 @@ Then we compute $$ \nabla {\tilde{x}_{t-1}} $$ with forward and backprop, and fi
 Momentum allows us to set a higher learning rate, because there will be fewer oscillations, since they get damped by our momentum term. However, we can still do better than a fixed learning rate.
 
 ### Learning rate
+![Learning Rates](/assets/blog/OptimisingLearning/learning-rates.png)
 
-Recall in our [Learning by Gradient Descent]() post we briefly touched upon the learning rate $$\alpha$$ and how it determines the size of the step we take - if it is too small learning is slow, whereas if it is too large we overshoot. 
+Recall in our Learning by Gradient Descent post we briefly touched upon the learning rate $$\alpha$$ and how it determines the size of the step we take - if it is too small learning is slow, whereas if it is too large we overshoot. 
 
 In the context of SGD the updates are noisy, so as we get towards the optimum value we want to take smaller and smaller steps to prevent us from overshooting once we are close. This is because the gradient at a minima (whilst zero when averaged across the entire training set) may not be exactly zero for just the minibatch, so smaller steps help aid convergence. 
 
