@@ -63,7 +63,7 @@ It is helpful to restate the tips given in the [Learning by Gradient Descent]() 
     Another useful equation is the element-wise product of two matrices:
 
     $$C_{ij} = A_{ij}B_{ij} \iff  C=A*B$$ 
-* *Sanity check the * - check the dimensions of the matrices all match (the derivative matrix should have same dimensions as the original matrix, and all matrices being multiplied together should have dimensions that align.
+* *Sanity check the dimensions* - check the dimensions of the matrices all match (the derivative matrix should have same dimensions as the original matrix, and all matrices being multiplied together should have dimensions that align.
 
 ### Backpropagating through layer l:
 
@@ -153,11 +153,11 @@ To recap, the key equations are:
 
  $$\frac{\partial{J}}{\partial{Z^{[l]}}} = \frac{\partial{J}}{\partial{A^{[l]}}}*g'(Z^{[L]})$$
 
-$$  \frac{\partial{J}}{\partial{W^{[l]}_{jk}}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z^{[l]}}}.A^{[l-1]T} $$
+$$  \frac{\partial{J}}{\partial{W^{[l]}}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z^{[l]}}}.A^{[l-1]T} $$
 
 $$\frac{\partial{J}}{\partial{b^{[l]}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z^{[l](i)}}} $$
 
-$$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial{z^{[l]}}}$$
+$$\frac{\partial{J}}{\partial{A^{[l-1]}}} = W^{[l]T}.\frac{\partial{J}}{\partial{Z^{[l]}}}$$
 
 
 ## Code:
