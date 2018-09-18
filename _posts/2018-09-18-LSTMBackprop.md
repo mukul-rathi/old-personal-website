@@ -119,23 +119,19 @@ If we look at the equations / computation graph, we can more generally look at t
 
 * **sigmoid**: If $$C = \sigma(A)$$ then $$\frac{\partial{C}}{\partial{A}} = \sigma (A)- \sigma^2 (A) = C*(1-C)$$
 
-* **Weighted Input**: this is the same equation as the feedforward neural network: 
-
-If $$ Z =  W.X + b$$ then:
+* **Weighted Input**: this is the same equation as the feedforward neural network. If $$ Z =  W.X + b$$ then:
 
 $$  \frac{\partial{J}}{\partial{W}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z}}.X^{T} $$
 
 $$\frac{\partial{J}}{\partial{b}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{Z}} $$
 
 $$\frac{\partial{J}}{\partial{X}} = W^{T}.\frac{\partial{J}}{\partial{Z}}$$
-
-In a deep learning framework like TensorFlow or Keras, there will be identities like this for each of the differentiable operations. 
+ 
 
  Armed with these general computation graph principles, we can apply **chain rule**. We elementwise multiply ($$*$$) the partial derivatives, i.e.
 
 $$ \frac{\partial{J}}{\partial{A}} = \frac{\partial{J}}{\partial{B}}*\frac{\partial{B}}{\partial{A}}$$
 
-For brevity, we'll substitute the value of $$\frac{\partial{B}}{\partial{A}}$$ using the operations' identities above. 
 
 Also note we sum partial derivatives coming from each of the immediate outputs: 
 
@@ -144,9 +140,16 @@ and $$ C = g(A)$$, i.e. $$B$$ and $$C$$ are immediate outputs of $$A$$ in the co
 
 $$ \frac{\partial{J}}{\partial{A}} = \frac{\partial{J}}{\partial{B}}*\frac{\partial{B}}{\partial{A}} + \frac{\partial{J}}{\partial{C}}*\frac{\partial{C}}{\partial{A}} $$
 
+
+In a **deep learning framework** like *TensorFlow* or *Keras*, there will be identities like this for each of the differentiable operations.
+
 ## Backpropagation Through Time in an LSTM Cell
 
+When trying to compute $$ \frac{\partial{J}}{\partial{A}} $$, we'll use the general equation: 
 
+ $$ \frac{\partial{J}}{\partial{A}} = \frac{\partial{J}}{\partial{B}}*\frac{\partial{B}}{\partial{A}}$$
+
+For brevity, we'll substitute the value of $$\frac{\partial{B}}{\partial{A}}$$ using the operations' identities above. 
 
 The equations are thus as follows:
 
@@ -160,7 +163,7 @@ $$ \frac{\partial{J}}{\partial{\Gamma_i}}= \frac{\partial{J}}{\partial{c^{<t>}}}
 
 $$ \frac{\partial{J}}{\partial{\Gamma_f}}= \frac{\partial{J}}{\partial{c^{<t>}}}*c^{<t-1>}$$
 
-$$ \frac{\partial{J}}{\partial{\Gamma_o}}= \frac{\partial{J}}{\partial{a^{<t>}}}*\tanh c^{<t>}$$
+$$ \frac{\partial{J}}{\partial{\Gamma_o}}= \frac{\partial{J}}{\partial{a^{<t>}}}*\tilde{a}^{<t>}$$
 
 $$ \frac{\partial{J}}{\partial{Z_g}} = \frac{\partial{J}}{\partial{\Gamma}}*\Gamma*(1-\Gamma)$$
 
@@ -178,4 +181,16 @@ $$ \frac{\partial{J}}{\partial{b_c}} = \frac{1}{m}\sum_{i=1}^{m} \frac{\partial{
 
 $$ \frac{\partial{J}}{\partial{[a^{<t-1>}, x^{<t>}]}} =  W_g^T.\frac{\partial{J}}{\partial{Z_g}}+     W_c^T.\frac{\partial{J}}{\partial{Z_c}} $$
 
+
+## Conclusion
+
+This seems like a good juncture to recap the series so far.
+
+We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in linear and logistic regression, building up the intuition behind the maths as we built up to a feedforward neural network. 
+
+Next we looked at the learning process itself, and how we could improve gradient descent itself, as well as debug our model to see whether it was learning or not. 
+
+Finally, we moved onto more specialised neural networks - CNNs and recurrent neural nets, not only looking at their theory but the motivation behind them. We also looked at the maths behind them, deriving the backprop equations from scratch. 
+
+Now that we're at the point that we're able to understand backprop in a general computation graph, we can use the abstractions of the deep learning frameworks in subsequent posts.
 
