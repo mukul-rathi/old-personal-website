@@ -88,19 +88,19 @@ So, walking through the computation graph node-by-node in the forward step:
 
 Now we have broken down the computation graph into steps, and added our intermediate variables we have the equations:
 
-$$ Z_g = W_g.[a^{<t-1>}, x^{<t>}]+b_g$$ 
+1. $$ Z_g = W_g.[a^{<t-1>}, x^{<t>}]+b_g$$ 
 
-$$ Z_c = W_c.[a^{<t-1>}, x^{<t>}]+b_c$$ 
+2. $$ Z_c = W_c.[a^{<t-1>}, x^{<t>}]+b_c$$ 
 
-$$ \Gamma = \sigma(Z_g)$$
+3. $$ \Gamma = \sigma(Z_g)$$
 
-$$ \tilde{c}^{<t>} =\tanh (Z_c) $$
+4. $$ \tilde{c}^{<t>} =\tanh Z_c $$
 
-$$  {c}^{<t>} = \Gamma_i*\tilde{c}^{<t>} + \Gamma_f*{c}^{<t-1>}$$
+5. $$  {c}^{<t>} = \Gamma_i*\tilde{c}^{<t>} + \Gamma_f*{c}^{<t-1>}$$
 
-$$\tilde{a}^{<t>} = \tanh{c}^{<t>}$$
+6. $$\tilde{a}^{<t>} = \tanh{c}^{<t>}$$
 
-$$ a^{<t>} = \Gamma_o*\tilde{a}^{<t>}$$
+7. $$ a^{<t>} = \Gamma_o*\tilde{a}^{<t>}$$
 
 These equations correspond to the nodes in the graph - the left-hand-side variable is the ouput edge of the node, and the right-hand-side variables are the input edges to the node. 
 
@@ -153,9 +153,18 @@ For brevity, we'll substitute the value of $$\frac{\partial{B}}{\partial{A}}$$ u
 
 The equations are thus as follows:
 
+From equation 7: 
+
 $$ \frac{\partial{J}}{\partial{\tilde{a}^{<t>}}} = \frac{\partial{J}}{\partial{a^{<t>}}}* \Gamma_o $$
 
+
+$$ \frac{\partial{J}}{\partial{\Gamma_o}}= \frac{\partial{J}}{\partial{a^{<t>}}}*\tilde{a}^{<t>}$$
+
+Using equation 6, and writing equation 5 as an equation for $$c^{<t+1>}$$ instead of $$c^{<t>}$$ (i.e. adding 1 to the timestep): 
+
 $$ \frac{\partial{J}}{\partial{c^{<t>}}} = \frac{\partial{J}}{\partial{c^{<t+1>}}}*\Gamma_f + \frac{\partial{J}}{\partial{\tilde{a}^{<t>}}} *(1-\tilde{a}^{<t>2})$$
+
+Also using equation 5: 
 
 $$ \frac{\partial{J}}{\partial{\tilde{c}^{<t>}}} = \frac{\partial{J}}{\partial{c^{<t>}}}*\Gamma_i $$
 
@@ -163,16 +172,19 @@ $$ \frac{\partial{J}}{\partial{\Gamma_i}}= \frac{\partial{J}}{\partial{c^{<t>}}}
 
 $$ \frac{\partial{J}}{\partial{\Gamma_f}}= \frac{\partial{J}}{\partial{c^{<t>}}}*c^{<t-1>}$$
 
-$$ \frac{\partial{J}}{\partial{\Gamma_o}}= \frac{\partial{J}}{\partial{a^{<t>}}}*\tilde{a}^{<t>}$$
+From equations 3 and 4 respectively:
 
 $$ \frac{\partial{J}}{\partial{Z_g}} = \frac{\partial{J}}{\partial{\Gamma}}*\Gamma*(1-\Gamma)$$
+
+$$ \frac{\partial{J}}{\partial{Z_c}} = \frac{\partial{J}}{\partial{\tilde{c}^{<t>}}}*(1-\tilde{c}^{<t>^2})$$
+
+Equations 1 and 2 are identical, and so are the partial derivatives, differing only in subscript. 
 
 $$ \frac{\partial{J}}{\partial{W_g}} = \frac{1}{m} \frac{\partial{J}}{\partial{Z_g}}.[a^{<t-1>}, x^{<t>}]^T $$
 
 $$ \frac{\partial{J}}{\partial{b_g}} = \frac{1}{m}\sum_{i=1}^{m} \frac{\partial{J}}{\partial{Z_g^{(i)}}} $$
 
 
-$$ \frac{\partial{J}}{\partial{Z_c}} = \frac{\partial{J}}{\partial{\tilde{c}^{<t>}}}*(1-\tilde{c}^{<t>^2})$$
 
 $$ \frac{\partial{J}}{\partial{W_c}} = \frac{1}{m} \frac{\partial{J}}{\partial{Z_c}}.[a^{<t-1>}, x^{<t>}]^T $$
 
@@ -180,6 +192,8 @@ $$ \frac{\partial{J}}{\partial{b_c}} = \frac{1}{m}\sum_{i=1}^{m} \frac{\partial{
 
 
 $$ \frac{\partial{J}}{\partial{[a^{<t-1>}, x^{<t>}]}} =  W_g^T.\frac{\partial{J}}{\partial{Z_g}}+     W_c^T.\frac{\partial{J}}{\partial{Z_c}} $$
+
+So by breaking the computation graph into many steps, we can break down the calculation into smaller simpler steps that just use the operations' derivative identities mentioned above. 
 
 
 ## Conclusion
