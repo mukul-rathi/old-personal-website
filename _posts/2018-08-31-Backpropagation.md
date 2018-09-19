@@ -143,7 +143,7 @@ Now having looked at the general layer case, let's look at the final layer of th
 For regression and binary classification, as we showed before -
     $$ \frac{\partial{J}}{\partial{Z^{[L]}}} = \hat{Y} - Y$$
 
-It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation [later in the series]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"}, when we look at multi-class classification in a [convolutional neural network]({% post_url2018-09-04-ConvNet %}){:target="_blank"}. 
+It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation [later in the series]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"}, when we look at multi-class classification in a [convolutional neural network]({% post_url 2018-09-04-ConvNet %}){:target="_blank"}. 
 
 In general though for any output layer activation function, you can obtain $$ \frac{\partial{J}}{\partial{A^{[L]}}} $$ from the loss function equation directly, since $$A^{[L]} = \hat{Y}$$, and then just like in the general case you can compute $$g'(Z^{[L]})$$ for whichever activation function is used in the output layer and go from there.
 
