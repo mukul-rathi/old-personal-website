@@ -236,7 +236,9 @@ The motivating example we've looked at uses an [LSTM network](https://github.com
 
 ```
 
+### Practical Considerations:
 
+When checking the equations for the backprop, it helps to have a numerical checker - I've written one in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} .  
 
 ## Conclusion
 
