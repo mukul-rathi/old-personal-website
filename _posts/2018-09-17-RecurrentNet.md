@@ -67,13 +67,13 @@ Just like with a feedforward neural network, this involves multiplying by a weig
 
 We initialise $$a^{<0>}$$ (the initial activation) to a matrix of zeros of size $$n_a$$ x $$m$$, where $$n_a$$ is the number of neurons in the RNN. Then for each timestep $$t$$:
 
-$$a^{<t>} = \tanh(W_a [a^{<t-1>}, x^{<t>}] + b_a)$$
+$$a^{<t>} = \tanh(W_a.[a^{<t-1>}, x^{<t>}] + b_a)$$
 
 $$\hat{y}^{<t>} = g(W_y a^{<t>} + b_y) $$ 
 
 Typically for the activation functions, we use **tanh** when computing $$a^{<t>}$$, whilst with $$\hat{y}^{<t>}$$ this will depend on the task and loss function. 
 
-Note that $$x^{<t>}$$ is an $$n_x$$ x $$m$$ matrix, $$y^{<t>}$$ is an $$n_y$$ x $$m$$ matrix and that $$[a^{<t-1>}, x^{<t>}]$$ denotes a concatenation of the two matrices to form a $$(n_a+n_x)$$ x $$m$$ matrix.
+Note that $$x^{<t>}$$ is an $$n_x$$ x $$m$$ matrix, $$y^{<t>}$$ is an $$n_y$$ x $$m$$ matrix and that $$[a^{<t-1>}, x^{<t>}]$$ denotes a **concatenation of the two matrices** to form a $$(n_a+n_x)$$ x $$m$$ matrix.
 
 So now we've got this new architecture, it seems we are good to go. However,there is one fundamental issue.
 
@@ -149,11 +149,11 @@ The equations are thus as follows:
 
 Firstly, the gates are just like the GRU gates - with their own weights and sigmoid activation function. 
 
-$$ \Gamma_i = \sigma(W_i [a^{<t-1>}, x^{<t>}]+b_i)$$
+$$ \Gamma_i = \sigma(W_i.[a^{<t-1>}, x^{<t>}]+b_i)$$
 
-$$ \Gamma_f = \sigma(W_f [a^{<t-1>}, x^{<t>}]+b_f)$$
+$$ \Gamma_f = \sigma(W_f.[a^{<t-1>}, x^{<t>}]+b_f)$$
 
-$$ \Gamma_o = \sigma(W_o [a^{<t-1>}, x^{<t>}]+b_o)$$
+$$ \Gamma_o = \sigma(W_o.[a^{<t-1>}, x^{<t>}]+b_o)$$
 
 $$ \tilde{c}^{<t>}$$ is the candidate for the new cell memory - note we don't use a reset gate here:
 
