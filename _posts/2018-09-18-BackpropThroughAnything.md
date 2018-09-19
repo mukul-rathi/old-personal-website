@@ -8,7 +8,7 @@ date:  2018-09-17 10:00:00
 excerpt: How we can generalise Backprop to <em> any </em> neural network - see how TensorFlow and Keras compute their partial derivatives! We'll use the LSTM cell as an example
 image: /assets/blog/BackpropAnything/LSTM.png
 
-caption: The LSTM cell computation graph (note it uses  <strong> h </strong> where we refer to the activation as  <strong> a </strong> )
+caption: The LSTM cell computation graph 
 ---
 
 ## Introduction 
@@ -48,17 +48,21 @@ We will use the computation graph representation *(shown above*) of the LSTM to 
 
 From the [previous post]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"}, the forward propagation equations  for one timestep in the LSTM are:
 
-$$ \Gamma_i = \sigma(W_i [a^{<t-1>}, x^{<t>}]+b_i)$$
+$$ \Gamma_i = \sigma(W_i.[a^{<t-1>}, x^{<t>}]+b_i)$$
 
-$$ \Gamma_f = \sigma(W_f [a^{<t-1>}, x^{<t>}]+b_f)$$
+$$ \Gamma_f = \sigma(W_f.[a^{<t-1>}, x^{<t>}]+b_f)$$
 
-$$ \Gamma_o = \sigma(W_o [a^{<t-1>}, x^{<t>}]+b_o)$$
+$$ \Gamma_o = \sigma(W_o.[a^{<t-1>}, x^{<t>}]+b_o)$$
 
-$$ \tilde{c}^{<t>} =\tanh (W_c [a^{<t-1>}, x^{<t>}]+b_c) $$
+$$ \tilde{c}^{<t>} =\tanh (W_c.[a^{<t-1>}, x^{<t>}]+b_c) $$
 
 $$  {c}^{<t>} = \Gamma_i*\tilde{c}^{<t>} + \Gamma_f*{c}^{<t-1>}$$
 
 $$ a^{<t>} = \Gamma_o*\tanh{c}^{<t>}$$
+
+**Notation used**:
+
+$$[a^{<t-1>}, x^{<t>}]$$ denotes a **concatenation of the two matrices** to form a $$(n_a+n_x)$$ x $$m$$ matrix. $$A.B$$ denotes matrix multiplication of $$A$$ and $$B$$, whereas $$A*B$$ denotes elementwise multiplication. $$\Gamma$$ refers to the gate - see the [previous post]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"} defining the LSTM for a full breakdown of the notation used. 
 
 To backpropagate through the cell, given the gradient with respect to $$a^{<t>}$$ and  $$c^{<t>}$$ from the backprop from the next step, we need to compute the gradients for each of the weights $$W_i, W_f, W_o, W_c $$ and biases $$b_i, b_f, b_o, b_c $$, and finally we will need to backpropagate to the previous timestep and compute the gradient with respect to $$a^{<t-1>}$$ and  $$c^{<t-1>}$$.
 
@@ -232,7 +236,9 @@ The motivating example we've looked at uses an [LSTM network](https://github.com
 
 ```
 
+### Practical Considerations:
 
+When checking the equations for the backprop, it helps to have a numerical checker - I've written one in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} .  
 
 ## Conclusion
 
