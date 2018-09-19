@@ -13,7 +13,7 @@ caption: The LSTM cell computation graph (note it uses  <strong> h </strong> whe
 
 ## Introduction 
 
-So far in this series, we have looked at the general principle of gradient descent, and how we computed backpropagation for each layer in a feedforward neural network, then generalising to look at backprop in different types of layers in a CNN. 
+So far in this series, we have looked at the general principle of [gradient descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"}, and how we computed [backpropagation]({% post_url 2018-08-31-Backpropagation %}){:target="_blank"} for each layer in a feedforward neural network, then generalising to look at [backprop in different types of layers in a CNN]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"}. 
 
 Now we will take a step back and look at backpropagation in a more general sense - *through a computation graph*. Through this we'll get a general intuition for how the frameworks compute their 
 
@@ -46,7 +46,7 @@ We will use the computation graph representation *(shown above*) of the LSTM to 
 
 ### Forward Propagation equations
 
-From the previous post, the forward propagation equations  for one timestep in the LSTM are:
+From the [previous post]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"}, the forward propagation equations  for one timestep in the LSTM are:
 
 $$ \Gamma_i = \sigma(W_i [a^{<t-1>}, x^{<t>}]+b_i)$$
 
@@ -200,11 +200,11 @@ So by breaking the computation graph into many steps, we can break down the calc
 
 This seems like a good juncture to recap the series so far.
 
-We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in linear and logistic regression, building up the intuition behind the maths as we built up to a feedforward neural network. 
+We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in [linear and logistic regression]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"}, building up the intuition behind the maths behing [gradient descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} as we built up to a [feedforward neural network]]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"}. 
 
-Next we looked at the learning process itself, and how we could improve gradient descent itself, as well as debug our model to see whether it was learning or not. 
+Next we looked at the learning process itself, and how we could [improve gradient descent]({% post_url 2018-09-01-OptimisingGradDescent %}){:target="_blank"} itself, as well as [debug our model]({% post_url 2018-09-02-DebuggingLearningCurve %}){:target="_blank"} to see whether it was learning or not. 
 
-Finally, we moved onto more specialised neural networks - CNNs and recurrent neural nets, not only looking at their theory but the motivation behind them. We also looked at the maths behind them, deriving the backprop equations from scratch. 
+Finally, we moved onto more specialised neural networks - [CNNs]({% post_url 2018-09-04-ConvNet %}){:target="_blank"} and [recurrent neural nets]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"}, not only looking at their theory but the motivation behind them. We also looked at the maths behind them, deriving the [backprop]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"} equations from scratch. 
 
 Now that we're at the point that we're able to understand backprop in a general computation graph, we can use the abstractions of the deep learning frameworks in subsequent posts.
 
