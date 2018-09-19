@@ -17,7 +17,7 @@ So far in this series, we have looked at the general principle of [gradient desc
 
 Now we will take a step back and look at backpropagation in a more general sense - *through a computation graph*. Through this we'll get a general intuition for how the frameworks compute their 
 
-We'll use the LSTM cell as an example. 
+We'll use the LSTM cell as our motivating example - to continue the task of sentiment analysis on the IMDB review dataset - you can find the code in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} . 
 
 
 ## General Backpropagation Principles
