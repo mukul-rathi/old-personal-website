@@ -17,7 +17,7 @@ We've talked a lot about training our model, and improving our optimisation algo
 You may have noticed that our [neural network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet) had a much lower training set error than test set error both when we trained it on the housing price dataset, and when we trained it on the breast cancer dataset. 
 
 
-This post is dedicated to looking at debugging your model's performance - for the first time since Part 1 of the series, we'll be revisiting the idea of training, validation and test sets.
+This post is dedicated to looking at debugging your model's performance - for the first time since [Part 1]({% post_url 2018-07-28-WhatIsNeuralNet %}){:target="_blank"} of the series, we'll be revisiting the idea of training, validation and test sets.
 
 ## Learning Curves
 
@@ -118,7 +118,7 @@ A quick learning curve case-by-case wrap up:
 
 These are general techniques useful not just for neural networks, but for debugging machine learning models in general. We've also looked at specific techniques to prevent neural networks from overfitting. 
 
-So far in the series we have covered the foundations of standard feedforward neural networks and how we can get the best out of them, both in terms of optimising learning and ensuring generalisation.
+So far in the series we have covered the foundations of [standard feedforward neural networks]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"} and how we can get the best out of them, both in terms of optimising learning and ensuring generalisation.
 
 Now that we have a strong base, we will shift our attention to more specialised neural network architectures in the next blog post.
 
