@@ -200,7 +200,7 @@ So by breaking the computation graph into many steps, we can break down the calc
 
 This seems like a good juncture to recap the series so far.
 
-We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in [linear and logistic regression]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"}, building up the intuition behind the maths behing [gradient descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} as we built up to a [feedforward neural network]]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"}. 
+We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in [linear and logistic regression]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"}, building up the intuition behind the maths behing [gradient descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} as we built up to a [feedforward neural network]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"}. 
 
 Next we looked at the learning process itself, and how we could [improve gradient descent]({% post_url 2018-09-01-OptimisingGradDescent %}){:target="_blank"} itself, as well as [debug our model]({% post_url 2018-09-02-DebuggingLearningCurve %}){:target="_blank"} to see whether it was learning or not. 
 
