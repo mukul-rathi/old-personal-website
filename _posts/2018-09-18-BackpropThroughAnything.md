@@ -119,7 +119,7 @@ If we look at the equations / computation graph, we can more generally look at t
 
 * **sigmoid**: If $$C = \sigma(A)$$ then $$\frac{\partial{C}}{\partial{A}} = \sigma (A)- \sigma^2 (A) = C*(1-C)$$
 
-* **Weighted Input**: this is the same equation as the feedforward neural network. If $$ Z =  W.X + b$$ then:
+* **Weighted Input**: this is the same equation as the [feedforward neural network]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"}. If $$ Z =  W.X + b$$ then:
 
 $$  \frac{\partial{J}}{\partial{W}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z}}.X^{T} $$
 
@@ -194,6 +194,44 @@ $$ \frac{\partial{J}}{\partial{b_c}} = \frac{1}{m}\sum_{i=1}^{m} \frac{\partial{
 $$ \frac{\partial{J}}{\partial{[a^{<t-1>}, x^{<t>}]}} =  W_g^T.\frac{\partial{J}}{\partial{Z_g}}+     W_c^T.\frac{\partial{J}}{\partial{Z_c}} $$
 
 So by breaking the computation graph into many steps, we can break down the calculation into smaller simpler steps that just use the operations' derivative identities mentioned above. 
+
+### Code:
+
+The motivating example we've looked at uses an [LSTM network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} for sentiment analysis on a dataset of IMDB reviews
+ 
+```python
+
+    def backward_step(dA_next, dC_next,cache,parameters):
+        (a_next, c_next, input_concat, c_prev, c_candidate,IFO_gates) = cache
+        n_a, m = a_next.shape
+        
+        dC_next += dA_next* (IFO_gates[2*n_a:]*(1-np.tanh(c_next)**2)) 
+        #we compute dC<t> in two backward steps since we need both dC<t+1> and dA<t>
+        
+        dC_prev = dC_next * IFO_gates[n_a:2*n_a] 
+        dC_candidate =  dC_next * IFO_gates[:n_a]
+        
+        #derivative with respect to the output of the IFO gates - abuse of notation to call it dIFO
+        dIFO_gates = np.zeros_like(IFO_gates)
+        dIFO_gates[:n_a] = dC_next * c_candidate 
+        dIFO_gates[n_a:2*n_a]= dC_next * c_prev
+        dIFO_gates[2*n_a:] = dA_next * np.tanh(c_next)
+        
+        #derivative with respect to the unactivated output of the gate (before the sigmoid is applied)
+        dZ_gate =  dIFO_gates* (IFO_gates*(1-IFO_gates))   
+        dA_prev =  (parameters["Wg"].T).dot(dZ_gate)[:n_a]
+        dWg = (1/m)*dZ_gate.dot(input_concat.T)
+        dbg = (1/m)*np.sum(dZ_gate,axis=1, keepdims=True)
+        
+        dZ_c = dC_candidate * (1-c_candidate**2)
+        dA_prev +=  (parameters["Wc"].T).dot(dZ_c)[:n_a]
+        dWc = (1/m)*dZ_c.dot(input_concat.T)
+        dbc = (1/m)*np.sum(dZ_c,axis=1, keepdims=True)  
+        
+        return dA_prev, dC_prev, dWg, dbg, dWc, dbc
+
+```
+
 
 
 ## Conclusion
