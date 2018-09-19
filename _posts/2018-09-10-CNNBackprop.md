@@ -25,7 +25,7 @@ The different layers to consider are:
 
 ## Convolution Layer
 
-Recall that the forward pass' equation for position $$(i,j)$$ in the $$k^{th}$$ activation map in the convolution layer is:
+Recall that the forward pass' equation for position $$(i,j)$$ in the $$k^{th}$$ activation map in the [convolution layer]({% post_url 2018-09-04-ConvNet %}){:target="_blank"} is:
 
 $$Z^{(m_i)}_{i,j,k}= \sum_a \sum_b \sum_c X^{(m_i)}_{i+a,j+b,c} * W_{a,b,c,k}  + b_k$$
 
@@ -190,7 +190,7 @@ For the **backward pass**, we scale the gradient matrix up by copying the value 
 
 ## Fully-Connected Layer
 
-The fully-connected layer is identical to that used in the feedforward neural network, so we will skip the derivation (see original backprop post) and just list the equations below. 
+The fully-connected layer is identical to that used in the feedforward neural network, so we will skip the derivation (see [original backprop post]({% post_url 2018-08-31-Backpropagation %}){:target="_blank"}) and just list the equations below. 
 
 $$  \frac{\partial{J}}{\partial{W^{[l]}_{jk}}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z^{[l]}}}.A^{[l-1]T} $$
 

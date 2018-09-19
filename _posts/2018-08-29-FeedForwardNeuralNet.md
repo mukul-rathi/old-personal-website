@@ -71,7 +71,7 @@ So to give a concrete example, $$ a^{[l](i)}_j$$ refers to the activation of the
 
 ### Intuition:
 
-The linear and logistic regression algorithms that we trained in the previous blog posts can be seen as  *tiny neural networks* with no hidden layers and one neuron in the output layer, with the activation functions $$g(z)=z$$ and $$g(z)= \sigma(z)$$ respectively. 
+The linear and logistic regression algorithms that we trained in the [previous blog posts]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"} can be seen as  *tiny neural networks* with no hidden layers and one neuron in the output layer, with the activation functions $$g(z)=z$$ and $$g(z)= \sigma(z)$$ respectively. 
 
 So this leads us very nicely into a much larger neural network - it involves pretty much the same operations, just at *scale*.
 
@@ -153,4 +153,4 @@ So one tip when debugging your network is to run it again with different weights
 
 This equations define the neural network - to output a prediction we just go forward through the network and repeatedly compute the next layer from the previous layer. This is called **forward propagation**.  
 
-The learning process is the same as linear and logistic regression - we're going to use gradient descent to learn the optimal parameters. Computing the partial derivatives is a little more involved in a neural network with many layers so we will go through. 
+The learning process is the same as [linear and logistic regression]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"} - we're going to use gradient descent to learn the optimal parameters. Computing the partial derivatives is a little more involved in a neural network with many layers so we will go through. 
