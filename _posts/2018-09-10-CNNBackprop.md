@@ -23,7 +23,7 @@ The different layers to consider are:
 * Fully-Connected Layer
 * Softmax (Output) Layer 
 
-If you are not already comfortable with backpropagation in a feedforward neural network, I'd suggest looking at the earlier post on [Backpropagation] which contains some useful intuition and general principles on how to derive the algorithm. 
+If you are not already comfortable with backpropagation in a feedforward neural network, I'd suggest looking at the earlier post on [Backpropagation]({% post_url 2018-08-31-Backpropagation %}){:target="_blank"} which contains some useful intuition and general principles on how to derive the algorithm. 
 
 I'll restate the general principles here for convenience:
 
