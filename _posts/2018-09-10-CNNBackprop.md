@@ -23,6 +23,25 @@ The different layers to consider are:
 * Fully-Connected Layer
 * Softmax (Output) Layer 
 
+If you are not already comfortable with backpropagation in a feedforward neural network, I'd suggest looking at the earlier post on [Backpropagation] which contains some useful intuition and general principles on how to derive the algorithm. 
+
+I'll restate the general principles here for convenience:
+
+* *Partial Derivative Intuition*: Think of $$\frac{\partial{y}}{\partial{x}} $$ loosely as quantifying how much $$y$$ would change if you gave the value of $$x$$ a little "nudge" at that point. 
+* *Breaking down computations* - we can use the **chain rule** to aid us in our computation - rather than trying to compute the derivative in one fell swoop, we break up the computation into smaller **intermediate** steps.
+* *Computing the chain rule* - when thinking about which intermediate values to include in our chain rule expression, think about the immediate outputs of equations involving $$x$$ - which other values get directly affected when we slightly nudge $$x$$?
+* *One element at a time* - rather than worrying about the entire matrix $$A$$, we'll instead look at an element $$A_{ij}$$. One equation we will refer to time and time again is:
+
+     $$C_{ij} = \sum_k A_{ik}B_{kj} \iff  C=A.B$$
+
+    A useful tip when trying to go from one element to a matrix is to look for summations over repeated indices (here it was k) - this suggests a matrix multiplication.
+
+    Another useful equation is the element-wise product of two matrices:
+
+    $$C_{ij} = A_{ij}B_{ij} \iff  C=A*B$$ 
+* *Sanity check the dimensions* - check the dimensions of the matrices all match (the derivative matrix should have same dimensions as the original matrix, and all matrices being multiplied together should have dimensions that align.
+
+
 ## Convolution Layer
 
 Recall that the forward pass' equation for position $$(i,j)$$ in the $$k^{th}$$ activation map in the [convolution layer]({% post_url 2018-09-04-ConvNet %}){:target="_blank"} is:
