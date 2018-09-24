@@ -9,7 +9,7 @@ excerpt: There are a lot of different neural networks out there. We start the se
 image: "/assets/blog/WhatIsNeuralNet/neuralnetworks.png"
 caption: A variety of neural network architectures
 ---
-### Introduction
+## Introduction
 
 In this series of blog posts I aim to demystify the main types of neural networks, and delve into the maths behind these deep learning algorithms. The aim is to reason from **first principles** so to do this each blog post will cover the following 3 points:
 
@@ -17,7 +17,7 @@ In this series of blog posts I aim to demystify the main types of neural network
 * **Maths:** delve into the theoretical side and the maths that makes it work 
 * **Code:** consolidate learning by applying the maths using a motivating example.
 
-### Terminology 
+## Terminology 
 
 First, let's try to define what machine learning even is. *Machine learning* is the ability of computers to learn from data without being explicitly programmed. However, unlike the portrayal in the media, most machine learning algorithms are highly specialised, so are limited to performing few tasks very well - for example the AI used to detect cats and dogs in images can't then play chess. The AI world domination scenario is some way off, at least not in the forseeable future, not until we can create some generalised form of artificial intelligence.
 
@@ -36,7 +36,7 @@ More generally, machine learning algorithms typically fall into 3 classes:
     
 We will initially look at *supervised learning* algorithms, and only later look at the other two classes of machine learning. The vast majority of problems where we apply machine learning tend to be supervised learning problems. 
 
-#### Datasets
+### Datasets
 
 
 One area that is especially important in machine learning is the **data**. Handling data 
@@ -67,9 +67,12 @@ Finally, there are two main problems we look at in supervised learning - dependi
 
  *NB: there is a subtlety.* If we restricted the housing prices to "buckets" e.g. £0-10,000; £10,001-£50,000 etc. then this would actually turn this regression problem into a classification problem since there are a fixed number of discrete buckets.
 
+## Maths Notation
 
+Often with maths equations, the notation can make the maths seem intimidating or confusing. This cheatsheet gives a quick breakdown of the notation I'm using (along with some additional core maths notation). It's worth taking a moment to go over this and making sure you're comfortable - if you need a refresher [Khan Academy](https://www.khanacademy.org) is an excellent resource. 
+![Maths Notation Cheatsheet](/assets/blog/WhatIsNeuralNet/maths-notation-cheatsheet.png)
 
-### Summary 
+## Summary 
 
 Woah! That was a lot of terminology. It's important to have these terms in the back of your mind for later posts, since these terms are commonplace in most machine learning blog posts and tutorials.
 

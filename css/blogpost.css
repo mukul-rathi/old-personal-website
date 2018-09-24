@@ -156,6 +156,7 @@ footer{
 /* For images - wrap around text*/
 img{
     float:right;
+    max-width: 100%;
 }
 
 .post-excerpt{
