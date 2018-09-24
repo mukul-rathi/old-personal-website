@@ -121,6 +121,7 @@ footer{
 }
 img{
     float:right;
+    max-width: 100%;
 }
 .main-image{
     float: none;
