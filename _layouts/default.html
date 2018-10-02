@@ -21,6 +21,7 @@
     </head>
     <body>
         {%include header.html%}
+        
         <main>
 
             <h1> {{ page.title }}</h1>
@@ -47,9 +48,9 @@
                 </div>
             {% include comments.html %}   
         </main>
-    
+        {%include mail-chimp-pop-up.html%}
         {%include footer.html%}
 
-    <script id="dsq-count-scr" src="//https-mukul-rathi-github-io.disqus.com/count.js" async></script> 
+        <script id="dsq-count-scr" src="//https-mukul-rathi-github-io.disqus.com/count.js" async></script> 
     </body>
 </html>

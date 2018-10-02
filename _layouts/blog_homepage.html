@@ -21,6 +21,8 @@
             <h1> {{ page.title}}</h1>
             {% include share-bar.html %}
                 {{ content }}
+                {%include mail-chimp.html%}
+
             <h2>Blog Posts </h2>
             {% for post in site.posts %}
                 <li>
@@ -35,8 +37,9 @@
                 </li>
                 <br> <br>
             {% endfor %}
+            
     </main>
     {%include footer.html%}
-
+    {%include mail-chimp-pop-up.html%}
     </body>
 </html>
