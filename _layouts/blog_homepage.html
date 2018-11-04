@@ -27,7 +27,7 @@
                 <li>
                 <strong class="post-date">{{ post.date | date: " %-d %b %Y" }}</strong>
                 <a class="post-link" href="{{ post.url | prepend: site.url}}">
-                    {{post.series}}  {{post.part}} - {{ post.title }}
+                    <strong> {{post.series}}  {{post.part}} </strong>{{ post.title }}
                 </a>
                 <br>
                     <div class="post-excerpt">{{ post.excerpt }}</div>
