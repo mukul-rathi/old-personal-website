@@ -29,7 +29,7 @@ $$ J(W,b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2 $$
  ```python 
 
     def MSE_loss(Y, Y_pred):
-        m = Y.shape[1])
+        m = Y.shape[1]
         return (1.0/(2*m))*np.sum(np.square(Y_pred-Y))
 
  ```
