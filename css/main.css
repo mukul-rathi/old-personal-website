@@ -132,11 +132,6 @@ nav{
     text-align: center;
     transition: 0.2s;
     font-size: 1.4em;
-    top: 0;
-    width: 70%;
-    position: fixed;
-    background : rgba(0,0,0,0.2);
-    margin-left: 10%; 
 
 }
 
