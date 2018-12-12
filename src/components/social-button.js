@@ -4,7 +4,7 @@ const SocialButton = (props) =>{
 
     return(
         <button >
-            Test123
+            Test
         </button>
     );
 }

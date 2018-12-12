@@ -1,16 +1,17 @@
 import React from "react";
 import Layout from "../components/layout";
 import WhoAmI from "../components/about-me-sections/who-am-I";
-import Hackathons from "../components/about-me-sections/hackathons";
 import Workshops from "../components/about-me-sections/workshops";
+
+import TransitionImage from '../components/transition-image'
+import Hackathons from "../components/about-me-sections/hackathons";
 
 const AboutMe = () => {
     return (
         <Layout>
             <WhoAmI/>
-            <TransitionImage text="Hackathons"/>
+            <TransitionImage text="Hackers At Cambridge"/>
             <Hackathons/>
-            <TransitionImage text="Workshops"/>
             <Workshops/>
         </Layout>
     );
