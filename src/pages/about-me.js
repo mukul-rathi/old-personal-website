@@ -1,11 +1,17 @@
 import React from "react";
 import Layout from "../components/layout";
+import WhoAmI from "../components/about-me-sections/who-am-I";
+import Hackathons from "../components/about-me-sections/hackathons";
+import Workshops from "../components/about-me-sections/workshops";
 
 const AboutMe = () => {
     return (
         <Layout>
-            <h1>About me </h1>
-            <p> This is my about me page stub. </p> 
+            <WhoAmI/>
+            <TransitionImage text="Hackathons"/>
+            <Hackathons/>
+            <TransitionImage text="Workshops"/>
+            <Workshops/>
         </Layout>
     );
 }
