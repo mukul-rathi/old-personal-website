@@ -1,8 +1,12 @@
 import React from "react"
+import Layout from "../components/layout";
 
 const Home = () =>{
     return(
-    <h1> This is my Home Page</h1>
+    <Layout>
+        <h1> This is my Home Page</h1>
+        <p> Welcome to my website </p>
+    </Layout>
     );
 }
 
