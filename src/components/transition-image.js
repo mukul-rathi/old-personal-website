@@ -3,7 +3,7 @@ import React from 'react'
 const TransitionImage = (props) =>{
     return(
     <div>
-        <h1>{props.text}</h1>
+        <h2>{props.text}</h2>
     </div>
     );
 }

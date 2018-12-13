@@ -3,9 +3,9 @@ import React from 'react'
 const SocialButton = (props) =>{
 
     return(
-        <button >
-            Test
-        </button>
+        <a href={props.href}>
+        <img src={props.img} alt={props.alt}/>
+        </a>
     );
 }
 
