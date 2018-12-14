@@ -1,0 +1,11 @@
+
+.socialButton{
+    display: inline-block;
+    background-size: contain;
+    padding: 2.5em;
+    margin: 0em 2em;
+    border-radius: 5em;
+    opacity:  85%;
+    transition: 0.2s;
+    background-color: lightblue;
+}
