@@ -1,0 +1,42 @@
+
+.transitionImage, .heroImage{
+    width: 100vw;
+    height: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))
+}
+.heroImage{
+    /* hero image */
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../assets/hero-image.jpg");
+
+
+}
+.heroText{
+    
+    font-size: 5em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+}
+
+.HaCImage{
+   
+}
+.transitionImage h2{
+    font-size: 4em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+
+}
