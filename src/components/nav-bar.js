@@ -1,11 +1,23 @@
 import React from "react"
-import NavButton from "./nav-button"
-const NavBar = ()=>{
+import { Link } from "gatsby";
+import styles from '../../css/nav-bar.module.css'
+import classNames from 'classnames'
+const NavBar = (props)=>{
+    const navButtons = {
+        "Home" : "/",
+        "About Me" : "/about-me",
+        "Blog" : "/blog"
+    };
+   
     return (
-        <nav> 
-            <NavButton to="/"> Home </NavButton>
-            <NavButton to="/about-me"> About Me </NavButton>
-            <NavButton to= "/blog/"> Blog </NavButton>
+        <nav className={styles.navBar}> 
+            {
+            Object.entries(navButtons).map(
+            ([key, value]) =>  (<Link 
+                className= {classNames(styles.navButton, (props.page===key)? styles.selectedNavButton : null)}
+                 to={value}> {key}</Link>)
+            )
+            }
         </nav>
     );
 

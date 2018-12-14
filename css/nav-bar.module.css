@@ -1,0 +1,34 @@
+.navBar{
+    display: flex;
+    flex-wrap: nowrap;
+    width : 100vw;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+
+
+
+}
+.navButton{
+    margin: 0;
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    padding: 1em;
+    text-align: center;
+    border : solid 2px black;
+
+    transition:0.2s;
+}
+
+
+
+.navButton:hover{
+    background-color: rgb(66, 66, 66);
+}
+
+.selectedNavButton{
+    border-bottom: solid white 4px;
+}
