@@ -15,7 +15,7 @@ const Workshops = ()=>{
         }
     };
     const IntroDeepLearn2 =  {
-        'title':"Computer Vision",
+        'title':"Convolutional Neural Networks ",
         'img':{
             'href': "https://www.youtube.com/watch?v=bqPfxwrCBUk", 
             'src':"",
@@ -27,7 +27,7 @@ const Workshops = ()=>{
         }
     };
         const IntroDeepLearn3 =  {
-            'title':"Natural Language Processing",
+            'title':"Recurrent Neural Networks",
             'img':{
                 'href': "", 
                 'src':"",
@@ -42,8 +42,8 @@ const Workshops = ()=>{
         <div>
             <h2>Workshops</h2>
             <Card title={IntroDeepLearn1.title} img = {IntroDeepLearn1.img} button={IntroDeepLearn1.button} > An Introduction to Neural Networks and how they learn. </Card>
-            <Card title={IntroDeepLearn2.title} img = {IntroDeepLearn2.img} button={IntroDeepLearn2.button} >The Theory Behind Convolutional Neural Networks </Card>
-            <Card title={IntroDeepLearn3.title} img = {IntroDeepLearn3.img} button={IntroDeepLearn3.button} >The Theory Behind Convolutional Neural Networks </Card>
+            <Card title={IntroDeepLearn2.title} img = {IntroDeepLearn2.img} button={IntroDeepLearn2.button} > Deep learning for Computer Vision</Card>
+            <Card title={IntroDeepLearn3.title} img = {IntroDeepLearn3.img} button={IntroDeepLearn3.button} > Applying Deep Learning to Natural Language Processing </Card>
         </div>
 
     );
