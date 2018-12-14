@@ -1,0 +1,18 @@
+.linkButton{
+    display: inline-block;
+    text-decoration: none;
+    color: #636aff;
+    text-align: center;
+    /* border styling */
+    border-style: solid;
+    border-width: 4px;
+    border-color: #636aff;
+    padding: 0.75em 1em;
+    border-radius: 3em;
+
+}
+
+.linkButton:hover, .linkButton:active{
+    background-color: #636aff;
+    color: white;
+}
