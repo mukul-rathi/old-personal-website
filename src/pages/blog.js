@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 
 const Blog = () => {
     return (
-        <Layout>
+        <Layout page="Blog">
             <h1>Blog </h1>
             <p> This is my blog stub. </p> 
         </Layout>

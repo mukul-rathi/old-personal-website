@@ -5,7 +5,7 @@ import Footer from './footer'
 const Layout = (props)=>{
     return(
         <div> 
-            <NavBar/>
+            <NavBar page = {props.page}/>
             {props.children}
             <Footer/>
         </div>
