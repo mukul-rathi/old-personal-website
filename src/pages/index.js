@@ -7,7 +7,7 @@ import Projects from "../components/homepage-sections/projects";
 
 const Home = () =>{
     return(
-    <Layout>
+    <Layout page="Home">
         <HeroImage/>
         <Education/>
         <WorkExperience/>

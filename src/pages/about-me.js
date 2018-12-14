@@ -8,7 +8,7 @@ import Hackathons from "../components/about-me-sections/hackathons";
 
 const AboutMe = () => {
     return (
-        <Layout>
+        <Layout page="About Me">
             <WhoAmI/>
             <TransitionImage text="Hackers At Cambridge"/>
             <Hackathons/>
