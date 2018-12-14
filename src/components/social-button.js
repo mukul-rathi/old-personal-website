@@ -1,5 +1,5 @@
 import React from 'react'
-import classNames from 'classNames'
+import classNames from 'classnames'
 import styles from '../../css/social-button.module.css'
 const SocialButton = (props) =>{
     return(
