@@ -15,7 +15,7 @@ const Card  = (props) => {
             {props.button &&  <LinkButton href={props.button.href}> {props.button.text} </LinkButton>}
             
             <TextContent>
-                {props.children}
+                {props.description}
             </TextContent>
         </div>
     );
