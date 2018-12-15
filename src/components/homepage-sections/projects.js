@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../card';
+import styles from '../../../css/grids.module.css'
 
 const Projects = ()=>{
     const CambridgeGameGigHack = {
@@ -27,8 +28,9 @@ const Projects = ()=>{
         }
     };
     return(
-        <div>
-            <h1>Projects</h1> 
+        <div className={styles.projects}>
+            <h1 className={styles.sectionHeading}>Projects</h1> 
+            <div className={styles.cards}>
             <Card img={CambridgeGameGigHack.img} title={CambridgeGameGigHack.title}>
                 This was a horizontal shooter game designed at the Cambridge GameGig 2017 Hackathon using Lua and the Love platform.  
             </Card>
@@ -47,6 +49,7 @@ const Projects = ()=>{
                     I used TensorFlow to train the neural network that used patient data to classify the type of cardiac arrhythmia.
                 </p>
             </Card>
+            </div>
         </div>
 
     );
