@@ -1,5 +1,6 @@
 import React from 'react'
 import SocialButton from './social-button';
+//eslint-disable-next-line
 import styles from '../../css/footer.module.css'
 const Footer = ()=>{
     return(
