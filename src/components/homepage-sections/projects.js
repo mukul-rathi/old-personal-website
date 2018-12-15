@@ -1,4 +1,6 @@
 import GridCards from '../grid-cards';
+import React from 'react'
+import styles from '../../../css/section.module.css'
 
 const Projects = ()=>{
     const gridProps = {
@@ -35,7 +37,9 @@ const Projects = ()=>{
         }
     };
     return(
-       GridCards(gridProps)
+        <div className={styles.section}>
+       {GridCards(gridProps)}
+       </div>
     );
 
 

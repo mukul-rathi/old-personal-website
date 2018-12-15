@@ -1,5 +1,6 @@
 import React from 'react'
 import Event from '../event';
+import styles from '../../../css/section.module.css'
 
 const Education = ()=>{
     const BatchDegree = {
@@ -13,7 +14,7 @@ const Education = ()=>{
         'educationLevel': "GCSEs and A Levels"
     }
     return(
-        <div >
+        <div class={styles.section}>
             <h2>Education</h2>
             <Event date={BatchDegree.date} location={BatchDegree.location} role={BatchDegree.educationLevel}>
             <ul>

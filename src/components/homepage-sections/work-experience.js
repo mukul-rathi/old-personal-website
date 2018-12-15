@@ -1,5 +1,6 @@
 import React from 'react'
 import Event from '../event';
+import styles from '../../../css/section.module.css'
 
 const WorkExperience = ()=>{
     const JazzNetworks = {
@@ -13,7 +14,7 @@ const WorkExperience = ()=>{
         'role': "Deep Learning Research Intern"
     };
     return(
-        <div>
+        <div className={styles.section}>
             <h2>Experience</h2>
             <Event date={JazzNetworks.date} location={JazzNetworks.location} role={JazzNetworks.role}>
             Worked in the Machine Learning team using a beta-VAE for unsupervised clustering techniques.
