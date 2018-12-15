@@ -1,5 +1,6 @@
 import React from 'react'
 import Card from '../card';
+import styles from '../../../css/grids.module.css'
 
 const Workshops = ()=>{
     const IntroDeepLearn1 =  {
@@ -40,10 +41,12 @@ const Workshops = ()=>{
     };
     return(
         <div>
-            <h2>Workshops</h2>
-            <Card title={IntroDeepLearn1.title} img = {IntroDeepLearn1.img} button={IntroDeepLearn1.button} > An Introduction to Neural Networks and how they learn. </Card>
-            <Card title={IntroDeepLearn2.title} img = {IntroDeepLearn2.img} button={IntroDeepLearn2.button} > Deep learning for Computer Vision</Card>
-            <Card title={IntroDeepLearn3.title} img = {IntroDeepLearn3.img} button={IntroDeepLearn3.button} > Applying Deep Learning to Natural Language Processing </Card>
+            <h2 className={styles.sectionHeading} >Workshops</h2>
+            <div className={styles.cards}>
+                <Card title={IntroDeepLearn1.title} img = {IntroDeepLearn1.img} button={IntroDeepLearn1.button} > An Introduction to Neural Networks and how they learn. </Card>
+                <Card title={IntroDeepLearn2.title} img = {IntroDeepLearn2.img} button={IntroDeepLearn2.button} > Deep learning for Computer Vision</Card>
+                <Card title={IntroDeepLearn3.title} img = {IntroDeepLearn3.img} button={IntroDeepLearn3.button} > Applying Deep Learning to Natural Language Processing </Card>
+            </div>
         </div>
 
     );
