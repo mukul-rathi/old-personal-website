@@ -1,10 +1,10 @@
 import React from 'react'
 import TextContent from '../text-content';
-
+import styles from '../../../css/who-am-I.module.css'
 const WhoAmI = ()=>{
     return(
-        <div>
-            <h1>About Me</h1>
+        <div className={styles.whoAmI}>
+            <h1 className={styles.mainHeading}>About Me</h1>
             <TextContent>
             <p>
                 Hey there! Welcome to my personal website! A bit about me - I'm a second year Computer Science student at the University of Cambridge with an interest in all things deep learning! 
@@ -17,7 +17,7 @@ const WhoAmI = ()=>{
                 As Workshop Overseer, I organise and coordinate student-run workshops on different areas of computer science, some of which I present myself. As Events Overseer, I am responsible for leading the organisation of the weekly HaC nights, as well as the hackathons held at the end of each term.
             </p>
             </TextContent>
-            <img alt="Mukul Rathi"/>
+            <img className={styles.profilePic} alt="Mukul Rathi"/>
         </div>
 
     );
