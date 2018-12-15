@@ -2,3 +2,8 @@
     padding: 0.5em 1em;
     background: #eeee;
 }
+.section > h2{
+    font-family: 'Oswald';
+    font-size: 2.5em;
+    text-align: center;
+}
