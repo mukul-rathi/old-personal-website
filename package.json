@@ -11,6 +11,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "gatsby": "^2.0.33",
+    "gatsby-plugin-google-fonts": "0.0.4",
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   }
