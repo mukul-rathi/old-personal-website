@@ -13,7 +13,7 @@ const Education = ()=>{
         'educationLevel': "GCSEs and A Levels"
     }
     return(
-        <div>
+        <div >
             <h2>Education</h2>
             <Event date={BatchDegree.date} location={BatchDegree.location} role={BatchDegree.educationLevel}>
             <ul>
