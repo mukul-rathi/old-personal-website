@@ -6,7 +6,7 @@ const Hackathons = ()=>{
     const gridProps = {
         'GreenHack': {
             'title':"GreenHack",
-            'icon':{
+            'img':{
                 'href': "https://greenhack.hackersatcambridge.com/", 
                 'src':"",
                 'alt': "GreenHack Logo"
@@ -20,9 +20,9 @@ const Hackathons = ()=>{
 
         'GameGig': {
             'title': "Cambridge Game Gig 2018",
-            'icon':{
+            'button':{
                 'href': "https://game-gig-one-button.netlify.com/", 
-                'img': "GameGig Logo"
+                'text': "GameGig Website"
             },
             'description':"Lead Organiser of GameGig: responsibilities including liasing with sponsors, booking venue and running and judging event on day"
         }
