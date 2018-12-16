@@ -6,3 +6,8 @@ footer{
     align-items: center;
     text-align: center;
 }
+.copyrightText{
+    margin-top: 2.5em;
+    color: white;
+    font-size: 18px;
+}
