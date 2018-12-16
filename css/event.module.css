@@ -16,10 +16,17 @@
 }
 .metaData{
     padding: 1em;
-    margin:0;
+    margin:0.5em;
 }
 
 .metaData > .date {
     position: top;
     font-family: 'Roboto';
+    font-size: 18px;
+}
+
+.metaData > img{
+    display: block;
+    width: 100%;
+    max-width: 5em;
 }
