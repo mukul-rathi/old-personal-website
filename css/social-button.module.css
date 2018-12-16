@@ -1,11 +1,36 @@
 
 .socialButton{
     display: inline-block;
-    background-size: contain;
-    padding: 2.5em;
-    margin: 0em 2em;
-    border-radius: 5em;
-    opacity:  85%;
+    margin: 0em 1.5em;
     transition: 0.2s;
-    background-color: lightblue;
+    border-radius: 90%;
+    width: 5em;
+    transition: 0.2;
+    background-color: black;
+    fill: white;
+    padding: 0.25em;
+    padding-bottom: 0em;
+}
+
+.socialButton:hover{
+    transform: scale(1.1);
+}
+
+.linkedIn:hover{
+    fill: #0077B5;
+    background-color: white;
+}
+
+.github:hover{
+    background-color: #6e5494;
+}
+
+.rss:hover{
+    fill : #ee802f;
+    background-color: white;
+}
+
+.youtube:hover{
+    background-color: red;
+    fill: white;
 }

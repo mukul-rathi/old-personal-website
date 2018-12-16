@@ -10,8 +10,7 @@ const Card  = (props) => {
     return(
         <div className={styles.card}>
             <h3> {props.title}</h3>
-            {props.img && <SocialButton href={props.img.href} img={props.img.src} alt={props.img.alt}/> }
-            
+            {props.icon &&<SocialButton img={props.icon.img} href={props.icon.href}/>}
             {props.button &&  <LinkButton href={props.button.href}> {props.button.text} </LinkButton>}
             
             <TextContent>

@@ -6,10 +6,9 @@ const Workshops = ()=>{
     const gridProps = {
         'IntroDeepLearn1': {
             'title':"Intro to Neural Networks",
-            'img':{
+            'icon':{
                 'href':"https://www.youtube.com/watch?v=84iCkb7hqKs", 
-                'src':"",
-                'alt': "YouTube Link to Workshop Recording"
+                'img': "youtube"
             },
             'button':{
                 'href':"https://hackersatcambridge.com/workshops/deep-learning",
@@ -19,10 +18,9 @@ const Workshops = ()=>{
         },
         'IntroDeepLearn2': {
             'title':"Convolutional Neural Networks ",
-            'img':{
+            'icon':{
                 'href': "https://www.youtube.com/watch?v=bqPfxwrCBUk", 
-                'src':"",
-                'alt': "YouTube Link to Workshop Recording"
+                'img': 'youtube'
             },
             'button':{
                 'href':"https://hackersatcambridge.com/workshops/deep-learning",
@@ -32,10 +30,9 @@ const Workshops = ()=>{
         },
         'IntroDeepLearn3': {
             'title':"Recurrent Neural Networks",
-            'img':{
+            'icon':{
                 'href': "", 
-                'src':"",
-                'alt': "YouTube Link to Workshop Recording"
+                'img': 'youtube'
             },
             'button':{
                 'href':"https://hackersatcambridge.com/workshops/deep-learning",
