@@ -6,8 +6,8 @@ const Footer = ()=>{
     return(
         <footer>
             <div>
-            <SocialButton href="feed.xml" alt="RSS"/> <SocialButton href="https://www.linkedin.com/in/mukul-rathi-17230014a/" alt="LinkedIn"/>
-            <SocialButton href="http://github.com/mukul-rathi" alt="GitHub"/>
+            <SocialButton img='rss' href="feed.xml"/> <SocialButton href="https://www.linkedin.com/in/mukul-rathi-17230014a/" img="linkedIn"/>
+            <SocialButton img='github' href="http://github.com/mukul-rathi" />
             </div>
         </footer>
 
