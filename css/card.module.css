@@ -8,3 +8,9 @@
     box-shadow: 0 14px 10px 0 hsla(0,0%,0%,0.2);
 
   }
+
+.card > h3{
+    font-family: 'Roboto';
+    font-weight: 900;
+    font-size: 19px;
+}
