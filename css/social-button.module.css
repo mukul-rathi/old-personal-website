@@ -16,6 +16,9 @@
     transform: scale(1.1);
     filter: brightness(120%);
 }
+.socialButton:active{
+    transform: scale(0.9);
+}
 
 .linkedIn{
     fill: #0077B5;
