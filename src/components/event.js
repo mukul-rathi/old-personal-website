@@ -9,8 +9,8 @@ const Event = (props) =>{
                 <img src={props.logo} alt="event-logo"></img>
             </div>
             <div className={styles.mainContent}>
-                <h3> {props.location} </h3>
-                <h3> {props.role}</h3>
+                <h3 className={styles.location}> {props.location} </h3>
+                <h3 className={styles.role}> {props.role}</h3>
                 <TextContent>
                    {props.children}
                 </TextContent>
