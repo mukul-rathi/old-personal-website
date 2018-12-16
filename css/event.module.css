@@ -36,6 +36,8 @@
 }
 
 .metaData > .date {
+    margin-top: 0em;
+    padding-top: 0em;
     position: top;
     color: #003366;
     font-family: 'Roboto';
