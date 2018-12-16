@@ -1,7 +1,7 @@
 
 .socialButton{
     display: inline-block;
-    margin: 0em 1.5em;
+    margin: 0.5em 1.5em;
     transition: 0.2s;
     border-radius: 90%;
     width: 5em;
@@ -14,6 +14,7 @@
 
 .socialButton:hover{
     transform: scale(1.1);
+    filter: brightness(120%);
 }
 
 .linkedIn:hover{
@@ -23,6 +24,7 @@
 
 .github:hover{
     background-color: #6e5494;
+    fill: white;
 }
 
 .rss:hover{

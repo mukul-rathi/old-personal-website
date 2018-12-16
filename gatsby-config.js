@@ -3,7 +3,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: ['Oswald', 'Open Sans', 'Montserrat', 'Roboto', 'Raleway'
+        fonts: ['Oswald', 'Roboto', 'Open Sans', 'Montserrat', 'Raleway', 'PT Sans'
         ]
       }
     }
