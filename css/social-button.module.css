@@ -17,22 +17,32 @@
     filter: brightness(120%);
 }
 
-.linkedIn:hover{
+.linkedIn{
     fill: #0077B5;
     background-color: white;
 }
 
-.github:hover{
+.github{
     background-color: #6e5494;
     fill: white;
 }
 
-.rss:hover{
+.rss{
     fill : #ee802f;
     background-color: white;
 }
 
-.youtube:hover{
+.youtube{
     background-color: red;
     fill: white;
+}
+
+.facebook{
+    background-color: white;
+    fill: #4267b2; 
+}
+
+.twitter{
+    background-color: white;
+    fill: #38A1F3; 
 }
