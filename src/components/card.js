@@ -34,7 +34,7 @@ const Card  = (props) => {
     return(
     <div className={styles.card}>
         <div className={styles.mainImage}>
-            { props.img && <img src={OpenMined} alt={props.img.alt}/>}
+            { props.img && <img src={props.img.src} alt={props.img.alt}/>}
         </div>
         <div className={styles.metaData}>
             <h4 className={styles.category}>{props.category}</h4>
@@ -47,8 +47,8 @@ const Card  = (props) => {
           {props.link1 &&  <LinkButton href={props.link1.href}>{props.link1.text}</LinkButton>}
             { props.link2 &&  <LinkButton href={props.link2.href}>{props.link2.text}</LinkButton>}
           </div>
-          <div  className={styles.socialButton}>
-        { props.socialButton && SocialButton(props.socialButton) }
+          <div  className={styles.socialButtonDiv}>
+        { props.socialButton && <SocialButton img={props.socialButton.img} href={props.socialButton.href} className={styles.socialButton}/>}
          </div>
      </div>
     );

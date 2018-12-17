@@ -33,7 +33,7 @@ const SocialButton = (props) =>{
             icon = null;
     }
     return(
-        <a href={props.href} className ={classNames(styles.socialButton, buttonClass)}>
+        <a href={props.href} className ={classNames(styles.socialButton, buttonClass, props.className)}>
         {icon}
         </a>
     );
