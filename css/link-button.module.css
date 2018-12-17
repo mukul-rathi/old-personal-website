@@ -1,15 +1,16 @@
 .linkButton{
     display: inline-block;
+    font-family: 'Roboto';
+    font-size: 14px;
     text-decoration: none;
-    color: #636aff;
+    color: darkred;
     text-align: center;
+    text-transform: uppercase;
     /* border styling */
-    border-style: solid;
     border-width: 4px;
-    border-color: #636aff;
     padding: 0.75em 1em;
     border-radius: 3em;
-
+    margin : 0.5em;
 }
 
 .linkButton:hover, .linkButton:active{
