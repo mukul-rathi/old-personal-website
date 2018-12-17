@@ -2,7 +2,6 @@ import React from 'react'
 import SocialButton from './social-button';
 import LinkButton from './link-button';
 import styles from '../../css/card.module.css'
-import OpenMined from '../../assets/hero-image.jpg'
 
 const Card  = (props) => {
     //display social/link button only if defined
