@@ -2,7 +2,7 @@
 .socialButton{
     display: inline-block;
     margin: 0.25em 0.5em 0.25em 0.5em;
-    transition: 0.2s;
+    transition: 0.3s ease;
     border-radius: 50%;
     width: 5em;
     transition: 0.2;
