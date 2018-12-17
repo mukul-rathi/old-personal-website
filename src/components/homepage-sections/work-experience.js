@@ -8,12 +8,12 @@ import JazzLogo from '../../../assets/logos/jazz-networks.jpg'
 
 const WorkExperience = ()=>{
     const JazzNetworks = {
-        'date' : "July - September 2018",
+        'date' : "July-September 2018",
         'location': "Jazz Networks",
         'role': "Software Engineer Intern"
     };
     const CompVision = {
-        'date' : "July - August 2016",
+        'date' : "July-August 2016",
         'location': "Computer Vision Laboratory, University of Nottingham",
         'role': "Deep Learning Research Intern"
     };

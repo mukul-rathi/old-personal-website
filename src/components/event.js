@@ -1,5 +1,4 @@
 import React from 'react'
-import TextContent from './text-content';
 import styles from '../../css/event.module.css'
 const Event = (props) =>{
     return(
@@ -9,11 +8,13 @@ const Event = (props) =>{
                 <img src={props.logo} alt="event-logo"></img>
             </div>
             <div className={styles.mainContent}>
+                <div className={styles.headings}>
                 <h3 className={styles.location}> {props.location} </h3>
                 <h3 className={styles.role}> {props.role}</h3>
-                <TextContent>
+                </div>
+                <div className={styles.description}>
                    {props.children}
-                </TextContent>
+                </div>
             </div>
         </div>
     );

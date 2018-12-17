@@ -30,3 +30,15 @@
     color: rgba(255,255,255,0.85);
     border-bottom: solid white 4px;
 }
+
+
+
+@media screen and (max-width: 768px) {
+    .navBar{
+        justify-content: space-evenly;
+
+    }
+    .navButton{
+        flex-basis: 1;
+    }
+}

@@ -8,14 +8,11 @@
 }
 
 .mainContent{
-    margin: 0.5em;
+    margin: 0em 0em 0em 0.5em;
     font-size:  16px;
 
 }
 
-.mainContent>li{
-    background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M22 24h-17c-1.657 0-3-1.343-3-3v-18c0-1.657 1.343-3 3-3h17v24zm-2-4h-14.505c-1.375 0-1.375 2 0 2h14.505v-2zm0-18h-3v9l-2-1.547-2 1.547v-9h-8v16h15v-16z"/></svg>');
-}
 
 .location{
     font-family: 'Raleway';
@@ -48,4 +45,25 @@
     display: block;
     width: 100%;
     max-width: 5em;
+}
+
+.description{
+    font-family: 'Raleway';
+}
+@media screen and (max-width: 400px) {
+    .metaData{
+        padding: 0em;
+        margin: 0em;
+    }
+    .mainContent{
+        margin: 0em;
+        padding:0em;
+    }
+    .headings{
+        margin: 0em 0em 0.5em 1em;
+        padding: 0em;
+    }
+   .description{
+       margin:0.5em 0em 0em 0.5em;
+   }
 }
