@@ -1,5 +1,4 @@
-
-.transitionImage{
+.heroImage{
     width: 100vw;
     height: 50vw;
     display: flex;
@@ -7,20 +6,19 @@
     align-items: center;
     text-align: center;
     color: white;
-
+    /* hero image */
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))
-}
-
-.HaCImage{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../assets/hac-image.jpg");
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../assets/hero-image.jpg");
 
 }
-.transitionImage h2{
+.heroText{
+    
     font-family: 'PT Sans';
-    font-size: 60px;
+    font-size: 80px;
     margin-bottom: 1em;
     text-transform: uppercase;
     letter-spacing: 3px;

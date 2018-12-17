@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialButton from '../social-button'
-import styles from '../../../css/transition-image.module.css'
+import styles from '../../../css/hero-image.module.css'
 
 const HeroImage = () =>{
     return(
