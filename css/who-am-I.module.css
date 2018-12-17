@@ -9,8 +9,8 @@
     padding: 1em 0em;
     margin-top: 0;
     margin-bottom: 1em;
-    font-family: "Open Sans",arial,sans-serif;
-    font-size: 40px;
+    font-family: "Lato",arial,sans-serif;
+    font-size: 48px;
     font-weight: 300;
     width:65%;
 }
@@ -23,7 +23,7 @@
     margin: 1em;
 }
 .description{
-    font-family: 'Raleway';
+    font-family: 'Open Sans';
     margin: 1em;
     display: inline;
 }

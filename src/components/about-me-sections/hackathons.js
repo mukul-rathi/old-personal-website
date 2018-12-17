@@ -32,14 +32,6 @@ const Hackathons = ()=>{
         },
         'GameGig': {
             'title': "Cambridge Game Gig 2018",
-            'button':{
-                'href': "https://game-gig-one-button.netlify.com/", 
-                'text': "GameGig Website"
-            },
-            'description':""
-        },
-        'GameGig': {
-            'title': "Cambridge Game Gig 2018",
             'img':{
                 'src': GameGigImg,
                 'alt': "Game Gig Logo"
