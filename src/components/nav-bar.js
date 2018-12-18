@@ -15,7 +15,7 @@ const NavBar = (props)=>{
             Object.entries(navButtons).map(
             ([key, value]) =>  (<Link 
                 className= {classNames(styles.navButton, (props.page===key)? styles.selectedNavButton : null)}
-                 to={value}> {key}</Link>)
+                 to={value} key={key}> {key}</Link>)
             )
             }
         </nav>
