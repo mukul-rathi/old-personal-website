@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-hello-world",
-  "description": "Gatsby hello world starter",
+  "name": "Mukul's Personal Website",
+  "description": "Mukul's personal website, powered by React, Gatsby and Graphql",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
@@ -10,8 +10,11 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
+    "dateformat": "^3.0.3",
     "gatsby": "^2.0.33",
     "gatsby-plugin-google-fonts": "0.0.4",
+    "gatsby-source-filesystem": "^2.0.12",
+    "gatsby-transformer-remark": "^2.1.17",
     "react": "^16.5.1",
     "react-dom": "^16.5.1"
   }
