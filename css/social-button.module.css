@@ -49,3 +49,12 @@
     background-color: white;
     fill: #38A1F3; 
 }
+
+.share{
+    background-color : white;
+    fill: #3D8DFF;
+}
+
+.share:active{
+    transform: rotate(360deg);
+}
