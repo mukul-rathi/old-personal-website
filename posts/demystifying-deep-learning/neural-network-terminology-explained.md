@@ -2,12 +2,13 @@
 series: Demystifying Deep Learning 
 part: Part 1
 title: What is a neural network?
-layout: default
 comments: true
 date:   2018-07-28 11:00:00
 excerpt: There are a lot of different neural networks out there. We start the series by breaking down commonly used terminology.
 image: "/assets/blog/WhatIsNeuralNet/neuralnetworks.png"
 caption: A variety of neural network architectures
+
+redirect_from: /2018/07/28/WhatIsNeuralNet.html
 ---
 ## Introduction
 

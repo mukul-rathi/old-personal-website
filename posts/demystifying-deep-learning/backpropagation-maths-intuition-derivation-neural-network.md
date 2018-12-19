@@ -2,12 +2,13 @@
 series: Demystifying Deep Learning 
 part: Part 5
 title: Backpropagation
-layout: default
 comments: true
 date:   2018-08-31 13:00:00
 excerpt: The magic sauce behind neural networks - how they learn!
 image: "/assets/blog/Backpropagation/backprop.png"
-caption: Backpropagation in a feedforward neural network - <em>credit 3blue1brown</em>
+caption: Backpropagation in a feedforward neural network - credit 3blue1brown
+
+redirect_from: /2018/08/31/Backpropagation.html
 ---
 
 This may be the **most important** post in the series, and also the most overlooked, both for the same reason - this is where the maths gets *interesting*! It is important to get to grips with it when looking at deep learning algorithms - although later you may never have to implement it manually,thanks to the power of deep learning frameworks, understanding it is *crucial* when debugging your model.

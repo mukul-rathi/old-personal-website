@@ -1,9 +1,10 @@
 ---
 title: Demystifying Deep Learning Primer
-layout: default
+part: Part 0
 comments: true
 date:   2018-07-25 10:00:00
 excerpt: Motivation for the series.
+redirect_from: /2018/07/25/DemystifyingDeepLearningPrimer.html
 ---
 
 ## Why bother with the maths behind deep learning?

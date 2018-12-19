@@ -2,12 +2,13 @@
 series: Demystifying Deep Learning 
 part: Part 10
 title: Recurrent Neural Networks 
-layout: default
 comments: true
 date:  2018-09-17 10:00:00
 excerpt: Neural networks optimised for NLP and sequences - the RNN, GRU and LSTM networks
 image: /assets/blog/RecurrentNet/rnn.png
-caption: A Recurrent Neural Net <em> Image Credit - Chris Olah </em>
+caption: A Recurrent Neural Net Image Credit - Chris Olah
+
+redirect_from: /2018/09/17/RecurrentNet.html
 ---
 
 We move onto the next neural network architecture - the **recurrent neural network**, used for tasks where the input is a sequence. 

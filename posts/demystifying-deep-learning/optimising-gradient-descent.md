@@ -2,12 +2,13 @@
 series: Demystifying Deep Learning 
 part: Part 6
 title: Optimising Learning 
-layout: default
 comments: true
 date:  2018-09-01 06:00:00
-excerpt: How we can make gradient descent even <em>better.</em>
+excerpt: How we can make gradient descent even better.
 image: "/assets/blog/OptimisingLearning/optimizers.gif"
 caption: Different optimisers that improve on Gradient Descent
+
+redirect_from: /2018/09/01/OptimisingGradDescent.html
 ---
 
 ## Improving Gradient Descent
