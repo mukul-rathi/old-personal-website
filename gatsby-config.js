@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `Mukul's Blog`,
+    description: `Mukul Rathi's personal website and blog`,
+    siteUrl: `https://www.mukul-rathi.github.io`
+    },
     plugins: [
       {
         resolve: `gatsby-source-filesystem`,
@@ -13,6 +18,9 @@ module.exports = {
           name: `assets`,
           path: `${__dirname}/assets/`
         }
+      },
+      {
+        resolve: `gatsby-plugin-feed`
       },
       `gatsby-transformer-remark`,
       `gatsby-transformer-sharp`, 
