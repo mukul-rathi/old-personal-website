@@ -13,7 +13,8 @@ function blogProps(props){
     return ({
         'title': frontmatter.title,
         'img': {
-            'src': frontmatter.img,
+            'fluid': frontmatter.image.childImageSharp.fluid,
+            'src': frontmatter.image,
             'alt': frontmatter.caption
         },
         'date': formatDate(frontmatter.date),

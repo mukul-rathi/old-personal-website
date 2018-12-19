@@ -5,6 +5,9 @@ module.exports = {
     siteUrl: `https://www.mukul-rathi.github.io`
     },
     plugins: [
+      `gatsby-transformer-remark`,
+      `gatsby-transformer-sharp`, 
+      `gatsby-plugin-sharp`,
       {
         resolve: `gatsby-source-filesystem`,
         options: {
@@ -31,9 +34,7 @@ module.exports = {
           head: false,
         },
       },
-      `gatsby-transformer-remark`,
-      `gatsby-transformer-sharp`, 
-      `gatsby-plugin-sharp`,
+      
       {
         resolve: `gatsby-transformer-remark`,
         options: {
