@@ -1,8 +1,7 @@
 ---
 series: Demystifying Deep Learning 
-part: Part 3
+part: 3
 title: Learning Through Gradient Descent
-comments: true
 date:   2018-08-03 13:00:00
 excerpt: Diving into how machine learning algorithms "learn" 
 image: "/assets/blog/GradDescent/grad-descent.png"

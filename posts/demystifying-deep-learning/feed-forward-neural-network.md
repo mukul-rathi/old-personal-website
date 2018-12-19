@@ -1,8 +1,7 @@
 ---
 series: Demystifying Deep Learning 
-part: Part 4
+part: 4
 title: FeedForward Neural Networks
-comments: true
 date:   2018-08-29 13:00:00
 excerpt: Designing our first neural network!
 image: "/assets/blog/FeedForwardNeuralNet/neural-net.png"

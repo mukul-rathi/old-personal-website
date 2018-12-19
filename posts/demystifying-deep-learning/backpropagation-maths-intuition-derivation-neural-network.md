@@ -1,8 +1,7 @@
 ---
 series: Demystifying Deep Learning 
-part: Part 5
+part: 5
 title: Backpropagation
-comments: true
 date:   2018-08-31 13:00:00
 excerpt: The magic sauce behind neural networks - how they learn!
 image: "/assets/blog/Backpropagation/backprop.png"

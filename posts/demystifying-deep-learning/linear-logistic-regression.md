@@ -1,8 +1,7 @@
 ---
 series: Demystifying Deep Learning 
-part: Part 2
+part: 2
 title: Linear and Logistic Regression
-comments: true
 date:   2018-07-29 12:00:00
 excerpt: We get our hands dirty with our first machine learning algorithms!
 image: "/assets/blog/LinLogRegression/straight-line.png"

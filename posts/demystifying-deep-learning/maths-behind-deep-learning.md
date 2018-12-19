@@ -1,7 +1,7 @@
 ---
+series: Demystifying Deep Learning 
 title: Demystifying Deep Learning Primer
-part: Part 0
-comments: true
+part: 0
 date:   2018-07-25 10:00:00
 excerpt: Motivation for the series.
 redirect_from: /2018/07/25/DemystifyingDeepLearningPrimer.html
