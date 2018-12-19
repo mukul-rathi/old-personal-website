@@ -53,7 +53,7 @@ const Hackathons = ()=>{
     return(
         <div className={styles.section}>
             <h2>Hackathons</h2> 
-            {GridCards(gridProps)}
+            {<GridCards {...gridProps}/>}
        </div>
     );
 

@@ -60,7 +60,7 @@ const Projects = ()=>{
     return(
         <div className={styles.section}>
             <h2>Projects</h2> 
-            {GridCards(gridProps)}
+            {<GridCards {...gridProps}/>}
        </div>
     );
 
