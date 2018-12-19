@@ -6,7 +6,7 @@ const GridCards = (props)=>{
     return(
 
             <div className={styles.cards}>
-               { Object.values(props).map(cardProps => Card(cardProps))
+               { Object.values(props).map(cardProps => <Card {...cardProps} key={cardProps.title}/>)
                }
             </div>
 
