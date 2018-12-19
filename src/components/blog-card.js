@@ -1,14 +1,6 @@
 import Card from "../components/card";
 import React from 'react'
 
-function formatPath(absolutePath){
-    //input = /Users/...../..../yyyy-mm-dd-title.md
-    var splitPath = absolutePath.split("/");
-    var path = splitPath[splitPath.length-1].split(".")[0]
-    //path = yyyy-mm-dd-title
-    return path.replace(/-/g,"/");
-
-}
 
 function formatDate(date){
     let dateFormat = require('dateformat');
@@ -17,7 +9,7 @@ function formatDate(date){
 }
 
 function blogProps(node){
-    var {fileAbsolutePath, frontmatter} = node;
+    var {fields, frontmatter} = node;
     return ({
         'title': frontmatter.title,
         'img': {
@@ -27,7 +19,7 @@ function blogProps(node){
         'date': formatDate(frontmatter.date),
         'category':frontmatter.series,
         'link1':{
-            'href': formatPath(fileAbsolutePath),
+            'href': fields.slug,
             'text' : "Read More"
         },
         'socialButton': {
