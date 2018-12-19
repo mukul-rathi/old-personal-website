@@ -55,7 +55,7 @@ const Workshops = ()=>{
     return(
         <div className={styles.section}>
             <h2>Workshops</h2> 
-            {GridCards(gridProps)}
+            {<GridCards {...gridProps}/>}
         </div>
     
     );
