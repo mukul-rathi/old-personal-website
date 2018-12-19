@@ -22,6 +22,15 @@ module.exports = {
       {
         resolve: `gatsby-plugin-feed`
       },
+      {
+        resolve: `gatsby-plugin-gtag`,
+        options: {
+          // your google analytics tracking id
+          trackingId: `UA-124576029-2`,
+          // Puts tracking script in the head instead of the body
+          head: false,
+        },
+      },
       `gatsby-transformer-remark`,
       `gatsby-transformer-sharp`, 
       `gatsby-plugin-sharp`,
