@@ -3,7 +3,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import styles from '../../css/blog-post.module.css'
 import { Helmet } from "react-helmet"
-require(`katex/dist/katex.min.css`)
+
+require("katex/dist/katex.min.css")
+require("prismjs/themes/prism.css")
 
  const BlogPost = ({ data }) => {
 
