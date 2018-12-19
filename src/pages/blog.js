@@ -25,14 +25,14 @@ query{
         ){
         edges{
         node{
-          fileAbsolutePath
+          fields{
+              slug
+          }
           frontmatter {
             title
-            layout
             comments
             date
             excerpt
-            _PARENT
             series
             part
             image
