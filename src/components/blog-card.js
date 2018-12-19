@@ -1,4 +1,5 @@
 import Card from "../components/card";
+import React from 'react'
 
 function formatPath(absolutePath){
     //input = /Users/...../..../yyyy-mm-dd-title.md
@@ -38,7 +39,7 @@ function blogProps(node){
 
 const BlogCard = (props) => {
     return(
-        Card(blogProps(props))
+        <Card {...blogProps(props)} key={props.frontmatter.title}/>
     );
 }
 
