@@ -2,17 +2,20 @@ import React from "react";
 import Layout from "../components/layout";
 import { graphql } from "gatsby"
 import BlogCard from "../components/blog-card";
-
+import BlogDescription from "../components/blog-description";
+import styles from '../../css/blog.module.css'
 
 const Blog = ({data}) => {
     return (
-        <Layout page="Blog">
+     <Layout page="Blog">
+         <div className={styles.blog}>
             <h1>Blog </h1>
-            <p> This is my blog stub. </p> 
+            <BlogDescription className={styles.description}/> 
             {data.allMarkdownRemark.edges.map(({ node }, index) => (
-                BlogCard(node)
+                <BlogCard {...node} key={index} className={styles.blogCard}/>
             ))}
-        </Layout>
+        </div>
+     </Layout>
     );
 }
 
@@ -30,7 +33,6 @@ query{
           }
           frontmatter {
             title
-            comments
             date
             excerpt
             series

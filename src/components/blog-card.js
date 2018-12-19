@@ -8,8 +8,8 @@ function formatDate(date){
     
 }
 
-function blogProps(node){
-    var {fields, frontmatter} = node;
+function blogProps(props){
+    var {fields, frontmatter, className} = props;
     return ({
         'title': frontmatter.title,
         'img': {
@@ -25,7 +25,8 @@ function blogProps(node){
         'socialButton': {
             'img': "share"
         }, 
-        'description': frontmatter.excerpt
+        'description': frontmatter.excerpt,
+        'className' : className
     });
 }
 
