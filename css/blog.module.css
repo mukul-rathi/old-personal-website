@@ -1,0 +1,25 @@
+.description{
+    margin-bottom: 5em;
+    font-family: 'Open Sans';
+}
+h1{
+    display: block;
+    padding: 0em;
+    font-family: "Lato",arial,sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+}
+
+.blogCard{
+    margin: 3em 0em;
+}
+
+.blog{
+    max-width: 768px;
+    margin: auto;
+}
+@media screen and (max-width: 768px) {
+    .blog{
+        margin: 3em;
+    }
+}

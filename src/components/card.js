@@ -2,6 +2,7 @@ import React from 'react'
 import SocialButton from './social-button';
 import LinkButton from './link-button';
 import styles from '../../css/card.module.css'
+import classNames from 'classnames'
 
 const Card  = (props) => {
     //display social/link button only if defined
@@ -31,7 +32,7 @@ const Card  = (props) => {
 
 */
     return(
-    <div className={styles.card}>
+    <div className={classNames(styles.card, props.className)}>
         <div className={styles.mainImage}>
             { props.img && <img src={props.img.src} alt={props.img.alt}/>}
         </div>
