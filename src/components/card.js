@@ -3,6 +3,7 @@ import SocialButton from './social-button';
 import LinkButton from './link-button';
 import styles from '../../css/card.module.css'
 import classNames from 'classnames'
+import Img from 'gatsby-image'
 
 const Card  = (props) => {
     //display social/link button only if defined
@@ -33,8 +34,10 @@ const Card  = (props) => {
 */
     return(
     <div className={classNames(styles.card, props.className)}>
-        <div className={styles.mainImage}>
-            { props.img && <img src={props.img.src} alt={props.img.alt}/>}
+        <div className={styles.mainImageDiv}>
+            { props.img && props.img.fluid && <Img fluid={props.img.fluid} className={styles.mainImage}/>}
+            { props.img && props.img.src && <img src={props.img.src} alt={props.img.src} className={styles.mainImage}/>}
+
         </div>
         <div className={styles.metaData}>
             <h4 className={styles.category}>{props.category}</h4>
