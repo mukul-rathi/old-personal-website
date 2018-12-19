@@ -23,6 +23,8 @@ module.exports = {
         fonts: ['Oswald', 'Roboto', 'Open Sans', 'Montserrat', 'Raleway', 'PT Sans', 'Lato'
         ]
       }
-    }
+    },
+    'gatsby-redirect-from',
+    'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ]
 }
