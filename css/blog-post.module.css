@@ -1,0 +1,22 @@
+.blogPost{
+    max-width: 700px;
+    margin: auto;
+}
+.content{
+    margin-bottom: 5em;
+    font-family: 'Open Sans';
+}
+
+.title{
+    display: block;
+    padding: 0em;
+    font-family: "Lato",arial,sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+    .blogPost{
+        margin: 0em 3em;
+    }
+}
