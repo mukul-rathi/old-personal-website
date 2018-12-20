@@ -93,9 +93,11 @@ module.exports = {
       {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: ['Oswald', 'Roboto', 'Open Sans', 'Montserrat', 'Raleway', 'PT Sans', 'Lato'
+        fonts: ['Oswald', 'Roboto', 'Open Sans', 'Raleway', 'PT Sans', 'Lato'
         ]
       }
-    }
+    },
+    'gatsby-redirect-from',
+  'gatsby-plugin-meta-redirect' // make sure this is always the last one
   ]
 }
