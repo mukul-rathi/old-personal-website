@@ -40,6 +40,7 @@ module.exports = {
         options: {
           plugins: [
             `gatsby-remark-katex`,
+            `gatsby-remark-copy-linked-files`,
             {
               resolve: `gatsby-remark-prismjs`,
               options: {
