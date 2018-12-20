@@ -32,6 +32,7 @@
     "gatsby-transformer-sharp": "^2.1.9",
     "katex": "^0.10.0",
     "libvips": "0.0.2",
+    "pngquant-bin": "^5.0.1",
     "prismjs": "^1.15.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
