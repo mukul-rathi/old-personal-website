@@ -10,7 +10,7 @@ const Blog = ({data}) => {
     return (
      <Layout page="Blog">
          <div className={styles.blog}>
-            <h1>Blog </h1>
+            <h1>Hello World - Mukul's Blog! </h1>
             <BlogDescription className={styles.description}/> 
             {data.allMarkdownRemark.edges.map(({ node }, index) => (
                 <BlogCard {...node} key={index} className={styles.blogCard}/>

@@ -2,7 +2,7 @@ import React from 'react'
 const BlogDescription = (props) =>{
     return(
     <div className={props.className}>
-        <p>Welcome to my blog!
+        <p>Welcome to my blog! This is a place where I write about deep learning and all things computer science!
         </p>
         <p>
             I appreciate any feedback on how to improve both the blog posts, and the projects themselves, as well as project extensions worth 
