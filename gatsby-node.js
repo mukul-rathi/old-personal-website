@@ -22,13 +22,21 @@ exports.createPages = ({ graphql, actions }) => {
 
     return new Promise((resolve, reject) => {
         //first query the data using graphQL
+
+        //we sort the files in terms of date created 
+        //we  return the slug and the title
       graphql(`
         {
-          allMarkdownRemark {
+          allMarkdownRemark (
+            sort: {fields: [frontmatter___date], order: ASC}
+            ){
             edges {
               node {
                 fields {
                   slug
+                }
+                frontmatter{
+                  title
                 }
               }
             }
@@ -36,8 +44,10 @@ exports.createPages = ({ graphql, actions }) => {
         }
       `
   ).then(result => {
-    //for each markdown file, create a corresponding page using the blog-posttemplate
-    result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    //for each markdown file, create a corresponding page using the blog-post template
+    let posts = result.data.allMarkdownRemark.edges;
+
+    posts.forEach(({ node }, index) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve(`./src/templates/blog-post.js`),
@@ -45,6 +55,10 @@ exports.createPages = ({ graphql, actions }) => {
             // Data passed to context is available
             // in page queries as GraphQL variables.
             slug: node.fields.slug,
+            //prev and next are the previous and next posts
+            //we queried their title to use in the prev/next buttons in hte blog post template
+            prevPost: index === 0 ? null : posts[index - 1].node,
+            nextPost: index === posts.length - 1 ? null : posts[index + 1].node
           },
         })
       })
