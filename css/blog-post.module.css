@@ -1,4 +1,4 @@
-.blogPost{
+.content, .blogPost{
     max-width: 700px;
     margin: auto;
 }
@@ -14,9 +14,26 @@
     font-size: 48px;
     font-weight: 300;
 }
+.date{
+    display: block;
+    font-family: 'Lato';
+    color: #868686;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 22px;
+    margin-bottom: 2em;
+}
+
+.pageNavigation{
+    display: flex;
+    justify-content: space-between;
+}
 
 @media screen and (max-width: 768px) {
     .blogPost{
         margin: 0em 3em;
+    }
+    .shareBar{
+        position: hidden;
     }
 }
