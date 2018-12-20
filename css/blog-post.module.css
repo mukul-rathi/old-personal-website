@@ -24,6 +24,20 @@
     margin-bottom: 2em;
 }
 
+.series{
+    display: block; 
+    margin-top: 2em;
+    font-family: 'Lato';
+    color: #6202ee;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+
+}
+.series > h2{
+    display: inline;
+}
+
 .pageNavigation{
     display: flex;
     justify-content: space-between;
