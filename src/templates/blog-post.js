@@ -47,14 +47,14 @@ function formatDate(date){
           <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }}/>
         
           <div className={styles.pageNavigation}>
-            {prevPost &&  <Link className={styles.pageNavButton} to={prevPost.fields.slug}>
+              {prevPost &&  <Link className={styles.pageNavButton} to={prevPost.fields.slug}>
                 {prevPost.frontmatter.title}
-            </Link> }
+              </Link> }
 
-          {nextPost &&
-            <Link to={nextPost.fields.slug}>
-              {nextPost.frontmatter.title}
-            </Link>}
+            {nextPost &&
+              <Link className={styles.pageNavButton} to={nextPost.fields.slug}>
+                {nextPost.frontmatter.title}
+              </Link>}
             </div>
 
            <div className= {styles.comments}>
