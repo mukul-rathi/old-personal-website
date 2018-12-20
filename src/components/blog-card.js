@@ -15,8 +15,6 @@ function blogProps(props){
         'title': frontmatter.title,
         'img': {
             'fluid': (frontmatter.image) ? (frontmatter.image.childImageSharp) ? frontmatter.image.childImageSharp.fluid : null : null,
-            'src': frontmatter.image,
-            'alt': frontmatter.caption
         },
         'date': formatDate(frontmatter.date),
         'category':frontmatter.series,
