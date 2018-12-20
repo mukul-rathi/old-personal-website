@@ -11,9 +11,9 @@ redirect_from: /2018/07/28/WhatIsNeuralNet.html
 ---
 ## Introduction
 
-In this series of blog posts I aim to demystify the main types of neural networks, and delve into the maths behind these deep learning algorithms. The aim is to reason from **first principles** so to do this each blog post will cover the following 3 points:
+In this series of blog posts I aim to demystify the main types of neural networks, and delve into the maths behind these deep learning algorithms. The aim is to reason from **first principles** - to do this each blog post will cover the following 3 aspects:
 
-* **Intuition:**get an overall feel for why this works
+* **Intuition:** get an overall feel for why this works
 * **Maths:** delve into the theoretical side and the maths that makes it work 
 * **Code:** consolidate learning by applying the maths using a motivating example.
 

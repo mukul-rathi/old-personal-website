@@ -3,8 +3,8 @@ series: Demystifying Deep Learning
 title: Demystifying Deep Learning Primer
 part: 0
 date:   2018-07-25 10:00:00
-image: "./neuralnetworks.png"
-excerpt: Motivation for the series.
+image: "./why-maths.jpg"
+excerpt: Motivation for the series - why bother with the maths behind deep learning?
 redirect_from: /2018/07/25/DemystifyingDeepLearningPrimer.html
 ---
 
@@ -24,9 +24,9 @@ Thus, to diagnose these stumbling blocks in the learning process and being able 
 
 ## But maths is intimidating? Don't you need a PhD?
 
-At first glance, I'd be inclined to agree with you. I've found from personal experience that there is a divide between most  most online practical deep learning courses and the deep learning research papers. The courses don't tend to go over the maths in much detail, often stating the equations, giving some brief handwavey intuition or just ignoring it and applying these algorithms out-of-the-box. They are often targeting a broad audience who don't need to necessarily know or care about all the maths.
+At first glance, I'd be inclined to agree with you. I've found from personal experience that there is a divide between  most online practical deep learning courses and the deep learning research papers. The courses don't tend to go over the maths in much detail, often stating the equations, giving some brief hand-wavey intuition or just ignoring the maths completely and applying these algorithms out-of-the-box. They are often targeting a broad audience who don't need to necessarily know or care about all the maths.
 
-The research papers appear intimidating because they are intended for other researchers who already have a proficient background in maths, having completed an undergraduate degree and even pursuing or having completed a PhD. They can often appear to skip or assume key steps, thus seeming inaccessible to most. 
+The research papers appear intimidating because they are intended for other researchers who already have a proficient background in maths, having completed an undergraduate degree and pursuing or having completed a PhD. They can often appear to skip or assume key steps, thus seeming inaccessible to most. 
 
 ## How then do you bridge the gap between academia and practical courses?
 
@@ -36,6 +36,4 @@ To start with, we will avoid the abstractions of deep learning frameworks, and c
 
 Having done this, we will apply the principles we have learnt to more complex neural networks, taking advantage of the frameworks to reduce the incidental complexity of implementing these networks. 
 
-The direction of the series is currently being fleshed out, with the posts either unpublished or in draft form on the website. I have already implemented the core neural networks from scratch  and written up Jupyter Notebooks [here](http://github.com/mukul-rathi/blogPost-tutorials) that will accompany future blog posts. 
-
-I would really appreciate any feedback on what you would like to see from such a series and on the draft posts already published on the website.
+I would really appreciate any feedback on what you would like to see from such a series and on the posts already published on the website.

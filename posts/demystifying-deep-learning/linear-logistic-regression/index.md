@@ -29,7 +29,11 @@ The equation for linear regression extends naturally from the equation of a stra
 
 $$ y= mx + c$$
 
-Just like how m is the gradient of the line, we assign weights to the input features - let $$w_i$$ denote the weight corresponding to feature $$x_i$$ - you can loosely think of $$w_i$$ as the gradient of the line in the direction of the $$x_i$$ axis. So the equation for linear regression is: 
+Just like how $m$ is the gradient of the line, we assign weights to the input features - let $$w_i$$ denote the weight corresponding to feature $$x_i$$ - you can loosely think of $$w_i$$ as the gradient of the line in the direction of the $$x_i$$ axis. 
+
+Another way of thinking of fitting a line of best fit is as projecting the original data points $y$ onto the line, denoting our *projection* as $\hat{y}$. Extending this to $n$ dimensions, instead of a line we consider a n-dimensional hyperplane that we are projecting our data points onto.
+
+So the equation for linear regression is: 
 
 $$\hat{y} = \sum_{j=1}^{n}{w_jx_j} + b $$
 
@@ -66,32 +70,31 @@ See the [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/blo
 The intention of the blog posts is to highlight the pertinent parts of the code - the notebook accompanying the blog post can be used to view the rest of the code and implement the algorithm on a concrete problem to consolidate.
 
 With all that said, let's dive into the code - note how **np.dot** is used for matrix multiplication.
+
 ```python
+import numpy as np #we use numpy to do the maths operations
 
-    import numpy as np #we use numpy to do the maths operations
+#_lin refers to linear regression, _log for logistic regression
+#similarly _train for training set, _test for test set.
 
-    #_lin refers to linear regression, _log for logistic regression
-    #similarly _train for training set, _test for test set.
+#initialise weights and bias to random values
+# we'll get to training them  in the next blog post.
+W_lin = np.random.randn(Y_lin_train.shape[0], X_lin_train.shape[0]) #1xm matrix
+b_lin = np.random.randn(Y_lin_train.shape[0],1) #1x1 matrix
 
-    #initialise weights and bias to random values
-    # we'll get to training them  in the next blog post.
-    W_lin = np.random.randn(Y_lin_train.shape[0], X_lin_train.shape[0]) #1xm matrix
-    b_lin = np.random.randn(Y_lin_train.shape[0],1) #1x1 matrix
+W_log = np.random.randn(Y_log_train.shape[0], X_log_train.shape[0])#1xm matrix
+b_log = np.random.randn(Y_log_train.shape[0],1)) #1x1 matrix
 
-    W_log = np.random.randn(Y_log_train.shape[0], X_log_train.shape[0])#1xm matrix
-    b_log = np.random.randn(Y_log_train.shape[0],1)) #1x1 matrix
+#Linear Regression
+def forward_lin(X, W, b):
+    return np.dot(W,X)+b
 
-    #Linear Regression
-    def forward_lin(X, W, b):
-        return np.dot(W,X)+b
+def sigmoid(z):
+    return 1.0/(1+np.exp(-z))
 
-    def sigmoid(z):
-        return 1.0/(1+np.exp(-z))
-
-    #Logistic regression
-    def forward_log(X,W,b):
-        return sigmoid(forward_lin(X,W,b))
-
+#Logistic regression
+def forward_log(X,W,b):
+    return sigmoid(forward_lin(X,W,b))
 ```
 ## Conclusion: 
 At this point, you're probably thinking, "Great! But this is just maths, where is the learning?". Hold tight, because in the next blog post we'll be doing just that! We will look at how exactly most machine learning algorithms even "learn", and how we evaluate their performance.

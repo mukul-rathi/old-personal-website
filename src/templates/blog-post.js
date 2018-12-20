@@ -38,7 +38,7 @@ function formatDate(date){
         
         <div className={styles.blogPost}>
         <div className={styles.series}>
-         <h2> {series}</h2> {part && <h2>: Part {part} </h2>}
+         <h2> {series}</h2> {(part || part===0) && <h2>: Part {part} </h2>}
          </div>
           <h1 className={styles.title}> {title} </h1>
           <h2 className={styles.date}> {formatDate(date)}</h2>
