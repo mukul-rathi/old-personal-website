@@ -19,26 +19,30 @@ function formatDate(date){
 
  const BlogPost = ({ data, pathContext }) => {
 
+
   const post = data.markdownRemark;
+  const {title,date,series,part,image} = post.frontmatter;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
     identifier: post.id,
-    title: post.frontmatter.title,
+    title: title,
   };
   const { nextPost, prevPost} = pathContext;
   return (
     <Layout>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{post.frontmatter.title}</title>
+          <title>{title}</title>
 
         </Helmet>
         
         <div className={styles.blogPost}>
-          <h1 className={styles.title}>
-          {post.frontmatter.title} </h1>
-          <h2 className={styles.date}> {formatDate(post.frontmatter.date)}</h2>
-          <Img fluid={post.frontmatter.image.childImageSharp.fluid}/>
+        <div className={styles.series}>
+         <h2> {series}</h2> {part && <h2>: Part {part} </h2>}
+         </div>
+          <h1 className={styles.title}> {title} </h1>
+          <h2 className={styles.date}> {formatDate(date)}</h2>
+          <Img fluid={image.childImageSharp.fluid}/>
           <ShareBar className={styles.shareBar}/>
           <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }}/>
         
