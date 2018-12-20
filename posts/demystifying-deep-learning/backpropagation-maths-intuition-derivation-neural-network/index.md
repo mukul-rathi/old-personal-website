@@ -13,7 +13,7 @@ redirect_from: /2018/08/31/Backpropagation.html
 This may be the **most important** post in the series, and also the most overlooked, both for the same reason - this is where the maths gets *interesting*! It is important to get to grips with it when looking at deep learning algorithms - although later you may never have to implement it manually,thanks to the power of deep learning frameworks, understanding it is *crucial* when debugging your model.
 
 
-Don't fret though, the principles we applied in the [Learning by Gradient Descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} post will help us a great deal to really *understand* this.
+Don't fret though, the principles we applied in the [Learning by Gradient Descent](/demystifying-deep-learning/learning-gradient-descent/) post will help us a great deal to really *understand* this.
 
 But before we dive into the maths, it makes sense to describe what the backpropagation algorithm is.
 
@@ -50,7 +50,7 @@ So it makes sense to start from the output, and make one pass backward, computin
 
 When deriving the algorithm's equations, we will intersperse the intuition with the maths. 
 
-It is helpful to restate the tips given in the [Learning by Gradient Descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} post:
+It is helpful to restate the tips given in the [Learning by Gradient Descent](/demystifying-deep-learning/learning-gradient-descent/) post:
 * *Partial Derivative Intuition*: Think of $$\frac{\partial{y}}{\partial{x}} $$ loosely as quantifying how much $$y$$ would change if you gave the value of $$x$$ a little "nudge" at that point.
 * *Breaking down computations* - we can use the **chain rule** to aid us in our computation - rather than trying to compute the derivative in one fell swoop, we break up the computation into smaller intermediate steps.
 * *Computing the chain rule* - when thinking about which intermediate values to include in our chain rule expression, think about the immediate outputs of equations involving $$x$$ - which other values get directly affected when we slightly nudge $$x$$?
@@ -78,13 +78,12 @@ $$A^{[l]} = g(Z^{[l]})$$
 First let's consider how to compute $$\frac{\partial{J}}{\partial{Z^{[l]}}}$$. Consider a single element $$Z^{[l]}_{ij}$$ - since we are applying the activation function $$g(x)$$ individually to each element in the matrix, a nudge in $$Z^{[l]}_{ij}$$ will only affect the corresponding activated output - $$A^{[l]}_{ij}$$. The magnitude of the nudge of $$A_{ij}$$ is by definition the derivative of the function $$g(x)$$ at the value of $$Z_{ij}$$.
 So we have:
 
+
 $$ \frac{dA^{[l]}_{ij}}{dZ^{[l]}_{ij}} = g'(Z^{[l]}_{ij}) $$ 
 
-We can apply the chain rule:
+We can apply the chain rule:  
 
-$$\frac{\partial{J}}{\partial{Z^{[l]}_{ij}}} = \frac{\partial{J}}{\partial{A^{[l]}_{ij}}}*     \frac{dA^{[l]}
-_{ij}}{dZ^{[l]}
-_{ij}} = \frac{\partial{J}}{\partial{A^{[l]}_{ij}}}   *    g'(Z^{[l]}_{ij})$$
+$$\frac{\partial{J}}{\partial{Z^{[l]}_{ij}}}  = \frac{\partial{J}}{\partial{A^{[l]}_{ij}}} * g'(Z^{[l]}_{ij})$$
 
 This is just an element-wise product of two matrices - since we are multiplying the corresponding indices $$_{ij}$$ of both matrices together. So we have our equation:
 
@@ -104,7 +103,7 @@ $$\frac{\partial{J}}{\partial{W^{[l]}_{jk}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\
 
 $$\frac{\partial{J}}{\partial{b^{[l]}_{j}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}*\frac{\partial{z^{[l](i)}_{j}}}{\partial{b^{[l]}_{j}}} = \frac{1}{m} \sum_{i=1}^{m}\frac{\partial{J}}{\partial{z^{[l](i)}_{j}}}$$
 
-It's worth noting though how similar these equations are to [logistic regression]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} - just that instead of $$x$$ we have the more general $$a^{[l-1]}$$. As we mentioned in the previous post, the principles for logistic regression are just scaled and generalised for a feedforward neural network.
+It's worth noting though how similar these equations are to [logistic regression](/demystifying-deep-learning/linear-logistic-regression/) - just that instead of $$x$$ we have the more general $$a^{[l-1]}$$. As we mentioned in the previous post, the principles for logistic regression are just scaled and generalised for a feedforward neural network.
 
 We can now switch our notation back to considering the matrices, having gained the insight from looking at one neuron. 
 
@@ -143,7 +142,7 @@ Now having looked at the general layer case, let's look at the final layer of th
 For regression and binary classification, as we showed before -
     $$ \frac{\partial{J}}{\partial{Z^{[L]}}} = \hat{Y} - Y$$
 
-It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation [later in the series]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"}, when we look at multi-class classification in a [convolutional neural network]({% post_url 2018-09-04-ConvNet %}){:target="_blank"}. 
+It turns out that with softmax for multi-class classification that the same equation holds. As mentioned in the previous post, we will look at the softmax derivation [later in the series](demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/), when we look at multi-class classification in a [convolutional neural network](/demystifying-deep-learning/convolutional-neural-network-from-scratch/). 
 
 In general though for any output layer activation function, you can obtain $$ \frac{\partial{J}}{\partial{A^{[L]}}} $$ from the loss function equation directly, since $$A^{[L]} = \hat{Y}$$, and then just like in the general case you can compute $$g'(Z^{[L]})$$ for whichever activation function is used in the output layer and go from there.
 
@@ -170,22 +169,19 @@ Note the activation function used for the intermediate layer is ReLU. The deriva
 As before, the accompanying code is in the [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet).
 
 ```python 
-
-    def backpropagation(cache,Y,parameters):
-        L = len(parameters)//2 
-        m = Y.shape[1]
-        grads = {}
-        grads["dZ" + str(L)]= cache["A" + str(L)] - Y
-        grads["dW" + str(L)]= (1/m)*np.dot(grads["dZ" + str(L)],cache["A" + str(L-1)].T) 
-        grads["db" + str(L)]= (1/m)*np.sum(grads["dZ" + str(L)],axis=1,keepdims=True)
-        for l in range(L-1,0,-1):
-            grads["dA" + str(l)]= np.dot(parameters["W" + str(l+1)].T,grads["dZ" + str(l+1)])
-            grads["dZ" + str(l)]= np.multiply(grads["dA" + str(l)], relu(cache["Z" + str(l)], deriv = True))
-            grads["dW" + str(l)]= (1/m)*np.dot(grads["dZ" + str(l)],cache["A" + str(l-1)].T) 
-            grads["db" + str(l)]= (1/m)*np.sum(grads["dZ" + str(l)],axis=1,keepdims=True)
-        return grads
-
-
+def backpropagation(cache,Y,parameters):
+    L = len(parameters)//2 
+    m = Y.shape[1]
+    grads = {}
+    grads["dZ" + str(L)]= cache["A" + str(L)] - Y
+    grads["dW" + str(L)]= (1/m)*np.dot(grads["dZ" + str(L)],cache["A" + str(L-1)].T) 
+    grads["db" + str(L)]= (1/m)*np.sum(grads["dZ" + str(L)],axis=1,keepdims=True)
+    for l in range(L-1,0,-1):
+        grads["dA" + str(l)]= np.dot(parameters["W" + str(l+1)].T,grads["dZ" + str(l+1)])
+        grads["dZ" + str(l)]= np.multiply(grads["dA" + str(l)], relu(cache["Z" + str(l)], deriv = True))
+        grads["dW" + str(l)]= (1/m)*np.dot(grads["dZ" + str(l)],cache["A" + str(l-1)].T) 
+        grads["db" + str(l)]= (1/m)*np.sum(grads["dZ" + str(l)],axis=1,keepdims=True)
+    return grads
 ```
 
 ## Conclusion

@@ -14,6 +14,8 @@ redirect_from: /2018/09/01/OptimisingGradDescent.html
 
 Gradient descent is a good learning algorithm for neural networks, however we can do better to improve learning.
 
+[Different Optimisers and their performances](./optimzers.gif)
+
 ### Stochastic / mini-batch gradient descent:
 
 When we computed the forward and backprop steps for our neural network, we did so on the entire data set. However, as the networks get deeper, there are more matrix multiplications to be computed so this is very computationally expensive. Another factor is the size of the dataset, which for many tasks has 100,000+ examples. 

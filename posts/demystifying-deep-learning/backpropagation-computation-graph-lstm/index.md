@@ -13,7 +13,7 @@ redirect_from: /2018/09/17/BackpropThroughAnything.html
 
 ## Introduction 
 
-So far in this series, we have looked at the general principle of [gradient descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"}, and how we computed [backpropagation]({% post_url 2018-08-31-Backpropagation %}){:target="_blank"} for each layer in a feedforward neural network, then generalising to look at [backprop in different types of layers in a CNN]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"}. 
+So far in this series, we have looked at the general principle of [gradient descent](/demystifying-deep-learning/learning-gradient-descent), and how we computed [backpropagation](/demystifying-deep-learning/backpropagation-maths-intuition-derivation-neural-network/) for each layer in a feedforward neural network, then generalising to look at [backprop in different types of layers in a CNN](/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/). 
 
 Now we will take a step back and look at backpropagation in a more general sense - *through a computation graph*. Through this we'll get a general intuition for how the frameworks compute their 
 
@@ -46,7 +46,7 @@ We will use the computation graph representation *(shown above*) of the LSTM to 
 
 ### Forward Propagation equations
 
-From the [previous post]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"}, the forward propagation equations  for one timestep in the LSTM are:
+From the [previous post](/demystifying-deep-learning/lstm-recurrent-neural-network-from-scratch/), the forward propagation equations  for one timestep in the LSTM are:
 
 $$ \Gamma_i = \sigma(W_i.[a^{<t-1>}, x^{<t>}]+b_i)$$
 
@@ -62,7 +62,7 @@ $$ a^{<t>} = \Gamma_o*\tanh{c}^{<t>}$$
 
 **Notation used**:
 
-$$[a^{<t-1>}, x^{<t>}]$$ denotes a **concatenation of the two matrices** to form a $$(n_a+n_x)$$ x $$m$$ matrix. $$A.B$$ denotes matrix multiplication of $$A$$ and $$B$$, whereas $$A*B$$ denotes elementwise multiplication. $$\Gamma$$ refers to the gate - see the [previous post]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"} defining the LSTM for a full breakdown of the notation used. 
+$$[a^{<t-1>}, x^{<t>}]$$ denotes a **concatenation of the two matrices** to form a $$(n_a+n_x)$$ x $$m$$ matrix. $$A.B$$ denotes matrix multiplication of $$A$$ and $$B$$, whereas $$A*B$$ denotes elementwise multiplication. $$\Gamma$$ refers to the gate - see the [previous post](/demystifying-deep-learning/lstm-recurrent-neural-network-from-scratch/) defining the LSTM for a full breakdown of the notation used. 
 
 To backpropagate through the cell, given the gradient with respect to $$a^{<t>}$$ and  $$c^{<t>}$$ from the backprop from the next step, we need to compute the gradients for each of the weights $$W_i, W_f, W_o, W_c $$ and biases $$b_i, b_f, b_o, b_c $$, and finally we will need to backpropagate to the previous timestep and compute the gradient with respect to $$a^{<t-1>}$$ and  $$c^{<t-1>}$$.
 
@@ -123,7 +123,7 @@ If we look at the equations / computation graph, we can more generally look at t
 
 * **sigmoid**: If $$C = \sigma(A)$$ then $$\frac{\partial{C}}{\partial{A}} = \sigma (A)- \sigma^2 (A) = C*(1-C)$$
 
-* **Weighted Input**: this is the same equation as the [feedforward neural network]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"}. If $$ Z =  W.X + b$$ then:
+* **Weighted Input**: this is the same equation as the [feedforward neural network](/demystifying-deep-learning/feed-forward-neural-network/). If $$ Z =  W.X + b$$ then:
 
 $$  \frac{\partial{J}}{\partial{W}}=  \frac{1}{m} \frac{\partial{J}}{\partial{Z}}.X^{T} $$
 
@@ -204,36 +204,34 @@ So by breaking the computation graph into many steps, we can break down the calc
 The motivating example we've looked at uses an [LSTM network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} for sentiment analysis on a dataset of IMDB reviews
  
 ```python
-
-    def backward_step(dA_next, dC_next,cache,parameters):
-        (a_next, c_next, input_concat, c_prev, c_candidate,IFO_gates) = cache
-        n_a, m = a_next.shape
-        
-        dC_next += dA_next* (IFO_gates[2*n_a:]*(1-np.tanh(c_next)**2)) 
-        #we compute dC<t> in two backward steps since we need both dC<t+1> and dA<t>
-        
-        dC_prev = dC_next * IFO_gates[n_a:2*n_a] 
-        dC_candidate =  dC_next * IFO_gates[:n_a]
-        
-        #derivative with respect to the output of the IFO gates - abuse of notation to call it dIFO
-        dIFO_gates = np.zeros_like(IFO_gates)
-        dIFO_gates[:n_a] = dC_next * c_candidate 
-        dIFO_gates[n_a:2*n_a]= dC_next * c_prev
-        dIFO_gates[2*n_a:] = dA_next * np.tanh(c_next)
-        
-        #derivative with respect to the unactivated output of the gate (before the sigmoid is applied)
-        dZ_gate =  dIFO_gates* (IFO_gates*(1-IFO_gates))   
-        dA_prev =  (parameters["Wg"].T).dot(dZ_gate)[:n_a]
-        dWg = (1/m)*dZ_gate.dot(input_concat.T)
-        dbg = (1/m)*np.sum(dZ_gate,axis=1, keepdims=True)
-        
-        dZ_c = dC_candidate * (1-c_candidate**2)
-        dA_prev +=  (parameters["Wc"].T).dot(dZ_c)[:n_a]
-        dWc = (1/m)*dZ_c.dot(input_concat.T)
-        dbc = (1/m)*np.sum(dZ_c,axis=1, keepdims=True)  
-        
-        return dA_prev, dC_prev, dWg, dbg, dWc, dbc
-
+def backward_step(dA_next, dC_next,cache,parameters):
+    (a_next, c_next, input_concat, c_prev, c_candidate,IFO_gates) = cache
+    n_a, m = a_next.shape
+    
+    dC_next += dA_next* (IFO_gates[2*n_a:]*(1-np.tanh(c_next)**2)) 
+    #we compute dC<t> in two backward steps since we need both dC<t+1> and dA<t>
+    
+    dC_prev = dC_next * IFO_gates[n_a:2*n_a] 
+    dC_candidate =  dC_next * IFO_gates[:n_a]
+    
+    #derivative with respect to the output of the IFO gates - abuse of notation to call it dIFO
+    dIFO_gates = np.zeros_like(IFO_gates)
+    dIFO_gates[:n_a] = dC_next * c_candidate 
+    dIFO_gates[n_a:2*n_a]= dC_next * c_prev
+    dIFO_gates[2*n_a:] = dA_next * np.tanh(c_next)
+    
+    #derivative with respect to the unactivated output of the gate (before the sigmoid is applied)
+    dZ_gate =  dIFO_gates* (IFO_gates*(1-IFO_gates))   
+    dA_prev =  (parameters["Wg"].T).dot(dZ_gate)[:n_a]
+    dWg = (1/m)*dZ_gate.dot(input_concat.T)
+    dbg = (1/m)*np.sum(dZ_gate,axis=1, keepdims=True)
+    
+    dZ_c = dC_candidate * (1-c_candidate**2)
+    dA_prev +=  (parameters["Wc"].T).dot(dZ_c)[:n_a]
+    dWc = (1/m)*dZ_c.dot(input_concat.T)
+    dbc = (1/m)*np.sum(dZ_c,axis=1, keepdims=True)  
+    
+    return dA_prev, dC_prev, dWg, dbg, dWc, dbc
 ```
 
 ### Practical Considerations:
@@ -244,11 +242,11 @@ When checking the equations for the backprop, it helps to have a numerical check
 
 This seems like a good juncture to recap the series so far.
 
-We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in [linear and logistic regression]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"}, building up the intuition behind the maths behing [gradient descent]({% post_url 2018-08-03-GradDescent %}){:target="_blank"} as we built up to a [feedforward neural network]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"}. 
+We started the series looking at the most commonly used termninology, followed by looking at simple machine learning algorithms in [linear and logistic regression](/demystifying-deep-learning/linear-logistic-regression/), building up the intuition behind the maths behind [gradient descent](/demystifying-deep-learning/learning-gradient-descent/) as we built up to a [feedforward neural network](/demystifying-deep-learning/feed-forward-neural-network/). 
 
-Next we looked at the learning process itself, and how we could [improve gradient descent]({% post_url 2018-09-01-OptimisingGradDescent %}){:target="_blank"} itself, as well as [debug our model]({% post_url 2018-09-02-DebuggingLearningCurve %}){:target="_blank"} to see whether it was learning or not. 
+Next we looked at the learning process itself, and how we could [improve gradient descent](/demystifying-deep-learning/optimising-gradient-descent/) itself, as well as [debug our model](/demystifying-deep-learning/debug-neural-network-learning/) to see whether it was learning or not. 
 
-Finally, we moved onto more specialised neural networks - [CNNs]({% post_url 2018-09-04-ConvNet %}){:target="_blank"} and [recurrent neural nets]({% post_url 2018-09-17-RecurrentNet %}){:target="_blank"}, not only looking at their theory but the motivation behind them. We also looked at the maths behind them, deriving the [backprop]({% post_url 2018-09-10-CNNBackprop %}){:target="_blank"} equations from scratch. 
+Finally, we moved onto more specialised neural networks - [CNNs](/demystifying-deep-learning/convolutional-neural-network-from-scratch/) and [recurrent neural nets](/demystifying-deep-learning/lstm-recurrent-neural-network-from-scratch/), not only looking at their theory but the motivation behind them. We also looked at the maths behind them, deriving the [ CNN backprop](/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/) equations from scratch. 
 
 Now that we're at the point that we're able to understand backprop in a general computation graph, we can use the abstractions of the deep learning frameworks in subsequent posts.
 

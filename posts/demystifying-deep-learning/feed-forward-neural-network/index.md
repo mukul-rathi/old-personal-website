@@ -63,7 +63,7 @@ To keep track of all the neurons in the network, we need to add some superscript
 * We are still using $$m$$ to denote number of examples and $$^{(i)}$$ to denote the $$i^{th}$$ example - note () not \[\].
 * The number of neurons in layer $$l$$ is $$n_l$$ and we store the weighted inputs and the activations for layer $$l$$ in $$n_l$$ x $$m$$ matrices $$Z^{[l]}$$ and $$A^{[l]}$$ respectively. So note that $$\hat{Y}=a^{[L]}$$.
 * The input $$X$$ is stored in a $$n$$ x $$m$$ matrix and $$Y$$ is a  $$n_L$$ x $$m$$ matrix.
-* The weight for layer $$l$$, $$W^{(l)}$$ is stored in a $$n_l$$ x $$n_{l-1}$$ matrix - with $$W^{(l)}_{ij}$$ denoting the weight between the $$i^{th}$$ neuron in layer $$l$$ and the $$j^{th}$$ neuron in layer $$l-1$$. 
+* The weight for layer $$l$$, $$W^{[l]}$$ is stored in a $$n_l$$ x $$n_{l-1}$$ matrix - with $$W^{[l]}_{ij}$$ denoting the weight between the $$i^{th}$$ neuron in layer $$l$$ and the $$j^{th}$$ neuron in layer $$l-1$$. 
 * The bias for layer $$l$$, $$b^{(l)}$$ is stored in a $$n_l$$ x $$1$$ matrix - one bias for each neuron in the layer. 
 * We collectively refer to the weights and biases as the **parameters** of the network.
 
@@ -71,7 +71,7 @@ So to give a concrete example, $$ a^{[l](i)}_j$$ refers to the activation of the
 
 ### Intuition:
 
-The linear and logistic regression algorithms that we trained in the [previous blog posts]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"} can be seen as  *tiny neural networks* with no hidden layers and one neuron in the output layer, with the activation functions $$g(z)=z$$ and $$g(z)= \sigma(z)$$ respectively. 
+The linear and logistic regression algorithms that we trained in the [previous blog posts](/demystifying-deep-learning/linear-logistic-regression/) can be seen as  *tiny neural networks* with no hidden layers and one neuron in the output layer, with the activation functions $$g(z)=z$$ and $$g(z)= \sigma(z)$$ respectively. 
 
 So this leads us very nicely into a much larger neural network - it involves pretty much the same operations, just at *scale*.
 
@@ -99,7 +99,6 @@ $$A^{[l]} = g(Z^{[l]})$$
 
 Notice how this is just a generalisation of our logistic regression equation to more layers and neurons! 
 
-### Code:
 
 ### Weight initialisation: 
 
@@ -113,18 +112,19 @@ One of our concerns is that the neural network may get stuck at the awful local 
 
 So one tip when debugging your network is to run it again with different weights, and tweak the variance of the distribution from which you are choosing the weights.
 
-```python
+### Code:
 
-    def sigmoid(z):
+```python
+def sigmoid(z):
     return 1/(1+np.exp(-z))
 
-    def relu(z, deriv = False):
-        if(deriv): #this is for the partial derivatives (discussed in next blog post)
-            return z>0
-        else:
-            return np.multiply(z, z>0)
+def relu(z, deriv = False):
+    if(deriv): #this is for the partial derivatives (discussed in next blog post)
+        return z>0
+    else:
+        return np.multiply(z, z>0)
 
-    def initialise_parameters(layers_units): 
+def initialise_parameters(layers_units): 
     #layers_units is a list consisting of number of units in each layer
     parameters = {}         # create a dictionary containing the parameters
     for l in range(1, len(layers_units)):
@@ -135,22 +135,23 @@ So one tip when debugging your network is to run it again with different weights
     return parameters
 
 
-    def forward_propagation(X,parameters,linear):
-        cache = {}
-        L = len(parameters)//2 #final layer
-        cache["A0"] = X #ease of notation since input = layer 0
-        for l in range(1, L):
-            cache['Z' + str(l)] = np.dot(parameters['W' + str(l)], cache['A' + str(l-1)]) 
-            + parameters['b' + str(l)]
-            cache['A' + str(l)] = relu(cache['Z' + str(l)])
-        #final layer
-        cache['Z' + str(L)] = np.dot(parameters['W' + str(L)],
-        cache['A' + str(L-1)]) + parameters['b' + str(L)]
-        cache['A' + str(L)] =cache['Z' + str(L)] if linear else sigmoid(cache['Z' + str(L)])
-        return cache 
-
+def forward_propagation(X,parameters,linear):
+    cache = {}
+    L = len(parameters)//2 #final layer
+    cache["A0"] = X #ease of notation since input = layer 0
+    for l in range(1, L):
+        cache['Z' + str(l)] = np.dot(parameters['W' + str(l)], cache['A' + str(l-1)]) 
+        + parameters['b' + str(l)]
+        cache['A' + str(l)] = relu(cache['Z' + str(l)])
+    #final layer
+    cache['Z' + str(L)] = np.dot(parameters['W' + str(L)],
+    cache['A' + str(L-1)]) + parameters['b' + str(L)]
+    #depending on if linear or logistic regression 
+    #apply activation function to final layer or not
+    cache['A' + str(L)] =cache['Z' + str(L)] if linear else sigmoid(cache['Z' + str(L)]) 
+    return cache 
 ```
 
 This equations define the neural network - to output a prediction we just go forward through the network and repeatedly compute the next layer from the previous layer. This is called **forward propagation**.  
 
-The learning process is the same as [linear and logistic regression]({% post_url 2018-07-29-LinLogRegression %}){:target="_blank"} - we're going to use gradient descent to learn the optimal parameters. Computing the partial derivatives is a little more involved in a neural network with many layers so we will go through. 
+The learning process is the same as [linear and logistic regression](/demystifying-deep-learning/linear-logistic-regression/) - we're going to use gradient descent to learn the optimal parameters. Computing the partial derivatives is a little more involved in a neural network with many layers so we will go through. 
