@@ -16,10 +16,10 @@ In this blog post, we'll look at our first specialised neural network architectu
 
 ## Motivation for a specialised architecture
 
-Recall in our [feedforward neural network post]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"} that the weight matrices for layer $$l$$ were stored in a $$n_l$$ x $$n_{l-1}$$ matrix. 
+Recall in our [feedforward neural network post](/demystifying-deep-learning/feed-forward-neural-network/) that the weight matrices for layer $$l$$ were stored in a $$n_l$$ x $$n_{l-1}$$ matrix. 
 Therefore, the number of parameters in the first layer of the network is determined by $$n_0$$ the number of features in layer 0 (the input layer).
 
-Images are stored in a large multidimensional array of pixels, whose dimensions are (widthxheight) for greyscale and (widthxheightx3) array for RGB images. So consider a small 256x256 RGB image - this results in 256*256*3= 196608 pixels! Each pixel is an input feature, which means that even if we only have 128 units in the first layer, the number of parameters in our weight matrix is 128*196608 = 25 million weights!
+Images are stored in a large multidimensional array of pixels, whose dimensions are *(width x height)* for greyscale and *(width x height x 3)* array for RGB images. So consider a small 256x256 RGB image - this results in 256x256x3= **196608 pixels**! Each pixel is an input feature, which means that even if we only have 128 units in the first layer, the number of parameters in our weight matrix is 128*196608 = 25 million weights!
 
 Given that most images are much more high-res than 256x256, the number of input features will increase dramatically - for a 1024x1024 RGB image the number of pixels increases by a factor of 16. 
 
@@ -136,34 +136,32 @@ Since we want to perform a 2d convolution, we pass in 2d slices of the input, an
 One subtlety is that **ndimage.convolve** starts convolution from centre of kernel and zero pads but we don't want this since we want to manually decide if we want to pad or not. So we ignore the edges of the output with a slice [ f//2:-(f//2), f//2:-(f//2) ], where *f* is the filter size
 
 ```python
+def conv_forward(x,w,b,padding="same"):
+    f = w.shape[0] #size of filter
 
-    def conv_forward(x,w,b,padding="same"):
-        f = w.shape[0] #size of filter
-
-        if padding=="same": 
-            pad = (f-1)//2
-        else: #padding is valid - i.e no zero padding
-            pad =0 
-        n = (x.shape[1]-f+2*pad) +1 #ouput width/height
+    if padding=="same": 
+        pad = (f-1)//2
+    else: #padding is valid - i.e no zero padding
+        pad =0 
+    n = (x.shape[1]-f+2*pad) +1 #ouput width/height
+    
+    y = np.zeros((x.shape[0],n,n,w.shape[3])) #output array
+    
+    #pad input
+    x_padded = np.pad(x,((0,0),(pad,pad),(pad,pad),(0,0)),'constant', constant_values = 0)
+    
+    #flip filter to cancel out reflection
+    w = np.flip(w,0)
+    w = np.flip(w,1)
+    
         
-        y = np.zeros((x.shape[0],n,n,w.shape[3])) #output array
-        
-        #pad input
-        x_padded = np.pad(x,((0,0),(pad,pad),(pad,pad),(0,0)),'constant', constant_values = 0)
-        
-        #flip filter to cancel out reflection
-        w = np.flip(w,0)
-        w = np.flip(w,1)
-        
+    for m_i in range(x.shape[0]): #each of the training examples
+        for k in range(w.shape[3]): #each of the filters
+            for d in range(x.shape[3]): #each slice of the input 
+                y[m_i,:,:,k]+= ndimage.convolve(x_padded[m_i,:,:,d],w[:,:,d,k])[f//2:-(f//2),f//2:-(f//2)] #sum across depth
             
-        for m_i in range(x.shape[0]): #each of the training examples
-            for k in range(w.shape[3]): #each of the filters
-                for d in range(x.shape[3]): #each slice of the input 
-                    y[m_i,:,:,k]+= ndimage.convolve(x_padded[m_i,:,:,d],w[:,:,d,k])[f//2:-(f//2),f//2:-(f//2)] #sum across depth
-                
-        y = y + b #add bias (this broadcasts across image)
-        return y
-
+    y = y + b #add bias (this broadcasts across image)
+    return y
 ```
 
 ## ReLU layer
@@ -178,11 +176,10 @@ In a typical CNN we tend to refer to a convolution layer with the underlying ass
 ### Code:
 
 ```python
-
-    def relu(x, deriv=False):
-        if deriv: #this is for backward pass
-            return (x>0)
-        return np.multiply(x, x>0) #so this sets x<=0 to 0. 
+def relu(x, deriv=False):
+    if deriv: #this is for backward pass
+        return (x>0)
+    return np.multiply(x, x>0) #so this sets x<=0 to 0. 
 ```
 
 ## Pooling layer
@@ -208,22 +205,20 @@ In practice we tend to use max-pooling more often than average-pooling as empiri
   We keep track of the max value in a mask to route gradients through in the backward pass. 
 
 ```python
-
-    def pool_forward(x,mode="max"):
-        x_patches = x.reshape(x.shape[0],x.shape[1]//2, 2,x.shape[2]//2, 2,x.shape[3])
-        if mode=="max":
-            out = x_patches.max(axis=2).max(axis=3)
-            mask  =np.isclose(x,np.repeat(np.repeat(out,2,axis=1),2,axis=2)).astype(int)
-        elif mode=="average": 
-            out =  x_patches.mean(axis=3).mean(axis=4)
-            mask = np.ones_like(x)*0.25
-        return out,mask
-
+def pool_forward(x,mode="max"):
+    x_patches = x.reshape(x.shape[0],x.shape[1]//2, 2,x.shape[2]//2, 2,x.shape[3])
+    if mode=="max":
+        out = x_patches.max(axis=2).max(axis=3)
+        mask  =np.isclose(x,np.repeat(np.repeat(out,2,axis=1),2,axis=2)).astype(int)
+    elif mode=="average": 
+        out =  x_patches.mean(axis=3).mean(axis=4)
+        mask = np.ones_like(x)*0.25
+    return out,mask
 ```
 
 ## Fully-Connected Layer
 
-This is just the [standard feedforward neural network layer]({% post_url 2018-08-29-FeedForwardNeuralNet %}){:target="_blank"} we have seen. The layer is called **fully-connected** because each neuron is connected to *all* the input features. Contrast this with a convolution layer, where (using the equivalent neuron representation) each neuron is only connected to the input pixels in the patch it is looking at.
+This is just the [standard feedforward neural network layer](/demystifying-deep-learning/feed-forward-neural-network/) we have seen. The layer is called **fully-connected** because each neuron is connected to *all* the input features. Contrast this with a convolution layer, where (using the equivalent neuron representation) each neuron is only connected to the input pixels in the patch it is looking at.
 
 Again, we typically use ReLU for the fully-connected layers' activation functions.
 
@@ -231,10 +226,8 @@ Again, we typically use ReLU for the fully-connected layers' activation function
 ### Code:
 
 ```python
-
-    def fc_forward(x,w,b):
-        return relu(w.dot(x)+b)
-
+def fc_forward(x,w,b):
+    return relu(w.dot(x)+b)
 ```
 
 ## Softmax Layer
@@ -258,14 +251,12 @@ $$ softmax(z) = \frac{e^{z}}{e^{z}+e^{0}} =  \frac{e^{z}}{e^{z}+1} == \frac{1}{1
 ### Code:
 
 ```python
-
-    def softmax_forward(x,w,b):
-        z = w.dot(x)+b
-        z -= np.max(z,axis=0,keepdims=True) #to prevent overflow
-        a = np.exp(z) 
-        a = a/np.sum(a,axis=0,keepdims=True)
-        return a+1e-8 #add 1e-8 to ensure no 0 values - since log 0 is undefined
-
+def softmax_forward(x,w,b):
+    z = w.dot(x)+b
+    z -= np.max(z,axis=0,keepdims=True) #to prevent overflow
+    a = np.exp(z) 
+    a = a/np.sum(a,axis=0,keepdims=True)
+    return a+1e-8 #add 1e-8 to ensure no 0 values - since log 0 is undefined
 ```
 
 

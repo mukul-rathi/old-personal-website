@@ -170,17 +170,15 @@ $$ a^{<t>} = \Gamma_o*\tanh{c}^{<t>}$$
 ### Code:
 
 ```python
-
-    def forward_step(a_prev, x, c_prev, parameters):
-        n_a = a_prev.shape[0]
-        input_concat = np.concatenate((a_prev, x),axis=0)
-        IFO_gates = sigmoid(parameters["Wg"].dot(input_concat)+parameters["bg"])
-        c_candidate = np.tanh(parameters["Wc"].dot(input_concat)+parameters["bc"])
-        c_next = IFO_gates[:n_a]*c_candidate + IFO_gates[n_a:2*n_a]*c_prev
-        a_next = IFO_gates[2*n_a:]*np.tanh(c_next)
-        cache = (a_next, c_next, input_concat, c_prev, c_candidate,IFO_gates)
-        return a_next, c_next, cache
-
+def forward_step(a_prev, x, c_prev, parameters):
+    n_a = a_prev.shape[0]
+    input_concat = np.concatenate((a_prev, x),axis=0)
+    IFO_gates = sigmoid(parameters["Wg"].dot(input_concat)+parameters["bg"])
+    c_candidate = np.tanh(parameters["Wc"].dot(input_concat)+parameters["bc"])
+    c_next = IFO_gates[:n_a]*c_candidate + IFO_gates[n_a:2*n_a]*c_prev
+    a_next = IFO_gates[2*n_a:]*np.tanh(c_next)
+    cache = (a_next, c_next, input_concat, c_prev, c_candidate,IFO_gates)
+    return a_next, c_next, cache
 ```
 
 ## Conclusion:  
