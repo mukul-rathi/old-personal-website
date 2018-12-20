@@ -10,10 +10,11 @@ function formatDate(date){
 
 function blogProps(props){
     var {fields, frontmatter, className} = props;
+    
     return ({
         'title': frontmatter.title,
         'img': {
-            'fluid': frontmatter.image.childImageSharp.fluid,
+            'fluid': (frontmatter.image) ? (frontmatter.image.childImageSharp) ? frontmatter.image.childImageSharp.fluid : null : null,
             'src': frontmatter.image,
             'alt': frontmatter.caption
         },
