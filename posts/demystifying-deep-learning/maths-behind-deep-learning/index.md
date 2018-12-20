@@ -8,6 +8,7 @@ date:   2018-08-25 10:00:00
 part: 0
 >>>>>>> 6c1ada2... Remove unnecessary fields in front-matter of blog posts
 date:   2018-07-25 10:00:00
+image: "./neuralnetworks.png"
 excerpt: Motivation for the series.
 redirect_from: /2018/07/25/DemystifyingDeepLearningPrimer.html
 ---

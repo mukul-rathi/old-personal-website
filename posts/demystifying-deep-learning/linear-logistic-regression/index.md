@@ -4,7 +4,7 @@ part: 2
 title: Linear and Logistic Regression
 date:   2018-07-29 12:00:00
 excerpt: We get our hands dirty with our first machine learning algorithms!
-image: "/assets/blog/LinLogRegression/straight-line.png"
+image: "./straight-line.png"
 caption: "Linear Regression"
 
 redirect_from: /2018/07/29/LinLogRegression.html
@@ -35,7 +35,7 @@ $$\hat{y} = \sum_{j=1}^{n}{w_jx_j} + b $$
 
 For logistic regression, we apply the *sigmoid* function $$\sigma(x)$$ to this output - this scales the values to between 0 and 1 (to get the probability) - see the graph below:
 
-![Sigmoid graph]({{site.base_url}}/assets/blog/LinLogRegression/sigmoid.png)
+![Sigmoid graph](./sigmoid.png)
 
 $$ \sigma(x) = \frac{1}{1+e^{-x}} $$ 
 

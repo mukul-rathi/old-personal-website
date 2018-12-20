@@ -4,7 +4,7 @@ part: 1
 title: What is a neural network?
 date:   2018-07-28 11:00:00
 excerpt: There are a lot of different neural networks out there. We start the series by breaking down commonly used terminology.
-image: "/assets/blog/WhatIsNeuralNet/neuralnetworks.png"
+image: "./neuralnetworks.png"
 caption: A variety of neural network architectures
 
 redirect_from: /2018/07/28/WhatIsNeuralNet.html
@@ -70,7 +70,7 @@ Finally, there are two main problems we look at in supervised learning - dependi
 ## Maths Notation
 
 Often with maths equations, the notation can make the maths seem intimidating or confusing. This cheatsheet gives a quick breakdown of the notation I'm using (along with some additional core maths notation). It's worth taking a moment to go over this and making sure you're comfortable - if you need a refresher [Khan Academy](https://www.khanacademy.org) is an excellent resource. 
-![Maths Notation Cheatsheet](/assets/blog/WhatIsNeuralNet/maths-notation-cheatsheet.png)
+![Maths Notation Cheatsheet](./maths-notation-cheatsheet.png)
 
 ## Summary 
 

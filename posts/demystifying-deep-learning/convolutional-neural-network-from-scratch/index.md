@@ -4,7 +4,7 @@ part: 8
 title: Convolutional Neural Networks 
 date:  2018-09-04 11:00:00
 excerpt: Neural networks optimised for Computer Vision
-image: "/assets/blog/ConvNet/convnet.png"
+image: "./convnet.png"
 caption: "A convolutional neural net Credit: CS31N"
 
 redirect_from: /2018/09/04/ConvNet.html
@@ -39,7 +39,7 @@ This simplifying assumption is at the heart of the **convolutional neural networ
 ## Convolution layer
 
 ### Interpretation 1: Weight sharing between equivalent neurons
-![Equivalent neuron representation](/assets/blog/ConvNet/conv-equiv-neurons.png)
+![Equivalent neuron representation](./conv-equiv-neurons.png)
 
 The main difference between the convolution layer and the standard layer we used in a feedforward network is **weight sharing**. 
 
@@ -48,7 +48,7 @@ Each neuron in the layer looks at a square patch of the image (the *receptive fi
 
 ### Interpretation 2: A sliding filter over the image
 
-![Sliding filter representation](/assets/blog/ConvNet/conv-slide.gif)
+![Sliding filter representation](./conv-slide.gif)
 
 Another interpretation of the convolution layer is, rather than a bunch of equivalent neurons, that of one neuron called the **filter** / **kernel** that *scans* over the image, patch by patch.  
 
@@ -187,7 +187,7 @@ In a typical CNN we tend to refer to a convolution layer with the underlying ass
 
 ## Pooling layer
 
-![Max Pool](/assets/blog/ConvNet/pool.png)
+![Max Pool](./pool.png)
 The pooling layer is another new layer that we use specifically to *reduce width/height dimensions* - and thus reduce the number of parameters in subsequent layers.
 
 Like the convolution layer, we have a filter, and stride and potential padding, but unlike the convolution layers **there are no parameters** - instead we apply a function to the patch. **NB**: unlike in the convolution layer we consider each 2D activation map *separately*, so we preserve the depth dimension.
