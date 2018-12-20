@@ -4,7 +4,7 @@ part: 7
 title: Debugging the Learning Curve
 date:  2018-09-02 11:00:00
 excerpt: Training, validation and test error - is our model really learning or is it just memorising?
-image: "/assets/blog/DebuggingLearningCurve/train-dev-curves.png"
+image: "./train-dev-curves.png"
 caption: "A plot of the training error, and train/dev accuracy metrics"
 
 redirect_from: /2018/09/02/DebuggingLearningCurve.html
@@ -27,7 +27,7 @@ Regardless of the task, plotting the *cost* on the training set is a must, since
 
 Looking at the cost on the training set to see whether the model is learning or not is just the tip of the iceberg though.
 
-![Bias vs variance curve](/assets/blog/DebuggingLearningCurve/bias-variance.png)
+![Bias vs variance curve](./bias-variance.png)
 ## Bias vs Variance
 
 Two properties of a machine learning model we are interested in when debugging learning are bias and variance - these quantify two sources of error in a machine learning model. Together they form the *bias-variance* tradeoff inherent in most machine learning models.

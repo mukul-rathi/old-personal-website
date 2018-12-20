@@ -4,7 +4,7 @@ part: 6
 title: Optimising Learning 
 date:  2018-09-01 06:00:00
 excerpt: How we can make gradient descent even better.
-image: "/assets/blog/OptimisingLearning/optimizers.gif"
+image: "./learning-rates.png"
 caption: Different optimisers that improve on Gradient Descent
 
 redirect_from: /2018/09/01/OptimisingGradDescent.html
@@ -69,7 +69,7 @@ Then we compute $$ \nabla {\tilde{x}_{t-1}} $$ with forward and backprop, and fi
 Momentum allows us to set a higher learning rate, because there will be fewer oscillations, since they get damped by our momentum term. However, we can still do better than a fixed learning rate.
 
 ### Learning rate
-![Learning Rates](/assets/blog/OptimisingLearning/learning-rates.png)
+![Learning Rates](./learning-rates.png)
 
 Recall in our Learning by Gradient Descent post we briefly touched upon the learning rate $$\alpha$$ and how it determines the size of the step we take - if it is too small learning is slow, whereas if it is too large we overshoot. 
 
