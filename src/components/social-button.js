@@ -33,11 +33,15 @@ const SocialButton = (props) =>{
             buttonClass = styles.share;
             icon = <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm1.58 14.727c.464-.512 1.135-.833 1.881-.833 1.402 0 2.539 1.136 2.539 2.539s-1.137 2.54-2.539 2.54-2.538-1.137-2.538-2.54v-.027l-4.817-2.379c-.433.338-.977.541-1.566.541-1.403-.001-2.54-1.137-2.54-2.54s1.137-2.539 2.539-2.539c.722 0 1.373.301 1.836.785l4.566-2.398-.019-.309c0-1.402 1.136-2.54 2.538-2.54s2.54 1.138 2.54 2.54-1.137 2.539-2.539 2.539c-.646 0-1.236-.242-1.686-.64l-4.699 2.469c.006.176-.004.35-.04.549l4.544 2.243z"/></svg>
             break;
+        case 'cancel':
+            buttonClass =styles.cancel;
+            icon = <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24"><path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.151 17.943l-4.143-4.102-4.117 4.159-1.833-1.833 4.104-4.157-4.162-4.119 1.833-1.833 4.155 4.102 4.106-4.16 1.849 1.849-4.1 4.141 4.157 4.104-1.849 1.849z"/></svg>
+            break;
         default:
             icon = null;
     }
     return(
-        <a href={props.href} className ={classNames(styles.socialButton, buttonClass, props.className)}>
+        <a href={props.href}  onClick={(e) => props.onClick(e)}  className ={classNames(styles.socialButton, buttonClass, props.className)}>
         {icon}
         </a>
     );
