@@ -1,4 +1,6 @@
 .navBar{
+    position: fixed;
+    top: 0em;
     display: flex;
     flex-wrap: nowrap; /* nav bar only 1 row */
     margin: 0em auto;
@@ -7,6 +9,12 @@
     align-items: top;
     background: #2D243B;
     padding: 1.0em 0em;
+    transition: 0.3s ease-in;
+    z-index: 10;
+}
+
+.hiddenNavBar{
+    top: -5em;
 }
 .navButton{
     margin: 0em 0.5em;
@@ -33,6 +41,8 @@
 
 
 
+
+
 @media screen and (max-width: 768px) {
     .navBar{
         justify-content: space-evenly;
@@ -42,3 +52,4 @@
         flex-basis: 1;
     }
 }
+
