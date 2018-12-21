@@ -47,7 +47,7 @@ exports.createPages = ({ graphql, actions }) => {
   ).then(result => {
     //for each markdown file, create a corresponding page using the blog-post template
     let posts = result.data.allMarkdownRemark.edges;
-
+    createRedirect({ fromPath: "/blog.html", toPath: "/blog/", isPermanent: true });
     posts.forEach(({ node }, index) => {
         createPage({
           path: node.fields.slug,
