@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 //Gatsby createPages API
 exports.createPages = ({ graphql, actions }) => {
-    const { createPage } = actions
+    const { createPage, createRedirect } = actions
 
     return new Promise((resolve, reject) => {
         //first query the data using graphQL
@@ -37,6 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
                 frontmatter{
                   title
+                  redirect_from
                 }
               }
             }
@@ -61,8 +62,11 @@ exports.createPages = ({ graphql, actions }) => {
             nextPost: index === posts.length - 1 ? null : posts[index + 1].node
           },
         })
+
+      createRedirect({ fromPath: node.frontmatter.redirect_from, toPath: node.fields.slug, isPermanent: true })
       })
       resolve()
     })
   })
 }
+
