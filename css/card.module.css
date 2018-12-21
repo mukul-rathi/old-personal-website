@@ -94,6 +94,15 @@
     box-shadow: 0 14px 10px 0 hsla(0,0%,0%,0.2);
 
   }
+
+.cardShareBar{
+    grid-row: 2;
+    grid-column: 1/6;
+    z-index: 2;
+    background: yellow;
+    padding : 5em;
+}
+
   @media screen and (max-width: 400px) {
     .socialButtonDiv{
         display: inline-block;

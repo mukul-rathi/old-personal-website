@@ -4,8 +4,34 @@ import LinkButton from './link-button';
 import styles from '../../css/card.module.css'
 import classNames from 'classnames'
 import Img from 'gatsby-image'
+import CardShareBar from './card-share-bar';
 
-const Card  = (props) => {
+class Card  extends React.Component{
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            isSharing: false
+        };
+    }
+
+    handleClick(e) {
+        if(this.props.socialButton.img === "share"){
+            e.preventDefault();
+            this.setState({isSharing : true});
+            this.props.socialButton.img = "cancel";
+        }
+        else if(this.props.socialButton.img === "cancel"){
+            e.preventDefault();
+            this.setState({isSharing : false});
+            this.props.socialButton.img = "share";
+
+        }
+    }
+    
+    
+    
+    render() {
     //display social/link button only if defined
     
     /*var props = {
@@ -32,29 +58,33 @@ const Card  = (props) => {
     };
 
 */
+    const {img, category,date, title, description, link1, link2,socialButton, className} = this.props;
     return(
-    <div className={classNames(styles.card, props.className)}>
+    <div className={classNames(styles.card, className)}>
         <div className={styles.mainImageDiv}>
-            { props.img && props.img.fluid && <Img fluid={props.img.fluid} className={styles.mainImage}/>}
-            { props.img && props.img.src && <img src={props.img.src} alt={props.img.src} className={styles.mainImage}/>}
+            { img && img.fluid && <Img fluid={img.fluid} className={styles.mainImage}/>}
+            { img && img.src && <img src={img.src} alt={img.alt} className={styles.mainImage}/>}
 
         </div>
         <div className={styles.metaData}>
-            <h4 className={styles.category}>{props.category}</h4>
-            <h4 className={styles.date}>{props.date}</h4>
+            <h4 className={styles.category}>{category}</h4>
+            <h4 className={styles.date}>{date}</h4>
         </div>
-        <h3 className={styles.title}>{props.title} </h3>
-        <div className={styles.description}>        {props.description}
+        <h3 className={styles.title}>{title} </h3>
+        <div className={styles.description}> {description}
         </div>
           <div className={styles.linkButtons}>
-          {props.link1 &&  <LinkButton href={props.link1.href}>{props.link1.text}</LinkButton>}
-            { props.link2 &&  <LinkButton href={props.link2.href}>{props.link2.text}</LinkButton>}
+          {link1 &&  <LinkButton href={link1.href}>{link1.text}</LinkButton>}
+            {link2 &&  <LinkButton href={link2.href}>{link2.text}</LinkButton>}
           </div>
+          
           <div  className={styles.socialButtonDiv}>
-        { props.socialButton && <SocialButton img={props.socialButton.img} href={props.socialButton.href} className={styles.socialButton}/>}
+        {socialButton && <SocialButton img={socialButton.img} href={socialButton.href} className={styles.socialButton} onClick={(e)=>this.handleClick(e)}/>}
          </div>
+         {this.isSharing && <CardShareBar className={styles.cardShareBar} url={link1.href}/>}
      </div>
     );
+    }
 }
 
 export default Card;

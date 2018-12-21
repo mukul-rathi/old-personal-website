@@ -53,8 +53,14 @@
 .share{
     background-color : white;
     fill: #3D8DFF;
+    transition: ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+.cancel{
+    background-color : white;
+    fill: #3D8DFF;
+    transition: ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
 
-.share:active{
+}
+.share:active, .cancel:active {
     transform: rotate(360deg);
 }
