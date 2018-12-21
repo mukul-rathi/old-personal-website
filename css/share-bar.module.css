@@ -1,0 +1,12 @@
+.shareBar{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: space-between;
+    width : 100%;
+    margin: 2em 0em;
+}
+
+.icon{
+    margin: 0em 0.5em;
+}

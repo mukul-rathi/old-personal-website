@@ -39,8 +39,8 @@ function formatDate(date){
          </div>
           <h1 className={styles.title}> {title} </h1>
           <h2 className={styles.date}> {formatDate(date)}</h2>
+          <ShareBar className={styles.shareBar} url={url}/>
           <Img fluid={image.childImageSharp.fluid}/>
-          <ShareBar className={styles.shareBar}/>
           <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }}/>
         
           <div className={styles.pageNavigation}>
@@ -53,9 +53,7 @@ function formatDate(date){
                 {nextPost.frontmatter.title}
               </Link>}
             </div>
-
            <div className= {styles.comments}>
-
             <DiscussionEmbed shortname={disqusShortname} config=  {disqusConfig} />
             </div>
           </div>
