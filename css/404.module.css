@@ -1,0 +1,12 @@
+.content{
+    margin: 5em;
+}
+
+.content > h1{
+    font-family: 'Lato';
+}
+
+.content > p {
+    font-family: "Open Sans";
+    font-size: 24px;
+}
