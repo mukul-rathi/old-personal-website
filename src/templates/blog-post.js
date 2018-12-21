@@ -2,10 +2,10 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styles from '../../css/blog-post.module.css'
-import { Helmet } from "react-helmet"
 import { DiscussionEmbed } from 'disqus-react';
 import Img from 'gatsby-image'
 import ShareBar from "../components/share-bar";
+import SEO from "../components/seo";
 require("katex/dist/katex.min.css")
 require("prismjs/themes/prism.css")
 
@@ -21,7 +21,8 @@ function formatDate(date){
 
 
   const post = data.markdownRemark;
-  const {title,date,series,part,image} = post.frontmatter;
+  const {title,date,series,part,image, excerpt} = post.frontmatter;
+  const url = "https://mukul-rathi.github.io" + post.fields.slug;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
     identifier: post.id,
@@ -30,11 +31,7 @@ function formatDate(date){
   const { nextPost, prevPost} = pathContext;
   return (
     <Layout>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>{title}</title>
-
-        </Helmet>
+        <SEO isBlogPost={true} title={title} url={url} excerpt={excerpt} image={image}/>
         
         <div className={styles.blogPost}>
         <div className={styles.series}>
@@ -90,8 +87,8 @@ export const query = graphql`
                   ...GatsbyImageSharpFluid
               }
           }
-      }
-      excerpt
+        }
+        excerpt
       }
     }
   }
