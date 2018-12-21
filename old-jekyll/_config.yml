@@ -1,7 +1,0 @@
-title: Mukul's Personal Blog
-description: A blog about Deep Learning and all things Computer Science!
-plugins:
-  - jekyll-feed      
-  - jekyll-seo-tag
-baseurl: /
-
