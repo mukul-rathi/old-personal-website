@@ -34,7 +34,7 @@ module.exports = {
           head: false,
         },
       },
-      
+      `gatsby-plugin-sitemap`,
       {
         resolve: `gatsby-transformer-remark`,
         options: {
