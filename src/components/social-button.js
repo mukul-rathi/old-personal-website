@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import styles from '../../css/social-button.module.css'
+import styles from '../../css/social-button.module.scss'
 const SocialButton = (props) =>{
     var icon = null;
     var buttonClass=null;

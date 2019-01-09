@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from "gatsby"
-import styles from '../../css/link-button.module.css'
+import styles from '../../css/link-button.module.scss'
 
 const LinkButton = (props) =>{
     if(props.href && !props.href.includes("http")){ //internal link to website so client-side routing

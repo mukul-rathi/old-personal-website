@@ -1,6 +1,6 @@
 import React from 'react'
 import Event from '../event';
-import styles from '../../../css/section.module.css'
+import styles from '../../../css/section.module.scss'
 import UniOfCam from '../../../assets/logos/uni-of-cam.png'
 import NottsHigh from '../../../assets/logos/notts-high.jpg'
 const Education = ()=>{

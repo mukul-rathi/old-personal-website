@@ -1,6 +1,6 @@
 import React from 'react'
 import GridCards from '../grid-cards';
-import styles from '../../../css/section.module.css'
+import styles from '../../../css/section.module.scss'
 
 import GreenHackImg from '../../../assets/hackathons/greenhack.png'
 import GameGigImg from '../../../assets/hackathons/gamegig.png'

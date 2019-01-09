@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import { graphql } from "gatsby"
 import BlogCard from "../components/blog-card";
 import BlogDescription from "../components/blog-description";
-import styles from '../../css/blog.module.css'
+import styles from '../../css/blog.module.scss'
 import SEO from "../components/seo";
 import blogImg from '../../posts/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/cnn-internals.png'
 

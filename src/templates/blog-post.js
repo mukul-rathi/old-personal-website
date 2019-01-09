@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import styles from '../../css/blog-post.module.css'
+import styles from '../../css/blog-post.module.scss'
 import { DiscussionEmbed } from 'disqus-react';
 import Img from 'gatsby-image'
 import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
-require("katex/dist/katex.min.css")
-require("prismjs/themes/prism.css")
+import "katex/dist/katex.min.css";
+import "prismjs/themes/prism.css";
 
 
 function formatDate(date){
@@ -17,7 +17,7 @@ function formatDate(date){
 }
 
 
- const BlogPost = ({ data, pathContext }) => {
+ const BlogPost = ({ data, pageContext }) => {
 
 
   const post = data.markdownRemark;
@@ -28,7 +28,7 @@ function formatDate(date){
     identifier: post.id,
     title: title,
   };
-  const { nextPost, prevPost} = pathContext;
+  const { nextPost, prevPost} = pageContext;
   return (
     <Layout>
         <SEO isBlogPost={true} title={title} url={url} excerpt={excerpt} image={image}/>

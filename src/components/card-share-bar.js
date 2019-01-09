@@ -7,7 +7,7 @@ import {
     
   } from 'react-share';
 
-  import styles from '../../css/share-bar.module.css'
+  import styles from '../../css/share-bar.module.scss'
 import SocialButton from './social-button';
 const CardShareBar = (props) =>{
     return(

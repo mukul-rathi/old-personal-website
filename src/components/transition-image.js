@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../css/transition-image.module.css'
+import styles from '../../css/transition-image.module.scss'
 import classNames from 'classnames'
 const TransitionImage = (props) =>{
     return(

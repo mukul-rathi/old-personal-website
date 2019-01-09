@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialButton from '../social-button'
-import styles from '../../../css/hero-image.module.css'
+import styles from '../../../css/hero-image.module.scss'
 import Img  from 'gatsby-image';
 import {StaticQuery, graphql} from 'gatsby'
 const HeroImage = () =>(

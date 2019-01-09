@@ -1,6 +1,6 @@
 import React from 'react'
 import Event from '../event';
-import styles from '../../../css/section.module.css'
+import styles from '../../../css/section.module.scss'
 import NottCompVision from '../../../assets/logos/computer-vision-lab.png'
 import JazzLogo from '../../../assets/logos/jazz-networks.jpg'
 

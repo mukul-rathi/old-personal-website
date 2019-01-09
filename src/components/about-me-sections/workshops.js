@@ -1,6 +1,6 @@
 import React from 'react'
 import GridCards from '../grid-cards';
-import styles from '../../../css/section.module.css'
+import styles from '../../../css/section.module.scss'
 
 import DeepLearn1 from '../../../assets/workshops/deep-learn-1.png'
 import DeepLearn2 from '../../../assets/workshops/deep-learn-2.png'

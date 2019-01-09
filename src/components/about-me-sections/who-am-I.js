@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../../css/who-am-I.module.css'
+import styles from '../../../css/who-am-I.module.scss'
 import profilePic from '../../../assets/profile-pic.jpg'
 const WhoAmI = ()=>{
     return(

@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/layout";
-import styles from "../../css/404.module.css"
+import styles from "../../css/404.module.scss"
 
 export default () => {
     return(

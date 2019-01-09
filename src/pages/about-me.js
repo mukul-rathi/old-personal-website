@@ -6,7 +6,7 @@ import Workshops from "../components/about-me-sections/workshops";
 import TransitionImage from '../components/transition-image'
 import Hackathons from "../components/about-me-sections/hackathons";
 
-import transitionImageStyles from '../../css/transition-image.module.css'
+import transitionImageStyles from '../../css/transition-image.module.scss'
 
 import HaCImage from '../../assets/hac-image.jpg'
 import SEO from "../components/seo";

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../css/event.module.css'
+import styles from '../../css/event.module.scss'
 const Event = (props) =>{
     return(
         <div className={styles.event}>

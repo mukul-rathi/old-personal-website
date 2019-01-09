@@ -1,6 +1,6 @@
 import GridCards from '../grid-cards';
 import React from 'react'
-import styles from '../../../css/section.module.css'
+import styles from '../../../css/section.module.scss'
 
 import OpenMinedImg from '../../../assets/projects/openmined.png'
 import OxfordHackImg from '../../../assets/projects/oxfordhack.jpg'

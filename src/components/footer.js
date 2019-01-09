@@ -1,6 +1,6 @@
 import React from 'react'
 import SocialButton from './social-button';
-import styles from '../../css/footer.module.css'
+import styles from '../../css/footer.module.scss'
 const Footer = ()=>{
     return(
         <footer>

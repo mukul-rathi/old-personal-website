@@ -5,6 +5,7 @@ module.exports = {
     siteUrl: `https://www.mukul-rathi.github.io`
     },
     plugins: [
+      `gatsby-plugin-sass`,
       `gatsby-transformer-remark`,
       `gatsby-transformer-sharp`, 
       `gatsby-plugin-sharp`,

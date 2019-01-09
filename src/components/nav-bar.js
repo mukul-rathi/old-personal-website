@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby";
-import styles from '../../css/nav-bar.module.css'
+import styles from '../../css/nav-bar.module.scss'
 import classNames from 'classnames'
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../css/share-bar.module.css'
+import styles from '../../css/share-bar.module.scss'
 import classNames from 'classnames'
 import {
     FacebookShareButton,
