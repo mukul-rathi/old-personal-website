@@ -1,3 +1,5 @@
+@import '_fonts.scss';
+
 .event{
     padding: 2em;
     background: white;
@@ -9,47 +11,39 @@
 
 .mainContent{
     margin: 0em 0em 0em 0.5em;
-    font-size:  16px;
-
+    @extend %body;
 }
 
 
 .location{
-    font-family: 'Lato';
-    font-size: 22px;
-    font-weight: 300;
-
+    @extend %title;
 }
 
 .role{
-    font-family: 'Roboto';
-    color: #868686;
-    font-weight: 800;
-    font-size: 19px;
+   @extend %subheading;
+   color: $light-grey;
+   font-size: 20px;
+   text-transform: none;
 }
 
 .metaData{
     padding: 1em;
     margin:0.5em;
+    .date {
+        margin-top: 0em;
+        padding-top: 0em;
+        position: top;
+        @extend %subheading;
+        color: $dark-blue;
+    }
+    img{
+        display: object-fit;
+        width: 100%;
+        max-width: 5em;
+    }
 }
-
-.metaData > .date {
-    margin-top: 0em;
-    padding-top: 0em;
-    position: top;
-    color: #003366;
-    font-family: 'Roboto';
-    font-size: 18px;
-}
-
-.metaData > img{
-    display: block;
-    width: 100%;
-    max-width: 5em;
-}
-
 .description{
-    font-family: 'Open Sans';
+    @extend %body;
 }
 @media screen and (max-width: 400px) {
     .metaData{

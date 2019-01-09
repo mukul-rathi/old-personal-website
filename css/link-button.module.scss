@@ -1,12 +1,9 @@
+@import '_fonts.scss';
+
 .linkButton{
     display: inline-block;
-    font-family: 'Roboto';
-    font-weight: 900;
-    font-size: 14px;
-    text-decoration: none;
-    color:  #C42D3C;
-    text-align: center;
-    text-transform: uppercase;
+    @extend %subheading;
+    color:  $red;
 
     padding: 0.75em;
     margin : 0.5em;
@@ -14,6 +11,6 @@
 }
 
 .linkButton:hover{
-    color: #9B232F;
+    color: $dark-red;
     text-shadow: 4px;
 }

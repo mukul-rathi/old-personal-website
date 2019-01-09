@@ -1,12 +1,13 @@
+@import '_fonts.scss';
+
 .content{
     margin: 5em;
-}
+    h1{
+        @extend %title;
+        font-size: 32px;
 
-.content > h1{
-    font-family: 'Lato';
-}
-
-.content > p {
-    font-family: "Open Sans";
-    font-size: 24px;
+    }
+    p {
+       @extend %body;
+    }
 }

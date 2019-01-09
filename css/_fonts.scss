@@ -1,0 +1,43 @@
+$heading-font: "Lato";
+$body-font: "Open Sans";
+
+$purple:  #6202ee;
+$light-grey: #868686;
+$dark-blue:  #003366;
+$red: #C42D3C;
+$dark-red: #9B232F;
+$translucent-grey: rgba(255,255,255,0.5);
+$blue:  #6c93be;
+
+%body{
+    font-family: $body-font;
+    font-weight: 200;
+}
+
+%subheading{
+    font-family: $heading-font;
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+%heading{
+    font-family: $heading-font;
+    font-weight: 300;
+    font-size: 48px;
+}
+
+%title{
+    font-family: $heading-font;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+%heroText{ 
+    font-family: $heading-font;
+    font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+}

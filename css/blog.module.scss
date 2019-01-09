@@ -1,13 +1,13 @@
+@import '_fonts.scss';
+
 .description{
     margin-bottom: 5em;
-    font-family: 'Open Sans';
+    @extend %body;
 }
 h1{
     display: block;
     padding: 0em;
-    font-family: "Lato",arial,sans-serif;
-    font-size: 48px;
-    font-weight: 300;
+    @extend %heading;
     margin-top: 3em;
 }
 

@@ -1,3 +1,5 @@
+@import '_fonts.scss';
+
 .card{
     display: grid;
     grid-template-columns: 7;
@@ -7,7 +9,7 @@
     transition:  0.3s;
     padding-bottom: 1em;
     margin: 1em;
-    border-top: 0.5em solid #6202ee;
+    border-top: 0.5em solid $purple;
     border-radius: 6px;
 }
 .card:hover{
@@ -19,23 +21,16 @@
     grid-row: 4;
     grid-column: 1/6;
 }
-.date{
+.date, .category{
     display: inline;
     margin: 0em 0.25em;
-    font-family: 'Lato';
-    color: #868686;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 16px;
+    @extend %subheading;
+}
+.date{
+   color: $light-grey;
 }
 .category{
-    display: inline; 
-    margin: 0em 0.25em;
-    font-family: 'Lato';
-    color: #6202ee;
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
+    color: $purple;
 
 }
 .mainImageDiv{
@@ -54,9 +49,7 @@
     margin-right: 1em;
     grid-row: 5;
     grid-column: 1/7;
-    font-family: 'Raleway';
-    font-size: 24px;
-    font-weight: 800;
+    @extend %title;
 }
 
 .description{
@@ -64,8 +57,7 @@
     margin: 0em 1.25em;
     grid-row: 6;
     grid-column: 1/7;
-    font-family: 'Open Sans';
-    font-weight: 200;
+    @extend %body;
 }
 
 .linkButtons{

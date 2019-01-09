@@ -1,3 +1,4 @@
+@import '_fonts.scss';
 .navBar{
     position: fixed;
     top: 0rem;
@@ -18,14 +19,12 @@
 }
 .navButton{
     margin: 0rem 0.5rem;
-    text-decoration: none;
-    font-family: "Open Sans",arial,sans-serif;
-    font-weight: 900;
-    font-size: 16px;
     color: rgba(255,255,255,0.5);
     padding: 0.5rem 2rem;
-    text-align: center;
     transition:0.2s ease;
+
+    @extend %subheading;
+    text-transform: none;
 }
 
 .navButton:hover{

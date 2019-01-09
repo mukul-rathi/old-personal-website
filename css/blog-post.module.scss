@@ -1,61 +1,54 @@
+@import '_fonts.scss';
+
 .content, .blogPost{
     max-width: 700px;
     margin: auto;
 }
 .content{
     margin-bottom: 5em;
-    font-family: 'Open Sans';
+    @extend %body;
 }
 
 
 .title{
     display: block;
     padding: 0em;
-    font-family: "Lato",arial,sans-serif;
-    font-size: 48px;
-    font-weight: 300;
     margin: 0.5em 0em;
+    @extend %heading;
 }
 .date{
     display: block;
-    font-family: 'Lato';
-    color: #868686;
-    text-transform: uppercase;
-    font-weight: 900;
-    font-size: 22px;
     margin-bottom: 2em;
+
+    @extend %subheading;
+    color: $light-grey;
+    font-size: 22px;
 }
 
 .series{
     display: block; 
-    margin-top: 2em;
-    font-family: 'Lato';
-    color: #6202ee;
-    font-weight: 900;
-    font-size: 16px;
-    text-transform: uppercase;
-
+    margin-top: 8em;
+    @extend %subheading;
+    color: $purple;
+    h2{
+        display: inline;
+    }
 }
-.series > h2{
-    display: inline;
-}
-
 .pageNavigation{
     display: flex;
     justify-content: space-between;
 }
 .pageNavButton{
-    text-decoration: none;
-    font-family: Roboto;
-    font-size: 16px;
+    @extend %subheading;
+    color: $purple;
+    text-transform: none;
     border-radius: 16px;
     padding: 0.75em 0.2em;
-    color: #6202ee;
-    border: 4px solid #6202ee;
+    border: 4px solid $purple;
     transition : 0.3s ease;
 }
 .pageNavButton:hover{
-    background: #6202ee;
+    background: $purple;
     color: white;
     
 }
@@ -63,5 +56,8 @@
 @media screen and (max-width: 768px) {
     .blogPost{
         margin: 0em 3em;
+    }
+    .series{
+        margin-top: 8em;
     }
 }

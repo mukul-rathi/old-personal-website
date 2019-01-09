@@ -1,3 +1,4 @@
+@import '_fonts.scss';
 .whoAmI{
     padding: 5em;
     display: block;
@@ -9,9 +10,7 @@
     padding: 1em 0em;
     margin-top: 0;
     margin-bottom: 1em;
-    font-family: "Lato",arial,sans-serif;
-    font-size: 48px;
-    font-weight: 300;
+    @extend %heading;
     width:65%;
 }
 .profilePic{
@@ -23,7 +22,7 @@
     margin: 1em;
 }
 .description{
-    font-family: 'Open Sans';
+    @extend %body;
     margin: 1em;
     display: inline;
 }

@@ -1,9 +1,10 @@
+@import '_fonts.scss';
+
 .section{
     padding: 0.5em 1em;
-}
-.section > h2{
-    font-family: 'Oswald';
-    font-size: 2.5em;
-    text-align: center;
-    color: #053975;
+    h2{
+        @extend %heading;
+        text-align: center;
+        color: $dark-blue;
+    }
 }
