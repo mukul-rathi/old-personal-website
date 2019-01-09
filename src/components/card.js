@@ -78,9 +78,9 @@ class Card  extends React.Component{
             {link2 &&  <LinkButton href={link2.href}>{link2.text}</LinkButton>}
           </div>
           
-          <div  className={styles.socialButtonDiv}>
-        {socialButton && <SocialButton img={socialButton.img} href={socialButton.href} className={styles.socialButton} onClick={(e)=>this.handleClick(e)}/>}
-         </div>
+          {socialButton && <div  className={styles.socialButtonDiv}>
+         <SocialButton img={socialButton.img} href={socialButton.href} className={styles.socialButton} onClick={(e)=>this.handleClick(e)}/>
+         </div>}
          {this.isSharing && <CardShareBar className={styles.cardShareBar} url={link1.href}/>}
      </div>
     );

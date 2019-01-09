@@ -22,9 +22,6 @@ function blogProps(props){
             'href': fields.slug,
             'text' : "Read More"
         },
-        'socialButton': {
-            'img': "share"
-        }, 
         'description': frontmatter.excerpt,
         'className' : className
     });
