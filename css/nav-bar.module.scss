@@ -1,29 +1,29 @@
 .navBar{
     position: fixed;
-    top: 0em;
+    top: 0rem;
     display: flex;
     flex-wrap: nowrap; /* nav bar only 1 row */
-    margin: 0em auto;
+    margin: 0rem auto;
     width : 100vw;
     justify-content: flex-end;
     align-items: top;
     background: #2D243B;
-    padding: 1.0em 0em;
+    padding: 1.0rem 0rem;
     transition: 0.3s ease-in;
     z-index: 10;
 }
 
 .hiddenNavBar{
-    top: -5em;
+    top: -5rem;
 }
 .navButton{
-    margin: 0em 0.5em;
+    margin: 0rem 0.5rem;
     text-decoration: none;
     font-family: "Open Sans",arial,sans-serif;
     font-weight: 900;
     font-size: 16px;
     color: rgba(255,255,255,0.5);
-    padding: 0.5em 2em;
+    padding: 0.5rem 2rem;
     text-align: center;
     transition:0.2s ease;
 }
