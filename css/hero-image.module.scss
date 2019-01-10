@@ -16,7 +16,7 @@
 .heroImage{
     position: absolute;
     width: 100vw;
-    height: 95vh;
+    height: 90vh;
     z-index: -5;
     background-size: cover;
     background-position: center center;
@@ -27,15 +27,13 @@
 .heroImageDiv{
     position: absolute;
     top:3em;
-    width: 100vw;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
     width: 100vw;
-    height: 95vh;
+    height: 90vh;
     z-index: 0;
     
 }
