@@ -4,12 +4,6 @@
     margin-bottom: 5em;
     @extend %body;
 }
-h1{
-    display: block;
-    padding: 0em;
-    @extend %heading;
-    margin-top: 3em;
-}
 
 .blogCard{
     margin: 3em 0em;
@@ -18,6 +12,13 @@ h1{
 .blog{
     max-width: 768px;
     margin: auto;
+
+    h1{
+        display: block;
+        padding: 0em;
+        @extend %heading;
+        margin-top: 3em;
+    }
 }
 @media screen and (max-width: 768px) {
     .blog{
