@@ -8,9 +8,39 @@
     padding: 0.75em;
     margin : 0.5em;
     border-radius: 6px;
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
 }
 
 .linkButton:hover{
     color: $dark-red;
     text-shadow: 4px;
 }
+
+/* add ripple effect*/
+.linkButton::after {
+    /* - takes up entire container*/
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /* get a circular ripple*/
+    background-image: radial-gradient(circle at center,$light-grey 5%, transparent 5.01%);
+    /* transform causes the ripple out*/
+    transform: scale(20, 20);
+    /*initially we don't want to see this, only see on click*/
+    opacity: 0;
+    /* how quickly we want ripple to spread (transform) and become visible (opacity)*/
+    transition: transform .5s, opacity 1s;
+  }
+  
+  .linkButton:active::after {
+    /* make visible and start the circle with zero radius*/
+    transform: scale(0, 0);
+    opacity: .5;
+    /*the transform to make it zero radius should be instantaneous*/
+    transition: 0s;
+  }
