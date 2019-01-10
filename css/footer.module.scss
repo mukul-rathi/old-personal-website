@@ -2,15 +2,23 @@
 
 footer{
     display: block;
-    padding: 2em;
+    padding: 1em;
     background-color: #3C3744;
-    justify-content: center; 
-    align-items: center;
     text-align: center;
 }
 .copyrightText{
-    margin-top: 2.5em;
+    margin-top: 1em;
     @extend %body;
     color: white;
 
+}
+
+.socialButton{
+    max-width: 3.5em;
+}
+
+@media screen and (max-width: 400px) {
+    .socialButton{
+        max-width: 3em;
+    }
 }
