@@ -9,7 +9,7 @@
     margin : 0.5em;
     border-radius: 6px;
     transform: translate3d(0, 0, 0);
-    overflow: hidden;
+    overflow: auto;
 }
 
 .linkButton:hover{
@@ -27,10 +27,11 @@
     height: 100%;
     top: 0;
     left: 0;
+    pointer-events: none;
     /* get a circular ripple*/
-    background-image: radial-gradient(circle at center,$light-grey 5%, transparent 5.01%);
+    background-image: radial-gradient(circle at center,$light-grey 10%, transparent 10.01%);
     /* transform causes the ripple out*/
-    transform: scale(20, 20);
+    transform: scale(10, 10);
     /*initially we don't want to see this, only see on click*/
     opacity: 0;
     /* how quickly we want ripple to spread (transform) and become visible (opacity)*/
