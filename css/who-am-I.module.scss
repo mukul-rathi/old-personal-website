@@ -4,27 +4,24 @@
     display: block;
     margin: auto;
     max-width: 80%;
-}
-.whoAmI > h1{
-    display: inline-block;
-    padding: 1em 0em;
-    margin-top: 0;
-    margin-bottom: 1em;
-    @extend %heading;
-    width:65%;
+    h1{
+        display: block;
+        margin-top: 0;
+        @extend %heading;
+    }
 }
 .profilePic{
-    display: block;
-    max-width: 300px;
-    max-height: 30%;
-    border-radius: 50%;
-    float:right ;
-    margin: 1em;
+    max-width: 50%;
+    float: right;
+    margin-left: 1em;
+    img{
+        max-width: 100%;     
+        border-radius: 50%;
+    }
 }
 .description{
     @extend %body;
-    margin: 1em;
-    display: inline;
+    margin: 0em;
 }
 
 @media screen and (max-width: 500px) {

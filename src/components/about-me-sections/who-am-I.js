@@ -5,7 +5,9 @@ const WhoAmI = ()=>{
     return(
         <div className={styles.whoAmI}>
             <h1 className={styles.mainHeading}>About Me</h1>
-            <img className={styles.profilePic} src={profilePic} alt="Mukul Rathi"/>
+            <div className={styles.profilePic}>
+            <img src={profilePic} alt="Mukul Rathi"/>
+            </div>
             <div className={styles.description}>
             <p>
                 Hey there! Welcome to my personal website! A bit about me - I'm a second year Computer Science student at the University of Cambridge with an interest in all things deep learning! 
