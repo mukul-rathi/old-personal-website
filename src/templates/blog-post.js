@@ -45,12 +45,12 @@ function formatDate(date){
         
           <div className={styles.pageNavigation}>
               {prevPost &&  <Link className={styles.pageNavButton} to={prevPost.fields.slug}>
-                {prevPost.frontmatter.title}
+              <div> {prevPost.frontmatter.title} </div>
               </Link> }
 
             {nextPost &&
               <Link className={styles.pageNavButton} to={nextPost.fields.slug}>
-                {nextPost.frontmatter.title}
+               <div> {nextPost.frontmatter.title} </div>
               </Link>}
             </div>
            <div className= {styles.comments}>
