@@ -8,10 +8,13 @@ $red: #C42D3C;
 $dark-red: #9B232F;
 $translucent-grey: rgba(255,255,255,0.5);
 $blue:  #6c93be;
+$body-grey : #5A5E63;
+$heading-black:#151517;
 
 %body{
     font-family: $body-font;
     font-weight: 200;
+    color: $body-grey;
 }
 
 %subheading{
@@ -26,12 +29,14 @@ $blue:  #6c93be;
     font-family: $heading-font;
     font-weight: 300;
     font-size: 48px;
+    color: $heading-black;
 }
 
 %title{
     font-family: $heading-font;
     font-weight: 300;
     font-size: 24px;
+    color: $heading-black;
 }
 
 %heroText{ 
@@ -39,5 +44,4 @@ $blue:  #6c93be;
     font-size: 80px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    
 }
