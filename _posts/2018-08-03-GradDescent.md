@@ -4,7 +4,7 @@ part: Part 3
 title: Learning Through Gradient Descent
 layout: default
 comments: true
-date:   2018-08-28 13:00:00
+date:   2018-08-03 13:00:00
 excerpt: Diving into how machine learning algorithms "learn" 
 image: "/assets/blog/GradDescent/grad-descent.png"
 caption: "Gradient descent on loss function surface <br> <em>credit: Andrew Ng Coursera</em>"
