@@ -21,22 +21,24 @@
             <h1> {{ page.title }}</h1>
             {% include share-bar.html %}
                 {{ content }}
+
             <h2>Blog Posts </h2>
             {% for post in site.posts %}
-            <li>
-            <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
-            <a class="post-link" href="{{ post.url | prepend: site.url}}">{{ post.title }}
-            </a>
-            <br>
-                <p>
-                    {{ post.excerpt }}
-                </p>
-                <img class="main-image" src={{post.image}}>
-            </li>
-            <br> <br>
-        {% endfor %}
+                <li>
+                <strong class="post-date">{{ post.date | date: " %-d %b %Y" }}</strong>
+                <a class="post-link" href="{{ post.url | prepend: site.url}}">
+                    {{post.series}}  {{post.part}} - {{ post.title }}
+                </a>
+                <br>
+                    <div class="post-excerpt">{{ post.excerpt }}</div>
+                    <img class="main-image" alt="" src={{post.image}} >
+
+                </li>
+                <br> <br>
+            {% endfor %}
+            
+>>>>>>> 7dd92e3... Add email sub form
     </main>
     {%include footer.html%}
-
     </body>
 </html>
