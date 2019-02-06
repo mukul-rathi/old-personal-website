@@ -50,11 +50,19 @@ $$Z^{(m_i)}_{i,j,k}= \sum_a \sum_b \sum_c X^{(m_i)}_{i+a,j+b,c} * W_{a,b,c,k}  +
 
 Since a convolution cannot be represented as a matrix multiplication, we will just consider a single neuron/weight at a time. 
 
-It also helps to refer back to the equivalent neurons representation of a convolution for the  $$k^{th} filter$$. Since the weights/bias are shared, we sum across all neurons across the width and the height of the activation map, since a nudge in the weights/bias will affect the outputs of all neurons.
+Just like with a standard feedforward neural net, a nudge in the weights results in a nudge in $$Z$$ corresponding to the magnitude of the input $$X$$ it is connected to. A nudge in the bias has the corresponding magnitude in $$Z$$. 
 
-Just like with a standard feedforward neural net, a nudge in the weights results in a nudge in $$Z$$ corresponding to the magnitude of the input it is connected to. A nudge in the bias has the corresponding magnitude in $$Z$$. We also average the nudges across the batch of training examples. 
+So considering our single neuron $$Z^{(m_i)}_{i,j,k}$$ and a weight $$W_{a,b,c,k}$$ the corresponding input is $$X^{(m_i)}_{i+a,j+b,c}$$ from the forward prop equation above. So:
 
-So the backprop equations for the weights and bias are:
+ $$\frac{\partial{Z^{(m_i)}_{i,j,k}}}{\partial{W_{a,b,c,k}}} = X^{(m_i)}_{i+a,j+b,c}$$ 
+
+ $$\frac{\partial{Z^{(m_i)}_{i,j,k}}}{\partial{b_{k}}} = 1 $$ 
+
+It helps to refer back to the equivalent neurons representation of a convolution for the  $$k^{th} filter$$. Since the weights/bias are shared, we sum partial derivatives across all neurons across the width and the height of the activation map, since a nudge in the weights/bias will affect the outputs of all neurons.
+
+We also average the gradient across the batch of training examples. 
+
+So the backprop equations for the weights and bias are, using chain rule:
 
 $$ \frac{\partial{J}}{\partial{W_{a,b,c,k}}} = \frac{1}{m} \sum_{m_i} \sum_i \sum_j \frac{\partial{J}}{\partial{Z^{(m_i)}_{i,j,k}}}*X^{(m_i)}_{i+a,j+b,c}$$
 
@@ -67,13 +75,17 @@ Now we need to compute the partial derivative with respect to the input $$X$$ so
 Firstly, note that a nudge in the input affects all of the activation maps, so we sum across the activation maps. So now let's consider the $$k^{th}$$ activation map.
 ![Conv sliding backward](/assets/blog/CNNBackprop/conv-backward.gif)
 
-Now consider the representation of the convolution as a sliding filter operation. The filter slides over the input across the height and width dimensions so for a given input pixel $$X_{i, j, c}$$, there are $$F*F$$ different outputs it is part of, depending on which part of the filter has scanned over it. To determine the corresponding output patch when $$X_{i, j, c}$$ is multiplied by $$W_{a,b,c,k}$$, note that in the forward pass, for $$Z_{i, j, k}$$ the corresponding input is offset by $$(+a, +b)$$ relative to the output, so from the perspective of the input, the output is offset by $$(-a, -b)$$. So given an input $$X_{i, j, c}$$ and weight $$W_{a,b,c,k}$$ the corresponding output is $$Z_{i-a, j-b, k}$$.
+Now consider the representation of the convolution as a sliding filter operation. The filter slides over the input across the height and width dimensions so for a given input pixel $$X_{i, j, c}$$, there are $$F*F$$ different outputs it is part of, depending on which part of the filter has scanned over it ($$F$$ is the filter size). To determine the corresponding output patch when $$X_{i, j, c}$$ is multiplied by $$W_{a,b,c,k}$$, note that in the forward pass, for $$Z_{i, j, k}$$ the corresponding input is offset by $$(+a, +b)$$ relative to the output (see equation), so from the perspective of the input, the output is offset by $$(-a, -b)$$. So given an input $$X_{i, j, c}$$ and weight $$W_{a,b,c,k}$$ the corresponding output is $$Z_{i-a, j-b, k}$$.
 
 So the equation is: 
 
 $$ \frac{\partial{J}}{\partial{X^{(m_i)}_{i,j,c}} } = \sum_k \sum_a \sum_b  \frac{\partial{J}}{\partial{Z^{(m_i)}_{i-a,j-b,k}} } * W_{a,b,c}$$   
 
+<<<<<<< HEAD
 Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, (i-a,j-b) may be negative (i.e. not exist) - so we set these values to zero. 
+=======
+Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, the indices (i-a,j-b) may be negative (i.e. $$Z_{i-a, j-b, k}$$ does not exist) - so we set these values to zero, as non-existent values shouldn't contribute to the sum of the gradients. 
+>>>>>>> 2a1d1d9... Add more description to Conv Layer backprop
 
 
 ### Code: 
