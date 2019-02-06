@@ -1,12 +1,14 @@
 ---
+series: Demystifying Deep Learning 
 title: Demystifying Deep Learning Primer
+<<<<<<< HEAD
 part: Part 0
 comments: true
-<<<<<<< HEAD
 date:   2018-08-25 10:00:00
+part: 0
+>>>>>>> 6c1ada2... Remove unnecessary fields in front-matter of blog posts
 date:   2018-07-25 10:00:00
 excerpt: Motivation for the series.
-<<<<<<< HEAD:posts/2018-07-25-DemystifyingDeepLearningPrimer.md
 redirect_from: /2018/07/25/DemystifyingDeepLearningPrimer.html
 ---
 

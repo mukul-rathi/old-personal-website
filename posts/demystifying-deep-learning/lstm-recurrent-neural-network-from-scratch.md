@@ -1,8 +1,7 @@
 ---
 series: Demystifying Deep Learning 
-part: Part 10
+part: 10
 title: Recurrent Neural Networks 
-comments: true
 date:  2018-09-17 10:00:00
 excerpt: Neural networks optimised for NLP and sequences - the RNN, GRU and LSTM networks
 image: /assets/blog/RecurrentNet/rnn.png

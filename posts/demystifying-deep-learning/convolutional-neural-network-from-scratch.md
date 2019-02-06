@@ -1,9 +1,7 @@
 ---
 series: Demystifying Deep Learning 
-part: Part 8
+part: 8
 title: Convolutional Neural Networks 
-layout: default
-comments: true
 date:  2018-09-04 11:00:00
 excerpt: Neural networks optimised for Computer Vision
 image: "/assets/blog/ConvNet/convnet.png"
