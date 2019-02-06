@@ -219,7 +219,7 @@ GEM
     ruby-enum (0.7.2)
       i18n
     ruby_dep (1.5.0)
-    rubyzip (1.2.1)
+    rubyzip (1.2.2)
     safe_yaml (1.0.4)
     sass (3.5.7)
       sass-listen (~> 4.0.0)
@@ -244,9 +244,13 @@ PLATFORMS
 DEPENDENCIES
   github-pages
 <<<<<<< HEAD
+<<<<<<< HEAD
   html-proofer
 =======
 >>>>>>> ac539cd... Add Jekyll SEO tags
+=======
+  rubyzip (~> 1.2, >= 1.2.2)
+>>>>>>> 49c88a6... Fix Ruby security vulnerability
 
 BUNDLED WITH
    1.16.4
