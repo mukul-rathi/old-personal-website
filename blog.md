@@ -1,6 +1,6 @@
 ---
 layout: blog_homepage
-title: Hello World!
+title: Hello World- Mukul's Blog!
 ---
 ## Introduction
 Welcome to my blog! First, a quick introduction, I'm a second year undergraduate Computer Science student at Cambridge, with a passion for 
@@ -11,6 +11,7 @@ I am currently writing a Demystifying Deep Learning series of blog posts - check
 I appreciate any feedback on how to improve both the blog posts, and the projects themselves, as well as project extensions worth 
 pursuing further. 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 #### _DISCLAIMER_
@@ -25,3 +26,6 @@ I am also in the process of updating the design of my blog. To see the screensho
 >>>>>>> 0bde3ab... Minor change to blog homepage
 <a href="https://github.com/mukul-rathi/mukul-rathi.github.io">here</a> - for each commit with a visual change, there
 is a corresponding screenshot. 
+=======
+If you liked a particular analogy and want a more detailed explanation using that analogy, or equally if there is something you think can be improved - **comment on the blog post** - I will check out your feedback and update the post accordingly!
+>>>>>>> 30dca93... Minor change in blog wording
