@@ -5,10 +5,28 @@ import styles from '../../../css/section.module.scss'
 import OpenMinedImg from '../../../assets/projects/openmined.png'
 import OxfordHackImg from '../../../assets/projects/oxfordhack.jpg'
 import CambridgeGameGigHackImg from '../../../assets/projects/CambridgeGameGigHack.png'
+import HackCambridgeImg from '../../../assets/projects/HackCambridge.png'
 
 const Projects = ()=>{
     const gridProps = {
-
+        'HackCambridge2019' : {
+            'title': "Out of the Vox",
+            'img': {
+                'src': HackCambridgeImg,
+                'alt': "Screenshot of App"
+            },
+            'date': "January 2019",
+            'category': "Hackathon",
+            'socialButton': {
+                'href': "https://github.com/mukul-rathi/HackCambridge2019",
+                'img': "github"
+            }, 
+            'link1':{
+                'href': "https://mn493.user.srcf.net/hc2019/",
+                'text' : "View Demo"
+            },
+            'description': "Out of the Vox is a brainstorming website app that makes mind maps by only listening to your voice! Finalist (top 6 out of 68) at HackCambridge 2019"
+        },
         'CambridgeGameGigHack' : {
             'title': "Retro Game Design",
             'img': {
