@@ -6,6 +6,7 @@ plugins:
 baseurl: /
 =======
   - jekyll-feed      
+  - jekyll-seo-tag
 baseurl: /
 
 >>>>>>> b57ebb5... Reset Google Analytics tracking
