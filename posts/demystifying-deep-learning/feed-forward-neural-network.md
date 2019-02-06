@@ -2,12 +2,13 @@
 series: Demystifying Deep Learning 
 part: Part 4
 title: FeedForward Neural Networks
-layout: default
 comments: true
 date:   2018-08-29 13:00:00
 excerpt: Designing our first neural network!
 image: "/assets/blog/FeedForwardNeuralNet/neural-net.png"
-caption: A small feedforward neural network <em> Credit CS231n </em>
+caption: A small feedforward neural networ> Credit CS231n
+
+redirect_from: /2018/08/29/FeedForwardNeuralNet.html
 ---
 
 Now to introduce our first deep learning algorithm - the feedforward neural network!
