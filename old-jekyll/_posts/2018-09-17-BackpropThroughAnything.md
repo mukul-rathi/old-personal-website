@@ -4,11 +4,7 @@ part: Part 11
 title: Backpropagation through, well, anything! 
 layout: default
 comments: true
-<<<<<<< HEAD:_posts/2018-09-18-BackpropThroughAnything.md
-date:  2018-09-18  10:00:00
-=======
 date:  2018-09-17  19:00:00
->>>>>>> d8201c4... Ensure correct order of posts:_posts/2018-09-17-BackpropThroughAnything.md
 excerpt: How we can generalise Backprop to <em> any </em> neural network - see how TensorFlow and Keras compute their partial derivatives! We'll use the LSTM cell as an example
 image: /assets/blog/BackpropAnything/LSTM.png
 
