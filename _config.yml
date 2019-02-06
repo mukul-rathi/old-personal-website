@@ -1,5 +1,11 @@
-name: Mukul's Personal Blog
+title: Mukul's Personal Blog
 description: A blog about Deep Learning and all things Computer Science!
 plugins:
+<<<<<<< HEAD
   - jekyll-feed
 baseurl: /
+=======
+  - jekyll-feed      
+baseurl: /
+
+>>>>>>> b57ebb5... Reset Google Analytics tracking
