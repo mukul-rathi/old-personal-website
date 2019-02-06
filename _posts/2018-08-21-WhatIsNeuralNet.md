@@ -2,8 +2,15 @@
 title: Demystifying Deep Learning Part 1 - What is a neural network?
 layout: default
 comments: true
+<<<<<<< HEAD:_posts/2018-08-21-WhatIsNeuralNet.md
 date:   2018-08-21 10:00:00
 excerpt: "Start of the series!"
+=======
+date:   2018-08-26 11:00:00
+excerpt: There are a lot of different neural networks out there. We start the series by breaking down commonly used terminology.
+image: "/assets/blog/WhatIsNeuralNet/neuralnetworks.png"
+caption: A variety of neural network architectures
+>>>>>>> 0b60b0a... Add image to What is a neural network post:_posts/2018-08-26-WhatIsNeuralNet.md
 ---
 ### Introduction
 
