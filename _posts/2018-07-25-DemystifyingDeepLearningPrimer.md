@@ -2,8 +2,13 @@
 title: Demystifying Deep Learning Primer
 layout: default
 comments: true
+<<<<<<< HEAD
 date:   2018-08-25 10:00:00
 excerpt: "Motivation for the series."
+=======
+date:   2018-07-25 10:00:00
+excerpt: Motivation for the series.
+>>>>>>> 4a0f170... Fix date on DL Primer post
 ---
 
 ## Why bother with the maths behind deep learning?
