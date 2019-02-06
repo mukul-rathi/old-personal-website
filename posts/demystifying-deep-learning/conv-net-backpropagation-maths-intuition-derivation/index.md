@@ -81,12 +81,7 @@ So the equation is:
 
 $$ \frac{\partial{J}}{\partial{X^{(m_i)}_{i,j,c}} } = \sum_k \sum_a \sum_b  \frac{\partial{J}}{\partial{Z^{(m_i)}_{i-a,j-b,k}} } * W_{a,b,c}$$   
 
-<<<<<<< HEAD
-Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, (i-a,j-b) may be negative (i.e. not exist) - so we set these values to zero. 
-=======
 Note that this is actually itself a convolution! When implementing, we need to zero-pad the output, since around the edges, the indices (i-a,j-b) may be negative (i.e. $$Z_{i-a, j-b, k}$$ does not exist) - so we set these values to zero, as non-existent values shouldn't contribute to the sum of the gradients. 
->>>>>>> 2a1d1d9... Add more description to Conv Layer backprop
-
 
 ### Code: 
 

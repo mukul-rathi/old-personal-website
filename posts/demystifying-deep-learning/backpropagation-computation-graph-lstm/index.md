@@ -17,7 +17,7 @@ So far in this series, we have looked at the general principle of [gradient desc
 
 Now we will take a step back and look at backpropagation in a more general sense - *through a computation graph*. Through this we'll get a general intuition for how the frameworks compute their 
 
-We'll use the LSTM cell as our motivating example - to continue the task of sentiment analysis on the IMDB review dataset - you can find the code in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} . 
+We'll use the LSTM cell as our motivating example - to continue the task of sentiment analysis on the IMDB review dataset - you can find the code in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet) 
 
 
 ## General Backpropagation Principles
@@ -201,7 +201,7 @@ So by breaking the computation graph into many steps, we can break down the calc
 
 ### Code:
 
-The motivating example we've looked at uses an [LSTM network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} for sentiment analysis on a dataset of IMDB reviews
+The motivating example we've looked at uses an [LSTM network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet) for sentiment analysis on a dataset of IMDB reviews
  
 ```python
 def backward_step(dA_next, dC_next,cache,parameters):
@@ -236,7 +236,7 @@ def backward_step(dA_next, dC_next,cache,parameters):
 
 ### Practical Considerations:
 
-When checking the equations for the backprop, it helps to have a numerical checker - I've written one in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet){:target="_blank"} .  
+When checking the equations for the backprop, it helps to have a numerical checker - I've written one in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet).
 
 ## Conclusion
 
