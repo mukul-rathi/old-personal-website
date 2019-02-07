@@ -67,3 +67,12 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# Vim partially edited files
+*.swp
+
+# VS Code 
+.vscode/
+
+#old jekyll site 
+_site/
