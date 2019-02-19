@@ -1,14 +1,11 @@
 ---
 series: Demystifying Deep Learning 
-title: Demystifying Deep Learning Primer
-<<<<<<< HEAD
-part: Part 0
-comments: true
-date:   2018-08-25 10:00:00
 part: 0
->>>>>>> 6c1ada2... Remove unnecessary fields in front-matter of blog posts
-date:   2018-07-25 10:00:00
+title: Demystifying Deep Learning Primer
+date:  2018-07-25 11:00:00
 image: "./why-maths.jpg"
+caption: Why bother with maths
+
 excerpt: Motivation for the series - why bother with the maths behind deep learning?
 redirect_from: /2018/07/25/DemystifyingDeepLearningPrimer.html
 ---
