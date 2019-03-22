@@ -19,6 +19,7 @@
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-gtag": "^1.0.4",
+    "gatsby-plugin-guess-js": "^1.0.5",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-meta-redirect": "^1.1.1",
     "gatsby-plugin-offline": "^2.0.25",
