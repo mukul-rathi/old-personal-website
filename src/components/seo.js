@@ -5,6 +5,7 @@ const SEO = (props) =>{
     const {title, image,url, isBlogPost, excerpt} = props;
 return(
         <Helmet>
+          <html lang="en" />
           <meta charSet="utf-8" />
           <title>{title}</title>
             <meta name="description" content={excerpt} />
