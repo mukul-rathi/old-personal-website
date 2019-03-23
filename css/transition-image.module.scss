@@ -1,24 +1,39 @@
+
 @import '_fonts.scss';
-.transitionImage{
+
+.transitionText{ 
+    margin-bottom: 1em;
+    z-index: 0;
+    @extend %heroText;
+    
+}
+.wrapper{
+    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+    position: relative;
+}
+
+.transitionImageDiv , .transitionImage{
+    position: absolute;
+    top:0;
+    right:0;
     width: 100vw;
-    height: 50vw;
+    height: 50vh;
+}
+
+.transitionImage{
+    z-index: -5;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+
+}
+
+.transitionImageDiv{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5))
-}
-
-.HaCImage{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url("../assets/hac-image.jpg");
-
-}
-.transitionImage h2{
-    @extend %heroText;
-    font-size: 60px;
+    z-index: 1;
+    
 }

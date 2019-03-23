@@ -3,6 +3,45 @@
 
 .heroText{ 
     margin-bottom: 1em;
+    @import '_fonts.scss';
+    
+    .heroText{ 
+        margin-bottom: 1em;
+        z-index: 0;
+    
+        @extend %heroText;
+        
+    }
+    .wrapper{
+        background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+        position: relative;
+    }
+    
+    .heroImage, .heroImageDiv{
+        position: absolute;
+        top:0;
+        right:0;
+        width: 100vw;
+        height: 90vh;
+    }
+    
+    .heroImage{
+        z-index: -5;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    
+    }
+    
+    .heroImageDiv{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+        z-index: 1;
+        
+    }
     z-index: 0;
 
     @extend %heroText;
@@ -10,13 +49,18 @@
 }
 .wrapper{
     background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+    position: relative;
 }
 
-
-.heroImage{
+.heroImage, .heroImageDiv{
     position: absolute;
+    top:0;
+    right:0;
     width: 100vw;
     height: 90vh;
+}
+
+.heroImage{
     z-index: -5;
     background-size: cover;
     background-position: center center;
@@ -25,15 +69,11 @@
 }
 
 .heroImageDiv{
-    position: absolute;
-    top:3em;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     color: white;
-    width: 100vw;
-    height: 90vh;
-    z-index: 0;
+    z-index: 1;
     
 }

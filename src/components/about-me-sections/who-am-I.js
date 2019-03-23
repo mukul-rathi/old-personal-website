@@ -1,13 +1,29 @@
 import React from 'react'
 import styles from '../../../css/who-am-I.module.scss'
-import profilePic from '../../../assets/profile-pic.jpg'
-const WhoAmI = ()=>{
-    return(
+import Img  from 'gatsby-image';
+import {StaticQuery, graphql} from 'gatsby'
+
+const WhoAmI = ()=>(
+    <StaticQuery
+    query = {graphql`{
+        allFile (filter: {name: {eq: "profile-pic"}}){
+          edges{
+            node {
+                childImageSharp{
+                    fluid(maxWidth: 1000) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+            }
+          }
+        }
+      }
+      `}
+      render= {data => (
         <div className={styles.whoAmI}>
+        
             <h1 className={styles.mainHeading}>About Me</h1>
-            <div className={styles.profilePic}>
-            <img src={profilePic} alt="Mukul Rathi"/>
-            </div>
+            <Img fluid={data.allFile.edges[0].node.childImageSharp.fluid} alt="Mukul Rathi" className={styles.profilePic}/>
             <div className={styles.description}>
             <p>
                 Hey there! Welcome to my personal website! A bit about me - I'm a second year Computer Science student at the University of Cambridge with an interest in all things deep learning! 
@@ -23,9 +39,7 @@ const WhoAmI = ()=>{
            
         </div>
 
-    );
-
-
-}
+    )}/>
+);
 
 export default WhoAmI;
