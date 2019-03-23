@@ -33,6 +33,25 @@ const Projects = ()=>{
             return correctImg.node.childImageSharp.fluid;
         }
         const gridProps = {
+            
+            'CleanCycle' : {
+                'title': "Clean Cycle",
+                'img': {
+                    'fluid': findImage("clean-cycle"),
+                    'alt': "Heatmap of pollution"
+                },
+                'date': "Feb-March 2019",
+                'category': "Group Project",
+                'socialButton': {
+                    'href': "https://github.com/mukul-rathi/CleanCycle",
+                    'img': "github"
+                }, 
+                'link1':{
+                    'href': "https://mukul-rathi.github.io/database-server-tutorial/docker-postgres-flask/",
+                    'text' : "Tutorial Part 1"
+                },
+                'description': "Deployed a database server (to store air pollution data) using PostgreSQL, Docker and Flask - tested with Pytest and Travis CI."
+            },
             'HackCambridge2019' : {
                 'title': "Out of the Vox",
                 'img': {
@@ -49,7 +68,7 @@ const Projects = ()=>{
                     'href': "https://mn493.user.srcf.net/hc2019/",
                     'text' : "View Demo"
                 },
-                'description': "Out of the Vox is a brainstorming website app that makes mind maps by only listening to your voice! Finalist (top 6 out of 68) at HackCambridge 2019"
+                'description': "Finalist (top 6 out of 68) at HackCambridge 2019. Out of the Vox is a brainstorming website app that makes mind maps by only listening to your voice! "
             },
             'CambridgeGameGigHack' : {
                 'title': "Retro Game Design",
@@ -77,7 +96,7 @@ const Projects = ()=>{
                     'href': "https://github.com/OpenMined/PySyft/blob/master/examples/torch/Boston_Housing_Federated_Training%20with%20Secure%20Aggregation%20and%20Diff%20Privacy.ipynb",
                     'img': "github"
                 }, 
-                'description': "Contributed a demo notebook demonstrating the use of differential privacy, secure aggregation and federated learning using the Pysyft library. This notebook's code was used by other contributors to generate more example usage."
+                'description': "Contributed a demo notebook demonstrating the use of privacy-preserving machine learning techniques using the Pysyft library. "
             },
             'OxfordHack': {
                 'title': "OxfordHack",
@@ -95,7 +114,7 @@ const Projects = ()=>{
                     'href': "https://www.youtube.com/watch?v=Ccl5iRXDHxY",
                     'img': "youtube"
                 }, 
-                'description': "Built a dashboard to help doctors classify complicated diseases which aggregated patient feedback from a Facebook Messenger chatbot as well as displaying the predicted output. I used TensorFlow to train the neural network that used patient data to classify the type of cardiac arrhythmia."
+                'description': "Built a dashboard to help doctors classify complicated diseases - used TensorFlow to train classifier."
             }
     
         };

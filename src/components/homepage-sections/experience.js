@@ -54,6 +54,15 @@ const Experience = ()=>{
                     }
                 },
                 'Experience':  {
+                    'Facebook' : {
+                        'date' : "June-September 2019",
+                        'location': "Facebook",
+                        'role': "Software Engineer Intern",
+                        'points': {
+                            '' : ""
+                        },
+                        'logo': findImage("facebook")
+                    },
                     'JazzNetworks' : {
                         'date' : "July-September 2018",
                         'location': "Jazz Networks",
