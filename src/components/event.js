@@ -1,11 +1,14 @@
 import React from 'react'
 import styles from '../../css/event.module.scss'
+
+import Img from 'gatsby-image'
+
 const Event = (props) =>{
     return(
         <div className={styles.event}>
             <div className={styles.metaData}>
                 <h4 className={styles.date}>{props.date}</h4>
-                <img src={props.logo} alt="event-logo"></img>
+                <Img className={styles.img} fluid={props.logo} alt="event-logo"/>
             </div>
             <div className={styles.mainContent}>
                 <div className={styles.headings}>
@@ -13,7 +16,13 @@ const Event = (props) =>{
                 <h3 className={styles.role}> {props.role}</h3>
                 </div>
                 <div className={styles.description}>
-                   {props.children}
+                {Object.keys(props.points).map(title =>
+                    (
+                    <p>
+                        {title && <strong>{title}:  </strong>}
+                        {props.points[title]}
+                    </p>  
+                    ))}
                 </div>
             </div>
         </div>
