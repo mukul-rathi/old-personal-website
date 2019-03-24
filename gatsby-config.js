@@ -42,6 +42,12 @@ module.exports = {
         resolve: `gatsby-plugin-feed`
       },
       {
+        resolve: 'gatsby-plugin-mailchimp',
+        options: {
+          endpoint: 'https://github.us19.list-manage.com/subscribe/post?u=e440d329b8b057677440da861&amp;id=375f8b022f', 
+        },
+      },
+      {
         resolve: `gatsby-plugin-gtag`,
         options: {
           // your google analytics tracking id

@@ -8,6 +8,7 @@ import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
 import "katex/dist/katex.min.css";
 import "prismjs/themes/prism.css";
+import MailChimpForm from "../components/mailchimp-form";
 
 
 function formatDate(date){
@@ -53,6 +54,7 @@ function formatDate(date){
                <div> {nextPost.frontmatter.title} </div>
               </Link>}
             </div>
+            <MailChimpForm/>
            <div className= {styles.comments}>
             <DiscussionEmbed shortname={disqusShortname} config=  {disqusConfig} />
             </div>
