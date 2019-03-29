@@ -1,7 +1,6 @@
 ---
 series: Database Server
-part: 1
-title:  How to set up your own database server with Docker, PostgreSQL and Flask!
+title:  A beginner's guide to setting up your own Postgres database server with Docker and Flask!
 date:   2019-03-15 17:00:00
 excerpt:  An overview of the core concepts and commands for Docker, Flask and PostgreSQL.
 image: ./docker-flask-postgres.png
@@ -10,7 +9,7 @@ caption: Docker Flask and Postgres Logos
 
 ## Overview of the tutorial
 
-In this tutorial we'll set up a database with a REST endpoint other applications can send requests to to perform operations on the database.  
+In this tutorial we'll set up a database with a REST endpoint that other applications can send requests in order to perform operations on the database.  
 
 This tutorial will illustrate the core aspects of three useful technologies:
 
@@ -18,9 +17,8 @@ This tutorial will illustrate the core aspects of three useful technologies:
 * Flask 
 * PostgreSQL using Python (Psycopg2 library)
 
-The [next post]() in the tutorial will look at good software development practices, namely **code style** (using Google's official style guide) and **testing** - this is very useful if you want to deploy your database server to production! 
 
-#### JUST GIVE ME THE CODE!
+### JUST GIVE ME THE CODE!
 This [example repository](https://github.com/mukul-rathi/CleanCycle/tree/tutorial) contains code for a database server storing air pollution sensor data. Check the __*tutorial*__ branch to see the code we are interested in (the master branch also contains the other sections of the project).
 
 For sake of brevity the blog post will only highlight the important parts of the code, however I encourage you to fork the repository and build upon the tutorial repo when creating your own database and endpoint.
@@ -31,15 +29,16 @@ Docker is all the rage when it comes to developing scalable applications, so a v
 
 ### What is Docker?
 
-Consider trying to isolate different applications. One approach you might consider is to run each application in a separate **virtual machine** so each application has its own resources and is unaware of the other - we say they are **sandboxed**. The issue with this is that each VM requires a sizeable chunk of resources (multiple GBs of RAM, multiple CPU cores etc). An entire VM seems very wasteful, especially if the application itself doesn't need that many resources. 
+Consider trying to isolate different applications. One approach you might consider is to run each application in a separate **virtual machine** so each application has its own resources and is isolated from the others - we say they are **sandboxed**. The issue with this is that each VM requires a sizeable chunk of resources (multiple GBs of RAM, multiple CPU cores etc). An entire VM seems very wasteful, especially if the application itself doesn't require many resources. 
 
-Rather than running separate OSs, Docker isolates each app at the application layer - each app is in its own **container** and they are managed by a Docker *daemon* on the same host OS. 
+Rather than running separate OSs, Docker isolates each app at the *application layer* - each app is in its own **container** and they are managed by a Docker *daemon* running on the same host OS. 
 
 ![Docker vs VMs](./docker-vs-vms.png)
 
 This offers nearly as good isolation and *crucially* is **lightweight**. This lends itself to the **microservices** approach - rather than coding up the entire application on one monolithic machine, break down the code by task/service - and give each service its own container. 
 
-In our case, we have two services - the **database** and the **REST endpoint**.
+In our case, we have two services - the **database** and the **REST endpoint**. The tutorial repo also contains a third container to run tests in.
+ 
 
 Each container is self-contained - so we don't have any hidden dependencies and can run our services on any machine with Docker.
 
@@ -47,7 +46,6 @@ Docker thus makes it much easier to **scale** applications, since you can just d
 
 _**Sidenote**_: If you are interested in deploying and orchestrating Docker containers then check out **Kubernetes**. 
 
-Since each container is self-contained, this also makes testing the code and continuous integration much easier, which we will discuss in the [next post]().
 
 ### Setting up Docker
 
@@ -67,12 +65,14 @@ There are two stages in creating containers - the first is to create an **image*
 
 [DockerHub](https://hub.docker.com/) is a registry for prebuilt images that we can run as containers. To get an image from DockerHub, we can just run `docker pull <image_name>:<image_tag>`. Omitting the `:<image_tag>` will just pull the latest version instead.
 
-In our case, we want the [PostgresL](https://hub.docker.com/_/postgres) image. The DockerHub Postgres page contains a list of image tags, referring to less specific image versions as you go left-to-right and older images as you go top-to-bottom. So you might choose tag `11.2`, in which case you'd run `docker pull postgres:11.2`. The page also contains other useful information like the environment variables e.g. `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` we can use with the image.
+In our case, we want the [Postgres](https://hub.docker.com/_/postgres) image. The DockerHub Postgres page contains a list of image tags, referring to less specific image versions as you go left-to-right and older images as you go top-to-bottom. For example, you might choose tag `11.2`, in which case you'd run `docker pull postgres:11.2`. 
+
+The page also contains other useful information like the environment variables e.g. `POSTGRES_DB`, `POSTGRES_USER`, `POSTGRES_PASSWORD` we can use with the image.
 
 
-If however there isn't a pre-built image you are looking for, you can take a **base image** from the DockerHub and write your own specification in a `Dockerfile` (important - note case and lack of file extension). When building the image, Docker will execute each one of the commands in the `Dockerfile` in turn. 
+If however there isn't a pre-built image you are looking for, you can take a **base image** from the DockerHub and write your own specification in a **Dockerfile** (important - note case and lack of file extension). When building the image, Docker will execute each one of the commands in the **Dockerfile** in turn. 
 
-A typical Dockerfile would contain a subset of the following commands. 
+A typical **Dockerfile** contains a subset of the following commands. 
 
 ```docker
 FROM <base image>  # here's a comment
@@ -85,17 +85,29 @@ CMD ["<executable>", "<param1>", "<param2>" ...]
 
 `COPY` copies files (note only from current directory or subdirectories) from host to container.
  
-`RUN` runs a bash command in the container.  
+`RUN` runs a bash command in the container (executed during the build process).  
 
 `CMD` specifies the default executable to run when running the container (the executable isn't run in the build process) - note you can only have one `CMD` command in your DockerFile.
 
-In our case, our endpoint is using Flask, so is built upon a [Python 3.6 image](https://hub.docker.com/_/python). The DockerHub page specifies that `WORKDIR` should be `/usr/src/app/` since that is where python will execute files. We want to `COPY requirements.txt ./` and then install packages using `RUN pip install --no-cache-dir -r requirements.txt`. We can then copy across the rest of the files `COPY . .` and then run `CMD ["python", "./bootstrap.py"]` that will run our bootstrap python file when our container runs. 
+In our case, our endpoint is using Flask, so is built upon a [Python 3.6 image](https://hub.docker.com/_/python). The DockerHub page specifies that `WORKDIR` should be `/usr/src/app/` since that is where python will execute files.
+
+```docker
+#copy across and install python packages
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
+#copy across rest of files
+COPY . .
+# run bootstrap program upon running
+CMD ["python", "./bootstrap.py"]
+```
+
 
 For a reference to full set of Dockerfile commands see [here](https://docs.docker.com/engine/reference/builder/).
 
-To build our image, we can run `docker build -t <image-tag>` from the directory of the Dockerfile - the `-t` option lets us tag the image to refer to it with a custom name e.g. `hello-world`. 
+To build our image, we can run `docker build` from the directory of the Dockerfile. One useful option is `-t <image tag>` which lets us refer to the image with a custom tag e.g. `hello-world`. 
 
-Note that in this tutorial, whenever I refer to `<image>` subsequently, you can either type the image tag or the image ID e.g. `306e0c13101f`. 
+Note that in this tutorial, whenever I refer to `<image>` subsequently, you can either use the image tag or the image ID e.g. `306e0c13101f`. 
 
 ### Running Images (Containers)
 
@@ -116,18 +128,18 @@ Once you have created the container, you can also run other docker commands to m
 * `docker kill <container>`  - forcibly exit a container.
 * `docker ps` -get  a list of all *running* containers . `-a` option gets a list of *all* containers.
 `docker logs <container>` - see the logs of a container - useful for debugging.
-*`docker rm <container>` - delete a container
+* `docker rm <container>` - delete a container
 * ` docker rm $(docker ps -a -q -f status=exited)` - a useful command that deletes all stopped containers
 
-Additionally, `docker system prune` is a good way of deleting any dangling images, containers, networks etc. and `-a` deletes the cache as well. 
+Additionally, `docker system prune` is a good way of deleting any dangling images, containers, networks etc. and the `-a` option deletes the cache as well. 
 
 ### Docker Networks
 
-By default there are three docker networks - **bridge**, **host** and **none**, which you can see by running `docker network ls` to get a list of the networks. By default, all docker containers run on the **bridge** network - this is not great if you want to isolate containers. 
+By default there are three docker networks - **bridge**, **host** and **none**, which you can see by running `docker network ls` to get a list of the networks. By default, all docker containers run on the **bridge** network. 
 
 You can create your own network by running `docker network create <network>`. To inspect a given network, we can run `docker network inspect <network>`.
 
-As well as isolating subsets of containers, user-defined networks also have the nice property of *automatic service discovery* - a container can query another container within the same network using the `<container_name>` as the address (Docker will perform the DNS translation for the container's IP address).
+As well as isolating subsets of containers in their own network, user-defined networks also have the nice property of *automatic service discovery* - a container can query another container within the same network using the `<container_name>` as the address (Docker will perform the DNS translation for the container's IP address).
  
 You can also query the localhost of the host machine from within a container by using `host.docker.internal` as the host address - Docker will do the DNS translation on Windows and MacOS. For Linux, you can only get this by manually adding a `host.docker.internal` DNS record in the /etc/hosts file (**important gotcha**).  
 
@@ -139,7 +151,7 @@ This is where **Docker Compose** comes in - rather than considering individual s
 
 We specify the command line options configuration for all of the docker containers in a given network in a YAML file, by default a `docker-compose.yml` file in the current directory.
 
-You can name your docker-compose YAML file anything and pass it in using the `-f` option - so we have  `docker-compose -f <file path> <command>`. 
+You can name your YAML file anything and pass it in using the `-f` option - so we have  `docker-compose -f <file> <command>` e.g. there is a `docker-tests.yml ` file to run tests in the tutorial repo.
 
 **NB:** It is important to specify the version of Docker Compose being used since Docker often changes features between versions that are not necessarily backwards-compatible - thus this could break your project.
 
@@ -176,11 +188,11 @@ This [repo](https://github.com/veggiemonk/awesome-docker) is a one-stop shop for
 
 ## Flask
 
-Flask is a micro web-framework that makes it *super easy* to create our REST API. We can actually use Flask to serve up webpages based on templates, however since we are focused on the server, we will skip over those commands. 
+Flask is a micro web-framework that makes it *super easy* to create our REST API. Flask's usage extends to serving up webpages based on templates, however this is not in the scope of this tutorial.
 
-Flask is multi-threaded - so we can have multiple requests at once - and it is actually very quick and easy to get set up - one of its major selling points is that there is *little to no boilerplate code*.
+Flask is actually very quick and easy to get set up - one of its major selling points is that there is *little to no boilerplate code*.
 
-At its simplest, Flask routes each endpoint e.g. `/analytics` (note relative to host url) and its corresponding REST methods with a function that gets executed when a request is made to the endpoint. We tag the said function with `@app.route('<endpoint>', methods=<list of REST methods>)`. 
+At its simplest, Flask routes each endpoint e.g. `/analytics` (note relative to host url `/`) and its corresponding REST methods with a function that gets executed when a request is made to the endpoint. We tag the said function with `@app.route('<endpoint>', methods=<list of REST methods>)`. 
 
 We can then run the Flask endpoint by running the app on the given host and port. 
 
@@ -193,7 +205,9 @@ from flask import Flask
 
 app = Flask(__name__)
 
-... #routing functions go here
+@app.route('/data', methods=['GET', 'POST'])
+def getData(): # execute function when this endpoint queried.
+  return "Some Data"
 
 app.run(host=<host>, port=<port>).
 ```
@@ -342,4 +356,3 @@ Having done this, we looked at the endpoint and how we would implement the REST 
 
 As mentioned earlier, I encourage you to fork the [example repository](https://github.com/mukul-rathi/CleanCycle/tree/tutorial) and build upon the __*tutorial*__ branch.
 
-In the next part of the tutorial, we will look at good software engineering practices for the database server - the core ideas being **code style** and **testing**. 
