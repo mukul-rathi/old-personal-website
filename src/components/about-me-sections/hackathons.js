@@ -75,10 +75,10 @@ const Hackathons = ()=>{
             };
 
         return(
-            <div className={styles.section}>
+            <section className={styles.section}>
                 <h2>Hackathons</h2> 
                 {<GridCards {...hackathons}/>}
-            </div>
+            </section>
         );
     }}/>
     );

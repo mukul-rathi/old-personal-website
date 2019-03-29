@@ -123,10 +123,10 @@ const Projects = ()=>{
 
 
         return (
-        <div className={styles.section}>
+        <section className={styles.section}>
             <h2>Projects</h2> 
             {<GridCards {...gridProps}/>}
-       </div>
+       </section>
         )
       }}/>
     );

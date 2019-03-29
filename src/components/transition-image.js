@@ -20,14 +20,14 @@ const TransitionImage = (props) =>(
       }
       `}
       render= {data => (
-        <div className={styles.wrapper}>
+        <section className={styles.wrapper}>
           <Img fluid={data.allFile.edges[0].node.childImageSharp.fluid} className={styles.transitionImage}/>
           <div className={styles.transitionImageDiv}>
             <div className={styles.transitionContent}>
                 <h2 className={styles.transitionText}> Hackers at Cambridge</h2>
             </div>
           </div>
-        </div>
+        </section>
   )}/>
 );
 export default TransitionImage;

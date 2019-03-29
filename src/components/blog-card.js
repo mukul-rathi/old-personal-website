@@ -27,10 +27,8 @@ function blogProps(props){
     });
 }
 
-const BlogCard = (props) => {
-    return(
+const BlogCard = (props) => (
         <Card {...blogProps(props)} key={props.frontmatter.title}/>
-    );
-}
+);
 
 export default BlogCard;

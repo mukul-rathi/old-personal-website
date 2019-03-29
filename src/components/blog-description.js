@@ -1,7 +1,7 @@
 import React from 'react'
 const BlogDescription = (props) =>{
     return(
-    <div className={props.className}>
+    <section className={props.className}>
         <p>Welcome to my blog! This is a place where I write about deep learning and all things computer science!
         </p>
         <p>
@@ -12,7 +12,7 @@ const BlogDescription = (props) =>{
             If you liked a particular analogy and want a more detailed explanation using that analogy, or equally if there is something you think can be improved - <strong>comment on the blog post</strong> - I will check out your feedback and update the post accordingly!
         </p>
 
-    </div>
+    </section>
     );
 }
 

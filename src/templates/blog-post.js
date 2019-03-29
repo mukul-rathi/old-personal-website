@@ -18,7 +18,7 @@ function formatDate(date){
 }
 
 
- const BlogPost = ({ data, pageContext }) => {
+const BlogPost = ({ data, pageContext }) => {
 
 
   const post = data.markdownRemark;
@@ -34,32 +34,35 @@ function formatDate(date){
     <Layout>
         <SEO isBlogPost={true} title={title} url={url} excerpt={excerpt} image={image}/>
         
-        <div className={styles.blogPost}>
+        <main className={styles.blogPost}>
+          
         <div className={styles.series}>
-         <h2> {series}</h2> {(part || part===0) && <h2>: Part {part} </h2>}
-         </div>
-          <h1 className={styles.title}> {title} </h1>
-          <h2 className={styles.date}> {formatDate(date)}</h2>
-          <ShareBar className={styles.shareBar} url={url}/>
-          <Img fluid={image.childImageSharp.fluid}/>
-          <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }}/>
-        
-          <div className={styles.pageNavigation}>
-              {prevPost &&  <Link className={styles.pageNavButton} to={prevPost.fields.slug}>
-              <div> {prevPost.frontmatter.title} </div>
-              </Link> }
+          <h2> {series}</h2> {(part || part===0) && <h2>: Part {part} </h2>}
+        </div>
 
-            {nextPost &&
-              <Link className={styles.pageNavButton} to={nextPost.fields.slug}>
-               <div> {nextPost.frontmatter.title} </div>
-              </Link>}
-            </div>
-            <MailChimpForm/>
-           <div className= {styles.comments}>
-            <DiscussionEmbed shortname={disqusShortname} config=  {disqusConfig} />
-            </div>
-          </div>
+        <h1 className={styles.title}> {title} </h1>
+        <h2 className={styles.date}> {formatDate(date)}</h2>
 
+        <ShareBar className={styles.shareBar} url={url}/>
+        <Img fluid={image.childImageSharp.fluid}/>
+            
+        <article className={styles.content} dangerouslySetInnerHTML={{ __html: post.html }}/>
+          
+        <nav className={styles.pageNavigation}>
+          {prevPost &&  <Link className={styles.pageNavButton} to={prevPost.fields.slug}>
+            <div> {prevPost.frontmatter.title} </div>
+            </Link> }
+
+          {nextPost &&
+            <Link className={styles.pageNavButton} to={nextPost.fields.slug}>
+            <div> {nextPost.frontmatter.title} </div>
+            </Link>}
+        </nav>
+    
+        <MailChimpForm/>
+            
+        <DiscussionEmbed shortname={disqusShortname} config=  {disqusConfig} />
+      </main>
     </Layout>
   )
 }

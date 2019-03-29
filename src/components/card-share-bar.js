@@ -7,12 +7,12 @@ import {
     
   } from 'react-share';
 
-  import styles from '../../css/share-bar.module.scss'
+import styles from '../../css/share-bar.module.scss'
 import SocialButton from './social-button';
-const CardShareBar = (props) =>{
-    return(
+
+const CardShareBar = (props) =>(
         <div className={classNames(styles.shareBar,props.className)}>
-             <FacebookShareButton url={props.url} className={styles.icon}>
+          <FacebookShareButton url={props.url} className={styles.icon}>
             <SocialButton img="facebook" href={props.url}/>
           </FacebookShareButton>
           <LinkedinShareButton url={props.url} className={styles.icon}>
@@ -22,7 +22,6 @@ const CardShareBar = (props) =>{
             <SocialButton img="twitter" href={props.url}/>
           </TwitterShareButton>
         </div>
-    );
-}
+);
 
 export default CardShareBar;
