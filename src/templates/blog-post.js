@@ -32,7 +32,7 @@ const BlogPost = ({ data, pageContext }) => {
   const { nextPost, prevPost} = pageContext;
   return (
     <Layout>
-        <SEO isBlogPost={true} title={title} url={url} excerpt={excerpt} image={image}/>
+        <SEO isBlogPost={true} title={title} url={url} excerpt={excerpt} image={image} date={date}/>
         
         <main className={styles.blogPost}>
           
