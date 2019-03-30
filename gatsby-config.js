@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Mukul's Blog`,
     description: `Mukul Rathi's personal website and blog`,
-    siteUrl: `https://www.mukul-rathi.github.io`
+    siteUrl: `https://mukulrathi.com`
     },
     plugins: [
       `gatsby-plugin-sass`,

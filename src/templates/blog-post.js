@@ -23,7 +23,7 @@ const BlogPost = ({ data, pageContext }) => {
 
   const post = data.markdownRemark;
   const {title,date,series,part,image, excerpt} = post.frontmatter;
-  const url = "https://mukul-rathi.github.io" + post.fields.slug;
+  const url = "https://mukulrathi.com" + post.fields.slug;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
     identifier: post.id,
