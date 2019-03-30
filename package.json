@@ -1,19 +1,10 @@
 {
-  "name": "personal-website",
-  "description": "Mukul's personal website, powered by React, Gatsby and Graphql",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "deploy": "gatsby build && gh-pages -d public -b master"
-  },
   "dependencies": {
     "classnames": "^2.2.6",
     "dateformat": "^3.0.3",
     "disqus-react": "^1.0.5",
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.12.4",
     "gatsby": "^2.0.33",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-feed": "^2.0.11",
@@ -48,7 +39,18 @@
     "react-share": "^2.4.0",
     "tunnel-agent": "^0.6.0"
   },
+  "description": "Mukul's personal website, powered by React, Gatsby and Graphql",
   "devDependencies": {
     "gh-pages": "^2.0.1"
+  },
+  "license": "MIT",
+  "name": "personal-website",
+  "private": true,
+  "scripts": {
+    "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "start": "npm run develop"
   }
 }

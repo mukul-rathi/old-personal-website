@@ -10,11 +10,31 @@
       args:
         - --autofix
     - id: trailing-whitespace
-
 - repo: https://github.com/prettier/prettier
   rev: "1.16.4" # Use the sha or tag you want to point at
   hooks:
     - id: prettier
       args:
         - --write
-        - src/
+        - src
+- repo: https://github.com/pre-commit/mirrors-eslint
+  rev: v5.16.0 # Use the sha / tag you want to point at
+  hooks:
+    - id: eslint
+      additional_dependencies:
+        - eslint@5.16.0
+        - eslint-config-google@0.7.1
+        - eslint-plugin-import@2.16.0
+        - eslint-loader@2.1.2
+        - eslint-plugin-react@7.12.4
+        - babel-eslint@6.1.2
+        - eslint-config-airbnb@17.1.0
+        - eslint-plugin-jsx-a11y@6.2.1
+        - eslint-config-prettier@4.1.0
+        - eslint-plugin-prettier@3.0.1
+        - prettier@1.16.4
+      args:
+        - --ext
+        - .js,.jsx
+        - src
+        - --fix
