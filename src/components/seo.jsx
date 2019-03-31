@@ -1,14 +1,15 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import profileImg from "../../assets/profile-pic.jpg";
 
 const SEO = props => {
   const { title, image, url, isBlogPost, excerpt, date } = props;
-  var structuredData = [
+  let structuredData = [
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
-      url: url,
+      url,
       name: title
     }
   ];
@@ -79,7 +80,7 @@ const SEO = props => {
       <meta property="og:description" content={excerpt} />
       <meta property="og:image" content={image} />
       {
-        //<meta property="fb:app_id" content={seo.social.fbAppID} />}
+        // <meta property="fb:app_id" content={seo.social.fbAppID} />}
       }
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -93,6 +94,15 @@ const SEO = props => {
       </script>
     </Helmet>
   );
+};
+
+SEO.propTypes = {
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  isBlogPost: PropTypes.bool.isRequired,
+  excerpt: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired
 };
 
 export default SEO;

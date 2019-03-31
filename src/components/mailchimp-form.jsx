@@ -9,17 +9,20 @@ class MailChimpForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  handleChange = e => {
+
+  handleChange(e) {
     this.setState({
       [`${e.target.name}`]: e.target.value
     });
-  };
-  handleSubmit = e => {
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
-    addToMailchimp(this.state.email, {
-      FNAME: this.state.firstName,
-      LNAME: this.state.lastName,
-      EMAIL: this.state.email
+    const { email, firstName, lastName } = this.state;
+    addToMailchimp(email, {
+      FNAME: firstName,
+      LNAME: lastName,
+      EMAIL: email
     })
       .then(({ msg, result }) => {
         if (result !== "success") {
@@ -33,10 +36,10 @@ class MailChimpForm extends React.Component {
           });
         }
       })
-      .catch(err => {
+      .catch(() => {
         this.setState({ result: "failure" });
       });
-  };
+  }
 
   render() {
     const response = {
@@ -44,6 +47,7 @@ class MailChimpForm extends React.Component {
       success: "Signed up successfully (check email to confirm).",
       failure: "Something went wrong, check if details are entered correctly."
     };
+    const { result } = this.state;
     return (
       <div className={styles.wrapper}>
         <h2 className={styles.heading}> Sign up for more tutorials! </h2>
@@ -78,7 +82,7 @@ class MailChimpForm extends React.Component {
           />
           <input type="submit" className={styles.submitButton} />
         </form>
-        <p>{response[this.state.result]}</p>
+        <p>{response[result]}</p>
       </div>
     );
   }

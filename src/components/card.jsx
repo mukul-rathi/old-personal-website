@@ -1,37 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Img from "gatsby-image";
 import SocialButton from "./social-button";
 import LinkButton from "./link-button";
 import styles from "../../css/card.module.scss";
-import classNames from "classnames";
-import Img from "gatsby-image";
 
 const Card = props => {
-  //display social/link button only if defined
+  // display social/link button only if defined
 
-  /*var props = {
-        'title': "",
-        'img': {
-            'src': "",
-            'alt': ""
-        },
-        'date': "",
-        'category': "",
-        'link1':{
-            'href': "",
-            'text' : ""
-        },
-        'link2':{
-            'href': "",
-            'text' : ""
-        },
-        'socialButton': {
-            'href': "",
-            'img': ""
-        },
-        'description': ""
-    };
-
-*/
   const {
     img,
     category,
@@ -75,4 +52,33 @@ const Card = props => {
   );
 };
 
+Card.propTypes = {
+  img: PropTypes.shape({
+    fluid: PropTypes.string.isRequired
+  }).isRequired,
+  category: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  link1: PropTypes.shape({
+    href: PropTypes.string,
+    text: PropTypes.string
+  }),
+  link2: PropTypes.shape({
+    href: PropTypes.string,
+    text: PropTypes.string
+  }),
+  socialButton: PropTypes.shape({
+    href: PropTypes.string,
+    image: PropTypes.string
+  }),
+  className: PropTypes.string
+};
+
+Card.defaultProps = {
+  className: "",
+  socialButton: null,
+  link1: null,
+  link2: null
+};
 export default Card;

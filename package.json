@@ -33,6 +33,7 @@
     "node-sass": "^4.11.0",
     "pngquant-bin": "^5.0.1",
     "prismjs": "^1.15.0",
+    "prop-types": "^15.7.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",

@@ -5,6 +5,7 @@ import Experience from "../components/homepage-sections/experience";
 import Projects from "../components/homepage-sections/projects";
 import SEO from "../components/seo";
 import HeroImg from "../../assets/hero-image.jpg";
+
 const Home = () => {
   return (
     <Layout page="Home">

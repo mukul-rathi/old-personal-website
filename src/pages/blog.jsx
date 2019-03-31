@@ -1,6 +1,6 @@
 import React from "react";
-import Layout from "../components/layout";
 import { graphql } from "gatsby";
+import Layout from "../components/layout";
 import BlogCard from "../components/blog-card";
 import BlogDescription from "../components/blog-description";
 import styles from "../../css/blog.module.scss";
@@ -8,6 +8,7 @@ import SEO from "../components/seo";
 import blogImg from "../../posts/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/cnn-internals.png";
 import MailChimpForm from "../components/mailchimp-form";
 
+/* eslint-disable-next-line  react/prop-types */
 const Blog = ({ data }) => {
   return (
     <Layout page="Blog">
@@ -19,14 +20,14 @@ const Blog = ({ data }) => {
         image={blogImg}
       />
       <div className={styles.blog}>
-        <h1>Hello World - Mukul's Blog! </h1>
+        <h1>Hello World - {"Mukul's"} Blog! </h1>
 
         <BlogDescription className={styles.description} />
 
         <MailChimpForm />
 
-        {data.allMarkdownRemark.edges.map(({ node }, index) => (
-          <BlogCard {...node} key={index} className={styles.blogCard} />
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <BlogCard {...node} key={node.id} className={styles.blogCard} />
         ))}
       </div>
     </Layout>
@@ -40,6 +41,7 @@ export const query = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
+          id
           fields {
             slug
           }

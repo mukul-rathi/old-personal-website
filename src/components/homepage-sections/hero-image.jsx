@@ -1,8 +1,9 @@
 import React from "react";
-import SocialButton from "../social-button";
-import styles from "../../../css/hero-image.module.scss";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
+import SocialButton from "../social-button";
+import styles from "../../../css/hero-image.module.scss";
+
 const HeroImage = () => (
   <StaticQuery
     query={graphql`

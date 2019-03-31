@@ -1,8 +1,7 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 import GridCards from "../grid-cards";
 import styles from "../../../css/section.module.scss";
-
-import { StaticQuery, graphql } from "gatsby";
 
 const Workshops = () => {
   return (
@@ -25,8 +24,8 @@ const Workshops = () => {
       `}
       render={data => {
         const findImage = name => {
-          let images = data.allFile.edges;
-          let correctImg = images.find(img => img.node.name === name);
+          const images = data.allFile.edges;
+          const correctImg = images.find(img => img.node.name === name);
           return correctImg.node.childImageSharp.fluid;
         };
         const workshops = {

@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "../../css/transition-image.module.scss";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
+import styles from "../../css/transition-image.module.scss";
 
-const TransitionImage = props => (
+const TransitionImage = () => (
   <StaticQuery
     query={graphql`
       {

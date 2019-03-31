@@ -1,7 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 const BlogDescription = props => {
+  const { className } = props;
   return (
-    <section className={props.className}>
+    <section className={className}>
       <p>
         Welcome to my blog! This is a place where I write about deep learning
         and all things computer science!
@@ -19,6 +22,14 @@ const BlogDescription = props => {
       </p>
     </section>
   );
+};
+
+BlogDescription.propTypes = {
+  className: PropTypes.string
+};
+
+BlogDescription.defaultProps = {
+  className: ""
 };
 
 export default BlogDescription;

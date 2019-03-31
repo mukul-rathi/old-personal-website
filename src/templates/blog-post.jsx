@@ -1,9 +1,11 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Layout from "../components/layout";
-import styles from "../../css/blog-post.module.scss";
 import { DiscussionEmbed } from "disqus-react";
 import Img from "gatsby-image";
+import dateFormat from "dateformat";
+
+import Layout from "../components/layout";
+import styles from "../../css/blog-post.module.scss";
 import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
 import "katex/dist/katex.min.css";
@@ -11,24 +13,23 @@ import "prismjs/themes/prism.css";
 import MailChimpForm from "../components/mailchimp-form";
 
 function formatDate(date) {
-  let dateFormat = require("dateformat");
   return dateFormat(date, "dS mmmm yyyy");
 }
-
+/* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const { title, date, series, part, image, excerpt } = post.frontmatter;
-  const url = "https://mukulrathi.com" + post.fields.slug;
+  const url = `https://mukulrathi.com${post.fields.slug}`;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
     identifier: post.id,
-    title: title
+    title
   };
   const { nextPost, prevPost } = pageContext;
   return (
     <Layout>
       <SEO
-        isBlogPost={true}
+        isBlogPost
         title={title}
         url={url}
         excerpt={excerpt}
@@ -47,10 +48,12 @@ const BlogPost = ({ data, pageContext }) => {
         <ShareBar className={styles.shareBar} url={url} />
         <Img fluid={image.childImageSharp.fluid} />
 
+        {/* eslint-disable react/no-danger */}
         <article
           className={styles.content}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
+        {/* eslint-enable react/no-danger */}
 
         <nav className={styles.pageNavigation}>
           {prevPost && (
@@ -76,7 +79,7 @@ const BlogPost = ({ data, pageContext }) => {
 
 export default BlogPost;
 
-//can use slug from context in gatsby-node as a variable in GraphQl
+// can use slug from context in gatsby-node as a variable in GraphQl
 // $slug
 export const query = graphql`
   query($slug: String!) {

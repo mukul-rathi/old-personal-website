@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../../../css/who-am-I.module.scss";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
+import styles from "../../../css/who-am-I.module.scss";
 
 const WhoAmI = () => (
   <StaticQuery
@@ -31,15 +31,15 @@ const WhoAmI = () => (
 
         <article className={styles.description}>
           <p>
-            Hey there! Welcome to my personal website! A bit about me - I'm a
-            second year Computer Science student at the University of Cambridge
-            with an interest in all things deep learning!
+            Hey there! Welcome to my personal website! A bit about me - {"I'm"}{" "}
+            a second year Computer Science student at the University of
+            Cambridge with an interest in all things deep learning!
           </p>
           <p>
-            This website is here to showcase some of the side projects I've been
-            working on, as well as being a project in itself - I'm using this
-            website to teach myself web development (in particular this website
-            uses React, GatsbyJS and GraphQL).
+            This website is here to showcase some of the side projects {"I've"}{" "}
+            been working on, as well as being a project in itself - {"I'm"}{" "}
+            using this website to teach myself web development (in particular
+            this website uses React, GatsbyJS and GraphQL).
           </p>
           <p>
             In my free time at Cambridge, I am a core member of the{" "}

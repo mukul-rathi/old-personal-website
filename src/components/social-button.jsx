@@ -1,10 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "../../css/social-button.module.scss";
+
 const SocialButton = props => {
-  var icon = null;
-  var buttonClass = null;
-  switch (props.img) {
+  let icon = null;
+  let buttonClass = null;
+  const { href, img, className } = props;
+  switch (img) {
     case "github":
       buttonClass = styles.github;
       icon = (
@@ -94,13 +97,22 @@ const SocialButton = props => {
   }
   return (
     <a
-      href={props.href}
-      onClick={e => props.onClick(e)}
-      className={classNames(styles.socialButton, buttonClass, props.className)}
+      href={href}
+      className={classNames(styles.socialButton, buttonClass, className)}
     >
       {icon}
     </a>
   );
+};
+
+SocialButton.propTypes = {
+  href: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  className: PropTypes.string
+};
+
+SocialButton.defaultProps = {
+  className: ""
 };
 
 export default SocialButton;
