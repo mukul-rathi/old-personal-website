@@ -1,18 +1,18 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-.linkButton{
-    display: inline-block;
-    @extend %subheading;
-    color:  $red;
+.linkButton {
+  border-radius: 6px;
+  @extend %subheading;
+  color: $red;
 
-    padding: 0.75em;
-    margin : 0.5em;
-    border-radius: 6px;
-    transform: translate3d(0, 0, 0);
-    overflow: auto;
+  display: inline-block;
+  margin: 0.5em;
+  overflow: auto;
+  padding: 0.75em;
+  transform: translate3d(0, 0, 0);
 }
 
-.linkButton:hover{
-    color: $dark-red;
-    text-shadow: 4px;
+.linkButton:hover {
+  color: $dark-red;
+  text-shadow: 4px;
 }

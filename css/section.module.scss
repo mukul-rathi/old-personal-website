@@ -1,13 +1,11 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-.section{
-    padding: 0.5em 1em;
-    h2{
-        @extend %heading;
-        text-align: center;
-        color: $dark-blue;
-
-    }
-    background-color: $background-color;
-
+.section {
+  background-color: $background-color;
+  h2 {
+    @extend %heading;
+    color: $dark-blue;
+    text-align: center;
+  }
+  padding: 0.5em 1em;
 }

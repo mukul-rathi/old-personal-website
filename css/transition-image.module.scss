@@ -1,39 +1,37 @@
+@import "_fonts.scss";
 
-@import '_fonts.scss';
-
-.transitionText{ 
-    margin-bottom: 1em;
-    z-index: 0;
-    @extend %heroText;
-    
-}
-.wrapper{
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
-    position: relative;
+.transitionText {
+  margin-bottom: 1em;
+  z-index: 0;
+  @extend %heroText;
 }
 
-.transitionImageDiv , .transitionImage{
-    position: absolute;
-    top:0;
-    right:0;
-    width: 100vw;
-    height: 50vh;
+.wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  position: relative;
 }
 
-.transitionImage{
-    z-index: -5;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-
+.transitionImageDiv,
+.transitionImage {
+  height: 50vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
 }
 
-.transitionImageDiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    z-index: 1;
-    
+.transitionImage {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  z-index: -5;
+}
+
+.transitionImageDiv {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
 }

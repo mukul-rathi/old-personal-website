@@ -1,13 +1,13 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-.content{
-    margin: 5em;
-    h1{
-        @extend %title;
-        font-size: 32px;
+.content {
+  margin: 5em;
+  h1 {
+    @extend %title;
+    font-size: 32px;
+  }
 
-    }
-    p {
-       @extend %body;
-    }
+  p {
+    @extend %body;
+  }
 }

@@ -1,27 +1,27 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-.description{
-    margin-bottom: 5em;
-    @extend %body;
+.description {
+  margin-bottom: 5em;
+  @extend %body;
 }
 
-.blogCard{
-    margin: 3em 0em;
+.blogCard {
+  margin: 3em 0;
 }
 
-.blog{
-    max-width: 768px;
-    margin: auto;
+.blog {
+  margin: auto;
+  max-width: 768px;
 
-    h1{
-        display: block;
-        padding: 0em;
-        @extend %heading;
-        margin-top: 3em;
-    }
+  h1 {
+    display: block;
+    margin-top: 3em;
+    @extend %heading;
+    padding: 0;
+  }
 }
 @media screen and (max-width: 768px) {
-    .blog{
-        margin: 3em;
-    }
+  .blog {
+    margin: 3em;
+  }
 }

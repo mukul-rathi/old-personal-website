@@ -1,53 +1,49 @@
-@import '_fonts.scss';
-.navBar{
-    position: fixed;
-    top: 0rem;
-    display: flex;
-    flex-wrap: nowrap; /* nav bar only 1 row */
-    margin: 0rem auto;
-    width : 100vw;
-    justify-content: flex-end;
-    align-items: top;
-    background: #2D243B;
-    padding: 1.0rem 0rem;
-    transition: 0.3s ease-in;
-    z-index: 10;
+@import "_fonts.scss";
+.navBar {
+  align-items: top;
+  background: #2d243b;
+  display: flex;
+  flex-wrap: nowrap; /* nav bar only 1 row */
+  justify-content: flex-end;
+  margin: 0 auto;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  transition: 0.3s ease-in;
+  width: 100vw;
+  z-index: 10;
 }
 
-.hiddenNavBar{
-    top: -5rem;
-}
-.navButton{
-    margin: 0rem 0.5rem;
-    color: rgba(255,255,255,0.5);
-    padding: 0.5rem 2rem;
-    transition:0.2s ease;
-
-    @extend %subheading;
-    text-transform: none;
+.hiddenNavBar {
+  top: -5rem;
 }
 
-.navButton:hover{
-    transform: scale(1.1);
-    color: rgba(255,255,255,1);
+.navButton {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0.5rem;
+  padding: 0.5rem 2rem;
+  text-transform: none;
+
+  @extend %subheading;
+  transition: 0.2s ease;
 }
 
-.selectedNavButton{
-    color: rgba(255,255,255,0.85);
-    border-bottom: solid white 4px;
+.navButton:hover {
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
 }
 
-
-
-
+.selectedNavButton {
+  border-bottom: solid #fff 4px;
+  color: rgba(255, 255, 255, 0.85);
+}
 
 @media screen and (max-width: 768px) {
-    .navBar{
-        justify-content: space-evenly;
+  .navBar {
+    justify-content: space-evenly;
+  }
 
-    }
-    .navButton{
-        flex-basis: 1;
-    }
+  .navButton {
+    flex-basis: 1;
+  }
 }
-

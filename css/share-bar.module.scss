@@ -1,13 +1,13 @@
-.shareBar{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-content: space-between;
-    width : 100%;
-    margin: 2em 0em;
-    flex-wrap: wrap;
+.shareBar {
+  align-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 2em 0;
+  width: 100%;
 }
 
-.icon{
-    margin:0.5em;
+.icon {
+  margin: 0.5em;
 }

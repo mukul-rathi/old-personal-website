@@ -1,65 +1,70 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-.event{
-    max-width: 768px;
-    padding: 2em;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition:  0.3s;
-    margin: 3em auto;
-    display: flex;
+.event {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  display: flex;
+  margin: 3em auto;
+  max-width: 768px;
+  padding: 2em;
+  transition: 0.3s;
 }
 
-.mainContent{
-    margin: 0em 0em 0em 0.5em;
-    @extend %body;
+.mainContent {
+  margin: 0 0 0 0.5em;
+  @extend %body;
 }
 
-
-.location{
-    @extend %title;
+.location {
+  @extend %title;
 }
 
-.role{
-   @extend %subheading;
-   color: $light-grey;
-   font-size: 20px;
-   text-transform: none;
+.role {
+  @extend %subheading;
+  color: $light-grey;
+  font-size: 20px;
+  text-transform: none;
 }
 
-.metaData{
-    padding: 1em;
-    margin:0.5em;
-    .date {
-        margin-top: 0em;
-        padding-top: 0em;
-        position: top;
-        @extend %subheading;
-        color: $dark-blue;
-    }
-    .img{
-        display: object-fit;
-        width: 100%;
-        max-width: 5em;
-    }
+.metaData {
+  margin: 0.5em;
+  padding: 1em;
+  .date {
+    color: $dark-blue;
+    margin-top: 0;
+    padding-top: 0;
+    @extend %subheading;
+    position: top;
+  }
+
+  .img {
+    display: object-fit;
+    max-width: 5em;
+    width: 100%;
+  }
 }
-.description{
-    @extend %body;
+
+.description {
+  @extend %body;
 }
+
 @media screen and (max-width: 400px) {
-    .metaData{
-        padding: 0em;
-        margin: 0em;
-    }
-    .mainContent{
-        margin: 0em;
-        padding:0em;
-    }
-    .headings{
-        margin: 0em 0em 0.5em 1em;
-        padding: 0em;
-    }
-   .description{
-       margin:0.5em 0em 0em 0.5em;
-   }
+  .metaData {
+    margin: 0;
+    padding: 0;
+  }
+
+  .mainContent {
+    margin: 0;
+    padding: 0;
+  }
+
+  .headings {
+    margin: 0 0 0.5em 1em;
+    padding: 0;
+  }
+
+  .description {
+    margin: 0.5em 0 0 0.5em;
+  }
 }

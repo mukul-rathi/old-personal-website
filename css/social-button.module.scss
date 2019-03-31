@@ -1,66 +1,68 @@
-
-.socialButton{
-    display: inline-block;
-    margin: 0.25em 1.5em 0.25em 1.5em;
-    transition: 0.3s ease;
-    border-radius: 50%;
-    width: 5em;
-    transition: 0.2;
-    background-color: black;
-    fill: white;
-    padding: 0.25em;
-    padding-bottom: 0em;
+.socialButton {
+  background-color: #000;
+  border-radius: 50%;
+  display: inline-block;
+  fill: #fff;
+  margin: 0.25em 1.5em 0.25em 1.5em;
+  padding: 0.25em;
+  padding-bottom: 0;
+  transition: 0.3s ease;
+  transition: 0.2;
+  width: 5em;
 }
 
-.socialButton:hover{
-    transform: scale(1.1);
-    filter: brightness(120%);
-}
-.socialButton:active{
-    transform: scale(0.9);
+.socialButton:hover {
+  filter: brightness(120%);
+  transform: scale(1.1);
 }
 
-.linkedIn{
-    fill: #0077B5;
-    background-color: white;
+.socialButton:active {
+  transform: scale(0.9);
 }
 
-.github{
-    background-color: #6e5494;
-    fill: white;
+.linkedIn {
+  background-color: #fff;
+  fill: #0077b5;
 }
 
-.rss{
-    fill : #ee802f;
-    background-color: white;
+.github {
+  background-color: #6e5494;
+  fill: #fff;
 }
 
-.youtube{
-    background-color: red;
-    fill: white;
+.rss {
+  background-color: #fff;
+  fill: #ee802f;
 }
 
-.facebook{
-    background-color: white;
-    fill: #4267b2; 
+.youtube {
+  background-color: #f00;
+  fill: #fff;
 }
 
-.twitter{
-    background-color: white;
-    fill: #38A1F3; 
+.facebook {
+  background-color: #fff;
+  fill: #4267b2;
 }
 
-.share{
-    background-color : white;
-    fill: #3D8DFF;
-    transition: ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
+.twitter {
+  background-color: #fff;
+  fill: #38a1f3;
 }
-.cancel{
-    background-color : white;
-    fill: #3D8DFF;
-    transition: ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
 
+.share {
+  background-color: #fff;
+  fill: #3d8dff;
+  transition: ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.share:active, .cancel:active {
-    transform: rotate(360deg);
+
+.cancel {
+  background-color: #fff;
+  fill: #3d8dff;
+  transition: ease-in-out cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.share:active,
+.cancel:active {
+  transform: rotate(360deg);
 }

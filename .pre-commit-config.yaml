@@ -10,13 +10,14 @@
       args:
         - --autofix
     - id: trailing-whitespace
+    - id: end-of-file-fixer
 - repo: https://github.com/prettier/prettier
   rev: "1.16.4" # Use the sha or tag you want to point at
   hooks:
     - id: prettier
       args:
         - --write
-        - src
+        - src css
 - repo: https://github.com/pre-commit/mirrors-eslint
   rev: v5.16.0 # Use the sha / tag you want to point at
   hooks:

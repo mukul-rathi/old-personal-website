@@ -1,91 +1,98 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-.content, .blogPost{
-    max-width: 700px;
-    margin: auto;
-}
-.content{
-    margin-bottom: 5em;
-   @extend %body;
-    
-    h2, h3,h4{
-        @extend %title;
-    }
-    h2{
-        font-size: 32px;
-
-    }
-    h3{
-        font-size: 24px;
-        font-weight: 550;
-    }
-    h4{
-        font-size: 22px;
-        font-weight: 900;
-
-    }
+.content,
+.blogPost {
+  margin: auto;
+  max-width: 700px;
 }
 
+.content {
+  margin-bottom: 5em;
+  @extend %body;
 
-.title{
-    display: block;
-    padding: 0em;
-    margin: 0.5em 0em;
-    @extend %heading;
-}
-.date{
-    display: block;
-    margin-bottom: 2em;
+  h2,
+  h3,
+  h4 {
+    @extend %title;
+  }
 
-    @extend %subheading;
-    color: $light-grey;
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 550;
+  }
+
+  h4 {
     font-size: 22px;
+    font-weight: 900;
+  }
 }
 
-.series{
-    display: block; 
-    margin-top: 8em;
-    @extend %subheading;
-    color: $purple;
-    h2{
-        display: inline;
-    }
+.title {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0;
+  @extend %heading;
 }
-.pageNavigation{
-    display: flex;
-    justify-content: space-between;
-}
-.pageNavButton{
-    @extend %subheading;
-    color: $purple;
-    text-transform: none;
-    border-radius: 16px;
-    padding: 0.75em 0.2em;
-    border: 4px solid $purple;
-    transition : 0.3s ease;
 
-    max-width: 40%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+.date {
+  color: $light-grey;
+  display: block;
 
+  @extend %subheading;
+  font-size: 22px;
+  margin-bottom: 2em;
 }
-.pageNavButton:hover{
-    background: $purple;
-    color: white;
-    
+
+.series {
+  color: $purple;
+  display: block;
+  @extend %subheading;
+  margin-top: 8em;
+  h2 {
+    display: inline;
+  }
+}
+
+.pageNavigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pageNavButton {
+  @extend %subheading;
+  align-items: center;
+  border: 4px solid $purple;
+  border-radius: 16px;
+  color: $purple;
+  display: flex;
+  justify-content: center;
+
+  max-width: 40%;
+  padding: 0.75em 0.2em;
+  text-align: center;
+  text-transform: none;
+  transition: 0.3s ease;
+}
+
+.pageNavButton:hover {
+  background: $purple;
+  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
-    .blogPost{
-        margin: 0em 3em;
-    }
-    .series{
-        margin-top: 8em;
-    }
-    .pageNavButton{
-        max-width: 35%;
-    }
+  .blogPost {
+    margin: 0 3em;
+  }
 
+  .series {
+    margin-top: 8em;
+  }
+
+  .pageNavButton {
+    max-width: 35%;
+  }
 }

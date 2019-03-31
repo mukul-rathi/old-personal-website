@@ -1,79 +1,76 @@
+@import "_fonts.scss";
 
-@import '_fonts.scss';
+.heroText {
+  margin-bottom: 1em;
+  @import "_fonts.scss";
 
-.heroText{ 
+  .heroText {
     margin-bottom: 1em;
-    @import '_fonts.scss';
-    
-    .heroText{ 
-        margin-bottom: 1em;
-        z-index: 0;
-    
-        @extend %heroText;
-        
-    }
-    .wrapper{
-        background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
-        position: relative;
-    }
-    
-    .heroImage, .heroImageDiv{
-        position: absolute;
-        top:0;
-        right:0;
-        width: 100vw;
-        height: 90vh;
-    }
-    
-    .heroImage{
-        z-index: -5;
-        background-size: cover;
-        background-position: center center;
-        background-attachment: fixed;
-    
-    }
-    
-    .heroImageDiv{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: white;
-        z-index: 1;
-        
-    }
     z-index: 0;
 
     @extend %heroText;
-    
-}
-.wrapper{
-    background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5));
+  }
+
+  .wrapper {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
     position: relative;
-}
+  }
 
-.heroImage, .heroImageDiv{
-    position: absolute;
-    top:0;
-    right:0;
-    width: 100vw;
+  .heroImage,
+  .heroImageDiv {
     height: 90vh;
-}
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100vw;
+  }
 
-.heroImage{
-    z-index: -5;
-    background-size: cover;
-    background-position: center center;
+  .heroImage {
     background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    z-index: -5;
+  }
 
-}
-
-.heroImageDiv{
+  .heroImageDiv {
+    align-items: center;
+    color: #fff;
     display: flex;
     justify-content: center;
-    align-items: center;
     text-align: center;
-    color: white;
     z-index: 1;
-    
+  }
+  z-index: 0;
+
+  @extend %heroText;
+}
+
+.wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  position: relative;
+}
+
+.heroImage,
+.heroImageDiv {
+  height: 90vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.heroImage {
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  z-index: -5;
+}
+
+.heroImageDiv {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  z-index: 1;
 }

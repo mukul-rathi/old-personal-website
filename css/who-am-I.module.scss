@@ -1,30 +1,31 @@
-@import '_fonts.scss';
-.whoAmI{
-    padding: 5em;
+@import "_fonts.scss";
+.whoAmI {
+  display: block;
+  margin: auto;
+  max-width: 80%;
+  padding: 5em;
+  h1 {
     display: block;
-    margin: auto;
-    max-width: 80%;
-    h1{
-        display: block;
-        margin-top: 0;
-        @extend %heading;
-    }
-}
-.profilePic{
-    margin-left: 1em;
-    width: 18rem;
-    border-radius: 50%;
-    float: right;
+    margin-top: 0;
+    @extend %heading;
+  }
 }
 
-.description{
-    @extend %body;
-    margin: 0em;
+.profilePic {
+  border-radius: 50%;
+  float: right;
+  margin-left: 1em;
+  width: 18rem;
+}
+
+.description {
+  @extend %body;
+  margin: 0;
 }
 
 @media screen and (max-width: 500px) {
-    .profilePic{
-        width: 100%;
-        margin-left: 0;
-    }
+  .profilePic {
+    margin-left: 0;
+    width: 100%;
+  }
 }

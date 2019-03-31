@@ -1,24 +1,24 @@
-@import '_fonts.scss';
+@import "_fonts.scss";
 
-footer{
-    display: block;
-    padding: 1em;
-    background-color: #3C3744;
-    text-align: center;
-}
-.copyrightText{
-    margin-top: 1em;
-    @extend %body;
-    color: white;
-
+footer {
+  background-color: #3c3744;
+  display: block;
+  padding: 1em;
+  text-align: center;
 }
 
-.socialButton{
-    max-width: 3.5em;
+.copyrightText {
+  color: #fff;
+  @extend %body;
+  margin-top: 1em;
+}
+
+.socialButton {
+  max-width: 3.5em;
 }
 
 @media screen and (max-width: 400px) {
-    .socialButton{
-        max-width: 3em;
-    }
+  .socialButton {
+    max-width: 3em;
+  }
 }
