@@ -1,8 +1,8 @@
 ---
-series: Demystifying Deep Learning 
+series: Demystifying Deep Learning
 part: 4
 title: FeedForward Neural Networks
-date:   2018-08-29 13:00:00
+date: 2018-08-29 13:00:00
 excerpt: Designing our first neural network!
 image: "./neural-net.png"
 caption: A small feedforward neural networ> Credit CS231n
@@ -15,13 +15,13 @@ Now to introduce our first deep learning algorithm - the feedforward neural netw
 ## The neuron
 
 ### Intuition:
-One way to look at a single neuron is like a generalised version of logistic regression - it takes in the input $$X$$ applying weights and a bias term, then applies a general *activation function* - $$g(z)$$. 
+
+One way to look at a single neuron is like a generalised version of logistic regression - it takes in the input $$X$$ applying weights and a bias term, then applies a general _activation function_ - $$g(z)$$.
 
 ### Maths:
 
-The key criterion for the activation function is that it is **non-linear**, since otherwise combining linear transformations would just result in another linear transformation - so a neural network would be no better than linear regression.  
-*Some terminology:* We call the intermediate **weighted input** (before the activation function is applied) $$z$$ and the output $$a$$ (aka the **activation** of the neuron).
-
+The key criterion for the activation function is that it is **non-linear**, since otherwise combining linear transformations would just result in another linear transformation - so a neural network would be no better than linear regression.
+_Some terminology:_ We call the intermediate **weighted input** (before the activation function is applied) $$z$$ and the output $$a$$ (aka the **activation** of the neuron).
 
 So the equations for a neuron are:
 
@@ -32,9 +32,10 @@ $$ a = g(z)$$
 ![Neuron](./neuron.png)
 
 Commonly used activation functions are:
-* *sigmoid* - $$\sigma(z)=\frac{1}{1+e^{-z}}$$ (just like in logistic regression) - squashes output in range \[0,1\]
-* *tanh* - $$\tanh(z)= \frac{e^z-e^{-z}}{e^z+e^{-z}}$$ this squashes output in range \[-1,1\]. 
-* *ReLU (Rectified Linear Unit)* - $$ ReLU(z) = max(0,z)$$ - this clamps all negative values to zero, and leaves the rest of the values unchanged - it is a very simple yet highly effective activation function.
+
+- _sigmoid_ - $$\sigma(z)=\frac{1}{1+e^{-z}}$$ (just like in logistic regression) - squashes output in range \[0,1\]
+- _tanh_ - $$\tanh(z)= \frac{e^z-e^{-z}}{e^z+e^{-z}}$$ this squashes output in range \[-1,1\].
+- _ReLU (Rectified Linear Unit)_ - $$ ReLU(z) = max(0,z)$$ - this clamps all negative values to zero, and leaves the rest of the values unchanged - it is a very simple yet highly effective activation function.
 
 One other activation function used specifically in the output layer is the softmax function, which is used for multi-class classification problems - we will look at it in a later blog post.
 
@@ -42,38 +43,39 @@ One other activation function used specifically in the output layer is the softm
 
 We can stack the neurons to form a **layer** - so all these neurons are fed the input and each outputs a prediction.
 
-A **feedforward neural network** consists of multiple layers of neurons connected together (so the ouput of the previous layer *feeds forward* into the input of the next layer). 
+A **feedforward neural network** consists of multiple layers of neurons connected together (so the ouput of the previous layer _feeds forward_ into the input of the next layer).
 
 The first layer is called the **input layer** consisting of the input features, and the final layer is the **output layer**, containing the output of the network. The layers in between are known as **hidden** layers, since we can't see their inputs/outputs.
 
-The term **deep learning** comes from the typically large number of layers (the *depth*) of the network. 
+The term **deep learning** comes from the typically large number of layers (the _depth_) of the network.
 
 ### Why is this effective?
 
 By having multiple layers, the neural network can combine input features to learn its own, more complex representation of the input in the hidden layers. The features learnt are hierarchical - i.e they build upon each other layer by layer to get more complex/abstract.
 
-Taking our housing prices dataset for linear regression as an example, the neural network could potentially combine the "pupil-teacher ratio in area" with the "weighted mean distance to five Boston employment centres" features to create a feature indicating education, and potentially combine that in with other features like "status of population in society" and "crime rate per capita" to get a sense of the social mobility in the area. 
+Taking our housing prices dataset for linear regression as an example, the neural network could potentially combine the "pupil-teacher ratio in area" with the "weighted mean distance to five Boston employment centres" features to create a feature indicating education, and potentially combine that in with other features like "status of population in society" and "crime rate per capita" to get a sense of the social mobility in the area.
 
 In reality, whilst this gives intuition, it is unlikely the neural network will predict these exact features, or combine features in such a humanly-interpretable manner. Instead, it is often very difficult to interpret the weighted combinations of features used by the neural network - for the breast cancer dataset these features are nigh on impossible to interpret, given that the original data is probably hard to interpret itself.
 
-
 ### Notation:
-To keep track of all the neurons in the network, we need to add some superscripts and subscripts to our notation, and store our weights and activations in matrices.
-* There are $$L$$ layers in our network (ignoring input) with $$^{[l]}$$ referring to the $$l^{th}$$ layer in the network. We refer to the input as layer 0 and output layer as layer L.
-* We are still using $$m$$ to denote number of examples and $$^{(i)}$$ to denote the $$i^{th}$$ example - note () not \[\].
-* The number of neurons in layer $$l$$ is $$n_l$$ and we store the weighted inputs and the activations for layer $$l$$ in $$n_l$$ x $$m$$ matrices $$Z^{[l]}$$ and $$A^{[l]}$$ respectively. So note that $$\hat{Y}=a^{[L]}$$.
-* The input $$X$$ is stored in a $$n$$ x $$m$$ matrix and $$Y$$ is a  $$n_L$$ x $$m$$ matrix.
-* The weight for layer $$l$$, $$W^{[l]}$$ is stored in a $$n_l$$ x $$n_{l-1}$$ matrix - with $$W^{[l]}_{ij}$$ denoting the weight between the $$i^{th}$$ neuron in layer $$l$$ and the $$j^{th}$$ neuron in layer $$l-1$$. 
-* The bias for layer $$l$$, $$b^{(l)}$$ is stored in a $$n_l$$ x $$1$$ matrix - one bias for each neuron in the layer. 
-* We collectively refer to the weights and biases as the **parameters** of the network.
 
-So to give a concrete example, $$ a^{[l](i)}_j$$ refers to the activation of the $$j^{th}$$ neuron in the $$l^{th}$$ layer for the $$i^{th}$$ example, which we store in $$A^{[l]}_{ji}$$. 
+To keep track of all the neurons in the network, we need to add some superscripts and subscripts to our notation, and store our weights and activations in matrices.
+
+- There are $$L$$ layers in our network (ignoring input) with $$^{[l]}$$ referring to the $$l^{th}$$ layer in the network. We refer to the input as layer 0 and output layer as layer L.
+- We are still using $$m$$ to denote number of examples and $$^{(i)}$$ to denote the $$i^{th}$$ example - note () not \[\].
+- The number of neurons in layer $$l$$ is $$n_l$$ and we store the weighted inputs and the activations for layer $$l$$ in $$n_l$$ x $$m$$ matrices $$Z^{[l]}$$ and $$A^{[l]}$$ respectively. So note that $$\hat{Y}=a^{[L]}$$.
+- The input $$X$$ is stored in a $$n$$ x $$m$$ matrix and $$Y$$ is a $$n_L$$ x $$m$$ matrix.
+- The weight for layer $$l$$, $$W^{[l]}$$ is stored in a $$n_l$$ x $$n_{l-1}$$ matrix - with $$W^{[l]}_{ij}$$ denoting the weight between the $$i^{th}$$ neuron in layer $$l$$ and the $$j^{th}$$ neuron in layer $$l-1$$.
+- The bias for layer $$l$$, $$b^{(l)}$$ is stored in a $$n_l$$ x $$1$$ matrix - one bias for each neuron in the layer.
+- We collectively refer to the weights and biases as the **parameters** of the network.
+
+So to give a concrete example, $$ a^{[l](i)}_j$$ refers to the activation of the $$j^{th}$$ neuron in the $$l^{th}$$ layer for the $$i^{th}$$ example, which we store in $$A^{[l]}_{ji}$$.
 
 ### Intuition:
 
-The linear and logistic regression algorithms that we trained in the [previous blog posts](/demystifying-deep-learning/linear-logistic-regression/) can be seen as  *tiny neural networks* with no hidden layers and one neuron in the output layer, with the activation functions $$g(z)=z$$ and $$g(z)= \sigma(z)$$ respectively. 
+The linear and logistic regression algorithms that we trained in the [previous blog posts](/demystifying-deep-learning/linear-logistic-regression/) can be seen as _tiny neural networks_ with no hidden layers and one neuron in the output layer, with the activation functions $$g(z)=z$$ and $$g(z)= \sigma(z)$$ respectively.
 
-So this leads us very nicely into a much larger neural network - it involves pretty much the same operations, just at *scale*.
+So this leads us very nicely into a much larger neural network - it involves pretty much the same operations, just at _scale_.
 
 ### Maths:
 
@@ -89,7 +91,7 @@ $$ Z^{[l]}_{ji} = \sum_{k=1}^{n} W^{[l]}_{jk}A^{[l-1]}_{ki} + b^{[l]}_j $$
 
 $$ A^{[l]}_{ji} = g(Z^{[l]}_{ji})$$
 
-The identity   $$C_{ij} = \sum_k A_{ik}B_{kj} \iff C=A.B$$ applies:
+The identity $$C_{ij} = \sum_k A_{ik}B_{kj} \iff C=A.B$$ applies:
 
 so the matrix equations are:
 
@@ -97,13 +99,12 @@ $$ Z^{[l]} =  W^{[l]}.A^{[l-1]} + b^{[l]} $$
 
 $$A^{[l]} = g(Z^{[l]})$$
 
-Notice how this is just a generalisation of our logistic regression equation to more layers and neurons! 
+Notice how this is just a generalisation of our logistic regression equation to more layers and neurons!
 
-
-### Weight initialisation: 
+### Weight initialisation:
 
 One key point to note is that if the neurons start off with same weights, then their inputs and outputs are going to be identical - since they've scaled the input from the previous layer by the same weights.
-This means that by symmetry they are the same, and so will be updated by the same amount. 
+This means that by symmetry they are the same, and so will be updated by the same amount.
 
 So if all our weights are initialised to the same value, then it means that all neurons in each layer act the same. So we wish to **break the symmetry** which is why we initialise them randomly.
 
@@ -124,13 +125,13 @@ def relu(z, deriv = False):
     else:
         return np.multiply(z, z>0)
 
-def initialise_parameters(layers_units): 
+def initialise_parameters(layers_units):
     #layers_units is a list consisting of number of units in each layer
     parameters = {}         # create a dictionary containing the parameters
     for l in range(1, len(layers_units)):
         #initialise weights randomly to break symmetry.
         parameters['W' + str(l)] = 0.001* np.random.randn(layers_units[l],
-                                            layers_units[l-1]) 
+                                            layers_units[l-1])
         parameters['b' + str(l)] = np.zeros((layers_units[l],1))
     return parameters
 
@@ -140,18 +141,18 @@ def forward_propagation(X,parameters,linear):
     L = len(parameters)//2 #final layer
     cache["A0"] = X #ease of notation since input = layer 0
     for l in range(1, L):
-        cache['Z' + str(l)] = np.dot(parameters['W' + str(l)], cache['A' + str(l-1)]) 
+        cache['Z' + str(l)] = np.dot(parameters['W' + str(l)], cache['A' + str(l-1)])
         + parameters['b' + str(l)]
         cache['A' + str(l)] = relu(cache['Z' + str(l)])
     #final layer
     cache['Z' + str(L)] = np.dot(parameters['W' + str(L)],
     cache['A' + str(L-1)]) + parameters['b' + str(L)]
-    #depending on if linear or logistic regression 
+    #depending on if linear or logistic regression
     #apply activation function to final layer or not
-    cache['A' + str(L)] =cache['Z' + str(L)] if linear else sigmoid(cache['Z' + str(L)]) 
-    return cache 
+    cache['A' + str(L)] =cache['Z' + str(L)] if linear else sigmoid(cache['Z' + str(L)])
+    return cache
 ```
 
-This equations define the neural network - to output a prediction we just go forward through the network and repeatedly compute the next layer from the previous layer. This is called **forward propagation**.  
+This equations define the neural network - to output a prediction we just go forward through the network and repeatedly compute the next layer from the previous layer. This is called **forward propagation**.
 
-The learning process is the same as [linear and logistic regression](/demystifying-deep-learning/linear-logistic-regression/) - we're going to use gradient descent to learn the optimal parameters. Computing the partial derivatives is a little more involved in a neural network with many layers so we will go through. 
+The learning process is the same as [linear and logistic regression](/demystifying-deep-learning/linear-logistic-regression/) - we're going to use gradient descent to learn the optimal parameters. Computing the partial derivatives is a little more involved in a neural network with many layers so we will go through.
