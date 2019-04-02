@@ -5,6 +5,12 @@ import profileImg from "../../assets/profile-pic.jpg";
 
 const SEO = props => {
   const { title, image, url, isBlogPost, excerpt, date } = props;
+  let imageUrl = "https://mukulrathi.com";
+  if (image.childImageSharp) {
+    imageUrl += image.childImageSharp.fluid.src;
+  } else {
+    imageUrl += JSON.stringify(image);
+  }
   let structuredData = [
     {
       "@context": "http://schema.org",
@@ -49,12 +55,12 @@ const SEO = props => {
           name: "Mukul Rathi",
           logo: {
             "@type": "ImageObject",
-            url: profileImg
+            url: "https://mukulrathi.com" + profileImg
           }
         },
         image: {
           "@type": "ImageObject",
-          url: image
+          url: imageUrl
         },
         inLanguage: "English",
         description: excerpt,
@@ -71,14 +77,15 @@ const SEO = props => {
       <meta charSet="utf-8" />
       <title>{title}</title>
       <meta name="description" content={excerpt} />
-      <meta name="image" content={image} />
+      <meta name="image" content={imageUrl} />
+      <meta name="author" content="Mukul Rathi" />
 
       {/* OpenGraph tags */}
       <meta property="og:url" content={url} />
       {isBlogPost && <meta property="og:type" content="article" />}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={excerpt} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={imageUrl} />
       {
         // <meta property="fb:app_id" content={seo.social.fbAppID} />}
       }
@@ -87,7 +94,7 @@ const SEO = props => {
       <meta name="twitter:creator" content="" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={excerpt} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={imageUrl} />
 
       <script type="application/ld+json">
         {JSON.stringify(structuredData)}
