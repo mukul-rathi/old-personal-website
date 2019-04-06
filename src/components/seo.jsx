@@ -55,7 +55,7 @@ const SEO = props => {
           name: "Mukul Rathi",
           logo: {
             "@type": "ImageObject",
-            url: "https://mukulrathi.com" + profileImg
+            url: `https://mukulrathi.com${profileImg}`
           }
         },
         image: {
