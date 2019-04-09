@@ -65,8 +65,8 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         createRedirect({
-          fromPath: node.frontmatter.redirect_from,
-          toPath: node.fields.slug,
+          fromPath: String(node.frontmatter.redirect_from),
+          toPath: String(node.fields.slug),
           isPermanent: true
         });
       });

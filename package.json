@@ -5,7 +5,8 @@
     "disqus-react": "^1.0.5",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.12.4",
-    "gatsby": "^2.0.33",
+    "fs-extra": "^7.0.1",
+    "gatsby": "^2.3.15",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-fonts": "0.0.4",
@@ -29,6 +30,7 @@
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-remark": "^2.1.17",
     "gatsby-transformer-sharp": "^2.1.9",
+    "graphql": "^0.13.0",
     "katex": "^0.10.0",
     "libvips": "0.0.2",
     "node-sass": "^4.11.0",
@@ -39,7 +41,9 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-share": "^2.4.0",
-    "tunnel-agent": "^0.6.0"
+    "remark-parse": "^5.0.0",
+    "tunnel-agent": "^0.6.0",
+    "webpack": "^4.0.0"
   },
   "description": "Mukul's personal website, powered by React, Gatsby and Graphql",
   "devDependencies": {
