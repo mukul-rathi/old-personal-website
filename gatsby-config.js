@@ -128,9 +128,16 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
-        fonts: ["Lato", "Open Sans"]
+        fonts: [
+          {
+            family: `Lato`
+          },
+          {
+            family: `Open Sans`
+          }
+        ]
       }
     },
     "gatsby-plugin-meta-redirect" // make sure this is always the last one
