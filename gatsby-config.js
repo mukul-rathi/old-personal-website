@@ -140,6 +140,6 @@ module.exports = {
         ]
       }
     },
-    "gatsby-plugin-meta-redirect" // make sure this is always the last one
+    `gatsby-plugin-netlify` // make sure to put last in the array
   ]
 };

@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 // Gatsby createPages API
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions;
+  const { createPage } = actions;
 
   return new Promise(resolve => {
     // first query the data using graphQL
@@ -44,11 +44,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       // for each markdown file, create a corresponding page using the blog-post template
       const posts = result.data.allMarkdownRemark.edges;
-      createRedirect({
-        fromPath: "/blog.html",
-        toPath: "/blog/",
-        isPermanent: true
-      });
+
       posts.forEach(({ node }, index) => {
         createPage({
           path: node.fields.slug,
@@ -62,12 +58,6 @@ exports.createPages = ({ graphql, actions }) => {
             prevPost: index === 0 ? null : posts[index - 1].node,
             nextPost: index === posts.length - 1 ? null : posts[index + 1].node
           }
-        });
-
-        createRedirect({
-          fromPath: String(node.frontmatter.redirect_from),
-          toPath: String(node.fields.slug),
-          isPermanent: true
         });
       });
       resolve();
