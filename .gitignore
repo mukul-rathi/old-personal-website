@@ -71,8 +71,11 @@ yarn-error.log
 # Vim partially edited files
 *.swp
 
-# VS Code 
+# VS Code
 .vscode/
 
-#old jekyll site 
+#old jekyll site
 _site/
+
+#Netlify
+.netlify/
