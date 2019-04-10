@@ -18,7 +18,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 // Gatsby createPages API
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
 
   return new Promise(resolve => {
     // first query the data using graphQL
@@ -59,7 +59,13 @@ exports.createPages = ({ graphql, actions }) => {
             nextPost: index === posts.length - 1 ? null : posts[index + 1].node
           }
         });
+        createRedirect({
+          fromPath: String(node.frontmatter.redirect_from),
+          toPath: String(node.fields.slug),
+          isPermanent: true
+        });
       });
+
       resolve();
     });
   });
