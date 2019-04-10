@@ -60,19 +60,6 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {
-      resolve: "gatsby-plugin-guess-js",
-      options: {
-        // Find the view id in the GA admin in a section labeled "views"
-        GAViewID: `181727901`,
-        minimumThreshold: 0.03,
-        // The "period" for fetching analytic data.
-        period: {
-          startDate: new Date("2018-9-9"),
-          endDate: new Date()
-        }
-      }
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
