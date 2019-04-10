@@ -11,10 +11,10 @@
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-fonts": "0.0.4",
     "gatsby-plugin-gtag": "^1.0.4",
-    "gatsby-plugin-guess-js": "^1.0.5",
     "gatsby-plugin-mailchimp": "https://github.com/benjaminhoffman/gatsby-plugin-mailchimp.git#gatsby-v2",
     "gatsby-plugin-manifest": "^2.0.24",
     "gatsby-plugin-meta-redirect": "^1.1.1",
+    "gatsby-plugin-netlify": "^2.0.13",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-prefetch-google-fonts": "^1.4.2",
     "gatsby-plugin-react-helmet": "^3.0.4",
@@ -42,21 +42,18 @@
     "react-helmet": "^5.2.0",
     "react-share": "^2.4.0",
     "remark-parse": "^5.0.0",
+    "sharp": "^0.22.0",
     "tunnel-agent": "^0.6.0",
     "webpack": "^4.0.0"
   },
   "description": "Mukul's personal website, powered by React, Gatsby and Graphql",
-  "devDependencies": {
-    "gh-pages": "^2.0.1"
-  },
   "license": "MIT",
   "name": "personal-website",
   "private": true,
   "scripts": {
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b master",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "start": "npm run develop"
+    "start": "yarn run develop"
   }
 }
