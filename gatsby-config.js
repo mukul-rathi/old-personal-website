@@ -133,7 +133,7 @@ module.exports = {
       options: {
         headers: {}, // option to add more headers. `Link` headers are transformed by the below criteria
         allPageHeaders: [
-          "/ Link: </https://www.google-analytics.com> rel=preload as=script"
+          "Link: https://www.google-analytics.com; rel=preload; as=script"
         ], // option to add headers for all pages. `Link` headers are transformed by the below criteria
         mergeSecurityHeaders: true, // boolean to turn off the default security headers
         mergeLinkHeaders: true, // boolean to turn off the default gatsby js headers
