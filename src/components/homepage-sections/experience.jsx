@@ -37,7 +37,9 @@ const Experience = () => (
             role: "B.A. (Hons) Computer Science",
             points: {
               "First Year Results":
-                "Ranked 2nd out of 101 Computer Science students in my year. (First Class)"
+                "Ranked 2nd out of 101 Computer Science students in my year. (First Class)",
+              "Second Year Results":
+                "Ranked 3rd out of 102 Computer Science students in my year. (First Class)"
             },
             logo: findImage("uni-of-cam")
           },
@@ -59,7 +61,8 @@ const Experience = () => (
             location: "Facebook",
             role: "Software Engineer Intern",
             points: {
-              "": ""
+              "":
+                "Working in the Catalog Experience team using ReactJS and Hack."
             },
             logo: findImage("facebook")
           },
