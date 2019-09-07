@@ -88,7 +88,7 @@ const Experience = () => (
         }
       };
       return (
-        <div>
+        <>
           {Object.keys(experience).map(section => (
             <section className={styles.section}>
               <h2 className={styles.sectionHeading}>{section} </h2>
@@ -97,7 +97,7 @@ const Experience = () => (
               ))}
             </section>
           ))}
-        </div>
+        </>
       );
     }}
   />

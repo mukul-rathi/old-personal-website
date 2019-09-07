@@ -29,7 +29,7 @@ function blogProps(props) {
 const BlogCard = props => {
   const {
     frontmatter: { title }
-  } = props; // react destructuring assignment}
+  } = props;
   return <Card {...blogProps(props)} key={title} />;
 };
 
