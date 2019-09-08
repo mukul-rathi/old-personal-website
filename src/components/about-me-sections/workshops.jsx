@@ -75,6 +75,29 @@ const Workshops = () => {
               img: "youtube"
             },
             description: "Deep learning for Computer Vision"
+          },
+          IntroDeepLearn3: {
+            title: "Recurrent Neural Networks",
+            img: {
+              fluid: findImage("deep-learn-3"),
+              alt: "Workshop Banner"
+            },
+            date: "February 2019",
+            category: "Deep Learning",
+            link1: {
+              href: "https://hackersatcambridge.com/workshops/deep-learning",
+              text: "View Workshop Material"
+            },
+            link2: {
+              href:
+                "https://github.com/hackersatcambridge/workshop-deep-learning",
+              text: "GitHub Repo"
+            },
+            socialButton: {
+              href: "https://www.youtube.com/watch?v=QQs-9VwnyOk",
+              img: "youtube"
+            },
+            description: "Deep learning for Natural Language Processing"
           }
         };
         return (
