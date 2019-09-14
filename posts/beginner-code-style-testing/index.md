@@ -1,37 +1,33 @@
 ---
 series: Tools for Programmers
-title: "Coding 2.0: Why bother testing your code?"
+title: Why Continuous Integration will change the way you code
 date: 2019-04-2 10:00:00
-excerpt: A beginner's guide to testing and code style across multiple languages - ramping up from toy side projects to industry code.
+excerpt: A beginner's guide to testing and enforcing good code style across multiple languages.
 image: ./tests.png
 caption: Example output of Travis CI build
 ---
 
-## Yes, you have probably been writing bad code.
+## Bug-free code is a myth when working at scale
 
-This is the feedback that most fresh-faced programmers receive in their first **code review** at their first internship or job. What's the issue? I've been using descriptive variable names and commenting my code, you might reply. Comments and variable names are just the tip of the iceberg when it comes to _good code style_.
+You know the deal, you just change one _little_ feature, and that causes another part of your code to break as a side-effect, leading to a fun late-night debugging session! No matter, you know your code inside-out and it's quite a small project, so after a couple of hours you've fixed the bug and everything is great.
 
-Or when your code is being shipped to production and although _it just works_ on your machine, there's some unforeseen edge cases and bugs, leading to a lot of late-night debugging and stress. If only I'd tested my code properly, you cry.
+**Let's take this up a notch.** Picture this - another developer shipped some code to production, which you then modify to add a new feature. What you didn't realise was that you've just introduced a niche edge case, and 2 weeks later one of your users takes _that_ sequence of actions that perfectly syncs up to break your code. Oh, and now when you try and debug the code you realise the other developer lays his code out completely differently to you, so it's hard to even find the code that has broken.
 
-But what constitutes good code style and testing? Most online programming courses equip you with the skills and technologies, but neglect these fundamentals.
+To top it all off, you better hurry as your users aren't happy and complaining on social media. _Slightly higher stakes?_
 
-This post is here to bridge the gap between the code you might write for fun and code that gets deployed to production. Unlike many tutorials that are often "How to test in language X", I'll include examples in a few different languages (Python, Java, JavaScript) to show the underlying **concepts**.
+Setting up an automated testing pipeline with thorough tests would've flagged up the edge case right as you were about to ship the code. Consistent code style would have meant it was then easy to read the code written by other developers on your team, and because you've caught this before it affects any users in production, you've avoided the stress of angry user complaints.
 
-If there is one thing you take away from this tutorial it is this:
+This post is here to bridge the gap between the code you might write for fun and code written working as part of a larger team. Talking about code structure in terms of software engineering principles like abstraction, modules etc. deserves its own post - in this post we won't look at these high-level ideas but more how to lay out code _stylistically_.
 
-**The time you spend writing tests and adhering to good code style is repaid at least 10x in terms of time spent debugging.**
+When it comes to testing, unlike many tutorials that are often "How to test in language X", I'll include examples in a few different languages (Python, Java, JavaScript) to show the underlying **concepts**.
 
-So even if you only code small side projects for fun, the sheer time saved makes this a worthy investment.
+The key take-away points from this tutorial:
 
-## What constitutes good code style?
+- Tests stop future you (or anyone for that matter) from breaking the code you're writing now
+- Automating tests and style will save you sooo much time over the long run!
+- Continuous Integration (more on that later) will help you maintain great code!
 
-You will spend a lot more time reading code than writing code so good code style involves **optimising for readability**. Talking about code structure in terms of top-down design and paradigms like _Object Oriented Programming_ probably deserves its own post - in this post we won't look at these high-level ideas but more how to lay out code _syntactically_.
-
-### Keep code simple
-
-Most compilers and languages nowadays are _very_ good at optimising your code, so you don't improve performance by using shorter variable names, or a clever one-liner rather than a block of code. Any optimisation in performance usually comes from your underlying algorithm, rather than using a fancy language feature.
-
-### Style guides
+## Style guides
 
 Consider how you might layout something as simple as `import` statements. Perhaps you might choose to write your imports in alphabetical order, whilst another person groups them based on use. With functions, one person might swear by lambda functions, whilst another prefers to name all their functions, no matter how small.
 
@@ -39,7 +35,7 @@ All of these small idiomatic decisions can lead to vastly differing code style b
 
 Instead, developers should adhere to a **code style guide** - a set of guidelines as to how to format your code. This leads to **consistent** code style across the code base, which improves **readability** and also **maintainability**. [Google's Style Guides](http://google.github.io/styleguide/) are great examples of style guides.
 
-###Use Docstrings for code documentation
+### Use Docstrings for code documentation
 
 This should describe _what_ the module/class/function does, not _how_ you implemented it. Put yourself in the shoes of the person who might be calling your module/class/function - just like how you would read documentation for a library you'd use. This applies across languages - the two examples below are for Python and Java.
 
@@ -150,7 +146,7 @@ To ensure all code is formatted in a consistent way, e.g. indented with 4 spaces
 
 For Python a good formatter is [YAPF](https://github.com/google/yapf), whilst for a range of languages (including Javascript, SASS and even the Markdown files for this blog) you can use the formatter [Prettier](https://prettier.io/).
 
-It is well worth setting these formatters up in your IDE and/or in a Git pre-commit hook since it is then automated and you get pretty-looking code for free!
+It is well worth setting these formatters up in your IDE and/or in a Git pre-commit hook since it is then automated and you get pretty-looking code for free! Once you set up auto-formatting on saving a file, you can't go back to manual formatting!
 
 ```python
 #before yapf
