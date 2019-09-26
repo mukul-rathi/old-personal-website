@@ -44,7 +44,7 @@ const Projects = () => {
             link1: {
               href:
                 "https://mukul-rathi.github.io/database-server-tutorial/docker-postgres-flask/",
-              text: "Tutorial Part 1"
+              text: "Tutorial"
             },
             description:
               "Deployed a database server (to store air pollution data) using PostgreSQL, Docker and Flask - tested with Pytest and Travis CI."
