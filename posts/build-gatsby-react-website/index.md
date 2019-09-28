@@ -1,7 +1,7 @@
 ---
 series: Web Development
 title: Level up your website in 2019 with Gatsby and React!
-date: 2019-09-25 10:00:00
+date: 2019-09-28 18:00:00
 excerpt: How Gatsby transformed my website, and why you too should make the switch!
 image: ./gatsby.png
 caption: Gatsby Logo
