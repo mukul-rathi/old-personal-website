@@ -1,0 +1,64 @@
+@import "_fonts.scss";
+
+.twitterCard {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin: 1em auto;
+  max-width: 768px;
+  padding: 1em 2em;
+  transition: 0.3s;
+}
+
+.mainContent {
+  margin: 0 0 0 0.5em;
+  @extend %body;
+}
+
+.followButton {
+  margin-top: 1.5em;
+}
+.metaData {
+  margin: 0.5em;
+  padding: 1em;
+  .date {
+    color: $dark-blue;
+    margin-top: 0;
+    padding-top: 0;
+    @extend %subheading;
+    position: top;
+  }
+
+  .img {
+    display: object-fit;
+    max-width: 5em;
+    width: 100%;
+  }
+}
+.title {
+  @extend %title;
+}
+
+.description {
+  @extend %body;
+}
+
+@media screen and (max-width: 400px) {
+  .metaData {
+    margin: 0;
+    padding: 0;
+  }
+
+  .mainContent {
+    margin: 0;
+    padding: 0;
+  }
+
+  .headings {
+    margin: 0 0 0.5em 1em;
+    padding: 0;
+  }
+
+  .description {
+    margin: 0.5em 0 0 0.5em;
+  }
+}

@@ -11,6 +11,7 @@ import SEO from "../components/seo";
 import "katex/dist/katex.min.css";
 import "prismjs/themes/prism.css";
 import MailChimpForm from "../components/mailchimp-form";
+import TwitterCard from "../components/twitter-card";
 
 function formatDate(date) {
   return dateFormat(date, "dS mmmm yyyy");
@@ -54,6 +55,7 @@ const BlogPost = ({ data, pageContext }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
         {/* eslint-enable react/no-danger */}
+        <TwitterCard />
 
         <nav className={styles.pageNavigation}>
           {prevPost && (

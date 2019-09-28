@@ -41,6 +41,7 @@
     "react-dom": "16.5.1",
     "react-helmet": "5.2.0",
     "react-share": "2.4.0",
+    "react-twitter-embed": "^2.0.8",
     "remark-parse": "5.0.0",
     "sharp": "0.22.0",
     "tunnel-agent": "0.6.0",

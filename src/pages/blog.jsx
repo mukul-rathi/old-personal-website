@@ -7,8 +7,8 @@ import styles from "../../css/blog.module.scss";
 import SEO from "../components/seo";
 import blogImg from "../../posts/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/cnn-internals.png";
 import MailChimpForm from "../components/mailchimp-form";
+import TwitterCard from "../components/twitter-card";
 
-/* eslint-disable-next-line  react/prop-types */
 const Blog = ({ data }) => {
   return (
     <Layout page="Blog">
@@ -21,11 +21,9 @@ const Blog = ({ data }) => {
       />
       <div className={styles.blog}>
         <h1>Hello World - {"Mukul's"} Blog! </h1>
-
         <BlogDescription className={styles.description} />
-
+        <TwitterCard />
         <MailChimpForm />
-
         {data.allMarkdownRemark.edges.map(({ node }) => (
           <BlogCard {...node} key={node.id} className={styles.blogCard} />
         ))}
