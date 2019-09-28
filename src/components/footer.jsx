@@ -15,6 +15,11 @@ const Footer = () => (
       href="http://github.com/mukul-rathi"
       className={styles.socialButton}
     />
+    <SocialButton
+      href="https://twitter.com/mukulrathi_"
+      img="twitter"
+      className={styles.socialButton}
+    />
     <div className={styles.copyrightText}>© Mukul Rathi 2018 </div>
   </footer>
 );

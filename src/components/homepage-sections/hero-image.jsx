@@ -36,6 +36,10 @@ const HeroImage = () => (
               img="linkedIn"
             />
             <SocialButton href="http://github.com/mukul-rathi" img="github" />
+            <SocialButton
+              href="https://twitter.com/mukulrathi_"
+              img="twitter"
+            />
           </div>
         </div>
       </section>
