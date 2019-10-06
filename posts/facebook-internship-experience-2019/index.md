@@ -1,60 +1,63 @@
 ---
 series: Facebook Internship
 title: What it's REALLY like to intern at Facebook in 2019!
-excerpt: A deep dive into life as a software engineering intern in Facebook London.
+date: 2019-10-06 10:00:00
+excerpt: Thinking of interning at Facebook? This post will give you a better insight of what it is like as well as some advice on how to do well in the internship!
 image: ./facebook.png
 caption: Facebook logo
 ---
 
 **Disclaimer: All opinions and observations are my own and I do not speak for Facebook.**
 
-It's coming round to internship interviewing season again, so for those considering interning at Facebook, here's a post that will hopefully give you a better insight of what it is like to intern at Facebook! I thoroughly enjoyed my internship this summer and would strongly recommend interning - in fact I'll be returning next summer (2020) for another internship!
+It's coming round to internship interviewing season again, so for those considering interning at Facebook, here's a post that will hopefully give you a better insight of what it is like to intern at Facebook! I thoroughly enjoyed my internship this summer and would strongly recommend interning here - in fact I'll be returning next summer for another internship!
 
-I'll touch on as many of the major things that go on in a typical 12 week summer internship, but if you have any questions, feel free to ask in the comments below.
+I'll touch on as many of the major things that go on in a typical 12 week summer internship as I can, but if you have any questions, feel free to ask in the comments below.
 
-## Application Process
+## Application Process
 
 This is a FAQ, so I'll detail my personal experience for completeness - if you want to find out more about the internship application there's a whole bunch of excellent resources online and tips and tricks, so I won't go through that in this post.
 
-Facebook came to my university (Cambridge) to give a talk about how Facebook interview (Crush Your Coding Interview), following which I [applied online](https://www.facebook.com/careers/students-and-grads/). I had two video interviews consisting of the standard algorithm and data structures problems before receiving my offer, and the entire process was really quick - my recruiter was very accomodating of other offer deadlines.
+Facebook came to my university to give a talk about the interview process, following which I [applied online](https://www.facebook.com/careers/students-and-grads/). I had two video interviews consisting of the standard algorithm and data structures problems before receiving my offer, and the entire process was really quick.
 
-### Project selection
+After the offer, Facebook also sent a small welcome gift, which was a lovely touch!
+
+![Welcome gift](welcome-gift.png)
+
+### Project Selection
 
 A few months before the internship, Facebook reach out to you with a survey of your interests and strengths, so they can match you to a project. The team that matches you to a project does a great job, even if it might end up being completely different to what you've put down as interests! I'd put down infra backend as an interest for my survey, as I wanted to try something completely new, but the project they'd chosen for me aligned more with my previous experience (more on that later!) and I actually ended up _really_ pleased with the project.
 
 ## Scale
 
-The first thing you notice when entering the Facebook office is just how big everything is. I interned at the main London office this summer, which alone houses 1,500 employees. To put it into perspective, there were more interns in my batch joining the London office than there were employees at the startup I'd interned at the previous summer!
+The first thing you notice when entering the Facebook office is just how big everything is. I interned at the main London office this summer, whichhouses 1,500 employees. To put it into perspective, there were more interns in my batch joining the London office than there were employees at the startup I'd interned at the previous summer!
 
-In our onboarding, we were told about how Facebook's scale introduces new engineering problems - "take something that is easy for a million users, when you scale it to a billion it suddenly gets way harder". The scale is genuinely mind-boggling - initially I would often do a double-take when my manager briefed my on the sheer scale my project was operating on.
+In our orientation, we were told about how Facebook's scale introduces new engineering problems - "take something that is easy for a million users, when you scale it to a billion it suddenly gets way harder". The scale is genuinely mind-boggling - initially I would often do a double-take when my manager briefed my on the sheer scale my project was operating on.
 
-This scale leads to custom internal tooling and technologies for almost everything. Sometimes, Facebook open-sources these technologies - one of my favourite examples has to be React - a real game changer for web development.
+This scale leads to custom internal tooling and technologies for almost everything. Sometimes, Facebook open-sources these technologies, a prime example being React.
 
-Having so many interns has its pros - for one, it means that the internship program is really well-organised and thought out, and also having that community of fellow interns ramping up with you makes the first few days a lot less intimidating. Interns at the London office come from all over the world, from Brazil, Jordan, Canada, Australia, you name it!
+Having so many interns has its pros - for one, it means that the internship program is really well-organised, and also having that community of fellow interns ramping up with you makes the first few days a lot less intimidating. Interns at the London office come from all over the world - Brazil, Jordan, Canada, Australia, you name it!
 
-Meeting so many different people from diverse backgrounds really augments the internship experience, indeed the social events and friends made added another dimension to my time here at Facebook.
+Meeting so many different people from diverse backgrounds really augments the internship experience. Iindeed, the social events and friends made added another dimension to my time here at Facebook.
 
 ## Culture
 
-### Quirks
+### Quirks
 
-One of the best things about the culture at Facebook is how relaxed and decidedly "embrace your quirks" it is. Internally on Workplace (think Facebook for businesses) as well as having groups for work / communicating between different teams, there is also a social side with a group for pretty much anything! This ranges from internal versions of popular memes / internet trends to random groups like "Things Lift Manufacturers Would Disapprove Of" which consisted of photos of the funniest bugs the lifts in the office had.
+One of the best things about the culture at Facebook is how relaxed and quirky it is. Internally on Workplace (think Facebook for businesses) as well as having groups for work / communicating between different teams, there is also a social side with a group for pretty much anything! This ranges from internal versions of popular memes / internet trends to random groups like "Things Lift Manufacturers Would Disapprove Of" which consisted of photos of the funniest bugs the lifts in the office had.
 
 The office also has quirks like themed meeting room names for different sections of the office from Harry Potter and Games of Thrones references ("Dobby is a Free Elf") , to cricket field positions, to things British people disapprove of ("Standing on the Left", "Needless Pleasantries" being a couple of my favourites).
 
-### Being open
+### Being Open
 
-The culture is also very _open_ with company-wide live-streamed weekly Q&As with Mark Zuckerberg, as well as a series of intern-only Q&As with Mark, Sheryl and other top Facebook executives. Mark's intern Q&A was actually a lot of fun, as he seemed really relaxed with the interns, and so answered all manners of questions from whether he approved of memes (he does!) to discussions on the challenges he's encountered as Facebook has grown.
-
-Linked to this, feedback is a really important part of the culture at Facebook - I would say that it honestly is a gift and it has seen my code quality and productivity improve in leaps and bounds.s
+The culture is also very _open_ with company-wide live-streamed weekly Q&As with Mark Zuckerberg, as well as a series of intern-only Q&As with Mark, Sheryl and other top Facebook executives. Mark's intern Q&A was actually a lot of fun; he seemed really relaxed with the interns, and so answered all manners of questions from whether he approved of memes (he does!) to discussions on the challenges he's encountered as Facebook has grown.
 
 ### Hackathons
 
 ![Image of the hackathon](hackathon.png)
 
-I'm a big fan of hackathons, and they're an integral part of Facebook's culture - things like the Timeline and the Like Button were hackathon ideas!
+I'm a big fan of hackathons, and they're an integral part of Facebook's culture; things like the Timeline and the Like Button were hackathon ideas!
 
-Indeed I got to participate in a hackathon on only my 3rd day at Facebook. It was quite the blur - learning Hack on the go and trying to navigate the codebase to add our hackathon feature to News Feed - and really rewarding to actually modify Facebook on our sandbox! Hackathons are really good fun and I would recommend future interns to participate and to stick around to the end to demo your project and see the other demos.
+Facebook organised a hackathon on only my 3rd day. It was quite the blur - learning Hack on the go and trying to navigate the codebase to add our hackathon feature to News Feed - and really rewarding to actually modify Facebook on our sandbox! Hackathons are really good fun and I would advise future interns to participate and to stick around to the end to demo your project and see the other demos.
 
 Looking back, I would have loved if the hackathon was later in the internship, as I think with actual codebase experience the prototype we designed (which I can't disclose due to obvious NDA) could have been even better!
 
@@ -64,13 +67,13 @@ With such a large codebase and a variety of new technologies, I spent the first 
 
 To give you an idea of what a project looks like, I'll quickly detail the different aspects of my project.
 
-Since I was working on the **Experience** sub-team of Catalog, it meant my project was business-facing, meaning I was working on both front-end (React and Flux) and backend (Hack). Now I know PHP gets a bad rep as a programming language, but I enjoyed working in Hack, so I would say to prospective interns, don't be put off by Hack since it's very similar to most other programming languages.
+Since I was working on the **Experience** sub-team of Catalog, it meant my project was business-facing, meaning I was working on both front-end (React and Flux) and backend (Hack). Now I know PHP gets a bad rep as a programming language, but I enjoyed working in Hack, so I would say to prospective interns: don't be put off by Hack since it's very similar to most other programming languages.
 
-At Facebook, compared to a startup, there are more specialised non-engineering roles, such as Content Strategists (who work on the text content displayed to users) along with Designers and UX researches, however when it comes to cross-functional projects engineers drive the projects. In terms of my project, this meant I was organising weekly sync-up meetings with the designer and content strategist on my team to discuss the UI design, which I ended up really enjoying. It's actually got me really interested in learning design, which I might blog about in the future.
+At Facebook, unlike a startup, there are more specialised non-engineering roles, such as Content Strategists (who work on the text content displayed to users) along with designers and UX researchers, however when it comes to cross-functional projects engineers drive the projects. In my project, this meant I was organising weekly sync-up meetings with the designer and content strategist on my team to discuss the UI design, which I ended up really enjoying. It's got me really interested in learning design, and I might blog about that in the future.
 
-I also got to do some data analysis too when designing the new infrastructure - running SQL queries to predict current load on the infrastructure and expected growth, as well as analysis of production logs when it came to actually shipping the code.
+My project also involved some data analysis when designing the new infrastructure - running SQL queries to predict current load on the infrastructure and expected growth, as well as analysis of production logs when it came to actually shipping the code.
 
-I was extremely fortunate to have such a well thought out project, and although Facebook is such a huge company, it felt like my project was genuinely impactful, rather than a small cog in a big machine, which was one of my worries when joining. Facebook's project matching team really did an excellent job!
+I was extremely fortunate to have such a well-thought-out project, and although Facebook is such a huge company, it felt like my project was genuinely impactful, rather than a small cog in a big machine, which was one of my worries when joining. Facebook's project matching team really did an excellent job!
 
 ### Tips for future interns
 
@@ -92,12 +95,12 @@ On that note, let's talk perks - the glamorous part of working at a large tech c
 
 ## Perks
 
-### Corporate housing
+### Corporate Housing
 
 ![Bedroom](bedroom.png)
 ![Living room](living-room.png)
 
-Facebook provide interns with the option of corporate housing in Central London. This is super convenient - it meant that the office was only a 25-min walk from my apartment, and you're staying next door to other interns.
+Facebook provides interns with the option of free accommodation in Central London. This is super convenient - it meant that the office was only a 25-min walk from my apartment, and you're staying next door to other interns.
 
 ### The Office
 
@@ -117,15 +120,15 @@ Food? Oh you definitely don't have to worry... Freshly squeezed orange juice for
 
 ![Breakfast](breakfast.png)
 
-Facebook provides employees with a lot of free food and is one of my favourite perks. Breakfast, lunch and dinner is served in the office, and in addition to the 3 meals served, you also have snacks and coffee/tea in the microkitchens, and the London Rathbone office also has a Donut bar that stocks donuts, a variety of flavours of ice cream, sandwiches, smoothies, and even a wall of pure sugar (fizzy colas, jelly beans etc) ...
+Facebook provides employees with a lot of free food and is one of my favourite perks. Breakfast, lunch and dinner is served in the office, and in addition to the 3 meals served, you also have snacks and coffee/tea in the micro-kitchens, and the London Rathbone office also has a Donut bar that stocks donuts, a variety of flavours of ice cream, sandwiches, smoothies, and even a wall of pure sugar (fizzy colas, jelly beans etc) ...
 
 I could go on - there's so much variety that you often overeat at the start of the internship! This has been coined the _Facebook 15_, where employees gain 15 pounds within a year of joining Facebook.
 
 ### Social events
 
-At Facebook's scale, even in the London office you barely know most of the people in the canteen, with even more new people are being hired all the time. The net result is that you end up mostly hanging out with your team and any friends you made in bootcamp / other interns. This isn't great for cross-team collaboration, so Facebook incentivises us to socialise by reimbursing costs towards social events (BFFs) and Free Lunch Wednesdays (where you go to a nearby restaurant).
+At Facebook's scale, even in the London office you barely know most of the people in the canteen, with even more new people are being hired all the time. The net result is that you end up mostly hanging out with your team and any friends you made in bootcamp / other interns. This isn't great for cross-team collaboration, so Facebook incentivises us to socialise by reimbursing costs towards social events (“BFF”s) and Free Lunch Wednesdays (where you go to a nearby restaurant).
 
-BFFs include restaurants, cinema, karting, even a pizza making class! Here's the thing - it genuinely works great! The diversity of the people I met through attending these events really enriched my internship experience and I would highly recommend it. Funnily enough, software engineers have a lot more than software to talk about in their free time!
+BFFs include restaurants, cinema, karting, even a pizza making class! Here's the thing: it genuinely works a treat! The diversity of the people I met through attending these events really enriched my internship experience and I would highly recommend it. Despite what you may think, software engineers have a lot more than software to talk about in their free time!
 
 Facebook also runs a massive summer party for each office, with stalls for food and activities - like archery tag and a HUGE bouncy castle.
 
