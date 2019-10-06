@@ -11,7 +11,9 @@ const TwitterCard = () => {
           <h3 className={styles.title}> Follow me on Twitter</h3>
         </div>
         <div className={styles.description}>
-          I tweet whenever my posts drop.
+          I tweet whenever my posts drop. Like a post? Tweet about it! Have any
+          questions or want to get in touch? Send me a tweet and I'll do my best
+          to answer.
           <div className={styles.followButton}>
             <TwitterFollowButton
               screenName="mukulrathi_"
