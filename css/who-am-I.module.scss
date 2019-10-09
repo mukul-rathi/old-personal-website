@@ -12,18 +12,27 @@
 }
 
 .profilePic {
-  border-radius: 50%;
-  float: right;
-  margin-left: 1em;
-  width: 18rem;
+  width: 100rem;
 }
 
 .description {
   @extend %body;
-  margin: 0;
+  display: block;
+}
+
+.flexLayout {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.img {
+  border-radius: 50%;
 }
 
 @media screen and (max-width: 500px) {
+  .flexLayout {
+    display: block;
+  }
   .profilePic {
     margin-left: 0;
     width: 100%;
