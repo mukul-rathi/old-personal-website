@@ -26,11 +26,6 @@ const TransitionImage = () => (
           fluid={data.allFile.edges[0].node.childImageSharp.fluid}
           className={styles.transitionImage}
         />
-        <div className={styles.transitionImageDiv}>
-          <div className={styles.transitionContent}>
-            <h2 className={styles.transitionText}> Hackers at Cambridge</h2>
-          </div>
-        </div>
       </section>
     )}
   />

@@ -1,37 +1,14 @@
-@import "_fonts.scss";
-
-.transitionText {
-  margin-bottom: 1em;
-  z-index: 0;
-  @extend %heroText;
-}
-
 .wrapper {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   position: relative;
 }
 
-.transitionImageDiv,
 .transitionImage {
   height: 50vh;
   position: absolute;
   right: 0;
   top: 0;
   width: 100vw;
-}
-
-.transitionImage {
   background-attachment: fixed;
   background-position: center center;
   background-size: cover;
-  z-index: -5;
-}
-
-.transitionImageDiv {
-  align-items: center;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  z-index: 1;
 }
