@@ -127,6 +127,31 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: `gatsby-plugin-amp`,
+      options: {
+        analytics: {
+          type: "gtag",
+          dataCredentials: "include",
+          config: {
+            vars: {
+              gtag_id: "UA-124576029-2",
+              config: {
+                "UA-124576029-2": {
+                  page_location: "{{pathname}}"
+                }
+              }
+            }
+          }
+        },
+        canonicalBaseUrl: "https://mukulrathi.com",
+        components: ["amp-form"],
+        excludedPaths: ["/404*", "/"],
+        pathIdentifier: "/amp/",
+        relAmpHtmlPattern: "{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}",
+        useAmpClientIdApi: true
+      }
+    },
     // make sure to put last in the array
     {
       resolve: `gatsby-plugin-netlify`,

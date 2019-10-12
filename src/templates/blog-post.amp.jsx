@@ -1,8 +1,6 @@
-/* eslint react/prop-types: 0 */
 import React from "react";
 import { graphql, Link } from "gatsby";
 import { DiscussionEmbed } from "disqus-react";
-import Img from "gatsby-image";
 import dateFormat from "dateformat";
 
 import Layout from "../components/layout";
@@ -17,7 +15,7 @@ import TwitterCard from "../components/twitter-card";
 function formatDate(date) {
   return dateFormat(date, "dS mmmm yyyy");
 }
-
+/* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const {
@@ -37,6 +35,12 @@ const BlogPost = ({ data, pageContext }) => {
     title
   };
   const { nextPost, prevPost } = pageContext;
+  const {
+    srcSetWebp,
+    srcWebp,
+    presentationWidth,
+    presentationHeight
+  } = image.childImageSharp.fluid;
   return (
     <Layout>
       <SEO
@@ -58,7 +62,16 @@ const BlogPost = ({ data, pageContext }) => {
         <h2 className={styles.date}> {formatDate(date)}</h2>
 
         <ShareBar className={styles.shareBar} url={url} />
-        <Img fluid={image.childImageSharp.fluid} alt={caption} />
+        <amp-img
+          src-set={srcSetWebp}
+          src={srcWebp}
+          width={presentationWidth}
+          height={presentationHeight}
+          alt={caption}
+          layout="responsive"
+        >
+          <div fallback>{caption}</div>
+        </amp-img>
 
         {/* eslint-disable react/no-danger */}
         <article
@@ -109,8 +122,11 @@ export const query = graphql`
         part
         image {
           childImageSharp {
-            fluid(maxWidth: 630) {
-              ...GatsbyImageSharpFluid
+            fluid {
+              srcSet
+              src
+              presentationWidth
+              presentationHeight
             }
           }
         }

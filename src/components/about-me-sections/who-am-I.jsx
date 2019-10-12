@@ -2,6 +2,7 @@ import React from "react";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
 import styles from "../../../css/who-am-I.module.scss";
+
 const WhoAmI = () => (
   <StaticQuery
     query={graphql`

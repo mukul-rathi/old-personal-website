@@ -59,6 +59,15 @@ exports.createPages = ({ graphql, actions }) => {
             nextPost: index === posts.length - 1 ? null : posts[index + 1].node
           }
         });
+        createPage({
+          path: `${node.fields.slug}amp/`,
+          component: path.resolve("./src/templates/blog-post.amp.jsx"),
+          context: {
+            slug: node.fields.slug,
+            prevPost: index === 0 ? null : posts[index - 1].node,
+            nextPost: index === posts.length - 1 ? null : posts[index + 1].node
+          }
+        });
         createRedirect({
           fromPath: String(node.frontmatter.redirect_from),
           toPath: String(node.fields.slug),

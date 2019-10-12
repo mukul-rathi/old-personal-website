@@ -1,7 +1,8 @@
+/* eslint react/prop-types: 0 */
 import React from "react";
-import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import profileImg from "../../assets/profile-pic.jpg";
+
 const SEO = props => {
   const {
     title,
@@ -94,7 +95,7 @@ const SEO = props => {
     });
   }
   if (FAQs) {
-    const faq_jsonLD = FAQs.map(faq => ({
+    const faqJsonLD = FAQs.map(faq => ({
       "@type": "Question",
       name: faq.question,
       acceptedAnswer: {
@@ -105,7 +106,7 @@ const SEO = props => {
     structuredData.push({
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: faq_jsonLD
+      mainEntity: faqJsonLD
     });
   }
   return (
