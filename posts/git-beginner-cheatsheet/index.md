@@ -1,7 +1,7 @@
 ---
 series: Tools For Programmers
 title: The Ultimate Beginner Git Cheatsheet
-date: 2019-01-27 13:00:00
+datePublished: 2019-01-27 13:00:00
 excerpt: A summary of Git and the most useful commands
 image: "./git.png"
 caption:

@@ -50,6 +50,13 @@
   font-size: 22px;
   margin-bottom: 2em;
 }
+.lastUpdated {
+  color: $light-grey;
+  display: block;
+  @extend %subheading;
+  text-transform: capitalize;
+  font-size: 22px;
+}
 
 .series {
   color: $purple;

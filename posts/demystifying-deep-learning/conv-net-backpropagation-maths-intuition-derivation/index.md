@@ -2,7 +2,7 @@
 series: Demystifying Deep Learning
 part: 9
 title: Backpropagation in a Convolutional Neural Network
-date: 2018-09-10 07:00:00
+datePublished: 2018-09-10 07:00:00
 excerpt: How CNNs learn
 image: "./cnn-internals.png"
 caption: Visualising the internal activations of a CNN

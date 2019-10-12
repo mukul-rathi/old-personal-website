@@ -2,7 +2,7 @@
 series: Demystifying Deep Learning
 part: 0
 title: Demystifying Deep Learning Primer
-date: 2018-07-25 11:00:00
+datePublished: 2018-07-25 11:00:00
 image: "./why-maths.jpg"
 caption: Why bother with maths
 

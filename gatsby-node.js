@@ -23,11 +23,13 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise(resolve => {
     // first query the data using graphQL
 
-    // we sort the files in terms of date created
+    // we sort the files in terms of date published
     // we  return the slug and the title
     graphql(`
       {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: ASC }) {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___datePublished], order: ASC }
+        ) {
           edges {
             node {
               fields {

@@ -2,7 +2,7 @@
 series: Demystifying Deep Learning
 part: 3
 title: Learning Through Gradient Descent
-date: 2018-08-03 13:00:00
+datePublished: 2018-08-03 13:00:00
 excerpt: Diving into how machine learning algorithms "learn"
 image: "./grad-descent.png"
 caption: "Gradient descent on loss function surface <br> credit: Andrew Ng Coursera"

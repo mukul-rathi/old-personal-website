@@ -2,7 +2,7 @@
 series: Demystifying Deep Learning
 part: 8
 title: Convolutional Neural Networks
-date: 2018-09-04 11:00:00
+datePublished: 2018-09-04 11:00:00
 excerpt: Neural networks optimised for Computer Vision
 image: "./convnet.png"
 caption: "A convolutional neural net Credit: CS31N"

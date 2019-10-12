@@ -2,7 +2,7 @@
 series: Demystifying Deep Learning
 part: 5
 title: Backpropagation
-date: 2018-08-31 13:00:00
+datePublished: 2018-08-31 13:00:00
 excerpt: The magic sauce behind neural networks - how they learn!
 image: "./backprop.png"
 caption: Backpropagation in a feedforward neural network - credit 3blue1brown

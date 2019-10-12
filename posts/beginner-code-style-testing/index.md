@@ -1,7 +1,8 @@
 ---
 series: Tools for Programmers
 title: Why Continuous Integration will change the way you code
-date: 2019-04-2 10:00:00
+datePublished: 2019-04-02 10:00:00
+dateModified: 2019-09-25 10:00:00
 excerpt: A beginner's guide to testing and enforcing good code style across multiple languages.
 image: ./tests.png
 caption: Example output of Travis CI build

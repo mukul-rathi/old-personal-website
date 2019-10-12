@@ -2,7 +2,7 @@
 series: Demystifying Deep Learning
 part: 7
 title: Debugging the Learning Curve
-date: 2018-09-02 11:00:00
+datePublished: 2018-09-02 11:00:00
 excerpt: Training, validation and test error - is our model really learning or is it just memorising?
 image: "./train-dev-curves.png"
 caption: "A plot of the training error, and train/dev accuracy metrics"

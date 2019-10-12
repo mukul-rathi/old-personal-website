@@ -1,7 +1,7 @@
 ---
 series: Facebook Internship
 title: What it's REALLY like to intern at Facebook in 2019!
-date: 2019-10-06 10:00:00
+datePublished: 2019-10-06 10:00:00
 excerpt: Thinking of interning at Facebook? This post will give you a better insight of what it is like as well as some advice on how to do well in the internship!
 image: ./facebook.png
 caption: Facebook logo

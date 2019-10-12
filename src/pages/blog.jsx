@@ -41,7 +41,9 @@ export default Blog;
 
 export const query = graphql`
   query {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___datePublished], order: DESC }
+    ) {
       edges {
         node {
           id
@@ -50,7 +52,7 @@ export const query = graphql`
           }
           frontmatter {
             title
-            date
+            datePublished
             excerpt
             series
             part

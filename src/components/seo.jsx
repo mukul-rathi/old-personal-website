@@ -10,7 +10,8 @@ const SEO = props => {
     url,
     isBlogPost,
     excerpt,
-    date,
+    datePublished,
+    dateModified,
     blogPosts,
     FAQs
   } = props;
@@ -53,8 +54,8 @@ const SEO = props => {
         "@context": "https://schema.org",
         "@type": "Article",
         headline: title,
-        datePublished: date,
-        dateModified: date,
+        datePublished,
+        dateModified: dateModified || datePublished,
         author: {
           "@type": "Person",
           name: "Mukul Rathi"

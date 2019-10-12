@@ -22,7 +22,8 @@ const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const {
     title,
-    date,
+    datePublished,
+    dateModified,
     series,
     part,
     image,
@@ -45,7 +46,8 @@ const BlogPost = ({ data, pageContext }) => {
         url={url}
         excerpt={excerpt}
         image={image}
-        date={date}
+        datePublished={datePublished}
+        dateModified={dateModified}
         FAQs={FAQs}
       />
 
@@ -55,9 +57,15 @@ const BlogPost = ({ data, pageContext }) => {
         </div>
 
         <h1 className={styles.title}> {title} </h1>
-        <h2 className={styles.date}> {formatDate(date)}</h2>
+        <h2 className={styles.date}> {formatDate(datePublished)}</h2>
 
         <ShareBar className={styles.shareBar} url={url} />
+        {dateModified && (
+          <h2 className={styles.lastUpdated}>
+            Last updated on {formatDate(dateModified)}
+          </h2>
+        )}
+
         <Img fluid={image.childImageSharp.fluid} alt={caption} />
 
         {/* eslint-disable react/no-danger */}
@@ -104,7 +112,8 @@ export const query = graphql`
       }
       frontmatter {
         title
-        date
+        datePublished
+        dateModified
         series
         part
         image {
