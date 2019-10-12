@@ -2,9 +2,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
 import profileImg from "../../assets/profile-pic.jpg";
-
 const SEO = props => {
-  const { title, image, url, isBlogPost, excerpt, date, blogPosts } = props;
+  const {
+    title,
+    image,
+    url,
+    isBlogPost,
+    excerpt,
+    date,
+    blogPosts,
+    FAQs
+  } = props;
   let imageUrl = "https://mukulrathi.com";
   if (image.childImageSharp) {
     imageUrl += image.childImageSharp.fluid.src;
@@ -83,6 +91,21 @@ const SEO = props => {
       "@context": "https://schema.org",
       "@type": "ItemList",
       itemListElement: listItems
+    });
+  }
+  if (FAQs) {
+    const faq_jsonLD = FAQs.map(faq => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer
+      }
+    }));
+    structuredData.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq_jsonLD
     });
   }
   return (

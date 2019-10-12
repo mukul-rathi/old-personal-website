@@ -19,7 +19,7 @@ function formatDate(date) {
 /* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
   const post = data.markdownRemark;
-  const { title, date, series, part, image, excerpt } = post.frontmatter;
+  const { title, date, series, part, image, excerpt, FAQs } = post.frontmatter;
   const url = `https://mukulrathi.com${post.fields.slug}`;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
@@ -36,6 +36,7 @@ const BlogPost = ({ data, pageContext }) => {
         excerpt={excerpt}
         image={image}
         date={date}
+        FAQs={FAQs}
       />
 
       <main className={styles.blogPost}>
@@ -104,6 +105,10 @@ export const query = graphql`
           }
         }
         excerpt
+        FAQs {
+          question
+          answer
+        }
       }
     }
   }
