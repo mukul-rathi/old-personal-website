@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import profileImg from "../../assets/profile-pic.jpg";
 
 const SEO = props => {
-  const { title, image, url, isBlogPost, excerpt, date } = props;
+  const { title, image, url, isBlogPost, excerpt, date, blogPosts } = props;
   let imageUrl = "https://mukulrathi.com";
   if (image.childImageSharp) {
     imageUrl += image.childImageSharp.fluid.src;
@@ -55,7 +55,9 @@ const SEO = props => {
           name: "Mukul Rathi",
           logo: {
             "@type": "ImageObject",
-            url: `https://mukulrathi.com${profileImg}`
+            url: `https://mukulrathi.com${profileImg}`,
+            width: 1207,
+            height: 1192
           }
         },
         image: {
@@ -70,6 +72,18 @@ const SEO = props => {
         }
       }
     ];
+  }
+  if (blogPosts) {
+    const listItems = blogPosts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: post
+    }));
+    structuredData.push({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      itemListElement: listItems
+    });
   }
   return (
     <Helmet>
@@ -101,15 +115,6 @@ const SEO = props => {
       </script>
     </Helmet>
   );
-};
-
-SEO.propTypes = {
-  title: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
-  isBlogPost: PropTypes.bool.isRequired,
-  excerpt: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired
 };
 
 export default SEO;

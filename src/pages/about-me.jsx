@@ -17,7 +17,7 @@ const AboutMe = () => {
       <SEO
         isBlogPost={false}
         title="About Mukul Rathi"
-        url="https://mukul-rathi.github.io/about-me/"
+        url="https://mukulrathi.com/about-me/"
         excerpt="A bit about me and the activities I get up to"
         image={HaCImage}
       />

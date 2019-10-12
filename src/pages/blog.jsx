@@ -10,14 +10,18 @@ import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
 
 const Blog = ({ data }) => {
+  const postURLs = data.allMarkdownRemark.edges.map(
+    ({ node }) => `https://mukulrathi.com${node.fields.slug}`
+  );
   return (
     <Layout page="Blog">
       <SEO
         isBlogPost={false}
         title="Mukul's Blog"
-        url="https://mukul-rathi.github.io/blog/"
+        url="https://mukulrathi.com/blog/"
         excerpt="Mukul's Personal Blog on Deep Learning and all things Computer Science"
         image={blogImg}
+        blogPosts={postURLs}
       />
       <div className={styles.blog}>
         <h1>Hello World - {"Mukul's"} Blog! </h1>

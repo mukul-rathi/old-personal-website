@@ -12,7 +12,7 @@ const Home = () => {
       <SEO
         isBlogPost={false}
         title="Mukul's Personal Website"
-        url="https://mukul-rathi.github.io/about-me/"
+        url="https://mukulrathi.com/"
         excerpt="Mukul's Personal Website, powered by React, GatsbyJS and GraphQL"
         image={HeroImg}
       />
