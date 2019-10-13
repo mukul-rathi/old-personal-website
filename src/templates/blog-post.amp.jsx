@@ -37,7 +37,7 @@ const BlogPost = ({ data, pageContext }) => {
   };
   const { nextPost, prevPost } = pageContext;
   const {
-    srcSetWebp,
+    src,
     srcWebp,
     presentationWidth,
     presentationHeight
@@ -69,14 +69,21 @@ const BlogPost = ({ data, pageContext }) => {
           </h2>
         )}
         <amp-img
-          src-set={srcSetWebp}
           src={srcWebp}
           width={presentationWidth}
           height={presentationHeight}
           alt={caption}
           layout="responsive"
         >
-          <div fallback>{caption}</div>
+          <div fallback>
+            <amp-img
+              src={src}
+              width={presentationWidth}
+              height={presentationHeight}
+              alt={caption}
+              layout="responsive"
+            />
+          </div>
         </amp-img>
 
         {/* eslint-disable react/no-danger */}
@@ -130,8 +137,8 @@ export const query = graphql`
         image {
           childImageSharp {
             fluid {
-              srcSet
               src
+              srcWebp
               presentationWidth
               presentationHeight
             }

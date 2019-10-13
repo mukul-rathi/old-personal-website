@@ -58,7 +58,12 @@ class MailChimpForm extends React.Component {
           as Facebook.
         </p>
         <p>{response[result]}</p>
-        <form onSubmit={this.handleSubmit} className={styles.form}>
+        <form
+          target="_blank"
+          onSubmit={this.handleSubmit}
+          className={styles.form}
+          action="https://github.us19.list-manage.com/subscribe/post?u=e440d329b8b057677440da861&amp;id=375f8b022f"
+        >
           <label htmlFor="firstName">
             {"First Name"}
             <input

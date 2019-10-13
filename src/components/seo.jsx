@@ -113,7 +113,6 @@ const SEO = props => {
   return (
     <Helmet>
       <html lang="en" />
-      <meta charSet="utf-8" />
       <title>{title}</title>
       <meta name="description" content={excerpt} />
       <meta name="image" content={imageUrl} />
@@ -125,9 +124,7 @@ const SEO = props => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={excerpt} />
       <meta property="og:image" content={imageUrl} />
-      {
-        // <meta property="fb:app_id" content={seo.social.fbAppID} />}
-      }
+
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="" />
