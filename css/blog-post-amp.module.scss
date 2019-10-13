@@ -1,0 +1,109 @@
+@import "_fonts.scss";
+
+.content,
+.blogPost {
+  margin: auto;
+  max-width: 700px;
+}
+
+.content {
+  margin-bottom: 5em;
+  @extend %body;
+  text-align: justify;
+  img {
+    max-width: 110%;
+    margin: 0em;
+  }
+  h2,
+  h3,
+  h4 {
+    @extend %title;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 550;
+  }
+
+  h4 {
+    font-size: 22px;
+    font-weight: 900;
+  }
+}
+
+.title {
+  display: block;
+  margin: 0.5em 0;
+  padding: 0;
+  @extend %heading;
+}
+
+.date {
+  color: $light-grey;
+  display: block;
+
+  @extend %subheading;
+  font-size: 22px;
+  margin-bottom: 2em;
+}
+.lastUpdated {
+  color: $light-grey;
+  display: block;
+  @extend %subheading;
+  text-transform: capitalize;
+  font-size: 22px;
+}
+
+.series {
+  color: $purple;
+  display: block;
+  @extend %subheading;
+  margin-top: 8em;
+  h2 {
+    display: inline;
+  }
+}
+
+.pageNavigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pageNavButton {
+  @extend %subheading;
+  align-items: center;
+  border: 4px solid $purple;
+  border-radius: 16px;
+  color: $purple;
+  display: flex;
+  justify-content: center;
+
+  max-width: 40%;
+  padding: 0.75em 0.2em;
+  text-align: center;
+  text-transform: none;
+  transition: 0.3s ease;
+}
+
+.pageNavButton:hover {
+  background: $purple;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .blogPost {
+    margin: 0 3em;
+  }
+
+  .series {
+    margin-top: 8em;
+  }
+
+  .pageNavButton {
+    max-width: 35%;
+  }
+}

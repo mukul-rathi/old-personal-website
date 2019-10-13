@@ -4,11 +4,9 @@ import { DiscussionEmbed } from "disqus-react";
 import dateFormat from "dateformat";
 
 import Layout from "../components/layout";
-import styles from "../../css/blog-post.module.scss";
+import styles from "../../css/blog-post-amp.module.scss";
 import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
-import "katex/dist/katex.min.css";
-import "prismjs/themes/prism.css";
 import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
 
