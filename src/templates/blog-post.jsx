@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby";
 import { DiscussionEmbed } from "disqus-react";
 import Img from "gatsby-image";
 import dateFormat from "dateformat";
+import { Helmet } from "react-helmet";
 
 import Layout from "../components/layout";
 import styles from "../../css/blog-post.module.scss";
@@ -33,7 +34,7 @@ const BlogPost = ({ data, pageContext }) => {
   } = post.frontmatter;
   // eslint-disable-next-line camelcase
   if (include_KaTeX) {
-    require("katex/dist/katex.min.css"); // eslint-disable-line global-require
+    //   require("katex/dist/katex.min.css"); // eslint-disable-line global-require
   }
   const url = `https://mukulrathi.com${post.fields.slug}`;
   const disqusShortname = "https-mukul-rathi-github-io";
@@ -55,7 +56,16 @@ const BlogPost = ({ data, pageContext }) => {
         dateModified={dateModified}
         FAQs={FAQs}
       />
-
+      {include_KaTeX && (
+        <Helmet>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+            integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq"
+            crossorigin="anonymous"
+          />
+        </Helmet>
+      )}
       <main className={styles.blogPost}>
         <div className={styles.series}>
           <h2> {series}</h2> {(part || part === 0) && <h2>: Part {part} </h2>}
