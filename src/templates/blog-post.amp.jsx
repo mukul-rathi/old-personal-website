@@ -66,7 +66,7 @@ const BlogPost = ({ data, pageContext }) => {
         <amp-img
           src={srcWebp}
           width={presentationWidth}
-          height={presentationHeight}
+          height={presentationHeight / 2} // hack to fix the aspect ratio
           alt={caption}
           layout="responsive"
         >
@@ -74,7 +74,7 @@ const BlogPost = ({ data, pageContext }) => {
             <amp-img
               src={src}
               width={presentationWidth}
-              height={presentationHeight}
+              height={presentationHeight / 2} // hack to fix the aspect ratio
               alt={caption}
               layout="responsive"
             />
