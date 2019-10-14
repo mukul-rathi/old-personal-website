@@ -6,7 +6,7 @@ datePublished: 2018-08-03 13:00:00
 excerpt: Diving into how machine learning algorithms "learn"
 image: "./grad-descent.png"
 caption: "Gradient descent on loss function surface <br> credit: Andrew Ng Coursera"
-
+include_KaTeX: true
 redirect_from: /2018/08/03/GradDescent.html
 ---
 

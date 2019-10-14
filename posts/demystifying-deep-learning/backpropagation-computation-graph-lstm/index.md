@@ -7,7 +7,7 @@ excerpt: How we can generalise Backprop to any neural network - see how TensorFl
 image: "./LSTM.png"
 
 caption: The LSTM cell computation graph
-
+include_KaTeX: true
 redirect_from: /2018/09/17/BackpropThroughAnything.html
 ---
 

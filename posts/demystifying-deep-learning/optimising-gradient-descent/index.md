@@ -6,7 +6,7 @@ datePublished: 2018-09-01 06:00:00
 excerpt: How we can make gradient descent even better.
 image: "./learning-rates.png"
 caption: Different optimisers that improve on Gradient Descent
-
+include_KaTeX: true
 redirect_from: /2018/09/01/OptimisingGradDescent.html
 ---
 

@@ -9,7 +9,6 @@ import Layout from "../components/layout";
 import styles from "../../css/blog-post.module.scss";
 import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
-import "katex/dist/katex.min.css";
 import "prismjs/themes/prism.css";
 import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
@@ -29,8 +28,13 @@ const BlogPost = ({ data, pageContext }) => {
     image,
     excerpt,
     FAQs,
-    caption
+    caption,
+    include_KaTeX // eslint-disable-line camelcase
   } = post.frontmatter;
+  // eslint-disable-next-line camelcase
+  if (include_KaTeX) {
+    require("katex/dist/katex.min.css"); // eslint-disable-line global-require
+  }
   const url = `https://mukulrathi.com${post.fields.slug}`;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
@@ -38,6 +42,7 @@ const BlogPost = ({ data, pageContext }) => {
     title
   };
   const { nextPost, prevPost } = pageContext;
+
   return (
     <Layout>
       <SEO
@@ -129,6 +134,7 @@ export const query = graphql`
           answer
         }
         caption
+        include_KaTeX
       }
     }
   }

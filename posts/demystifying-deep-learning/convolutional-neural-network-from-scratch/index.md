@@ -6,7 +6,7 @@ datePublished: 2018-09-04 11:00:00
 excerpt: Neural networks optimised for Computer Vision
 image: "./convnet.png"
 caption: "A convolutional neural net Credit: CS31N"
-
+include_KaTeX: true
 redirect_from: /2018/09/04/ConvNet.html
 ---
 

@@ -6,7 +6,7 @@ datePublished: 2018-07-29 12:00:00
 excerpt: We get our hands dirty with our first machine learning algorithms!
 image: "./straight-line.png"
 caption: "Linear Regression"
-
+include_KaTeX: true
 redirect_from: /2018/07/29/LinLogRegression.html
 ---
 

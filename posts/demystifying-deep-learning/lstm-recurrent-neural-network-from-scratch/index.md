@@ -6,7 +6,7 @@ datePublished: 2018-09-17 10:00:00
 excerpt: Neural networks optimised for NLP and sequences - the RNN, GRU and LSTM networks
 image: "./rnn.png"
 caption: A Recurrent Neural Net Image Credit - Chris Olah
-
+include_KaTeX: true
 redirect_from: /2018/09/17/RecurrentNet.html
 ---
 

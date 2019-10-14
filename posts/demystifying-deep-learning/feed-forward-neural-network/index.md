@@ -6,7 +6,7 @@ datePublished: 2018-08-29 13:00:00
 excerpt: Designing our first neural network!
 image: "./neural-net.png"
 caption: A small feedforward neural networ> Credit CS231n
-
+include_KaTeX: true
 redirect_from: /2018/08/29/FeedForwardNeuralNet.html
 ---
 

@@ -6,7 +6,7 @@ datePublished: 2018-09-10 07:00:00
 excerpt: How CNNs learn
 image: "./cnn-internals.png"
 caption: Visualising the internal activations of a CNN
-
+include_KaTeX: true
 redirect_from: /2018/09/10/CNNBackprop.html
 ---
 

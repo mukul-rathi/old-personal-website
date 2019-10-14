@@ -14,7 +14,7 @@ module.exports = {
         // tailwind: true, // Enable tailwindcss support
         // whitelist: ['whitelist'], // Don't remove this selector
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
-        purgeOnly: ["css/", "prismjs/"] // Purge only these files/folders
+        purgeOnly: ["css/"] // Purge only these files/folders
       }
     },
     {
