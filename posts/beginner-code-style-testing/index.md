@@ -6,6 +6,85 @@ dateModified: 2019-09-25 10:00:00
 excerpt: A beginner's guide to testing and enforcing good code style across multiple languages.
 image: ./tests.png
 caption: Example output of Travis CI build
+FAQs:
+  [
+    {
+      question: "Why should I test my code?",
+      answer:
+        "Tests stop future you (or anyone for that matter) from breaking the code you're writing now - think of them as like a contract. Automating tests and style will save you sooo much time over the long run, as you can easily debug your code, since you know which tests are failing.
+
+        ",
+    },
+    {
+      question: "Why use code style guides?",
+      answer:
+        "Consider how you might layout something as simple as `import` statements. Perhaps you might choose to write your imports in alphabetical order, whilst another person groups them based on use. With functions, one person might swear by lambda functions, whilst another prefers to name all their functions, no matter how small.
+
+        All of these small idiomatic decisions can lead to vastly differing code style between the developers on a project - imagine trying to review someone else's code with completely different layout preferences! It makes it hard to understand the codebase, since layout styles differ from one file to the next.
+        ",
+    },
+    {
+      question: "How should I write documentation for my code?",
+      answer:
+        "This should describe what the module/class/function does, not how you implemented it (since you might change that). Put yourself in the shoes of the person who might be calling your module/class/function - just like how you would read documentation for a library you'd use. This applies across languages - the two examples below are for Python and Java.
+
+        ",
+    },
+        {
+      question: "What are linters?",
+      answer:
+        " Linters such as Pylint for Python and ESlint for JavaScript are programs that check your code to see if it adheres to the conventions.
+
+        Linters actually go even futher as a static code analysis tool - they have heuristics to spot programming errors before you run your code e.g. mistyping variables, unused imports/variables, duplicated code. For dynamically typed languages like Python and Javascript, this is especially useful as there are no compiler checks.
+",
+},
+{
+question: "How do I format my code to look good?",
+answer:
+"
+Auto-formatters like YAPF and Prettier do this automatically for you!
+It is well worth setting these formatters up in your IDE and/or in a Git pre-commit hook since it is then automated and you get pretty-looking code for free! Once you set up auto-formatting on saving a file, you can't go back to manual formatting!
+
+        ",
+    },
+    {
+      question: "How should I test my code?",
+      answer:
+        "The simplest tests are where you test one component / method in your code in isolation - these are called unit-tests.
+good rule of thumb is to write your test like a story (it should read like English). The test name should be descriptive: it should reflect what you are testing and what you are expecting e.g. `ageInDaysAtBirthIsZero()`
+
+The test should follow 3 steps:
+Arrange input,
+Act on method being tested,
+Assert a single property
+        ",
+    },
+    {
+      question: "What is code test coverage?",
+      answer:
+        "Test coverage measures how well your tests cover your code - it's no good if you've got lots of tests but none of them cover a particular else branch, or if you haven't deal with edge cases in inputs.
+
+Whilst 100% coverage doesn't guarantee the absence of bugs (nothing does), it means you've been thorough.
+
+        ",
+    },
+    {
+      question: "How should I test my code?",
+      answer:
+        "now that we have discussed good code quality, testing and test coverage, we would like to ensure this is enforced across the repository.
+
+We talked about incrementally coding up some functionality and writing tests for that - wouldn't it be nice if our Git repository automatically ran our test suite on our committed changes to check we hadn't broken anything?
+        ",
+    },{
+          question: "What is Continuous Integration?",
+      answer:
+        "
+        Continuous Integration enforces good code quality, testing and test coverage across the repository, by automatically running our test suite on each committed change to check we hadn't broken anything.
+
+        GitHub actually has test suites that integrate well with it, such as Travis CI.
+        ",
+    },
+]
 ---
 
 ## Bug-free code is a myth when working at scale
