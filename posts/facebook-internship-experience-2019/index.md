@@ -7,18 +7,12 @@ image: ./facebook.png
 caption: Facebook logo
 FAQs:
   [
-    {
-      question: "Does Facebook provide housing for interns?",
-      answer:
-        "Facebook provides interns with the option of free accommodation in Central London. This is super convenient - it meant that the office was only a 25-min walk from my apartment, and you're staying next door to other interns.
-        ",
-    },
+
     {
       question: "What is it like interning at Facebook?",
       answer:
         "I thoroughly enjoyed my internship this summer and would strongly recommend interning here - in fact I'll be returning next summer for another internship!
         The first thing you notice when entering the Facebook office is just how big everything is. I interned at the main London office this summer, whichhouses 1,500 employees. To put it into perspective, there were more interns in my batch joining the London office than there were employees at the startup I'd interned at the previous summer!
-
         ",
     },
     {
@@ -26,7 +20,7 @@ FAQs:
       answer:
         "To give you an idea of what a project looks like, I'll quickly detail the different aspects of my project.
 
-        Since I was working on the **Experience** sub-team of Catalog, it meant my project was business-facing, meaning I was working on both front-end (React and Flux) and backend (Hack). Now I know PHP gets a bad rep as a programming language, but I enjoyed working in Hack, so I would say to prospective interns: don't be put off by Hack since it's very similar to most other programming languages.
+        Since I was working on the Experience sub-team of Catalog, it meant my project was business-facing, meaning I was working on both front-end (React and Flux) and backend (Hack). Now I know PHP gets a bad rep as a programming language, but I enjoyed working in Hack, so I would say to prospective interns: don't be put off by Hack since it's very similar to most other programming languages.
         ",
     },
     {
@@ -37,19 +31,7 @@ FAQs:
         After the offer, Facebook also sent a small welcome gift, which was a lovely touch.
         ",
     },
-    {
-      question: "What is it like to intern at Facebook's London office?",
-      answer:
-        "The entirety of Facebook London's office is geared towards providing a great environment for you to work with no worries.
-        Stressed / overwhelmed by the task and need a break? Head to the music room, games rooms or even an arts and crafts lab.
-        Exhausted and need a quick nap? There are nap pods on the third floor.
-        Need accessories (like a keyboard) for work? Get one from the vending machine on your floor. Yes, you read that right. A vending machine. That dispenses tech accessories. Pinch me.
-
-        Food? Oh you definitely don't have to worry... Freshly squeezed orange juice for breakfast? Check.
-
-        ",
-    },
-    {
+        {
       question: "Do Facebook interns get to meet Mark Zuckerberg?",
       answer:
         " There are company-wide live-streamed weekly Q&As with him. Mark's intern Q&A was actually a lot of fun; he seemed really relaxed with the interns, and so answered all manners of questions from whether he approved of memes (he does!) to discussions on the challenges he's encountered as Facebook has grown.
@@ -63,6 +45,25 @@ FAQs:
         As an intern you receive a project-matching survey a few months before you begin, where you fill out your interests and also your strengths/background. There are a lot of different teams to choose, but what you might find is that you get put in a completely different team to what you’d expected!
         ",
     },
+    {
+      question: "Does Facebook provide housing for interns?",
+      answer:
+        "Facebook provides interns with the option of free accommodation in Central London. This is super convenient - it meant that the office was only a 25-min walk from my apartment, and you're staying next door to other interns.
+        ",
+    },
+    {
+      question: "What is it like to intern at Facebook's London office?",
+      answer:
+        "The entirety of Facebook London's office is geared towards providing a great environment for you to work with no worries.
+        Stressed / overwhelmed by the task and need a break? Head to the music room, games rooms or even an arts and crafts lab.
+        Exhausted and need a quick nap? There are nap pods on the third floor.
+        Need accessories (like a keyboard) for work? Get one from the vending machine on your floor. Yes, you read that right. A vending machine. That dispenses tech accessories. Pinch me.
+
+        Food? Oh you definitely don't have to worry...
+
+        ",
+    },
+
   ]
 ---
 

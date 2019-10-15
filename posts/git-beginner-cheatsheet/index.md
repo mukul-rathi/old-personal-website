@@ -4,7 +4,89 @@ title: The Ultimate Beginner Git Cheatsheet
 datePublished: 2019-01-27 13:00:00
 excerpt: A summary of Git and the most useful commands
 image: "./git.png"
-caption:
+caption: Git's logo
+FAQs:
+  [
+    {
+      question: "What is Git?",
+      answer:
+        "Git is a distributed version-control system - i.e. it records the changes made to files in a repository of code as a series of snapshots called commits, stored on many servers. Think of this like your standard cloud backup on steroids - not only are you able to restore your code in event of a crash, but you can also roll back your code to any of the snapshots if your code breaks. It is also easy for you to collaborate with others - again just like how you can work on the same Google Docs file with multiple people, multiple developers can simultaneously edit the same repository and record their individual changes.
+
+        ",
+    },
+    {
+      question: "How to set up Git?",
+      answer:
+        "For MacOS Git comes as part of XCode Command Line Tools, so install that. The first thing to do having installed Git is to set up your user name and email address, since these are used to identify you and stored in all snapshots you make. This is stored in a configuration file where you store all your preferences.
+
+        ",
+    },
+    {
+      question: "What are the common Git commands?",
+      answer:
+        "There are a lot of Git commands, so it's useful to group them by topic / use-case. We'll first consider Git on a single machine, since most of Git's operations are local and we can then build up to multi-user Git usage.
+        ",
+    },
+        {
+      question: "How does Git work?",
+      answer:
+        " Git keeps track of files in 3 main sections:
+        Working Directory (this is your computer's filesystem)
+      Staging Area (this stores the contents of your next commit)
+      HEAD (the most recent commit in the .git repository)
+
+      All of the main file commands boil down to understanding how Git maintains these three sections. A common misconception is that the staging area only stores changes - a better way to think of these is as 3 separate file systems, each with their own copies of the files.
+        ",
+    },
+    {
+      question: "How do you ignore files in Git?",
+      answer:
+        " We can specify glob patterns (think simplified regular expressions) to match files that we want to ignore in our .gitignore file.
+        ",
+    },
+    {
+    question: "How do you write a commit in Git?",
+      answer:
+        " Commit often: you can't roll back a change unless the original state was committed.
+        One commit for one change: don't bundle up all your unrelated changes in one commit, commit them separately as it makes it easier to roll back changes.
+        Message format: The title should be in the imperative and less than 50 characters long, if in doubt your message should complete the phrase `this commit will _____`. The message should explain WHY the commit is made - the commit itself shows WHAT changed.
+        ",
+    },
+    {
+    question: "What is branching in Git?",
+      answer:
+        " Branching is the ability to work on diverging lines of development. This means that rather than having a single list of commits in order, our history will diverge at points (looking more like a tree). Branches in Git each consist of a lightweight HEAD pointer to the most recent commit in that branch. This makes it incredibly cheap to create multiple branches in Git. TIP: name the branch based on the topic you are working on. The default branch is called master.
+        ",
+    },
+    {
+        question: "Rebasing vs merging in Git?",
+      answer:
+        "
+        Merging involves creating a new merge commit this is based off a common ancestor commit of the two branches, and it points to both HEADs of branches as its previous commits. We do this by switching to the base branch, and then run `git merge <topic branch>`.
+
+        Merging commits leads to a log detailing the history as-is and can end up looking quite messy. Rebasing on the other hand, allows you to rewrite the story in a nice serial manner.
+
+        Unfortunately rebasing isn't a panacea for messy logs, since the rebased commits are actually different to the original commits, despite appearing to have the same author, message and diffs.
+        ",
+    },
+    {
+        question: "How to edit Git history?",
+      answer:
+        "
+       To gain finer control over your commit history in your local branch `git rebase -i HEAD~n` opens an interactive shell for rebasing a set of the last `n` commits listed from oldest to newest (i.e. the order in which they will be rebased)- it allows you to modify history, but note the original commits can't be modified, only rebased.
+
+      You can reorder the commits by changing the order the commits are listed.
+
+      You can run `git commit --amend` to alter the message or stage any files missed. To split the commit, instead run `git reset HEAD^` after the script pauses (this will move HEAD back one commit and unstage all modified files in that commit). Then you can commit the files in separate files as usual.
+
+      Sometimes you might want to rewrite multiple commits - you can do this using `git filter-branch`. For example, to remove a file that someone accidentally committed - you can do this using `git filter-branch --tree-filter 'rm -f <file_name>' HEAD` - however note this means that the **entire history is rebased**.
+
+      You can squash the raft of minor commits into a larger single commit (using the `pick` command for the first commit and `squash` command for the subsequent commits). Git will apply all changes in a single commit and ask you to edit the overall commit message.
+
+      Cherry-picking creates a new commit that only replays the diff introduced in the cherry-picked commit (i.e. the difference between that commit and the previous commit), not the state at that commit.
+        ",
+    },
+]
 ---
 
 ## What is Git and why should I care?
