@@ -5,6 +5,45 @@ datePublished: 2019-09-28 18:00:00
 excerpt: How Gatsby transformed my website, and why you too should make the switch!
 image: ./gatsby.png
 caption: Gatsby Logo
+FAQs:
+  [
+    {
+      question: "What is React?",
+      answer:
+        "React is a front-end Javascript library for rendering UIs. The key idea is component-based design - you package up all the rendering state and logic in one component, which you can then reuse. The JSX syntax for components is just like HTML tags, so it is easy to pick up if you have some prior web dev experience.
+        ",
+    },
+    {
+      question: "What is Gatsby?",
+      answer:
+        "Gatsby is a blazing fast modern site generator for React, using GraphQL to pull in your data. Run a Chrome Lighthouse audit on your site, and you will notice Gatsby sites load incredibly quickly - Gatsby loads only the critical HTML, CSS and other resources and then prefetches the other resources in the background - making the website feel extremely responsive.
+       ",
+    },
+    {
+      question: "What is GraphQL?",
+      answer:
+        "GraphQL is the query language used to fetch the data - you specify the fields you want, and then are returned an object with only those fields, in the JSON format of the query.
+        This contrasts with REST APIs, where your GET request to an endpoint may over-fetch data that you don't need, or worse under-fetch data, forcing you to query multiple endpoints to get the data.
+
+        ",
+    },
+        {
+      question: "What are Gatsby plugins?",
+      answer:
+        "Here are a few of the things you can do with plugins:
+
+- Lazy load and blur up image.
+- Make your site a Progressive Web App
+- Use SASS rather than plain old CSS
+- Generate RSS Feed for the site
+- Google Analytics
+- Integrate build with Netlify
+- Markdown code syntax highlighting and LaTeX support
+
+And if there isn't a plugin for your use-case, create one and contribute back to the community!
+        ",
+    },
+]
 ---
 
 ## Website v1.0 - Humble beginnings
@@ -90,7 +129,7 @@ Here are a few of the things you can do with plugins:
 
 - Lazy load and blur up images - `gatsby-image` plugin.
 - Make your site a Progressive Web App - just use `gatsby-plugin-manifest` and `gatsby-plugin-offline`.
-- Use SASS rather than plain odd CSS - `gatsby-plugin-sass`
+- Use SASS rather than plain old CSS - `gatsby-plugin-sass`
 - Generate RSS Feed for the site - `gatsby-plugin-feed`
 - Google Analytics - `gatsby-plugin-sitemap`, `gatsby-plugin-robots-txt`, `gatsby-plugin-gtag`
 - Integrate build with Netlify - `gatsby-plugin-netlify`
