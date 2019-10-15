@@ -5,6 +5,62 @@ datePublished: 2019-03-15 17:00:00
 excerpt: An overview of the core concepts and commands for Docker, Flask and PostgreSQL.
 image: ./docker-flask-postgres.png
 caption: Docker Flask and Postgres Logos
+FAQs:
+  [
+    {
+      question: "What is Docker?",
+      answer:
+        "Consider trying to isolate different applications. One approach you might consider is to run each application in a separate virtual machine so each application has its own resources and is isolated from the others - we say they are sandboxed. The issue with this is that each VM requires a sizeable chunk of resources (multiple GBs of RAM, multiple CPU cores etc). An entire VM seems very wasteful, especially if the application itself doesn't require many resources.
+
+Rather than running separate OSs, Docker isolates each app at the application layer - each app is in its own container and they are managed by a Docker daemon running on the same host OS.
+This offers nearly as good isolation and crucially is lightweight. This lends itself to the microservices approach - rather than coding up the entire application on one monolithic machine, break down the code by task/service - and give each service its own container.
+
+        ",
+    },
+    {
+      question: "How do I set up Docker containers?",
+      answer:
+        "There are two stages in creating containers - the first is to create an image (a specification) and then to build and run this image to get a container (a running instance of the image).
+
+        DockerHub is a registry for prebuilt images that we can run as containers.
+
+        If however there isn't a pre-built image you are looking for, you can take a base image from the DockerHub and write your own specification in a Dockerfile. When building the image, Docker will execute each one of the commands in the Dockerfile in turn.
+",
+},
+    {
+      question: "What is Docker Compose?",
+      answer:
+        "As you can imagine, running `docker run` for each of your containers and passing in the command line arguments can become tedious.
+
+This is where Docker Compose comes in - rather than considering individual services (containers) we're now thinking at the level of the docker container networks.
+
+We specify the command line options configuration for all of the docker containers in a given network in a YAML file, by default a `docker-compose.yml` file in the current directory.
+        ",
+    },
+        {
+      question: "What is Flask?",
+      answer:
+        "
+Flask is a micro web-framework that makes it super easy to create our REST API. One of its major selling points is that there is little to no boilerplate code.
+
+At its simplest, Flask routes each endpoint and its corresponding REST methods with a function that gets executed when a request is made to the endpoint.
+",
+},
+{
+question: "What is PostgreSQL?",
+answer:
+"
+PostgreSQL is a database management system dealing with relational databases. Relational databases store their data in stored as records in tables. Each record = a row in the table e.g for the table with columns `name, university, year`, an example record would be `(Mukul, Cambridge, 2)`. Each table has a defined schema - the format we want data to take, this consists of the column names and types, and other properties like primary keys and foreign key constraints.
+
+        ",
+    },
+    {
+      question: "How to use PostgreSQL in Python?",
+      answer:
+        "To establish a connection with and perform operations on our PostgreSQL database in Python, we will be using the `psycopg2` library in conjunction with the more general `sqlalchemy` library. These database adaptor libraries allow us to map Python values to SQL equivalents (e.g in Python `None, True, False` correspond to the 3 SQL literals `NULL, true, false`).
+        ",
+    },
+]
 ---
 
 ## Overview of the tutorial
