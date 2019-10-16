@@ -11,10 +11,12 @@
   margin: 1em;
   padding-bottom: 1em;
   transition: 0.3s;
+  filter: grayscale(95%);
 }
 
 .card:hover {
   box-shadow: 0 14px 10px 0 hsla(0, 0%, 0%, 0.2);
+  filter: none;
 }
 
 .metaData {
@@ -103,7 +105,9 @@
     grid-row: 3;
     margin: 0.1em 0;
   }
-
+  .card {
+    filter: none;
+  }
   .metaData {
     grid-column: 1/8;
     grid-row: 4;
