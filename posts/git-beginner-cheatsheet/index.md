@@ -1,8 +1,9 @@
 ---
 series: Tools For Programmers
-title: The Ultimate Beginner Git Cheatsheet
+title: The Ultimate Beginner Reference Guide
 datePublished: 2019-01-27 13:00:00
-excerpt: A summary of Git and the most useful commands
+dateModified: 2019-10-16 20:00:00
+excerpt: A one-stop guide with the most useful commands in Git explained with diagrams and animated code gifs - whether you're a beginner looking to get started, or want to learn more advanced techniques to manage your Git history.
 image: "./git.png"
 caption: Git's logo
 FAQs:
