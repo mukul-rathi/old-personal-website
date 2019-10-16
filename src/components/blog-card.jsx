@@ -15,7 +15,7 @@ function blogProps(props) {
     img: {
       fluid: frontmatter.image.childImageSharp.fluid
     },
-    date: formatDate(frontmatter.date),
+    date: formatDate(frontmatter.datePublished),
     category: frontmatter.series,
     link1: {
       href: fields.slug,
