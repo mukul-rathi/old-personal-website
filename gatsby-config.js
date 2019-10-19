@@ -174,7 +174,7 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-images-without-bg`,
+            resolve: `gatsby-remark-images`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
@@ -200,7 +200,7 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-amp`,
+      resolve: `gatsby-plugin-google-amp`,
       options: {
         analytics: {
           type: "gtag",
