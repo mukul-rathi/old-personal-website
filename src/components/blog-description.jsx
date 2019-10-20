@@ -6,19 +6,16 @@ const BlogDescription = props => {
   return (
     <section className={className}>
       <p>
-        Welcome to my blog! This is a place where I write about deep learning
-        and all things computer science!
+        Welcome to my blog! This is a place where I write about what I've been
+        learning. In some sense, the posts both help consolidate the learning
+        and also serve as a reference for future. I hope that you find the posts
+        I share useful!
       </p>
       <p>
-        I appreciate any feedback on how to improve both the blog posts, and the
-        projects themselves, as well as project extensions worth pursuing
-        further.
-      </p>
-      <p>
-        If you liked a particular analogy and want a more detailed explanation
-        using that analogy, or equally if there is something you think can be
-        improved - <strong>comment on the blog post</strong> - I will check out
-        your feedback and update the post accordingly!
+        This blog is also a sandbox where I'm learning to communicate technical
+        ideas clearly. Learning is a continual process, and{" "}
+        <strong>feedback is a gift</strong>! Please comment on the post or reach
+        out on Twitter if you have feedback.
       </p>
     </section>
   );
