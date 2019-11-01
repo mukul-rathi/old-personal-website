@@ -2,7 +2,8 @@
 series: Database Server
 title: A beginner's guide to setting up your own Postgres database server with Docker and Flask!
 datePublished: 2019-03-15 17:00:00
-excerpt: An overview of the core concepts and commands for Docker, Flask and PostgreSQL.
+dateModified: 2019-11-01 10:00:00
+excerpt: An comprehensive guide to Docker, Flask and PostgreSQL, with an accompanying real-world Python database server repository with code examples.
 image: ./docker-flask-postgres.png
 caption: Docker Flask and Postgres Logos
 FAQs:
