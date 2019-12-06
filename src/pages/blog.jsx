@@ -11,7 +11,7 @@ import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
 
 const Blog = ({ data }) => {
-  const postURLs = data.allMarkdownRemark.edges.map(
+  const postURLs = data.allMdx.edges.map(
     ({ node }) => `https://mukulrathi.com${node.fields.slug}`
   );
   return (
@@ -29,7 +29,7 @@ const Blog = ({ data }) => {
         <BlogDescription className={styles.description} />
         <TwitterCard />
         <MailChimpForm />
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {data.allMdx.edges.map(({ node }) => (
           <BlogCard {...node} key={node.id} className={styles.blogCard} />
         ))}
       </div>
@@ -41,9 +41,7 @@ export default Blog;
 
 export const query = graphql`
   query {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___datePublished], order: DESC }
-    ) {
+    allMdx(sort: { fields: [frontmatter___datePublished], order: DESC }) {
       edges {
         node {
           id

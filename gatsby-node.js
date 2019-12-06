@@ -4,9 +4,13 @@ const path = require(`path`);
 // uses Gatsby createNodeField API
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    // create URL slug for all markdown blog posts
-    const slug = createFilePath({ node, getNode, basePath: `pages` });
+  if (node.internal.type === `Mdx`) {
+    // create URL slug for all MDX blog posts
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: `pages`
+    });
     // graphQL mutation query - adds slug field to node
     createNodeField({
       node,
@@ -27,9 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
     // we  return the slug and the title
     graphql(`
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___datePublished], order: ASC }
-        ) {
+        allMdx(sort: { fields: [frontmatter___datePublished], order: ASC }) {
           edges {
             node {
               fields {
@@ -45,8 +47,8 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     `).then(result => {
-      // for each markdown file, create a corresponding page using the blog-post template
-      const posts = result.data.allMarkdownRemark.edges;
+      // for each MDX file, create a corresponding page using the blog-post template
+      const posts = result.data.allMdx.edges;
 
       posts.forEach(({ node }, index) => {
         createPage({

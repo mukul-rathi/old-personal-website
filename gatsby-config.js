@@ -55,7 +55,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     {
-      resolve: `gatsby-plugin-feed`,
+      resolve: `gatsby-plugin-feed-mdx`,
       options: {
         query: `
           {
@@ -71,8 +71,8 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.datePublished,
@@ -84,7 +84,7 @@ module.exports = {
             },
             query: `
               {
-                allMarkdownRemark(
+                allMdx(
                   sort: { order: DESC, fields: [frontmatter___datePublished] },
                 ) {
                   edges {
@@ -102,7 +102,7 @@ module.exports = {
               }
             `,
             output: "/rss.xml",
-            title: "Your Site's RSS Feed"
+            title: "Mukul's Blog's RSS Feed"
           }
         ]
       }
@@ -126,9 +126,10 @@ module.exports = {
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-robots-txt`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-katex`,
             options: {

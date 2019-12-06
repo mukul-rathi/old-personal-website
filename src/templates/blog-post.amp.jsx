@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import dateFormat from "dateformat";
 import { DiscussionEmbed } from "disqus-react";
 import "prismjs/themes/prism.css";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import styles from "../../css/blog-post-amp.module.scss";
 import SEO from "../components/seo";
@@ -14,7 +15,7 @@ function formatDate(date) {
 }
 /* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
-  const post = data.markdownRemark;
+  const post = data.mdx;
   const {
     title,
     datePublished,
@@ -80,13 +81,9 @@ const BlogPost = ({ data, pageContext }) => {
             />
           </div>
         </amp-img>
-
-        {/* eslint-disable react/no-danger */}
-        <article
-          className={styles.content}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        {/* eslint-enable react/no-danger */}
+        <article className={styles.content}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </article>
         <TwitterCard />
 
         <nav className={styles.pageNavigation}>
@@ -115,8 +112,8 @@ export default BlogPost;
 // $slug
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       id
       fields {
         slug

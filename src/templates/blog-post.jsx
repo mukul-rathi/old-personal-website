@@ -5,7 +5,7 @@ import { DiscussionEmbed } from "disqus-react";
 import Img from "gatsby-image";
 import dateFormat from "dateformat";
 import { Helmet } from "react-helmet";
-
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import styles from "../../css/blog-post.module.scss";
 import ShareBar from "../components/share-bar";
@@ -19,7 +19,7 @@ function formatDate(date) {
 }
 
 const BlogPost = ({ data, pageContext }) => {
-  const post = data.markdownRemark;
+  const post = data.mdx;
   const {
     title,
     datePublished,
@@ -32,10 +32,6 @@ const BlogPost = ({ data, pageContext }) => {
     caption,
     include_KaTeX // eslint-disable-line camelcase
   } = post.frontmatter;
-  // eslint-disable-next-line camelcase
-  if (include_KaTeX) {
-    //   require("katex/dist/katex.min.css"); // eslint-disable-line global-require
-  }
   const url = `https://mukulrathi.com${post.fields.slug}`;
   const disqusShortname = "https-mukul-rathi-github-io";
   const disqusConfig = {
@@ -84,12 +80,9 @@ const BlogPost = ({ data, pageContext }) => {
 
         <Img fluid={image.childImageSharp.fluid} alt={caption} />
 
-        {/* eslint-disable react/no-danger */}
-        <article
-          className={styles.content}
-          dangerouslySetInnerHTML={{ __html: post.html }}
-        />
-        {/* eslint-enable react/no-danger */}
+        <article className={styles.content}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </article>
         <TwitterCard />
 
         <nav className={styles.pageNavigation}>
@@ -120,8 +113,8 @@ export default BlogPost;
 // $slug
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       id
       fields {
         slug
