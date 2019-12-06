@@ -36,10 +36,8 @@ const Experience = () => (
             location: "University of Cambridge",
             role: "B.A. (Hons) Computer Science",
             points: {
-              "First Year Results":
-                "Ranked 2nd out of 101 Computer Science students in my year. (First Class)",
-              "Second Year Results":
-                "Ranked 3rd out of 102 Computer Science students in my year. (First Class)"
+              "First Year Results": "Ranked 2nd out of 101. (First Class)",
+              "Second Year Results": "Ranked 3rd out of 102. (First Class)"
             },
             logo: findImage("uni-of-cam")
           },
@@ -57,7 +55,7 @@ const Experience = () => (
         },
         Experience: {
           Facebook: {
-            date: "June-September 2019",
+            date: "Jun - Sep 2019",
             location: "Facebook",
             role: "Software Engineer Intern",
             points: {
@@ -67,7 +65,7 @@ const Experience = () => (
             logo: findImage("facebook")
           },
           JazzNetworks: {
-            date: "July-September 2018",
+            date: "Jul - Sep 2018",
             location: "Jazz Networks",
             role: "Software Engineer Intern",
             points: {
@@ -77,7 +75,7 @@ const Experience = () => (
             logo: findImage("jazz-networks")
           },
           CompVision: {
-            date: "July-August 2016",
+            date: "Jul - Aug 2016",
             location: "Computer Vision Laboratory, University of Nottingham",
             role: "Deep Learning Research Intern",
             points: {

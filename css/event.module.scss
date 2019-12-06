@@ -3,68 +3,65 @@
 .event {
   background: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  display: flex;
+  display: grid;
   margin: 3em auto;
   max-width: 768px;
-  padding: 2em;
   transition: 0.3s;
-}
-
-.mainContent {
-  margin: 0 0 0 0.5em;
-  @extend %body;
+  grid-template-columns: 1fr [col2] 2fr [col3] 0.5fr [col4] 7fr [col5] 1fr;
+  grid-template-rows: 1em [row2] auto [row3] 1em [row4] auto [row5] auto [row6] 1em;
+  align-items: center;
 }
 
 .location {
   @extend %title;
 }
-
+.location,
+.date {
+  grid-row-start: row2;
+  grid-row-end: span row3;
+}
 .role {
   @extend %subheading;
   color: $light-grey;
   font-size: 20px;
   text-transform: none;
+  grid-row-start: row4;
+  grid-row-end: span row5;
 }
-
-.metaData {
-  margin: 0.5em;
-  padding: 1em;
-  .date {
-    color: $dark-blue;
-    margin-top: 0;
-    padding-top: 0;
-    @extend %subheading;
-    position: top;
-  }
-
-  .img {
-    display: object-fit;
-    max-width: 5em;
-    width: 100%;
+.date {
+  color: $dark-blue;
+  @extend %subheading;
+}
+.location,
+.date,
+.role {
+  h3 {
+    margin: 0em;
   }
 }
 
 .description {
   @extend %body;
+  grid-row-start: row5;
+  grid-row-end: span row6;
+  margin-left: 0.25em;
 }
 
-@media screen and (max-width: 400px) {
-  .metaData {
-    margin: 0;
-    padding: 0;
-  }
-
-  .mainContent {
-    margin: 0;
-    padding: 0;
-  }
-
-  .headings {
-    margin: 0 0 0.5em 1em;
-    padding: 0;
-  }
-
-  .description {
-    margin: 0.5em 0 0 0.5em;
-  }
+.img {
+  display: object-fit;
+  margin: auto 0em;
+  max-width: 5em;
+  grid-row-start: row4;
+  grid-row-end: span row6;
+}
+.date,
+.img {
+  grid-column-start: col2;
+  grid-column-end: span col3;
+}
+.description,
+.location,
+.role {
+  grid-column-start: col4;
+  grid-column-end: span col5;
 }
