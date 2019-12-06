@@ -6,11 +6,11 @@
   flex-wrap: nowrap; /* nav bar only 1 row */
   justify-content: flex-end;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1rem 2vw;
   position: fixed;
   top: 0;
   transition: 0.3s ease-in;
-  width: 100vw;
+  width: 96vw;
   z-index: 10;
 }
 
