@@ -50,8 +50,8 @@ This solves the issue of keeping track of prior information, whilst the recurren
 
 Let's define the notation we'll be using when referring to RNNs, now that we need to keep track of the timestep:
 
-$$x^{<t>}$$ is the value of the input at timestep $$t$$, with $$y^{<t>}$$ and $$a^{<t>}$$ correspondingly the label and activation at time step $$t$$.
-The length of the $$i^{th}$$ input, $$x^{(i)<t>}$$, is denoted by $$T^{(i)}_x$$ and likewise we have $$T^{(i)}_y$$ - note these may differ.
+$$x^{< t>}$$ is the value of the input at timestep $$t$$, with $$y^{< t>}$$ and $$a^{< t>}$$ correspondingly the label and activation at time step $$t$$.
+The length of the $$i^{th}$$ input, $$x^{(i)< t>}$$, is denoted by $$T^{(i)}_x$$ and likewise we have $$T^{(i)}_y$$ - note these may differ.
 
 Based on the value of $$T^{(i)}_x$$ and $$T^{(i)}_y$$ we can split the tasks into 4 categories:
 
@@ -62,19 +62,19 @@ Based on the value of $$T^{(i)}_x$$ and $$T^{(i)}_y$$ we can split the tasks int
 
 ### Forward Propagation:
 
-Forward propagation consists of two steps at each timestep - compute the current activation $$a^{<t>}$$,given our previous activation $$a^{<t-1>}$$ and input $$x^{<t>}$$, and if necessary the prediction $$\hat{y}^{<t>}$$ given $$a^{<t>}$$ .
+Forward propagation consists of two steps at each timestep - compute the current activation $$a^{< t>}$$,given our previous activation $$a^{< t-1>}$$ and input $$x^{< t>}$$, and if necessary the prediction $$\hat{y}^{< t>}$$ given $$a^{< t>}$$ .
 
 Just like with a feedforward neural network, this involves multiplying by a weight and adding a bias, and then applying some activation function $$g(x)$$.
 
 We initialise $$a^{<0>}$$ (the initial activation) to a matrix of zeros of size $$n_a$$ x $$m$$, where $$n_a$$ is the number of neurons in the RNN. Then for each timestep $$t$$:
 
-$$a^{<t>} = \tanh(W_a.[a^{<t-1>}, x^{<t>}] + b_a)$$
+$$a^{< t>} = \tanh(W_a.[a^{< t-1>}, x^{< t>}] + b_a)$$
 
-$$\hat{y}^{<t>} = g(W_y a^{<t>} + b_y) $$
+$$\hat{y}^{< t>} = g(W_y a^{< t>} + b_y) $$
 
-Typically for the activation functions, we use **tanh** when computing $$a^{<t>}$$, whilst with $$\hat{y}^{<t>}$$ this will depend on the task and loss function.
+Typically for the activation functions, we use **tanh** when computing $$a^{< t>}$$, whilst with $$\hat{y}^{< t>}$$ this will depend on the task and loss function.
 
-Note that $$x^{<t>}$$ is an $$n_x$$ x $$m$$ matrix, $$y^{<t>}$$ is an $$n_y$$ x $$m$$ matrix and that $$[a^{<t-1>}, x^{<t>}]$$ denotes a **concatenation of the two matrices** to form a $$(n_a+n_x)$$ x $$m$$ matrix.
+Note that $$x^{< t>}$$ is an $$n_x$$ x $$m$$ matrix, $$y^{< t>}$$ is an $$n_y$$ x $$m$$ matrix and that $$[a^{< t-1>}, x^{< t>}]$$ denotes a **concatenation of the two matrices** to form a $$(n_a+n_x)$$ x $$m$$ matrix.
 
 So now we've got this new architecture, it seems we are good to go. However,there is one fundamental issue.
 
@@ -119,17 +119,17 @@ So intuitively, we're controlling how much we want to remember/forget at each ti
 
 For the reset and update gates, 0=don't let through, 1=let completely through. We use the _sigmoid_ function, which outputs a value between 0 and 1 to denote how much of that value we should let through. We store these reset/update gate values for each element in the hidden layer as $$n_a$$ x $$m$$ matrices $$\Gamma_r / \Gamma_u$$ respectively.
 
-$$ \Gamma_r = \sigma (W_r.[a^{<t-1>}, x^{<t>}]+b_r) $$
+$$ \Gamma_r = \sigma (W_r.[a^{< t-1>}, x^{< t>}]+b_r) $$
 
-$$ \Gamma_u = \sigma (W_u.[a^{<t-1>}, x^{<t>}]+b_u) $$
+$$ \Gamma_u = \sigma (W_u.[a^{< t-1>}, x^{< t>}]+b_u) $$
 
-We denote our "candidate" for the next activation as $$ z^{<t>}$$ - note how similar this is to the RNN equation - except we have our _reset gate_ - note if this is roughly zero we have effectively reset the candidate value's memory to include only information from the current timestep's input. The _reset gate_ thus quantifies how "relevant" the information from the previous timesteps is to this timestep.
+We denote our "candidate" for the next activation as $$ z^{< t>}$$ - note how similar this is to the RNN equation - except we have our _reset gate_ - note if this is roughly zero we have effectively reset the candidate value's memory to include only information from the current timestep's input. The _reset gate_ thus quantifies how "relevant" the information from the previous timesteps is to this timestep.
 
-$$ z^{<t>} = \tanh(W_a.[\Gamma_r * a^{<t-1>}, x^{<t>}] + b_a)$$
+$$ z^{< t>} = \tanh(W_a.[\Gamma_r * a^{< t-1>}, x^{< t>}] + b_a)$$
 
 The final activation is determined by our update gate - how much we want to update the activation with the current candidate versus how much we wish to carry over from the previous timestep's activation.
 
-$$a^{<t>} = \Gamma_u * z^{<t>}  + (1 - \Gamma_u) * a^{<t-1>} $$
+$$a^{< t>} = \Gamma_u * z^{< t>}  + (1 - \Gamma_u) * a^{< t-1>} $$
 
 ## The LSTM Architecture
 
@@ -137,7 +137,7 @@ _(Note the image above uses **h** instead of **a** to denote activation of cell)
 
 Whilst GRUs solve the vanishing gradient problem and are very effective, there is also another commonly used recurrent network architecture, which is the **LSTM** _(Long Short Term Memory)_ architecture.
 
-Just like the GRU, LSTM networks have gates, however the LSTM also contains a _memory cell_ $$c^{<t>}$$ which is also a $$n_a$$ x $$m$$ matrix. There are 3 gates in an LSTM regulating the flow of information into and out of this memory cell:
+Just like the GRU, LSTM networks have gates, however the LSTM also contains a _memory cell_ $$c^{< t>}$$ which is also a $$n_a$$ x $$m$$ matrix. There are 3 gates in an LSTM regulating the flow of information into and out of this memory cell:
 
 - **Input gate** - how much of the candidate cell memory at this timestep do we want to store in the cell memory
 - **Forget gate** - how much of the previous cell memory do we want to remember/forget in the next step (0=forget 1=remember).
@@ -151,23 +151,23 @@ The equations are thus as follows:
 
 Firstly, the gates are just like the GRU gates - with their own weights and sigmoid activation function.
 
-$$ \Gamma_i = \sigma(W_i.[a^{<t-1>}, x^{<t>}]+b_i)$$
+$$ \Gamma_i = \sigma(W_i.[a^{< t-1>}, x^{< t>}]+b_i)$$
 
-$$ \Gamma_f = \sigma(W_f.[a^{<t-1>}, x^{<t>}]+b_f)$$
+$$ \Gamma_f = \sigma(W_f.[a^{< t-1>}, x^{< t>}]+b_f)$$
 
-$$ \Gamma_o = \sigma(W_o.[a^{<t-1>}, x^{<t>}]+b_o)$$
+$$ \Gamma_o = \sigma(W_o.[a^{< t-1>}, x^{< t>}]+b_o)$$
 
-$$ \tilde{c}^{<t>}$$ is the candidate for the new cell memory - note we don't use a reset gate here:
+$$ \tilde{c}^{< t>}$$ is the candidate for the new cell memory - note we don't use a reset gate here:
 
-$$ \tilde{c}^{<t>} =\tanh (W_c [a^{<t-1>}, x^{<t>}]+b_c) $$
+$$ \tilde{c}^{< t>} =\tanh (W_c [a^{< t-1>}, x^{< t>}]+b_c) $$
 
 Instead, we have _independent_ gates for updating and forgetting (not tied to each other like $$\Gamma_u$$ and $$(1-\Gamma_u)$$ as in the GRU):
 
-$$  {c}^{<t>} = \Gamma_i*\tilde{c}^{<t>} + \Gamma_f*{c}^{<t-1>}$$
+$$  {c}^{< t>} = \Gamma_i*\tilde{c}^{< t>} + \Gamma_f*{c}^{< t-1>}$$
 
 And finally we have the output gate:
 
-$$ a^{<t>} = \Gamma_o*\tanh{c}^{<t>}$$
+$$ a^{< t>} = \Gamma_o*\tanh{c}^{< t>}$$
 
 ### Code:
 
