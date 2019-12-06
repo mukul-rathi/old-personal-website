@@ -9,6 +9,7 @@
 .content {
   margin-bottom: 5em;
   @extend %body;
+  line-height: 1.5;
   text-align: justify;
   img {
     max-width: 110%;
