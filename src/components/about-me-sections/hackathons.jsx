@@ -55,10 +55,10 @@ const Hackathons = () => {
             description:
               "Led the publicity, updated the GreenHack website with project ideas and part of judging panel on the day."
           },
-          GameGig: {
+          GameGig2018: {
             title: "Cambridge Game Gig 2018",
             img: {
-              fluid: findImage("gamegig"),
+              fluid: findImage("gamegig-2018"),
               alt: "Game Gig Logo"
             },
             date: "December 2018",
@@ -69,11 +69,29 @@ const Hackathons = () => {
             },
             socialButton: {
               href:
-                "https://www.facebook.com/events/https://www.facebook.com/events/1720940534684424//",
+                "https://www.facebook.com/events/https://www.facebook.com/events/1720940534684424/",
               img: "facebook"
             },
             description:
               "Lead Organiser of GameGig: responsibilities including liasing with sponsors, booking venue and running and judging event on day"
+          },
+          GameGig2019: {
+            title: "Cambridge Game Gig 2019",
+            img: {
+              fluid: findImage("gamegig-2019"),
+              alt: "Game Gig Logo"
+            },
+            date: "December 2019",
+            category: "Game Design",
+            link1: {
+              href: "https://game-gig-countdown.netlify.com/",
+              text: "GameGig Website"
+            },
+            socialButton: {
+              href: "https://www.facebook.com/events/605470026656645/",
+              img: "facebook"
+            },
+            description: "Lead Organiser of GameGig"
           }
         };
 
