@@ -14,8 +14,8 @@ const BlogDescription = props => {
       <p>
         This blog is also a sandbox where {"I'm "} learning to communicate
         technical ideas clearly. Learning is a continual process, and{" "}
-        <strong>feedback is a gift</strong>! Please comment on the post or reach
-        out on Twitter if you have feedback.
+        <strong>feedback is a gift</strong>! Please reach out on Twitter if you
+        have feedback.
       </p>
     </section>
   );

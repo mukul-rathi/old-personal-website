@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import dateFormat from "dateformat";
-import { DiscussionEmbed } from "disqus-react";
 import "prismjs/themes/prism.css";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
@@ -100,7 +99,6 @@ const BlogPost = ({ data, pageContext }) => {
           )}
         </nav>
         <MailChimpForm />
-        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
       </main>
     </Layout>
   );

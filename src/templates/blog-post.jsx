@@ -1,7 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React from "react";
 import { graphql, Link } from "gatsby";
-import { DiscussionEmbed } from "disqus-react";
 import Img from "gatsby-image";
 import dateFormat from "dateformat";
 import { Helmet } from "react-helmet";
@@ -100,8 +99,6 @@ const BlogPost = ({ data, pageContext }) => {
         </nav>
 
         <MailChimpForm />
-
-        <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
       </main>
     </Layout>
   );

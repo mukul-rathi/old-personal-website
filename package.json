@@ -4,7 +4,6 @@
     "@mdx-js/react": "^1.5.1",
     "classnames": "2.2.6",
     "dateformat": "3.0.3",
-    "disqus-react": "1.0.5",
     "eslint": "5.16.0",
     "eslint-plugin-react": "7.12.4",
     "fs-extra": "7.0.1",
