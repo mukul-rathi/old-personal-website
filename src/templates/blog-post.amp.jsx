@@ -4,7 +4,7 @@ import dateFormat from "dateformat";
 import "prismjs/themes/prism.css";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
-import styles from "../../css/blog-post-amp.module.scss";
+import styles from "../../css/blog-post.module.scss";
 import SEO from "../components/seo";
 import TwitterCard from "../components/twitter-card";
 
