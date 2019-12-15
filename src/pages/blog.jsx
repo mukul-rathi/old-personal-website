@@ -7,7 +7,6 @@ import BlogDescription from "../components/blog-description";
 import styles from "../../css/blog.module.scss";
 import SEO from "../components/seo";
 import blogImg from "../../posts/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/cnn-internals.png";
-import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
 
 const Blog = ({ data }) => {
@@ -28,7 +27,6 @@ const Blog = ({ data }) => {
         <h1>Hello World - {"Mukul's"} Blog! </h1>
         <BlogDescription className={styles.description} />
         <TwitterCard />
-        <MailChimpForm />
         {data.allMdx.edges.map(({ node }) => (
           <BlogCard {...node} key={node.id} className={styles.blogCard} />
         ))}

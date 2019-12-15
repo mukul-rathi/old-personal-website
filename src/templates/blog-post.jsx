@@ -10,7 +10,6 @@ import styles from "../../css/blog-post.module.scss";
 import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
 import "prismjs/themes/prism.css";
-import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
 
 function formatDate(date) {
@@ -97,8 +96,6 @@ const BlogPost = ({ data, pageContext }) => {
             </Link>
           )}
         </nav>
-
-        <MailChimpForm />
       </main>
     </Layout>
   );

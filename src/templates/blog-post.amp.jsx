@@ -6,7 +6,6 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import styles from "../../css/blog-post-amp.module.scss";
 import SEO from "../components/seo";
-import MailChimpForm from "../components/mailchimp-form";
 import TwitterCard from "../components/twitter-card";
 
 function formatDate(date) {
@@ -98,7 +97,6 @@ const BlogPost = ({ data, pageContext }) => {
             </Link>
           )}
         </nav>
-        <MailChimpForm />
       </main>
     </Layout>
   );
