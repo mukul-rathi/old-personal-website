@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import Layout from "../components/layout";
 import styles from "../../css/blog-post.module.scss";
-import ShareBar from "../components/share-bar";
 import SEO from "../components/seo";
 import "prismjs/themes/prism.css";
 import TwitterCard from "../components/twitter-card";
@@ -69,7 +68,6 @@ const BlogPost = ({ data, pageContext }) => {
         <h1 className={styles.title}> {title} </h1>
         <h2 className={styles.date}> {formatDate(datePublished)}</h2>
 
-        <ShareBar className={styles.shareBar} url={url} />
         {dateModified && (
           <h2 className={styles.lastUpdated}>
             Last updated on {formatDate(dateModified)}
