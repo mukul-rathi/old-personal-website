@@ -17,7 +17,7 @@ FAQs:
       question: "What is Gatsby?",
       answer:
         "Gatsby is a blazing fast modern site generator for React, using GraphQL to pull in your data. Run a Chrome Lighthouse audit on your site, and you will notice Gatsby sites load incredibly quickly - Gatsby loads only the critical HTML, CSS and other resources and then prefetches the other resources in the background - making the website feel extremely responsive.
-       ",
+        ",
     },
     {
       question: "What is GraphQL?",
@@ -27,26 +27,25 @@ FAQs:
 
         ",
     },
-        {
+    {
       question: "What are Gatsby plugins?",
-      answer:
-        "Here are a few of the things you can do with plugins:
+      answer: "Here are a few of the things you can do with plugins:
 
-- Lazy load and blur up image.
-- Make your site a Progressive Web App
-- Use SASS rather than plain old CSS
-- Generate RSS Feed for the site
-- Google Analytics
-- Integrate build with Netlify
-- Markdown code syntax highlighting and LaTeX support
+        - Lazy load and blur up image.
+        - Make your site a Progressive Web App
+        - Use SASS rather than plain old CSS
+        - Generate RSS Feed for the site
+        - Google Analytics
+        - Integrate build with Netlify
+        - Markdown code syntax highlighting and LaTeX support
 
-And if there isn't a plugin for your use-case, create one and contribute back to the community!
+        And if there isn't a plugin for your use-case, create one and contribute back to the community!
         ",
     },
-]
+  ]
 ---
 
-## Website v1.0 - Humble beginnings
+## Website v1.0 - Humble beginnings
 
 From the start, my personal website has had two main purposes:
 
@@ -88,7 +87,7 @@ If that weren't easy enough, if you host with Netlify, then Netlify will automat
 
 Running `gatsby develop` instead runs the localhost dev version of the site, which has **hot reloading** - it re-renders instantaneously when live-editing the code. This made it very easy to make small iterative changes to the site - much easier than Jekyll!
 
-### Modern
+### Modern
 
 The Javascript-powered stack uses the latest and greatest front-end UI library - React. Javascript syntax is far more powerful than the liquid templating language.
 
@@ -105,7 +104,7 @@ On my website, since cards feature heavily in the layout, I created a **Card** R
 
 Here I don't need to worry about the underlying implementation for cards, and can reuse it for each of the projects. Components are composable, so this makes the project code easier to navigate, with shorter self-contained files for each of the components, rather than one massive HTML file.
 
-### GraphQL
+### GraphQL
 
 Gatsby allows you to pull data from a variety of sources when it bundles your website up and generates the HTML, whether that be pulling images from an assets folder, or markdown files for each of the blog posts.
 
