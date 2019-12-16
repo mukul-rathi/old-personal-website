@@ -1,56 +1,20 @@
 /* eslint react/prop-types: 0 */
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Img from "gatsby-image";
-import dateFormat from "dateformat";
 import { Helmet } from "react-helmet";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import Layout from "../components/layout";
+import { MDXProvider } from "@mdx-js/react";
+import BlogPostLayout from "../components/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
-import SEO from "../components/seo";
-import "prismjs/themes/prism.css";
-import TwitterCard from "../components/twitter-card";
-
-function formatDate(date) {
-  return dateFormat(date, "dS mmmm yyyy");
-}
 
 const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx;
-  const {
-    title,
-    datePublished,
-    dateModified,
-    series,
-    part,
-    image,
-    excerpt,
-    FAQs,
-    caption,
-    include_KaTeX // eslint-disable-line camelcase
-  } = post.frontmatter;
-  const url = `https://mukulrathi.com${post.fields.slug}`;
-  const disqusShortname = "https-mukul-rathi-github-io";
-  const disqusConfig = {
-    identifier: post.id,
-    title
-  };
-  const { nextPost, prevPost } = pageContext;
-
+  const { image, caption } = post.frontmatter;
   return (
-    <Layout>
-      <SEO
-        isBlogPost
-        title={title}
-        url={url}
-        excerpt={excerpt}
-        image={image}
-        datePublished={datePublished}
-        dateModified={dateModified}
-        FAQs={FAQs}
-      />
+    <BlogPostLayout post={post} pageContext={pageContext}>
       {/* eslint-disable-next-line camelcase */}
-      {include_KaTeX && (
+      {post.frontmatter.include_KaTeX && (
         <Helmet>
           <link
             rel="stylesheet"
@@ -60,42 +24,14 @@ const BlogPost = ({ data, pageContext }) => {
           />
         </Helmet>
       )}
-      <main className={styles.blogPost}>
-        <div className={styles.series}>
-          <h2> {series}</h2> {(part || part === 0) && <h2>: Part {part} </h2>}
-        </div>
+      <Img fluid={image.childImageSharp.fluid} alt={caption} />
 
-        <h1 className={styles.title}> {title} </h1>
-        <h2 className={styles.date}> {formatDate(datePublished)}</h2>
-
-        {dateModified && (
-          <h2 className={styles.lastUpdated}>
-            Last updated on {formatDate(dateModified)}
-          </h2>
-        )}
-
-        <Img fluid={image.childImageSharp.fluid} alt={caption} />
-
-        <article className={styles.content}>
+      <article className={styles.content}>
+        <MDXProvider components={{}}>
           <MDXRenderer>{post.body}</MDXRenderer>
-        </article>
-        <TwitterCard />
-
-        <nav className={styles.pageNavigation}>
-          {prevPost && (
-            <Link className={styles.pageNavButton} to={prevPost.fields.slug}>
-              <div> {prevPost.frontmatter.title} </div>
-            </Link>
-          )}
-
-          {nextPost && (
-            <Link className={styles.pageNavButton} to={nextPost.fields.slug}>
-              <div> {nextPost.frontmatter.title} </div>
-            </Link>
-          )}
-        </nav>
-      </main>
-    </Layout>
+        </MDXProvider>
+      </article>
+    </BlogPostLayout>
   );
 };
 
