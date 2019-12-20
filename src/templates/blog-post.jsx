@@ -5,7 +5,7 @@ import Img from "gatsby-image";
 import { Helmet } from "react-helmet";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
-import BlogPostLayout from "../components/blog-post-layout";
+import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
 
 const BlogPost = ({ data, pageContext }) => {

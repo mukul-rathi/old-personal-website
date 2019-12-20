@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Img from "gatsby-image";
-import styles from "../../css/event.module.scss";
+import styles from "../../../css/event.module.scss";
 
 const Event = props => {
   const { date, logo, location, role, points } = props;

@@ -1,7 +1,6 @@
 import React from "react";
 import { TwitterFollowButton } from "react-twitter-embed";
-
-import styles from "../../css/twitter-card.module.scss";
+import styles from "../../../css/twitter-card.module.scss";
 
 const TwitterCard = () => {
   return (

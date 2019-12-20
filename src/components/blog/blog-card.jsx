@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import dateFormat from "dateformat";
-import Card from "./card";
+import Card from "../card/card";
 
 function formatDate(date) {
   return dateFormat(date, "dS mmmm yyyy");

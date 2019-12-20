@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import classNames from "classnames";
-import styles from "../../css/nav-bar.module.scss";
+import styles from "../../../css/nav-bar.module.scss";
 
 class NavBar extends React.Component {
   constructor(props) {

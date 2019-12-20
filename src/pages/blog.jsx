@@ -1,13 +1,13 @@
 /* eslint react/prop-types: 0 */
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import BlogCard from "../components/blog-card";
-import BlogDescription from "../components/blog-description";
+import Layout from "../components/layout/layout";
+import BlogCard from "../components/blog/blog-card";
+import BlogDescription from "../components/blog/blog-description";
 import styles from "../../css/blog.module.scss";
-import SEO from "../components/seo";
+import SEO from "../components/helmet/seo";
 import blogImg from "../../posts/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/cnn-internals.png";
-import TwitterCard from "../components/twitter-card";
+import TwitterCard from "../components/blog/twitter-card";
 
 const Blog = ({ data }) => {
   const postURLs = data.allMdx.edges.map(

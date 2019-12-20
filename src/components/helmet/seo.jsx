@@ -1,7 +1,7 @@
 /* eslint react/prop-types: 0 */
 import React from "react";
 import { Helmet } from "react-helmet";
-import profileImg from "../../assets/profile-pic.jpg";
+import profileImg from "../../../assets/profile-pic.jpg";
 
 const SEO = props => {
   const {

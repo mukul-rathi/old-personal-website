@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
-import styles from "../../css/link-button.module.scss";
+import styles from "../../../css/link-button.module.scss";
 
 const LinkButton = props => {
   const { href, children } = props;

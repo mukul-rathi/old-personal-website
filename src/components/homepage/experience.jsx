@@ -1,7 +1,7 @@
 import React from "react";
 
 import { StaticQuery, graphql } from "gatsby";
-import Event from "../event";
+import Event from "./event";
 import styles from "../../../css/section.module.scss";
 
 const Experience = () => (

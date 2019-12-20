@@ -1,13 +1,13 @@
 import React from "react";
-import Layout from "./layout";
+import Layout from "../layout/layout";
 import { Link } from "gatsby";
-import TwitterCard from "../components/twitter-card";
+import TwitterCard from "../blog/twitter-card";
 
-import SEO from "../components/seo";
+import SEO from "../helmet/seo";
 import dateFormat from "dateformat";
 
 import "prismjs/themes/prism.css";
-import styles from "../../css/blog-post.module.scss";
+import styles from "../../../css/blog-post.module.scss";
 
 function formatDate(date) {
   return dateFormat(date, "dS mmmm yyyy");

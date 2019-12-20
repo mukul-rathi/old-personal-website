@@ -1,6 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import GridCards from "../grid-cards";
+import GridCards from "../card/grid-cards";
 import styles from "../../../css/section.module.scss";
 
 const Projects = () => {

@@ -1,15 +1,15 @@
 import React from "react";
-import Layout from "../components/layout";
-import WhoAmI from "../components/about-me-sections/who-am-I";
-import Workshops from "../components/about-me-sections/workshops";
+import Layout from "../components/layout/layout";
+import WhoAmI from "../components/about-me/sections/who-am-I";
+import Workshops from "../components/about-me/sections/workshops";
 
-import TransitionImage from "../components/transition-image";
-import Hackathons from "../components/about-me-sections/hackathons";
+import TransitionImage from "../components/about-me/transition-image";
+import Hackathons from "../components/about-me/sections/hackathons";
 
 import transitionImageStyles from "../../css/transition-image.module.scss";
 
 import HaCImage from "../../assets/hac-image.jpg";
-import SEO from "../components/seo";
+import SEO from "../components/helmet/seo";
 
 const AboutMe = () => {
   return (

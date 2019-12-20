@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import Img from "gatsby-image";
 import SocialButton from "./social-button";
-import LinkButton from "./link-button";
-import styles from "../../css/card.module.scss";
+import LinkButton from "../blog-post/link-button";
+import styles from "../../../css/card.module.scss";
 
 const Card = props => {
   // display social/link button only if defined

@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "../components/layout";
-import HeroImage from "../components/homepage-sections/hero-image";
-import Experience from "../components/homepage-sections/experience";
-import Projects from "../components/homepage-sections/projects";
-import SEO from "../components/seo";
+import Layout from "../components/layout/layout";
+import HeroImage from "../components/homepage/hero-image";
+import Experience from "../components/homepage/experience";
+import Projects from "../components/homepage/projects";
+import SEO from "../components/helmet/seo";
 import HeroImg from "../../assets/hero-image.jpg";
 
 const Home = () => {

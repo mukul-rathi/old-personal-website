@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
-import SocialButton from "../social-button";
+import SocialButton from "../card/social-button";
 import styles from "../../../css/hero-image.module.scss";
 
 const HeroImage = () => (
