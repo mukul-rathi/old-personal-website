@@ -1,10 +1,10 @@
 import React from "react";
-import Layout from "../layout/layout";
 import { Link } from "gatsby";
+import dateFormat from "dateformat";
+import Layout from "../layout/layout";
 import TwitterCard from "../blog/twitter-card";
 
 import SEO from "../helmet/seo";
-import dateFormat from "dateformat";
 
 import "prismjs/themes/prism.css";
 import styles from "../../../css/blog-post.module.scss";
@@ -14,6 +14,11 @@ function formatDate(date) {
 }
 
 const BlogPostLayout = props => {
+  const { pageContext, post, children } = props;
+  const {
+    frontmatter,
+    fields: { slug }
+  } = post;
   const {
     title,
     datePublished,
@@ -23,10 +28,10 @@ const BlogPostLayout = props => {
     image,
     excerpt,
     FAQs
-  } = props.post.frontmatter;
-  const { nextPost, prevPost } = props.pageContext;
+  } = frontmatter;
+  const { nextPost, prevPost } = pageContext;
 
-  const url = `https://mukulrathi.com${props.post.fields.slug}`;
+  const url = `https://mukulrathi.com${slug}`;
 
   return (
     <Layout>
@@ -54,7 +59,7 @@ const BlogPostLayout = props => {
           </h2>
         )}
 
-        {props.children}
+        {children}
         <TwitterCard />
 
         <nav className={styles.pageNavigation}>

@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import styles from "../../../css/link-button.module.scss";
 
@@ -18,15 +17,6 @@ const LinkButton = props => {
       {children}{" "}
     </a>
   );
-};
-
-LinkButton.propTypes = {
-  href: PropTypes.string.isRequired,
-  children: PropTypes.string
-};
-
-LinkButton.defaultProps = {
-  children: ""
 };
 
 export default LinkButton;

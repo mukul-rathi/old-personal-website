@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 const BlogDescription = props => {
   const { className } = props;
@@ -19,14 +18,6 @@ const BlogDescription = props => {
       </p>
     </section>
   );
-};
-
-BlogDescription.propTypes = {
-  className: PropTypes.string
-};
-
-BlogDescription.defaultProps = {
-  className: ""
 };
 
 export default BlogDescription;

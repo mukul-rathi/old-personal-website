@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import dateFormat from "dateformat";
 import Card from "../card/card";
 
@@ -31,12 +30,6 @@ const BlogCard = props => {
     frontmatter: { title }
   } = props;
   return <Card {...blogProps(props)} key={title} />;
-};
-
-BlogCard.propTypes = {
-  frontmatter: PropTypes.shape({
-    title: PropTypes.string.isRequired
-  }).isRequired
 };
 
 export default BlogCard;

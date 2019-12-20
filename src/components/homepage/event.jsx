@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Img from "gatsby-image";
 import styles from "../../../css/event.module.scss";
 
@@ -30,14 +29,6 @@ const Event = props => {
       </div>
     </section>
   );
-};
-
-Event.propTypes = {
-  date: PropTypes.string.isRequired,
-  logo: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  role: PropTypes.string.isRequired,
-  points: PropTypes.shape().isRequired
 };
 
 export default Event;

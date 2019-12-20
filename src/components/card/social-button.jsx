@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import classNames from "classnames";
 import styles from "../../../css/social-button.module.scss";
 
@@ -98,16 +97,6 @@ const SocialButton = props => {
       {icon}
     </a>
   );
-};
-
-SocialButton.propTypes = {
-  href: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  className: PropTypes.string
-};
-
-SocialButton.defaultProps = {
-  className: ""
 };
 
 export default SocialButton;
