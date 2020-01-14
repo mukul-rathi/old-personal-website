@@ -7,6 +7,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { MDXProvider } from "@mdx-js/react";
 import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
+import TwitterCard from "../components/blog/twitter-card";
 
 const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx;
@@ -31,6 +32,7 @@ const BlogPost = ({ data, pageContext }) => {
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </article>
+      <TwitterCard />
     </BlogPostLayout>
   );
 };

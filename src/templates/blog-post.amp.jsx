@@ -3,6 +3,7 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
+import TwitterCard from "../components/blog/twitter-card";
 
 /* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
@@ -36,6 +37,7 @@ const BlogPost = ({ data, pageContext }) => {
       <article className={styles.content}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </article>
+      <TwitterCard amp />
     </BlogPostLayout>
   );
 };

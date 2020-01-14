@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "gatsby";
 import dateFormat from "dateformat";
 import Layout from "../layout/layout";
-import TwitterCard from "../blog/twitter-card";
 
 import SEO from "../helmet/seo";
 
@@ -60,7 +59,6 @@ const BlogPostLayout = props => {
         )}
 
         {children}
-        <TwitterCard />
 
         <nav className={styles.pageNavigation}>
           {prevPost && (

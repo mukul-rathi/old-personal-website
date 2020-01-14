@@ -10,12 +10,35 @@
 }
 
 .mainContent {
-  margin: 0 0 0 0.5em;
+  margin: 0 0 2em 0.5em;
   @extend %body;
 }
 
+.followButtonWrapper {
+  margin: 2em 0em;
+  transition: 0.3s;
+  transform-origin: left center;
+}
+.followButtonWrapper:hover {
+  transform: scale(1.1);
+  filter: 150%;
+}
+.followButtonWrapper:active {
+  transform: scale(0.95);
+}
 .followButton {
-  margin-top: 1.5em;
+  background-color: #38a1f3;
+  text-decoration: none;
+  color: #e0ebf3;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+  border-radius: 8px;
+  font-weight: 900;
+  transition: 0.3s;
+}
+.followButton:hover {
+  color: #ffffff;
+  filter: 150%;
 }
 .metaData {
   margin: 0.5em;
