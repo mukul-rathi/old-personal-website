@@ -7,7 +7,6 @@ image: ./facebook.png
 caption: Facebook logo
 FAQs:
   [
-
     {
       question: "What is it like interning at Facebook?",
       answer:
@@ -31,7 +30,7 @@ FAQs:
         After the offer, Facebook also sent a small welcome gift, which was a lovely touch.
         ",
     },
-        {
+    {
       question: "Do Facebook interns get to meet Mark Zuckerberg?",
       answer:
         " There are company-wide live-streamed weekly Q&As with him. Mark's intern Q&A was actually a lot of fun; he seemed really relaxed with the interns, and so answered all manners of questions from whether he approved of memes (he does!) to discussions on the challenges he's encountered as Facebook has grown.
@@ -63,7 +62,6 @@ FAQs:
 
         ",
     },
-
   ]
 ---
 
@@ -81,7 +79,7 @@ Facebook came to my university to give a talk about the interview process, follo
 
 After the offer, Facebook also sent a small welcome gift, which was a lovely touch!
 
-![Welcome gift](welcome-gift.png)
+![Welcome gift](welcome-gift.png "This welcome gift came in the post 3 months before the internship!")
 
 ### Project Selection
 
@@ -157,14 +155,14 @@ On that note, let's talk perks - the glamorous part of working at a large tech c
 
 ### Corporate Housing
 
-![Bedroom](bedroom.png)
-![Living room](living-room.png)
+![Bedroom](bedroom.png "My bedroom")
+![Living room](living-room.png "The shared living room")
 
 Facebook provides interns with the option of free accommodation in Central London. This is super convenient - it meant that the office was only a 25-min walk from my apartment, and you're staying next door to other interns.
 
 ### The Office
 
-![Games Room](games-room.png)
+![Games Room](games-room.png "One of the games rooms")
 
 The entirety of Facebook London's office is geared towards providing a great environment for you to work with no worries.
 
@@ -176,9 +174,9 @@ Exhausted and need a quick nap? There are nap pods on the third floor.
 
 Need accessories (like a keyboard) for work? Get one from the vending machine on your floor. Yes, you read that right. A vending machine. That dispenses tech accessories. Pinch me.
 
-Food? Oh you definitely don't have to worry... Freshly squeezed orange juice for breakfast? Check.
+Food? Oh you definitely don't have to worry...
 
-![Breakfast](breakfast.png)
+![Breakfast](breakfast.png "Freshly squeezed orange juice for breakfast? Check.")
 
 Facebook provides employees with a lot of free food and is one of my favourite perks. Breakfast, lunch and dinner is served in the office, and in addition to the 3 meals served, you also have snacks and coffee/tea in the micro-kitchens, and the London Rathbone office also has a Donut bar that stocks donuts, a variety of flavours of ice cream, sandwiches, smoothies, and even a wall of pure sugar (fizzy colas, jelly beans etc) ...
 
@@ -198,7 +196,7 @@ A caveat with these perks is that time is usually the most precious resource - a
 
 ### Intern events
 
-![Boat Party](boat-party.png)
+![Boat Party](boat-party.png "Boat party on the River Thames")
 
 Facebook also arrange intern-only social events throughout the internship. These range from West End musicals (Aladdin and the Lion King were amazing) to escape rooms to even a boat party on the Thames.
 

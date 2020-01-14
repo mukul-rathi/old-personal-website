@@ -23,11 +23,13 @@
 
   h2 {
     font-size: 32px;
+    letter-spacing: 1px;
   }
 
   h3 {
     font-size: 24px;
     font-weight: 550;
+    letter-spacing: 0.5px;
   }
 
   h4 {
@@ -36,6 +38,14 @@
   }
   strong {
     color: $bold-black;
+  }
+  figcaption {
+    text-align: center;
+    font-size: 14px;
+    color: $caption;
+  }
+  p {
+    margin-bottom: 1rem;
   }
 }
 
