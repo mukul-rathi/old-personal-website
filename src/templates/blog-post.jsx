@@ -46,6 +46,7 @@ const BlogPost = ({ data, pageContext }) => {
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </article>
+      <PostSeries posts={pageContext.seriesPosts} currentPost={post} />
       <TwitterCard />
     </BlogPostLayout>
   );

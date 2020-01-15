@@ -81,7 +81,14 @@ exports.createPages = ({ graphql, actions }) => {
               slug: node.fields.slug,
               prevPost: index === 0 ? null : posts[index - 1].node,
               nextPost:
-                index === posts.length - 1 ? null : posts[index + 1].node
+                index === posts.length - 1 ? null : posts[index + 1].node,
+              // if part of a series then store the nodes in the same series
+              seriesPosts: node.frontmatter.series
+                ? posts.filter(
+                    post =>
+                      post.node.frontmatter.series == node.frontmatter.series
+                  )
+                : []
             }
           });
         }

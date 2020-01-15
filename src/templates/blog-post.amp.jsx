@@ -5,6 +5,7 @@ import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
 import TwitterCard from "../components/blog/twitter-card";
 import TableOfContents from "../components/blog-post/table-of-contents";
+import PostSeries from "../components/blog-post/post-series";
 
 /* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
@@ -35,6 +36,8 @@ const BlogPost = ({ data, pageContext }) => {
           />
         </div>
       </amp-img>
+      <PostSeries posts={pageContext.seriesPosts} currentPost={post} />
+
       <TableOfContents page={post} />
       <article className={styles.content}>
         <MDXRenderer>{post.body}</MDXRenderer>
@@ -65,11 +68,8 @@ export const query = graphql`
         part
         image {
           childImageSharp {
-            fluid {
-              src
-              srcWebp
-              presentationWidth
-              presentationHeight
+            fluid(maxWidth: 630) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
