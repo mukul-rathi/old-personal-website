@@ -162,7 +162,7 @@ We store the intermediate results of the forward pass in a cache, then we store 
 
 Note the activation function used for the intermediate layer is ReLU. The derivative of $$ReLU(x)$$ is 1 if $$x>0$$ since it is linear in that region, and 0 otherwise, since the graph is flat there, as we clamp all negative values to zero. **NB:** _technically_ at $$x=0$$ the derivative is not defined, but in practice we take it to be 0.
 
-As before, the accompanying code is in the [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet).
+As before, the accompanying code is in the [notebook](https://github.com/mukul-rathi/deep-learning-tutorials/tree/master/FeedForwardNeuralNet).
 
 ```python
 def backpropagation(cache,Y,parameters):

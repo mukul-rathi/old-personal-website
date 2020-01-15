@@ -16,7 +16,7 @@ We move onto the next neural network architecture - the **recurrent neural netwo
 
 As with CNNs, it is worth first considering why we have this specialised architecture.
 
-Our motivating example for sequence modelling is the task of **sentiment analysis** - given a movie review we want to classify it as positive or negative (_binary classification_). The [notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet) contains code to train a recurrent (LSTM) network to classify the sentiment.
+Our motivating example for sequence modelling is the task of **sentiment analysis** - given a movie review we want to classify it as positive or negative (_binary classification_). The [notebook](https://github.com/mukul-rathi/deep-learning-tutorials/tree/master/RecurrentNeuralNet) contains code to train a recurrent (LSTM) network to classify the sentiment.
 
 How do we determine an overall sentiment?
 
@@ -185,6 +185,6 @@ def forward_step(a_prev, x, c_prev, parameters):
 
 ## Conclusion:
 
-The GRU and LSTM cells are the two main recurrent network units used in sequence tasks. The motivating example uses an [LSTM network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/RecurrentNeuralNet) for sentiment analysis on a dataset of IMDB reviews, as an **extension** you could instead use the GRU and compare how it performs - the architectures are very similar to code up!
+The GRU and LSTM cells are the two main recurrent network units used in sequence tasks. The motivating example uses an [LSTM network](https://github.com/mukul-rathi/deep-learning-tutorials/tree/master/RecurrentNeuralNet) for sentiment analysis on a dataset of IMDB reviews, as an **extension** you could instead use the GRU and compare how it performs - the architectures are very similar to code up!
 
 In the next post, we will look at deriving the backpropagation equation for the LSTM cell, and wrap up the series by looking at how this ties into backpropagation for any neural network architecture.

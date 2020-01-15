@@ -14,7 +14,7 @@ redirect_from: /2018/09/02/DebuggingLearningCurve.html
 
 We've talked a lot about training our model, and improving our optimisation algorithms to really get the best out of it, but we're missing one piece of the puzzle here - what even _is_ the best? How do we know our model will actually perform better?
 
-You may have noticed that our [neural network](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/FeedForwardNeuralNet) had a much lower training set error than test set error both when we trained it on the housing price dataset, and when we trained it on the breast cancer dataset.
+You may have noticed that our [neural network](https://github.com/mukul-rathi/deep-learning-tutorials/tree/master/FeedForwardNeuralNet) had a much lower training set error than test set error both when we trained it on the housing price dataset, and when we trained it on the breast cancer dataset.
 
 This post is dedicated to looking at debugging your model's performance - for the first time since [Part 1](/demystifying-deep-learning/neural-network-terminology-explained/) of the series, we'll be revisiting the idea of training, validation and test sets.
 

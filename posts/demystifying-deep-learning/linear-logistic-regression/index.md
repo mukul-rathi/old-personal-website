@@ -68,7 +68,7 @@ $$C_{ij} = \sum_k A_{ik} B_{kj}$$ this corresponds to a matrix multiplication $$
 We will be writing the code snippets in **Python** and we are using **Numpy** (a linear algebra library) to carry out the maths operations.
 
 Our motivating problem for linear regression is the _Boston Housing Prices_ dataset, and for logistic regression the _Breast Cancer_ dataset (classifying tumour as benign/malignant).
-See the [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/blob/master/LinearLogisticRegression/LinearLogisticRegression.ipynb) to see the input preprocessing.
+See the [Jupyter notebook](https://github.com/mukul-rathi/deep-learning-tutorials/blob/master/LinearLogisticRegression/LinearLogisticRegression.ipynb) to see the input preprocessing.
 
 The intention of the blog posts is to highlight the pertinent parts of the code - the notebook accompanying the blog post can be used to view the rest of the code and implement the algorithm on a concrete problem to consolidate.
 

@@ -25,7 +25,7 @@ We denote the loss function as $$ J(W,b) $$. Note the factor of $$\frac{1}{2}$$ 
 $$ J(W,b) = \frac{1}{2m} \sum_{i=1}^{m} (\hat{y}^{(i)} - y^{(i)})^2 $$
 
 **Code:**
-As before we are continuing with the same motivating examples of housing prices for linear regression and breast cancer for logistic regression. You can access the full code in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/blob/master/LinearLogisticRegression/LinearLogisticRegression.ipynb).
+As before we are continuing with the same motivating examples of housing prices for linear regression and breast cancer for logistic regression. You can access the full code in the accompanying [Jupyter notebook](https://github.com/mukul-rathi/deep-learning-tutorials/blob/master/LinearLogisticRegression/LinearLogisticRegression.ipynb).
 
 ```python
 def MSE_loss(Y, Y_pred):

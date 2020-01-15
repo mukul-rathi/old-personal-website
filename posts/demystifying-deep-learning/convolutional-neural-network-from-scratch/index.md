@@ -12,7 +12,7 @@ redirect_from: /2018/09/04/ConvNet.html
 
 ## Introduction
 
-In this blog post, we'll look at our first specialised neural network architecture - the **convolutional neural network**. There is a [Jupyter notebook](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/ConvolutionalNeuralNet) accompanying the blog post containing the code for _classifying handwritten digits_ using a CNN written from scratch.
+In this blog post, we'll look at our first specialised neural network architecture - the **convolutional neural network**. There is a [Jupyter notebook](https://github.com/mukul-rathi/deep-learning-tutorials/tree/master/ConvolutionalNeuralNet) accompanying the blog post containing the code for _classifying handwritten digits_ using a CNN written from scratch.
 
 ## Motivation for a specialised architecture
 
@@ -272,6 +272,6 @@ So rather than passing raw pixels to the network as input we've in essence const
 
 In this post we've looked at the motivation behind a CNN and the different specialist layers found in the CNN.
 
-We can code up the CNN [here](https://github.com/mukul-rathi/blogPost-tutorials/tree/master/ConvolutionalNeuralNet), and train it on a motivating example - the classification of handwritten digits (MNIST dataset). This dataset is used as a benchmark for computer vision models.
+We can code up the CNN [here](https://github.com/mukul-rathi/deep-learning-tutorials/tree/master/ConvolutionalNeuralNet), and train it on a motivating example - the classification of handwritten digits (MNIST dataset). This dataset is used as a benchmark for computer vision models.
 
 In the next post we will look at the backpropagation algorithm for a convolutional neural network, and also gain some intuition about the internals of a CNN by visualising the activation maps.
