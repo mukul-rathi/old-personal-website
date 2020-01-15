@@ -9,6 +9,7 @@ import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
 import TwitterCard from "../components/blog/twitter-card";
 import TableOfContents from "../components/blog-post/table-of-contents";
+import PostSeries from "../components/blog-post/post-series";
 import TweetCard from "../components/blog-post/tweet-card";
 
 const BlogPost = ({ data, pageContext }) => {
@@ -28,6 +29,7 @@ const BlogPost = ({ data, pageContext }) => {
         </Helmet>
       )}
       <Img fluid={image.childImageSharp.fluid} alt={caption} />
+      <PostSeries posts={pageContext.seriesPosts} currentPost={post} />
       <TableOfContents page={post} />
 
       <article className={styles.content}>

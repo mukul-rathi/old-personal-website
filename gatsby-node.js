@@ -42,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
                 include_KaTeX
                 redirect_from
                 series
+                part
               }
             }
           }
