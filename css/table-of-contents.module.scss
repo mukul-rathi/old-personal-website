@@ -1,0 +1,9 @@
+@import "_fonts.scss";
+
+.nav {
+  @extend %body;
+}
+
+.heading {
+  @extend %title;
+}

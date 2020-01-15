@@ -8,6 +8,7 @@ import { MDXProvider } from "@mdx-js/react";
 import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
 import TwitterCard from "../components/blog/twitter-card";
+import TableOfContents from "../components/blog-post/table-of-contents";
 
 const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx;
@@ -26,6 +27,7 @@ const BlogPost = ({ data, pageContext }) => {
         </Helmet>
       )}
       <Img fluid={image.childImageSharp.fluid} alt={caption} />
+      <TableOfContents page={post} />
 
       <article className={styles.content}>
         <MDXProvider components={{}}>
@@ -46,6 +48,7 @@ export const query = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       body
       id
+      tableOfContents
       fields {
         slug
       }

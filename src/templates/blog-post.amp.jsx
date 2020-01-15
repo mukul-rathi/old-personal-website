@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
 import TwitterCard from "../components/blog/twitter-card";
+import TableOfContents from "../components/blog-post/table-of-contents";
 
 /* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
@@ -34,6 +35,7 @@ const BlogPost = ({ data, pageContext }) => {
           />
         </div>
       </amp-img>
+      <TableOfContents page={post} />
       <article className={styles.content}>
         <MDXRenderer>{post.body}</MDXRenderer>
       </article>
@@ -51,6 +53,7 @@ export const query = graphql`
     mdx(fields: { slug: { eq: $slug } }) {
       body
       id
+      tableOfContents
       fields {
         slug
       }
