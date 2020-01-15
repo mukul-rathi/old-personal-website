@@ -11,12 +11,10 @@
   margin: 1em;
   padding-bottom: 1em;
   transition: 0.3s;
-  filter: grayscale(95%);
 }
 
 .card:hover {
   box-shadow: 0 14px 10px 0 hsla(0, 0%, 0%, 0.2);
-  filter: none;
 }
 
 .metaData {
