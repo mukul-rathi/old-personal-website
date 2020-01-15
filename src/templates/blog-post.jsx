@@ -9,6 +9,7 @@ import BlogPostLayout from "../components/blog-post/blog-post-layout";
 import styles from "../../css/blog-post.module.scss";
 import TwitterCard from "../components/blog/twitter-card";
 import TableOfContents from "../components/blog-post/table-of-contents";
+import TweetCard from "../components/blog-post/tweet-card";
 
 const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx;
@@ -30,7 +31,16 @@ const BlogPost = ({ data, pageContext }) => {
       <TableOfContents page={post} />
 
       <article className={styles.content}>
-        <MDXProvider components={{}}>
+        <MDXProvider
+          components={{
+            blockquote: props => (
+              <TweetCard
+                {...props}
+                url={"https://mukulrathi.com/" + post.fields.slug}
+              />
+            )
+          }}
+        >
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </article>
