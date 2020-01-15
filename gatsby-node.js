@@ -41,6 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
                 title
                 include_KaTeX
                 redirect_from
+                series
               }
             }
           }
@@ -61,7 +62,14 @@ exports.createPages = ({ graphql, actions }) => {
             // prev and next are the previous and next posts
             // we queried their title to use in the prev/next buttons in hte blog post template
             prevPost: index === 0 ? null : posts[index - 1].node,
-            nextPost: index === posts.length - 1 ? null : posts[index + 1].node
+            nextPost: index === posts.length - 1 ? null : posts[index + 1].node,
+            // if part of a series then store the nodes in the same series
+            seriesPosts: node.frontmatter.series
+              ? posts.filter(
+                  post =>
+                    post.node.frontmatter.series == node.frontmatter.series
+                )
+              : []
           }
         });
         if (node.frontmatter.include_KaTeX !== true) {
