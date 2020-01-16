@@ -18,6 +18,10 @@ const PostSeries = ({ posts, currentPost }) => {
   if (posts.length <= 1) {
     return null;
   }
+  const sortedPosts = posts.sort(
+    (a, b) => a.node.frontmatter.part - b.node.frontmatter.part
+  );
+
   return (
     <nav className={styles.nav}>
       <h2 className={styles.heading}>
@@ -25,7 +29,7 @@ const PostSeries = ({ posts, currentPost }) => {
         {currentPost.frontmatter.series}
       </h2>
       <ul>
-        {posts.map((post, index) => (
+        {sortedPosts.map((post, index) => (
           <li key={index}>{createPostItem(post.node, currentPost)}</li>
         ))}
       </ul>
