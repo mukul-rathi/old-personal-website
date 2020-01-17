@@ -6,6 +6,8 @@ import styles from "../../css/blog-post.module.scss";
 import TwitterCard from "../components/blog/twitter-card";
 import TableOfContents from "../components/blog-post/table-of-contents";
 import PostSeries from "../components/blog-post/post-series";
+import { TwitterTweetEmbed } from "react-twitter-embed";
+import { MDXProvider } from "@mdx-js/react";
 
 /* eslint-disable-next-line  react/prop-types */
 const BlogPost = ({ data, pageContext }) => {
@@ -17,6 +19,9 @@ const BlogPost = ({ data, pageContext }) => {
     presentationWidth,
     presentationHeight
   } = image.childImageSharp.fluid;
+  let shortCodes = {
+    TwitterTweetEmbed
+  };
   return (
     <BlogPostLayout post={post} pageContext={pageContext}>
       <amp-img
@@ -40,7 +45,9 @@ const BlogPost = ({ data, pageContext }) => {
 
       <TableOfContents page={post} />
       <article className={styles.content}>
-        <MDXRenderer>{post.body}</MDXRenderer>
+        <MDXProvider components={shortCodes}>
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </MDXProvider>
       </article>
       <TwitterCard amp />
     </BlogPostLayout>

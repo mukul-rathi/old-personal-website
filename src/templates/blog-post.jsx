@@ -11,10 +11,20 @@ import TwitterCard from "../components/blog/twitter-card";
 import TableOfContents from "../components/blog-post/table-of-contents";
 import PostSeries from "../components/blog-post/post-series";
 import TweetCard from "../components/blog-post/tweet-card";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx;
   const { image, caption } = post.frontmatter;
+  let shortCodes = {
+    blockquote: props => (
+      <TweetCard
+        {...props}
+        url={"https://mukulrathi.com/" + post.fields.slug}
+      />
+    ),
+    TwitterTweetEmbed
+  };
   return (
     <BlogPostLayout post={post} pageContext={pageContext}>
       {/* eslint-disable-next-line camelcase */}
@@ -33,16 +43,7 @@ const BlogPost = ({ data, pageContext }) => {
       <TableOfContents page={post} />
 
       <article className={styles.content}>
-        <MDXProvider
-          components={{
-            blockquote: props => (
-              <TweetCard
-                {...props}
-                url={"https://mukulrathi.com/" + post.fields.slug}
-              />
-            )
-          }}
-        >
+        <MDXProvider components={shortCodes}>
           <MDXRenderer>{post.body}</MDXRenderer>
         </MDXProvider>
       </article>
