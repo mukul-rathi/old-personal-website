@@ -2,7 +2,7 @@
 series: OCaml Tooling
 part: 1
 title: A handy guide to Dune - the BEST ReasonML/OCaml build system out there
-datePublished: 2020-01-06 08:00:00
+datePublished: 2020-01-17 08:00:00
 excerpt: Dune is simple, fast and interoperates really well with the rest of the OCaml/ReasonML ecosystem.
 image: ./dune.png
 caption: Dune logo
