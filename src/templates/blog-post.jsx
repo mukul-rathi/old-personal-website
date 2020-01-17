@@ -17,12 +17,7 @@ const BlogPost = ({ data, pageContext }) => {
   const post = data.mdx;
   const { image, caption } = post.frontmatter;
   let shortCodes = {
-    blockquote: props => (
-      <TweetCard
-        {...props}
-        url={"https://mukulrathi.com/" + post.fields.slug}
-      />
-    ),
+    blockquote: props => <TweetCard {...props} slug={post.fields.slug} />,
     TwitterTweetEmbed
   };
   return (

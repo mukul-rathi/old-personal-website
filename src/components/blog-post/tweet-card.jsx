@@ -9,7 +9,7 @@ const TweetCard = props => (
       {props.children}
 
       <TwitterShareButton
-        url={props.url}
+        url={"https://mukulrathi.com" + props.slug}
         options={{
           size: "large",
           text: props.children.props.children,
