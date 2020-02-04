@@ -39,7 +39,7 @@ export default Blog;
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: [frontmatter___datePublished], order: DESC }) {
+    allLettersJson {
       edges {
         node {
           id

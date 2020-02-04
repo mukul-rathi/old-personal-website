@@ -3,6 +3,7 @@ series: OCaml Tooling
 part: 1
 title: A handy guide to Dune - the BEST ReasonML/OCaml build system out there
 datePublished: 2020-01-17 08:00:00
+dateUpdated: 2020-02-04 08:00:00
 excerpt: Dune is simple, fast and interoperates really well with the rest of the OCaml/ReasonML ecosystem.
 image: ./dune.png
 caption: Dune logo
@@ -196,9 +197,11 @@ E.g. an executable that wants to use the Core and Fmt libraries:
 If the modules are in a subdirectory, then you can use the `(include_subdirs unqualified)` stanza.
 
 ```
+(include_subdirs unqualified)
+
 (executable
 (name main)
-(include_subdirs unqualified)
+...
 )
 ```
 
