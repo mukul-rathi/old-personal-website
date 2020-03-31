@@ -3,7 +3,7 @@ series: ReasonML
 title: A step-by-step guide to integrating ReasonML into your Gatsby site
 datePublished: 2020-03-31 14:00:00
 excerpt: I walk through how to convert the standard Gatsby starter blog to use ReasonML!
-image: ./main-image.png
+image: ./main-picture.png
 caption: ReasonML and Gatsby logo
 FAQs:
   [
