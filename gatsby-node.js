@@ -103,3 +103,40 @@ exports.createPages = ({ graphql, actions }) => {
     });
   });
 };
+
+exports.onCreateWebpackConfig = ({ stage, actions, getConfig, loaders }) => {
+  const config = getConfig();
+
+  // exclude node_modules in Babel
+  config.module.rules = [
+    // Omit the default rule where test === '\.jsx?$'
+    ...config.module.rules.filter(
+      rule => String(rule.test) !== String(/\.jsx?$/)
+    ),
+    // Recreate it with custom exclude filter
+    {
+      // Called without any arguments, `loaders.js()` will return an
+      // object like:
+      // {
+      //   options: undefined,
+      //   loader: '/path/to/node_modules/gatsby/dist/utils/babel-loader.js',
+      // }
+      ...loaders.js(),
+      test: /\.jsx?$/,
+      // Exclude all node_modules from transpilation
+      exclude: modulePath => /node_modules/.test(modulePath)
+    }
+  ];
+
+  // ignore order of css styling chunks
+  if (stage === "build-javascript") {
+    const miniCssExtractPlugin = config.plugins.find(
+      plugin => plugin.constructor.name === "MiniCssExtractPlugin"
+    );
+    if (miniCssExtractPlugin) {
+      miniCssExtractPlugin.options.ignoreOrder = true;
+    }
+  }
+
+  actions.replaceWebpackConfig(config);
+};
