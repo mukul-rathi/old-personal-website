@@ -2,6 +2,7 @@
 series: ReasonML
 title: A step-by-step guide to integrating ReasonML into your Gatsby site
 datePublished: 2020-03-31 14:00:00
+dateModified: 2020-04-01 10:00:00
 excerpt: I walk through how to convert the standard Gatsby starter blog to use ReasonML!
 image: ./main-picture.png
 caption: ReasonML and Gatsby logo
@@ -246,14 +247,14 @@ First, rather than a `props` object, we pass in each of the props as named argum
 React.setDisplayName(make, "Layout");
 ```
 
-Looking at a subset of the converted Reason component, it is largely the same, modulo a few syntactic differences between JS and ReasonML (e.g. `++` for concatenation, `##` to access the field of a JS Object).
+Looking at a subset of the converted Reason component, it is largely the same, modulo a few syntactic differences between JS and ReasonML (e.g. `++` for concatenation).
 
 ```reason
   <h1
   style={
     ReactDOMRe.Style.make(
-      ~fontSize=scale(1.5)##fontSize,
-      ~lineHeight=scale(1.5)##lineHeight,
+      ~fontSize=scale(1.5).fontSize,
+      ~lineHeight=scale(1.5).lineHeight,
       ~color="black",
       ~padding="15px",
       ~marginBottom=rhythm(1.5),
@@ -295,8 +296,8 @@ We need to wrap strings with `React.string` (type conversion from `string` to a 
 - }}
 + style={
 +   ReactDOMRe.Style.make(
-+      ~fontSize=scale(1.5)##fontSize,
-+      ~lineHeight=scale(1.5)##lineHeight,
++      ~fontSize=scale(1.5).fontSize,
++      ~lineHeight=scale(1.5).lineHeight,
 +      ~marginBottom=rhythm(1.5),
 +      ~marginTop="0",
 +      (),
@@ -348,10 +349,13 @@ If we want to access a value exported by another JS module, we use `[@bs.module 
 
 + [@bs.module "../utils/typography.js"]
 +    external rhythm: float => string = "rhythm";
+
++ type scaleReturnType = {
++  fontSize: string,
++  lineHeight: string,
++ };
 + [@bs.module "../utils/typography.js"]
-+     external scale: float => {. "fontSize": string,
-+                              "lineHeight": string,
-+                              } = "scale";
++     external scale: float => scaleReturnType = "scale";
 
 ```
 
@@ -427,7 +431,7 @@ That's it! Valid ReasonML code compiles to valid JS code.
 
 ### Embedding Raw JavaScript in ReasonML
 
-To ease the transition from JS to ReasonML, ReasonML offers an **escape hatch**: you can use `[%bs.raw]{||}` to embed raw JS that you haven't yet converted to ReasonML. [More on transitioning from raw JS to ReasonML](https://reasonml.github.io/docs/en/converting-from-js).
+To ease the transition from JS to ReasonML, ReasonML offers an **escape hatch**: you can use `[%bs.raw]{||}` to embed raw JS that you haven't yet converted to ReasonML. [An excellent article on transitioning from raw JS to ReasonML](https://reasonml.github.io/docs/en/converting-from-js).
 
 ```reason
 /* reason code ... */
@@ -488,31 +492,30 @@ For completeness here's the Layout component in ReasonML, applying the changes i
 module Link = Gatsby.Link;
 
 [@bs.module "../utils/typography.js"]
-  external rhythm: float => string = "rhythm";
+external rhythm: float => string = "rhythm";
+
+type scaleReturnType = {
+  fontSize: string,
+  lineHeight: string,
+};
+
 [@bs.module "../utils/typography.js"]
-  external scale:
-    float =>
-    {
-      .
-      "fontSize": string,
-      "lineHeight": string,
-    } =
-    "scale";
+external scale: float => scaleReturnType = "scale";
 
 [@bs.val] external pathPrefix: string = "__PATH_PREFIX__";
 
-type locationType = {. "pathname": string};
+type locationType = {pathname: string};
 
 [@react.component]
 let make = (~location: locationType, ~title, ~children) => {
   let rootPath = pathPrefix ++ "/";
   let header =
-    if (location##pathname === rootPath) {
+    if (location.pathname === rootPath) {
       <h1
         style={
           ReactDOMRe.Style.make(
-            ~fontSize=scale(1.5)##fontSize,
-            ~lineHeight=scale(1.5)##lineHeight,
+            ~fontSize=scale(1.5).fontSize,
+            ~lineHeight=scale(1.5).lineHeight,
             ~marginBottom=rhythm(1.5),
             ~marginTop="0",
             (),
