@@ -3,6 +3,7 @@ series: OCaml Tooling
 part: 2
 title: OCaml Testing and CI
 datePublished: 2020-01-17 10:00:00
+dateModified: 2020-04-03 09:00:00
 excerpt: We'll cover 3 different testing libraries - Alcotest, QCheck and PPX Expect, each with different styles of testing - unit tests, property-based tests and expect-tests respectively. We then look at how you'd integrate them and compute test coverage in a CI workflow.
 image: ./coveralls.png
 caption: Coveralls output image
@@ -217,21 +218,6 @@ Or in one simple command - `dune runtest --auto-promote`!
 Test coverage is a great metric to incorporate into your project, as whilst 100% test coverage != bug-free code, increasing test coverage can help you cover edge cases.
 
 For test coverage, we'll use the [Bisect PPX](https://github.com/aantron/bisect_ppx) library.
-
-At the time of writing, the latest official opam release is 1.4.1. However, we want the version 2.0.0 available in the GitHub repo, since it is a _significant_ improvement and is actually recommended by the author of the library.
-
-In our `opam` file, we need to add Bisect PPX to our set of dependencies, but we need to specify that it is a **dev** version. We also need to tell opam (using `pin-depends`) that we can find this dev version in the git repository.
-
-```
-
-depends: [
-        ...other dependencies
-  "bisect_ppx" {dev & >= "2.0.0"}
-]
-pin-depends: [
-  ["bisect_ppx.git" "git+https://github.com/aantron/bisect_ppx.git"]
-]
-```
 
 We then add bisect_ppx to our source code's `dune` files, by adding `bisect-ppx --conditional` to the preprocess stanza.
 
