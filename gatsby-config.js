@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Mukul's Blog`,
     description: `Mukul Rathi's personal website and blog`,
-    siteUrl: `https://mukulrathi.com`,
+    siteUrl: `https://mukulrathi.netlify.com`,
   },
   plugins: [
     `gatsby-plugin-sass`,
