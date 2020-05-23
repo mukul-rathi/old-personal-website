@@ -6,7 +6,7 @@ import BlogCard from "../components/blog/blog-card";
 import BlogDescription from "../components/blog/blog-description";
 import styles from "../../css/blog.module.scss";
 import SEO from "../components/helmet/seo";
-import blogImg from "../../posts/demystifying-deep-learning/conv-net-backpropagation-maths-intuition-derivation/cnn-internals.png";
+import blogImg from "../../posts/dummy/tests.png";
 import TwitterCard from "../components/blog/twitter-card";
 
 const Blog = ({ data }) => {
